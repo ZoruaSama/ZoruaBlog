@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zoruasama.gitee.io/"/>
-  <updated>2020-03-29T13:40:49.040Z</updated>
+  <updated>2020-03-29T13:48:20.014Z</updated>
   <id>https://zoruasama.gitee.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zoruasama.gitee.io/2020/03/29/Linux%E4%BB%8B%E7%BB%8D/"/>
     <id>https://zoruasama.gitee.io/2020/03/29/Linux%E4%BB%8B%E7%BB%8D/</id>
     <published>2020-03-29T11:10:35.000Z</published>
-    <updated>2020-03-29T13:40:49.040Z</updated>
+    <updated>2020-03-29T13:48:20.014Z</updated>
     
     <content type="html"><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1><h2 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h2><blockquote><p>Written BY Zorua 2020.3.29<br />Email: <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a><br />Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p></blockquote><hr /><h1 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h1><p>大多数的00后应该和我一样，第一次接触PC操作系统应该是<code>Windows</code>，那就先来说说与<code>Windows</code>的异同。</p><ul><li>在<code>Windows 7</code>以前版本的<code>Windows</code>是单用户操作系统，而<code>Linux</code>的设计初衷就是多用户操作系统。</li><li>在<code>Linux</code>下，没有驱动器盘符，即没有你在<code>Windows</code>中看到的<code>C:\</code>，<code>D:\</code>，<code>E:\</code>等等，<code>Linux</code>中仅有<code>/</code>，称之为根目录。</li><li>在<code>Windows</code>下，普通用户基本都是在纯图形界面下操作使用；而<code>Linux</code>兼具图形界面操作（桌面环境的发行版）和终端操作。几乎可以只用键盘完成一切操作。</li><li>世界上绝大多数服务器都正在运行着<code>Linux</code>。</li></ul><p>当然还有很多不同的地方，我这里就只稍微例举一下下。</p><p>以下是百度百科摘取的一段关于<code>Linux</code>的介绍。</p><blockquote><p>Linux，全称GNU/Linux，是一套免费使用和自由传播的类UNIX操作系统，其内核由林纳斯·本纳第克特·托瓦兹于1991年第一次释出，它主要受到Minix和Unix思想的启发，是一个基于POSIX和Unix的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的Unix工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的debian、archlinux，和基于商业开发的Red Hat Enterprise Linux、SUSE、oracle linux等。</p></blockquote><p>比较著名的发行版本有<code>Debian</code>、<code>RedHat</code>、<code>Centos</code>、<code>Slackware</code>、<code>clearlinux</code>、<code>ubuntu</code>等等。无论何种版本的 Linux 发行版，桌面、应用是<code>Linux</code>的外衣，文件组织、目录结构才是<code>Linux</code>的内心。</p><p>我使用的是<code>ubuntu-16.04.6</code>，可以在其官网获取相关镜像。<a href="https://ubuntu.com/download" target="_blank" rel="noopener">Ubuntu官网</a><br />如果下载速度可能比较缓慢，可以在<a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学开源软件镜像站</a>或其他镜像站进行下载。<br />由于技术所限，我并没有在我的计算机上安装双系统，是用虚拟机软件<code>VMware Workstation</code>进行模拟的。</p>]]></content>
     
@@ -39,7 +39,9 @@
       <category term="操作系统" scheme="https://zoruasama.gitee.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-      <category term="Linux,操作系统" scheme="https://zoruasama.gitee.io/tags/Linux-%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="Linux" scheme="https://zoruasama.gitee.io/tags/Linux/"/>
+    
+      <category term="操作系统" scheme="https://zoruasama.gitee.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
