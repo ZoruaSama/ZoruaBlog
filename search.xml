@@ -1,6 +1,169 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>LaTeX|LaTeX基础</title>
+    <url>/2020/03/30/LaTeX_0/</url>
+    <content><![CDATA[<h1 id="归档"><a class="markdownIt-Anchor" href="#归档"></a> 归档</h1>
+<blockquote>
+<p>Written BY Zorua 2020.2.09</p>
+</blockquote>
+<h2 id="学习素材"><a class="markdownIt-Anchor" href="#学习素材"></a> 学习素材</h2>
+<div class="note primary no-icon">
+            <p>来源于B站UP主 <a href="https://space.bilibili.com/32248502" target="_blank" rel="noopener">小风寒呐</a></p>
+          </div>
+<hr />
+<h1 id="创建一篇文档"><a class="markdownIt-Anchor" href="#创建一篇文档"></a> 创建一篇文档</h1>
+<ol>
+<li>文档类型
+<ul>
+<li>文章 Article</li>
+<li>报告 Report</li>
+<li>书 Book<br />
+中文的文章是ctexart，中文字体是UTF8</li>
+</ul>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\documentclass[UTF8]&#123;ctexart&#125;</span><br></pre></td></tr></table></figure>
+其中的 <strong>[   ]</strong> 说明可以省略不写的意思，<strong>{   }</strong> 是必须写的意思。</li>
+<li>宏包<br />
+想在文档里加入公式，做个表格，放个图片，需要先使用宏包。 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\usepackage&#123;mathtools,amsmath,graphicx,array&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>环境建立 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;document&#125;</span><br><span class="line">  My Contents</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
+这样就可以建立一个文档环境。</li>
+<li>注释<br />
+用<code>%</code>符号来标记注释</li>
+</ol>
+<hr />
+<h1 id="document-环境中的写作"><a class="markdownIt-Anchor" href="#document-环境中的写作"></a> Document 环境中的写作</h1>
+<p>首先编辑器段与段之间需要空一行，这样才能让输出文本分段，否则输出文本是一段。</p>
+<h2 id="文本的写作"><a class="markdownIt-Anchor" href="#文本的写作"></a> 文本的写作</h2>
+<ol>
+<li>加粗：<code>\textbf{ }</code></li>
+<li>字号
+<ol>
+<li><code>\normalsize</code></li>
+<li><code>\large</code></li>
+<li><code>\Large</code></li>
+<li><code>\huge</code></li>
+<li><code>\Huge</code><br />
+字号大小在一个环境内或者{   }之间生效</li>
+</ol>
+</li>
+<li>居中：<code>\begin{center} Contents \end{center}</code></li>
+<li>文章标题与作者/日期
+<ul>
+<li>标题<code>\title{\LaTeX}</code></li>
+<li>作者<code>\author{Zorua}</code></li>
+<li>日期<code>\date{2020-2-7}</code></li>
+<li>生成标题<code>\maketitle</code></li>
+</ul>
+</li>
+<li>章节划分
+<ul>
+<li>一级章节 <code>\section{ }</code></li>
+<li>二级章节 <code>\subsection{ }</code></li>
+<li>三级章节 <code>\subsubsection{ }</code></li>
+</ul>
+</li>
+<li>添加目录：<code>\tableofcontents</code></li>
+<li>要点列举<br />
+建立一个列举环境 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;enumerate&#125;</span><br><span class="line">    \item</span><br><span class="line">    \item</span><br><span class="line"> \end&#123;enumerate&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>创建新的一页： <code>\newpage</code></li>
+</ol>
+<h2 id="公式的写作"><a class="markdownIt-Anchor" href="#公式的写作"></a> 公式的写作</h2>
+<h3 id="公式环境的创建"><a class="markdownIt-Anchor" href="#公式环境的创建"></a> 公式环境的创建</h3>
+<h4 id="行间公式的创建"><a class="markdownIt-Anchor" href="#行间公式的创建"></a> 行间公式的创建</h4>
+<p>用<strong>equation</strong>或者<strong>align</strong>，这两个环境都可以让公式<strong>自动编号</strong>。<br />
+在后面加一个 * 就可以取消自动编号。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;equation&#125;</span><br><span class="line">    formula</span><br><span class="line">\end&#123;equation&#125; %这个环境内公式不可以换行</span><br><span class="line">\begin&#123;align&#125;</span><br><span class="line">    &amp;formula \\</span><br><span class="line">    &amp;formula \\</span><br><span class="line">\end&#123;align&#125; %这个环境内公式可以并且这样换行</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%使用如下格式等价于创建了equation环境</span><br><span class="line">%取消编号就用 [ ]</span><br><span class="line">\&#123;</span><br><span class="line">    F&#x3D;ma</span><br><span class="line">\&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;align&#125;</span><br><span class="line">    &amp;y&#x3D;ax \notag \\</span><br><span class="line">    &amp;&#x3D;bx</span><br><span class="line"> \end&#123;align&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="行内公式的创建"><a class="markdownIt-Anchor" href="#行内公式的创建"></a> 行内公式的创建</h4>
+<p>直接用$formula$<br />
+实现如下效果：<br />
+我们假设车辆停留的时间服从正态分布，即在第n个时刻中，停留时间的概率的矩阵为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>P</mi><mo>=</mo><mo stretchy="false">[</mo><msub><mi>P</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>P</mi><mn>2</mn></msub><mo separator="true">,</mo><msub><mi>P</mi><mn>3</mn></msub><mo separator="true">,</mo><mo>…</mo><mo separator="true">,</mo><msub><mi>P</mi><mi>m</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">P=[P_{1},P_{2},P_{3},…,P_{m}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">3</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">…</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span></p>
+<h3 id="常见公式命令"><a class="markdownIt-Anchor" href="#常见公式命令"></a> 常见公式命令</h3>
+<ul>
+<li>
+<p>上标 x^{   }</p>
+</li>
+<li>
+<p>下标 x_{   }</p>
+</li>
+<li>
+<p>分式 \frac{分子}{分母}</p>
+</li>
+<li>
+<p>求和 \sum^{上限}_{起始}</p>
+</li>
+<li>
+<p>积分 \int^{上限}_{下限}</p>
+</li>
+<li>
+<p>微分 \mathrm{d}</p>
+</li>
+<li>
+<p>希腊字母<br />
+<img src="/img/loading.gif" alt="举例" / class="lazyload" data-src="http://my.zp68.com/filestores/2020/03/30/fd7aae4cef088f604479877ab1efa4ff.png"></p>
+</li>
+<li>
+<p>初等函数<br />
+<img src="/img/loading.gif" alt="举例" / class="lazyload" data-src="http://my.zp68.com/filestores/2020/03/30/5f08e358fea15a7403489fc6dfe98463.png"></p>
+</li>
+<li>
+<p>矩阵环境 bmatrix<br />
+需要宏包 mathtools</p>
+  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;equation&#125;</span><br><span class="line">A&#x3D;\begin&#123;bmatrix&#125;</span><br><span class="line">    1&amp;2&amp;3 \\</span><br><span class="line">    4&amp;6&amp;7 \\</span><br><span class="line">    \end&#123;bmatrix&#125;</span><br><span class="line">\end&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>大括号<br />
+需要宏包 mathtools</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;equation&#125;</span><br><span class="line">A&#x3D;\begin&#123;cases&#125;</span><br><span class="line">     &amp;x^2 \\</span><br><span class="line">     &amp;x^2+x \\</span><br><span class="line">     \end&#123;cases&#125;</span><br><span class="line"> \end&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>符号说明</p>
+<ul>
+<li><code>&amp;</code>的意思通常是对齐的意思</li>
+<li><code>\\</code>的意思是换行<br />
+如果想输出<code>\</code>，那就用<code>\verb|\|</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="表格的写作"><a class="markdownIt-Anchor" href="#表格的写作"></a> 表格的写作</h2>
+<h3 id="普通表格环境tabular"><a class="markdownIt-Anchor" href="#普通表格环境tabular"></a> 普通表格环境tabular</h3>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;tabular&#125;&#123;|l|c|r|&#125; %中间的竖线代表每一列加上竖线，少了哪个哪一列就不加</span><br><span class="line">\hline</span><br><span class="line">指标1&amp;指标2&amp;指标3\\</span><br><span class="line">\hline</span><br><span class="line">居左&amp;居中&amp;居右\\</span><br><span class="line">\hiline</span><br><span class="line">\end&#123;tabular&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三线表的制作"><a class="markdownIt-Anchor" href="#三线表的制作"></a> 三线表的制作</h3>
+<ul>
+<li>需要宏包 booktabs</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;table&#125;[!htbp]</span><br><span class="line">    \centering            %用于居中</span><br><span class="line">    \caption&#123;标题&#125;</span><br><span class="line">    \begin&#123;tabular&#125;&#123;cccc&#125;</span><br><span class="line">        \toprule          %这种rule是线条</span><br><span class="line">        &amp;指标一&amp;指标二&amp;指标三\\     %第零个指标空出来</span><br><span class="line">        \midrule</span><br><span class="line">        方案一&amp;1&amp;0.5&amp;100\\</span><br><span class="line">        方案二&amp;2&amp;0.6&amp;110\\</span><br><span class="line">        \bottomrule</span><br><span class="line">    \end&#123;tabular&#125;</span><br><span class="line"> \end&#123;table&#125;</span><br></pre></td></tr></table></figure>
+<div class="note primary no-icon">
+            <p><strong>!htbp的含义</strong><br />『h』当前位置。将图形放置在正文文本中给出该图形环境的地方。如果本页所剩的页面不够，这一参数将不起作用。<br />『t』顶部。将图形放置在页面的顶部。<br />『b』底部。将图形放置在页面的底部。<br />『p』浮动页。将图形放置在一只允许有浮动对象的页面上</p>
+          </div>
+<h2 id="图片的插入"><a class="markdownIt-Anchor" href="#图片的插入"></a> 图片的插入</h2>
+<ul>
+<li>用figure环境</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;figure&#125;[!htbp]</span><br><span class="line">    \centering</span><br><span class="line">    \includegraphics[height&#x3D;12cm]&#123;name.png&#125;</span><br><span class="line">    \caption&#123;title&#125;</span><br><span class="line">\end&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="命令label的使用"><a class="markdownIt-Anchor" href="#命令label的使用"></a> 命令Label的使用</h2>
+<p>label是标签，用来上下文中引用，相当于给加上标签的东西起了个名字，在上下文中只需要用这个名字就知道是哪个东西。</p>
+<p><code>\label{1:2}</code> 其中1代表第一个参数，说明这个东西是什么类型的。<br />
+类型有eq公式，tab表格，fig图片。</p>
+<p>然后2就是名字了。<br />
+比如我有一个公式（如下），给它命名为&quot;NiuDun&quot;</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;equation&#125;</span><br><span class="line">    F&#x3D;ma \label&#123;eq:NiuDun&#125;</span><br><span class="line">\end&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+<p>如果我想引用，就用<code>\ref{eq:NiuDun}</code>，这个命令的地方就会被替换成<strong>被引用的公式的编号</strong></p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>LaTeX</tag>
+        <tag>文字排版</tag>
+        <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux入门|Linux的介绍</title>
     <url>/2020/03/29/Linux%E4%BB%8B%E7%BB%8D/</url>
     <content><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1>
