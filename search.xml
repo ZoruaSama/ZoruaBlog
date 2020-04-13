@@ -251,7 +251,7 @@
 </ul>
 <h3 id="网状模型"><a class="markdownIt-Anchor" href="#网状模型"></a> 网状模型</h3>
 <ul>
-<li>数据结构.
+<li>数据结构
 <ul>
 <li>允许一个以上的节点无双亲</li>
 <li>一个结点可以有多于一个的双亲</li>
