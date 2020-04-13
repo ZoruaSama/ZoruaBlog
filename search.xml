@@ -268,15 +268,18 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 在<code>Linux</code>中，当前用户的家目录路径可以用<code>~</code>来表示，例如当前用户名为<code>Zorua</code>，则<code>~</code>等价于<code>/home/Zorua</code>。<br />
 每个用户的家目录下，也有很多的文件夹。<br />
 如下，是我的家目录下的文件夹和文件。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">drwxr-xr-x 6 zorua zorua 4096 Apr 12 22:11 Desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Documents</span><br><span class="line">drwxr-xr-x 3 zorua zorua 4096 Apr 12 06:51 Downloads</span><br><span class="line">-rw-r--r-- 1 zorua zorua 8980 Sep 30  2019 examples.desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Apr  5 02:05 Music</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Pictures</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Public</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Templates</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Videos</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drwxr-xr-x 6 zorua zorua 4096 Apr 12 22:11 Desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Documents</span><br><span class="line">drwxr-xr-x 3 zorua zorua 4096 Apr 12 06:51 Downloads</span><br><span class="line">-rw-r--r-- 1 zorua zorua 8980 Sep 30  2019 examples.desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Apr  5 02:05 Music</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Pictures</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Public</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Templates</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Videos</span><br></pre></td></tr></table></figure>
 <p>TIPS： <code>examples.desktop</code>是一个<strong>快捷方式</strong>。详情会在之后的文章里写。</p>
 <ul>
 <li>在<code>Linux</code>的目录系统中，文件或文件名前面加一个<code>.</code>，就是<strong>隐藏文件</strong>的意思，隐藏文件默认不能直接在图形界面或终端的<code>ls</code>命令下看到。</li>
-<li>有两个特殊的隐藏目录，之所以说是隐藏，是因为只能用<code>ls -a</code>才能看到。一个是<code>..</code>，一个是<code>.</code>。<code>..</code>表示这个目录的上一级目录，<code>.</code>表示当前目录。这两个目录都是相对路径。<br />
+<li>有两个特殊的隐藏目录，之所以说是隐藏，是因为只能用<code>ls -a</code>才能看到。一个是<code>..</code>，一个是<code>.</code>。<br />
+<code>..</code>表示这个目录的上一级目录，<code>.</code>表示当前目录。这两个目录都是相对路径。<br />
 例如对于目录<code>/home/Zorua</code>，它的<code>..</code>就意味着<code>/home</code>，<code>.</code>就意味着<code>/home/Zorua</code>。<br />
 这两个目录在任何目录都有的（是的，包括根目录，根目录的 <code>..</code>还是根目录）。</li>
 </ul>
-]]></content>
+<div class="note success">
+            <p><strong>小练习</strong></p><ul><li>对于用户<code>Zorua</code>，<code>~</code>目录指的是： <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">C</span></span><br />A.<code>/</code><br />B.<code>/home</code><br />C.<code>/home/Zorua</code><br />D.<code>/Zorua</code></li><li>对于目录<code>/home/Zorua/Desktop</code>，<code>.</code>目录指的是： <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">D</span></span><br />A.<code>/</code><br />B.<code>/home</code><br />C.<code>/home/Zorua</code><br />D.<code>/home/Zorua/Desktop</code></li></ul>
+          </div>]]></content>
       <categories>
         <category>操作系统</category>
       </categories>
