@@ -231,6 +231,51 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <p>我使用的是<code>ubuntu-16.04.6</code>，可以在其官网获取相关镜像。<a href="https://ubuntu.com/download" target="_blank" rel="noopener">Ubuntu官网</a><br />
 如果下载速度可能比较缓慢，可以在<a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学开源软件镜像站</a>或其他镜像站进行下载。<br />
 由于技术所限，我并没有在我的计算机上安装双系统，是用虚拟机软件<code>VMware Workstation</code>进行模拟的。</p>
+<h1 id="文件和目录"><a class="markdownIt-Anchor" href="#文件和目录"></a> 文件和目录</h1>
+<p>上面说到<code>Linux</code>中仅有根目录<code>/</code>，下面是根目录下，一些常用的目录的简单描述。</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>有且仅有一个的根目录，所有的文件都存放在这里。</td>
+</tr>
+<tr>
+<td>/bin、/usr/bin</td>
+<td>存放着可执行二进制文件的目录，如常用的命令 ls、cat 等等。</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>家目录，用户的家目录都存放在该目录下。</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>系统配置文件存放的目录。</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>存放在系统下的设备文件，访问该目录的文件相当于访问某个设备。</td>
+</tr>
+</tbody>
+</table>
+<p>另外还有些<code>/root</code> <code>/proc</code>等就暂且不提辽。<br />
+着重提一下家目录，<code>/home</code>下存放着各个用户的家目录，例如一个<code>Ubuntu</code>系统上有<code>Zorua</code> <code>Zoroark</code>两个用户，则<code>/home</code>下就会有两个家目录：<code>/home/Zorua</code> <code>/home/Zoroark</code>。每个用户的家目录大概可以类比为<code>Windows</code>的<code>C:/Users/Zorua</code>这一文件夹吧。<br />
+在<code>Linux</code>中，当前用户的家目录路径可以用<code>~</code>来表示，例如当前用户名为<code>Zorua</code>，则<code>~</code>等价于<code>/home/Zorua</code>。<br />
+每个用户的家目录下，也有很多的文件夹。<br />
+如下，是我的家目录下的文件夹和文件。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">drwxr-xr-x 6 zorua zorua 4096 Apr 12 22:11 Desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Documents</span><br><span class="line">drwxr-xr-x 3 zorua zorua 4096 Apr 12 06:51 Downloads</span><br><span class="line">-rw-r--r-- 1 zorua zorua 8980 Sep 30  2019 examples.desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Apr  5 02:05 Music</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Pictures</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Public</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Templates</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Videos</span><br></pre></td></tr></table></figure>
+<p>TIPS： <code>examples.desktop</code>是一个<strong>快捷方式</strong>。详情会在之后的文章里写。</p>
+<ul>
+<li>在<code>Linux</code>的目录系统中，文件或文件名前面加一个<code>.</code>，就是<strong>隐藏文件</strong>的意思，隐藏文件默认不能直接在图形界面或终端的<code>ls</code>命令下看到。</li>
+<li>有两个特殊的隐藏目录，之所以说是隐藏，是因为只能用<code>ls -a</code>才能看到。一个是<code>..</code>，一个是<code>.</code>。<code>..</code>表示这个目录的上一级目录，<code>.</code>表示当前目录。这两个目录都是相对路径。<br />
+例如对于目录<code>/home/Zorua</code>，它的<code>..</code>就意味着<code>/home</code>，<code>.</code>就意味着<code>/home/Zorua</code>。<br />
+这两个目录在任何目录都有的（是的，包括根目录，根目录的 <code>..</code>还是根目录）。</li>
+</ul>
 ]]></content>
       <categories>
         <category>操作系统</category>
