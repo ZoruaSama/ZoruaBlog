@@ -138,7 +138,10 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <li>也可以换一组快捷键，使用<code>Ctrl</code> <code>Insert</code>复制和<code>Shift</code> <code>Insert</code>粘贴。<br />
 至于 <code>Insert</code>在哪……。建议问问度娘嗷。</li>
 </ol>
-]]></content>
+<h1 id="小练习"><a class="markdownIt-Anchor" href="#小练习"></a> 小练习</h1>
+<div class="note success">
+            <p><strong>小练习</strong></p><ul><li>根据作用的提示，来思考命令名称。</li></ul><table><thead><tr><th>序号</th><th>命令</th><th>作用</th></tr></thead><tbody><tr><td>01</td><td><span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案</td><td></td></tr></tbody></table><pre><code>&lt;/a&gt;&lt;span class=&quot;hide-content&quot;&gt;ls&lt;/span&gt;&lt;/span&gt; | 列出指定文件夹下的内容          |</code></pre><p>| 02   | <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">pwd<br /></a><span class="hide-content">ls</span></span>     | 显示当前工作路径                |<br />| 03   | <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">cd<br /></a><span class="hide-content">ls</span></span>      | 改变当前工作路径                |<br />| 04   | <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">touch<br /></a><span class="hide-content">ls</span></span>   | 新建一个空白文件                |<br />| 05   | <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">mkdir<br /></a><span class="hide-content">ls</span></span>   | 创建一个新的目录                |<br />| 06   | <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">rm<br /></a><span class="hide-content">ls</span></span>      | 删除指定文件                   |<br />| 07   | <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">clear<br /></a><span class="hide-content">ls</span></span>   | 清除当前屏幕上的信息（新建一屏） |<br />| 08   | <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">reset<br /></a><span class="hide-content">ls</span></span>    | 重置终端                       |</p>
+          </div>]]></content>
       <categories>
         <category>操作系统</category>
       </categories>
@@ -914,6 +917,7 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 例如对于目录<code>/home/Zorua</code>，它的<code>..</code>就意味着<code>/home</code>，<code>.</code>就意味着<code>/home/Zorua</code>。<br />
 这两个目录在任何目录都有的（是的，包括根目录，根目录的 <code>..</code>还是根目录）。</li>
 </ul>
+<p>#小练习</p>
 <div class="note success">
             <p><strong>小练习</strong></p><ul><li>对于用户<code>Zorua</code>，<code>~</code>目录指的是： <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">C</span></span><br />A.<code>/</code><br />B.<code>/home</code><br />C.<code>/home/Zorua</code><br />D.<code>/Zorua</code></li><li>对于目录<code>/home/Zorua/Desktop</code>，<code>.</code>目录指的是： <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">D</span></span><br />A.<code>/</code><br />B.<code>/home</code><br />C.<code>/home/Zorua</code><br />D.<code>/home/Zorua/Desktop</code></li></ul>
           </div>]]></content>
