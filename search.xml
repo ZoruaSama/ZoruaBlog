@@ -1,6 +1,153 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux入门 | 终端介绍</title>
+    <url>/2020/04/14/Linux%E7%BB%88%E7%AB%AF%E4%BB%8B%E7%BB%8D/</url>
+    <content><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1>
+<h2 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h2>
+<blockquote>
+<p>Written BY Zorua 2020.4.14<br />
+Email: <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a><br />
+Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
+</blockquote>
+<hr />
+<h1 id="终端命令"><a class="markdownIt-Anchor" href="#终端命令"></a> 终端命令</h1>
+<p>我最初接触到命令行这一类东西，已经是<code>cmd.exe</code>了，终端、命令行、bash、dash，我找不到对这一类命令解释器统一的专业名称（但是我觉得可以将它们视为Shell的入口，想看区别可以康康<a href="https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con" target="_blank" rel="noopener">这篇文章</a>。）。总而言之，它们能够接收用户命令，然后调用相应的应用程序。接触过C语言的同学，不可能没有接触过<code>system(&quot;pause&quot;);</code>这一语句。事实上，这一语句就是调用了<code>cmd.exe</code>里的<code>pause</code>命令。</p>
+<p>如今我们正在使用图形界面（GUI）的交互，如果想要浏览文件夹，用鼠标点击文件资源管理器打开就能看；想要建立新文件夹，只需要<code>右键-新建-文件夹</code>即可。一切都似乎十分高效与便捷。但是现在的<code>Windows</code>上还是保留了命令行程序，例如<code>cmd.exe</code> <code>PowerShell</code>等等。<code>ubuntu</code>同样也有一个图形桌面。既然如此，为什么还要学习终端命令呢？</p>
+<p>我认为有如下原因：</p>
+<ul>
+<li>图形界面比较消耗资源。一些硬件水平没有那么高的场合（如DIY的电子设备），硬件水平不足以带动图形界面。这时候用终端命令来进行交互。</li>
+<li><code>Linux</code>发行版的桌面其实并没有商业化的<code>Windows</code> <code>Mac OS</code>稳定。而最初的<code>Linux</code>所有的操作全靠命令完成。我觉得也可以说，学<code>Linux</code>就是学终端。</li>
+<li>在职场中，绝大多数<strong>服务器的运维工作</strong>都是在<strong>远程</strong>通过<strong>SSH客户端</strong>来完成的。</li>
+<li><s>使用终端命令比较装逼。</s></li>
+</ul>
+<h1 id="ubuntu的终端"><a class="markdownIt-Anchor" href="#ubuntu的终端"></a> Ubuntu的终端</h1>
+<p><code>ubuntu</code>默认使用的终端好像是叫做<code>bash</code>。</p>
+<h2 id="打开方式"><a class="markdownIt-Anchor" href="#打开方式"></a> 打开方式</h2>
+<p>在<code>ubuntu</code>的桌面/文件资源管理器任意空白位置右击，选择<code>Open Terminal</code>即可。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://cdn.jsdelivr.net/gh/zoruasama/zorua-pic@latest/img/2020-04-14_00.png"></p>
+<h2 id="终端界面介绍"><a class="markdownIt-Anchor" href="#终端界面介绍"></a> 终端界面介绍</h2>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://cdn.jsdelivr.net/gh/zoruasama/zorua-pic@latest/img/20200414144137.png"></p>
+<ul>
+<li>在未输入任何命令前，终端等待输入时，屏幕上会显示 <code>username@computername:~/Documents$</code>。<br />
+<em>每一条指令前都会自动显示这段信息。不需要用户手动来打。</em></li>
+<li>其中<code>@</code>前面的是用户名，后面的是计算机名称。</li>
+<li>在<code>:</code>后面的是当前的工作路径。一般，你在哪里打开<code>Terminal</code>，工作路径就是哪里。</li>
+<li><code>$</code>后面就是开始接收用户的命令。</li>
+<li>输入<code>help</code>然后按下回车键，会在终端中显示Bash的版本信息，和一些指令。</li>
+</ul>
+<h1 id="基础命令"><a class="markdownIt-Anchor" href="#基础命令"></a> 基础命令</h1>
+<p><code>Linux</code>发行版本的命令多达上百条，但是常用的并不是很多。多多使用就会记住了。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>对应英语</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>ls</td>
+<td>list</td>
+<td>列出指定文件夹下的内容</td>
+</tr>
+<tr>
+<td>02</td>
+<td>pwd</td>
+<td>print work directory</td>
+<td>显示当前工作路径</td>
+</tr>
+<tr>
+<td>03</td>
+<td>cd</td>
+<td>change directory</td>
+<td>改变当前工作路径</td>
+</tr>
+<tr>
+<td>04</td>
+<td>touch</td>
+<td>touch</td>
+<td>新建一个空白文件</td>
+</tr>
+<tr>
+<td>05</td>
+<td>mkdir</td>
+<td>make directory</td>
+<td>创建一个新的目录</td>
+</tr>
+<tr>
+<td>06</td>
+<td>rm</td>
+<td>remove</td>
+<td>删除指定文件</td>
+</tr>
+<tr>
+<td>07</td>
+<td>clear</td>
+<td>clear</td>
+<td>清除当前屏幕上的信息（新建一屏）</td>
+</tr>
+<tr>
+<td>08</td>
+<td>reset</td>
+<td>reset</td>
+<td>重置终端</td>
+</tr>
+</tbody>
+</table>
+<p>在下一篇文章，会详细介绍上面的命令。</p>
+<blockquote>
+<p>终端命令是严格区分大小写的。</p>
+</blockquote>
+<h1 id="终端的其他技巧"><a class="markdownIt-Anchor" href="#终端的其他技巧"></a> 终端的其他技巧</h1>
+<h2 id="字体大小"><a class="markdownIt-Anchor" href="#字体大小"></a> 字体大小</h2>
+<ul>
+<li><code>Ctrl</code> <code>Shift</code> <code>=</code>可以<strong>放大</strong>终端窗口的字体显示。</li>
+<li><code>Ctrl</code> <code>-</code>可以<strong>缩小</strong>终端窗口的字体显示。<br />
+其实就是<code>Ctrl</code> <code>+</code>和<code>Ctrl</code> <code>-</code>两个快捷键。因为在键盘上要输入<code>+</code>时，是用 <code>Shift</code> <code>=</code>的（非100%的键盘布局）。</li>
+</ul>
+<h2 id="自动补全"><a class="markdownIt-Anchor" href="#自动补全"></a> 自动补全</h2>
+<p>在敲出<code>文件</code>/<code>目录</code>/<code>命令</code>的部分字符后，按下<code>tab</code>键，终端会按照你可能想输入的字符进行补全。<br />
+例如在终端中，键入<code>cd De</code>再按下<code>tab</code>键。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> De</span><br></pre></td></tr></table></figure>
+<p>它就会自动补全为 <code>cd Desktop/</code>。因为当前工作目录为家目录<code>~</code>，而家目录<code>~</code>下恰好有一个<code>Desktop/</code>的目录。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> Desktop/</span><br><span class="line">zorua@zorua-ubuntu:~/Desktop$</span><br></pre></td></tr></table></figure>
+<p>那么，我们知道家目录下有 <code>Downloads</code> <code>Documents</code>这样两个Do打头的文件夹，那么键入<code>cd Do</code>是如何自动补全的呢？</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> Do</span><br></pre></td></tr></table></figure>
+<p>按一下<code>tab</code>键，并没有反应，<strong>再按一下<code>tab</code>键</strong>。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ cd Do</span><br><span class="line">Documents&#x2F; Downloads&#x2F; </span><br><span class="line">zorua@zorua-ubuntu:~$ cd Do</span><br></pre></td></tr></table></figure>
+<p>终端将会提示，以Do打头的目录的多个可能性。这时候你可以输入<code>c</code>再<code>tab</code>自动补全为<code>Documents/</code>，也可以输入<code>w</code>再<code>tab</code>自动补全为<code>Downloads</code>。</p>
+<h2 id="过去的命令"><a class="markdownIt-Anchor" href="#过去的命令"></a> 过去的命令</h2>
+<p>按<code>UP</code>/<code>DOWN</code>光标键可以在曾经使用过的命令之间来回切换。</p>
+<blockquote>
+<p>没错，就是你玩各种游戏的上下左右键。</p>
+</blockquote>
+<h2 id="终止当前命令"><a class="markdownIt-Anchor" href="#终止当前命令"></a> 终止当前命令</h2>
+<p>有一些命令，不会自动跳出，会一直保持执行。这样就不能输入下一条命令了。<br />
+如果想终止当前正在执行的命令，可以按<code>Ctrl</code> <code>C</code>键。</p>
+<p>同样，也可以用于放弃已经键入的命令。<br />
+例如，键入了<code>cd Do</code>，但还没有按下<code>Enter</code>，选择按下<code>Ctrl</code> <code>C</code>键，它会新建一行，接受用户的重新键入。</p>
+<h2 id="复制与粘贴"><a class="markdownIt-Anchor" href="#复制与粘贴"></a> 复制与粘贴</h2>
+<p>我知道绝大多数人都养成了良好的<code>Ctrl</code> <code>C</code>和<code>Ctrl</code> <code>V</code>的习惯。<br />
+但是在上文中已经写到，<code>Ctrl</code> <code>C</code>是用于终止的。那么该如何愉快地复制与粘贴呢？</p>
+<ol>
+<li>可以使用鼠标选中文本，单击右键，选择菜单中的<code>Copy</code>和<code>Paste</code>。</li>
+<li>也可以换一组快捷键，使用<code>Ctrl</code> <code>Insert</code>复制和<code>Shift</code> <code>Insert</code>粘贴。<br />
+至于 <code>Insert</code>在哪……。建议问问度娘嗷。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>操作系统</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库原理 | 1. 概述</title>
     <url>/2020/04/13/database_0/</url>
     <content><![CDATA[<h1 id="数据库概述"><a class="markdownIt-Anchor" href="#数据库概述"></a> 数据库概述</h1>
@@ -714,7 +861,11 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <p>比较著名的发行版本有<code>Debian</code>、<code>RedHat</code>、<code>Centos</code>、<code>Slackware</code>、<code>clearlinux</code>、<code>ubuntu</code>等等。无论何种版本的 Linux 发行版，桌面、应用是<code>Linux</code>的外衣，文件组织、目录结构才是<code>Linux</code>的内心。</p>
 <p>我使用的是<code>ubuntu-16.04.6</code>，可以在其官网获取相关镜像。<a href="https://ubuntu.com/download" target="_blank" rel="noopener">Ubuntu官网</a><br />
 如果下载速度可能比较缓慢，可以在<a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="noopener">清华大学开源软件镜像站</a>或其他镜像站进行下载。<br />
-由于技术所限，我并没有在我的计算机上安装双系统，是用虚拟机软件<code>VMware Workstation</code>进行模拟的。</p>
+由于技术所限，我并没有在我的计算机上安装双系统，是用虚拟机软件进行模拟的。<br />
+常用的虚拟机软件有<code>VirtualBox</code> <code>VMware Workstation</code>  <code>Virtual PC</code>等等。请自行在互联网上获取。</p>
+<blockquote>
+<p>Windows的Pro版本好像自带一个Hyper-V。</p>
+</blockquote>
 <h1 id="文件和目录"><a class="markdownIt-Anchor" href="#文件和目录"></a> 文件和目录</h1>
 <p>上面说到<code>Linux</code>中仅有根目录<code>/</code>，下面是根目录下，一些常用的目录的简单描述。</p>
 <table>
@@ -753,7 +904,9 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 每个用户的家目录下，也有很多的文件夹。<br />
 如下，是我的家目录下的文件夹和文件。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drwxr-xr-x 6 zorua zorua 4096 Apr 12 22:11 Desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Documents</span><br><span class="line">drwxr-xr-x 3 zorua zorua 4096 Apr 12 06:51 Downloads</span><br><span class="line">-rw-r--r-- 1 zorua zorua 8980 Sep 30  2019 examples.desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Apr  5 02:05 Music</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Pictures</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Public</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Templates</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Videos</span><br></pre></td></tr></table></figure>
-<p>TIPS： <code>examples.desktop</code>是一个<strong>快捷方式</strong>。详情会在之后的文章里写。</p>
+<blockquote>
+<p><code>examples.desktop</code>是一个<strong>快捷方式</strong>。详情会在之后的文章里写。</p>
+</blockquote>
 <ul>
 <li>在<code>Linux</code>的目录系统中，文件或文件名前面加一个<code>.</code>，就是<strong>隐藏文件</strong>的意思，隐藏文件默认不能直接在图形界面或终端的<code>ls</code>命令下看到。</li>
 <li>有两个特殊的隐藏目录，之所以说是隐藏，是因为只能用<code>ls -a</code>才能看到。一个是<code>..</code>，一个是<code>.</code>。<br />
