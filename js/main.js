@@ -10,7 +10,6 @@ $(function () {
    */
   const searchWidth = $('#search_button').outerWidth() !== undefined ? $('#search_button').outerWidth() : 0
   const blogNameWidth = $('#blog_name').width()
-
   var mw = 0
   var $menusItem = $pageHead.find('.menus_item')
   for (var i = 0; i < $menusItem.length; i++) {

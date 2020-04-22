@@ -163,7 +163,7 @@
 <ul>
 <li>最常用的传输媒体。</li>
 <li>模拟传输和数字传输都可以使用双绞线，其通信距离一般为几到十几公里。</li>
-<li><strong>屏蔽双绞线 STP (Shielded Twisted Pair)</strong></li>
+<li>**屏蔽双绞线 STP (Shielded Twisted Pair) **</li>
 <li>带金属屏蔽层</li>
 <li>**无屏蔽双绞线 UTP (Unshielded Twisted Pair) **</li>
 </ul>
@@ -233,7 +233,7 @@
 <p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200420143354.png"></p>
 <h1 id="信道复用技术"><a class="markdownIt-Anchor" href="#信道复用技术"></a> 信道复用技术</h1>
 <ul>
-<li>**复用 (multiplexing) **是通信技术中的基本概念。</li>
+<li><strong>复用</strong> (multiplexing) 是通信技术中的基本概念。</li>
 <li>它允许用户使用一个共享信道进行通信，降低成本，提高利用率。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200420152729.png"></li>
 </ul>
@@ -247,7 +247,7 @@
 <ul>
 <li><strong>时分复用</strong>则是将时间划分为一段段等长的<strong>时分复用帧</strong>（TDM帧）。每一个时分复用的用户在每一个 TDM 帧中占用固定序号的时隙。</li>
 <li>每一个用户所占用的时隙是<strong>周期性地出现</strong>（其周期就是TDM帧的长度）的。</li>
-<li>TDM 信号也称为**等时 (isochronous) **信号。</li>
+<li>TDM 信号也称为<strong>等时</strong> (isochronous) 信号。</li>
 <li>时分复用的所有用户<strong>在不同的时间</strong>占用<strong>同样的频带宽度</strong>。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200420153337.png"></li>
 </ul>
@@ -288,7 +288,7 @@
 <li>这种通信方式是<strong>扩频</strong>(spread spectrum)通信中的一种。</li>
 <li>扩频通信通常有两大类：
 <ol>
-<li>一种是**直接序列扩频DSSS **(Direct Sequence Spread Spectrum)，如上面讲的使用码片序列就是这一类。</li>
+<li>一种是<strong>直接序列扩频DSSS</strong>(Direct Sequence Spread Spectrum)，如上面讲的使用码片序列就是这一类。</li>
 <li>另一种是<strong>跳频扩频FHSS</strong> (Frequency Hopping Spread Spectrum)。</li>
 </ol>
 </li>
@@ -452,7 +452,7 @@
 <li>HFC (Hybrid Fiber Coax) 网是在目前覆盖面很广的有线电视网 CATV 的基础上开发的一种居民宽带接入网。</li>
 <li>HFC 网除可传送 CATV 外，还提供电话、数据和其他宽带交互型业务。</li>
 <li>现有的 CATV 网是树形拓扑结构的同轴电缆网络，它采用模拟技术的频分复用对电视节目进行单向传输。</li>
-<li>**HFC 网对 CATV 网进行了改造。 **</li>
+<li><strong>HFC 网对 CATV 网进行了改造。</strong></li>
 </ul>
 <h2 id="hfc-网的主干线路采用光纤"><a class="markdownIt-Anchor" href="#hfc-网的主干线路采用光纤"></a> HFC 网的主干线路采用光纤</h2>
 <ul>
@@ -499,7 +499,7 @@
 </ul>
 <h3 id="无源光网络-pon-passive-optical-network-的组成"><a class="markdownIt-Anchor" href="#无源光网络-pon-passive-optical-network-的组成"></a> 无源光网络 PON (Passive Optical Network) 的组成</h3>
 <p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200420163052.png"></p>
-]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>计算机网络</category>
       </categories>
@@ -1175,7 +1175,7 @@
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419230701.png"><br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/1587353657_20200419230734906_24963.png"></p>
 </blockquote>
-]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>计算机网络</category>
       </categories>
@@ -1861,7 +1861,7 @@ R和S具有相同的属性组B<br />
 <h1 id="练习题"><a class="markdownIt-Anchor" href="#练习题"></a> 练习题</h1>
 <div class="note success">
             <ul><li><p>有两个关系<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>A</mi><mi mathvariant="normal">，</mi><mi>B</mi><mi mathvariant="normal">，</mi><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(A，B，C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mord cjk_fallback">，</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">，</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo stretchy="false">(</mo><mi>B</mi><mo separator="true">,</mo><mi>C</mi><mo separator="true">,</mo><mi>D</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">S(B,C,D)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mclose">)</span></span></span></span>，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>×</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">R\times S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>结果的属性个数是（   <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">D</span></span>  ）<br />A. 3<br />B. 4<br />C. 5<br />D. 6</p></li><li><p>下述哪个是单目运算？（<span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">C</span></span> ）<br />A. 差<br />B. 并<br />C. 投影<br />D. 除</p></li><li><p>取出关系中的某些列，并消去重复元组的关系代数运算称为（<span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">B</span></span> ）<br />A. 取列运算<br />B. 投影运算<br />C. 连接运算<br />D. 选择运算</p></li></ul>
-          </div>]]></content>
+          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>数据库原理</category>
       </categories>
@@ -2011,7 +2011,7 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <h1 id="小练习"><a class="markdownIt-Anchor" href="#小练习"></a> 小练习</h1>
 <div class="note success">
             <p><strong>小练习</strong></p><ul><li>根据作用的提示，来思考命令名称。<ul><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">ls</span></span>  列出指定文件夹下的内容</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">pwd</span></span>显示当前工作路径</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">cd</span></span> 改变当前工作路径</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">touch</span></span>新建一个空白文件</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">mkdir</span></span> 创建一个新的目录</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">rm</span></span>   删除指定文件</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">clear</span></span> 清除当前屏幕上的信息（新建一屏）</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">reset</span></span>  重置终端</li></ul></li></ul>
-          </div>]]></content>
+          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -2495,7 +2495,7 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <h1 id="练习题"><a class="markdownIt-Anchor" href="#练习题"></a> 练习题</h1>
 <div class="note success">
             <ul><li><p>信息世界下的数据模型是（   <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">C</span></span>  ）<br />A. 网状模型<br />B. 层次模型<br />C. 概念模型<br />D. 逻辑模型</p></li><li><p>在数据库管理技术发展的三阶段中，没有专门的软件对数据进行管理的是（<span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">D</span></span> ）</p><ol><li>人工管理阶段</li><li>文件系统阶段</li><li>数据库阶段</li></ol><p>A. 1和2<br />B. 只有2<br />C. 2和3<br />D. 只有1</p></li><li><p>DB、DBS、DBMS之间的关系是（<span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">A</span></span> ）<br />A. DBS包括DB和DBMS<br />B. DBMS包括DBIDBS<br />C. DB包括DBS和DBMNS<br />D. DBS就是DB，也就是DBMS</p></li><li><p>在E-R图中，用来表示属性的图形是（  <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">B</span></span>）<br />A. 矩形<br />B. 椭圆形<br />C. 菱形<br />D. 平行四边形</p></li></ul>
-          </div>]]></content>
+          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>数据库原理</category>
       </categories>
@@ -2718,7 +2718,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 </li>
 </ol>
 </section>
-]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>其他</category>
       </categories>
@@ -2811,7 +2811,7 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <p>#小练习</p>
 <div class="note success">
             <p><strong>小练习</strong></p><ul><li>对于用户<code>Zorua</code>，<code>~</code>目录指的是： <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">C</span></span><br />A.<code>/</code><br />B.<code>/home</code><br />C.<code>/home/Zorua</code><br />D.<code>/Zorua</code></li><li>对于目录<code>/home/Zorua/Desktop</code>，<code>.</code>目录指的是： <span class="hide-inline"><a class="hide-button button--primary button--animated" style="color:#fff;background-color:#FF7242">查看答案<br /></a><span class="hide-content">D</span></span><br />A.<code>/</code><br />B.<code>/home</code><br />C.<code>/home/Zorua</code><br />D.<code>/home/Zorua/Desktop</code></li></ul>
-          </div>]]></content>
+          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -3331,7 +3331,7 @@ Tips. 基圆处的渐开线曲率半径为0</li>
 </li>
 </ol>
 </section>
-]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>其他</category>
       </categories>
