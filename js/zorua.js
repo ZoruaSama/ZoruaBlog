@@ -7,8 +7,8 @@ jQuery(document).on('copy', function(e)
 	                        + '作者：Zorua Zhang<br> 源地址：' + document.location.href
 	                        + '<br>来源：Zorua\'s Blog<br>© 版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 4.0 许可协议。';
 	  var copyHolder = $('<div>', {id: 'temp', html: selectedText + copyFooter, style: {position: 'absolute', left: '-99999px'}});
-	    
-	  $('body').append(copyHolder);
+	  
+  	  $('body').append(copyHolder);
 	  selected.selectAllChildren( copyHolder[0] );
 	  window.setTimeout(function() {
 	      copyHolder.remove();
