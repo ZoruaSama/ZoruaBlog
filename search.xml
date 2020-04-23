@@ -673,7 +673,7 @@
 </blockquote>
 <h3 id="对等连接方式"><a class="markdownIt-Anchor" href="#对等连接方式"></a> 对等连接方式</h3>
 <ul>
-<li>**对等连接 (peer-to-peer，简写为 P2P ) **是指两个主机在通信时并不区分哪一个是服务请求方还是服务提供方。</li>
+<li><strong>对等连接</strong> (peer-to-peer，简写为 P2P ) 是指两个主机在通信时并不区分哪一个是服务请求方还是服务提供方。</li>
 <li>只要两个主机都运行了对等连接软件 ( P2P 软件) ，它们就可以进行<strong>平等的、对等连接通信</strong>。</li>
 <li>双方都可以下载对方已经存储在硬盘中的共享文档。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419213754.png"></li>
@@ -752,7 +752,7 @@
 <li>分组交换则采用<strong>存储转发</strong>技术。</li>
 <li>在发送端，先把较长的报文划分成<strong>较短的、固定长度的数据段</strong>。</li>
 <li>每一个数据段前面添加上<strong>首部</strong>构成<strong>分组 (packet)</strong>。</li>
-<li>分组交换网以**“分组”**作为数据传输单元。</li>
+<li>分组交换网以“<strong>分组</strong>”作为数据传输单元。</li>
 <li><strong>依次</strong>把各分组发送到接收端（假定接收端在左边）。</li>
 <li>接收端收到分组后<strong>剥去</strong>首部还原成报文。</li>
 <li>分组交换的传输单元：
@@ -902,7 +902,7 @@
 <li>速率是计算机网络中最重要的一个性能指标，指的是数据的传送速率，它也称为<strong>数据率</strong> (data rate) 或<strong>比特率</strong> (bit rate)。</li>
 <li>速率的<strong>单位</strong>是 bit/s，或 kbit/s、Mbit/s、 Gbit/s等。<br />
 例如<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>4</mn><mo>×</mo><mn>1010</mn></mrow><annotation encoding="application/x-tex">4\times 1010</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">4</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">1</span><span class="mord">0</span></span></span></span>bit/s 的数据率就记为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>40</mn></mrow><annotation encoding="application/x-tex">40</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span><span class="mord">0</span></span></span></span> Gbit/s。</li>
-<li>**速率往往是指额定速率或标称速率，非实际运行速率。  **</li>
+<li><strong>速率往往是指额定速率或标称速率，非实际运行速率。</strong></li>
 </ul>
 <h2 id="带宽"><a class="markdownIt-Anchor" href="#带宽"></a> 带宽</h2>
 <p>两种不同意义：</p>
@@ -1127,7 +1127,7 @@
 <li>OSI 的七层协议体系结构的概念清楚，理论也较完整，但它既复杂又不实用。</li>
 <li>TCP/IP 是四层体系结构：应用层、运输层、网际层和网络接口层。</li>
 <li>但最下面的网络接口层并没有具体内容。</li>
-<li>**因此往往采取折中的办法，即综合 OSI 和 TCP/IP 的优点，采用一种只有五层协议的体系结构 。 **<br />
+<li><strong>因此往往采取折中的办法，即综合 OSI 和 TCP/IP 的优点，采用一种只有五层协议的体系结构。</strong><br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419224934.png"><br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/zorua_demo00.gif"></li>
 </ul>
@@ -1158,7 +1158,7 @@
 <ul>
 <li>同一系统相邻两层的实体进行交互的地方，称为<strong>服务访问点 SAP</strong> (Service Access Point)。</li>
 <li>服务访问点SAP是一个抽象的概念，它实际上就是一个逻辑接口。</li>
-<li>OSI把层与层之间交换的数据的单位称为**服务数据单元 SDU **(Service Data Unit)。</li>
+<li>OSI把层与层之间交换的数据的单位称为<strong>服务数据单元 SDU</strong>(Service Data Unit)。</li>
 <li>SDU 可以与 PDU 不一样，例如，可以是多个 SDU 合成为一个 PDU，也可以是一个 SDU 划分为几个 PDU。</li>
 </ul>
 <p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419230506.png"></p>
@@ -2512,9 +2512,9 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <p>Written BY Zorua 2020.2.09</p>
 </blockquote>
 <h2 id="学习素材"><a class="markdownIt-Anchor" href="#学习素材"></a> 学习素材</h2>
-<p>::: alert-primary<br />
-来源于B站UP主 <a href="https://space.bilibili.com/32248502" target="_blank" rel="noopener">小风寒呐</a><br />
-:::</p>
+<blockquote>
+<p>来源于B站UP主 <a href="https://space.bilibili.com/32248502" target="_blank" rel="noopener">小风寒呐</a></p>
+</blockquote>
 <hr />
 <h1 id="创建一篇文档"><a class="markdownIt-Anchor" href="#创建一篇文档"></a> 创建一篇文档</h1>
 <ol>
@@ -2580,7 +2580,7 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 </li>
 <li>添加目录：<code>\tableofcontents</code></li>
 <li>要点列举<br />
-建立一个列举环境 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;enumerate&#125;</span><br><span class="line">    \item</span><br><span class="line">    \item</span><br><span class="line"> \end&#123;enumerate&#125;</span><br></pre></td></tr></table></figure>
+建立一个列举环境 <figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;enumerate&#125;</span></span></span><br><span class="line">    <span class="tag">\<span class="name">item</span></span></span><br><span class="line">    <span class="tag">\<span class="name">item</span></span></span><br><span class="line"> <span class="tag">\<span class="name">end</span><span class="string">&#123;enumerate&#125;</span></span></span><br></pre></td></tr></table></figure>
 </li>
 <li>创建新的一页： <code>\newpage</code></li>
 </ol>
@@ -2592,7 +2592,7 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></span><br><span class="line">    formula</span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span> <span class="comment">%这个环境内公式不可以换行</span></span><br><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;align&#125;</span></span></span><br><span class="line">    &amp;formula <span class="tag">\<span class="name">\</span></span></span><br><span class="line">    &amp;formula <span class="tag">\<span class="name">\</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;align&#125;</span></span> <span class="comment">%这个环境内公式可以并且这样换行</span></span><br></pre></td></tr></table></figure>
 <p>示例：</p>
 <figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="comment">%使用如下格式等价于创建了equation环境</span></span><br><span class="line"><span class="comment">%取消编号就用 [ ]</span></span><br><span class="line"><span class="tag">\<span class="name">&#123;</span></span> </span><br><span class="line">    F=ma</span><br><span class="line"><span class="tag">\<span class="name">&#125;</span></span></span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;align&#125;</span><br><span class="line">    &amp;y&#x3D;ax \notag \\</span><br><span class="line">    &amp;&#x3D;bx</span><br><span class="line"> \end&#123;align&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;align&#125;</span></span></span><br><span class="line">    &amp;y=ax <span class="tag">\<span class="name">notag</span></span> <span class="tag">\<span class="name">\</span></span></span><br><span class="line">    &amp;=bx</span><br><span class="line"> <span class="tag">\<span class="name">end</span><span class="string">&#123;align&#125;</span></span></span><br></pre></td></tr></table></figure>
 <h4 id="行内公式的创建"><a class="markdownIt-Anchor" href="#行内公式的创建"></a> 行内公式的创建</h4>
 <p>直接用$formula$<br />
 实现如下效果：<br />
@@ -2668,12 +2668,12 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 <li>
 <p>矩阵环境 bmatrix<br />
 需要宏包 mathtools</p>
-  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;equation&#125;</span><br><span class="line">A&#x3D;\begin&#123;bmatrix&#125;</span><br><span class="line">    1&amp;2&amp;3 \\</span><br><span class="line">    4&amp;6&amp;7 \\</span><br><span class="line">    \end&#123;bmatrix&#125;</span><br><span class="line">\end&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></span><br><span class="line">A=<span class="tag">\<span class="name">begin</span><span class="string">&#123;bmatrix&#125;</span></span></span><br><span class="line">    1&amp;2&amp;3 <span class="tag">\<span class="name">\</span></span></span><br><span class="line">    4&amp;6&amp;7 <span class="tag">\<span class="name">\</span></span></span><br><span class="line">    <span class="tag">\<span class="name">end</span><span class="string">&#123;bmatrix&#125;</span></span></span><br><span class="line"><span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>大括号<br />
 需要宏包 mathtools</p>
- <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\begin&#123;equation&#125;</span><br><span class="line">A&#x3D;\begin&#123;cases&#125;</span><br><span class="line">     &amp;x^2 \\</span><br><span class="line">     &amp;x^2+x \\</span><br><span class="line">     \end&#123;cases&#125;</span><br><span class="line"> \end&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight tex"><table><tr><td class="code"><pre><span class="line"><span class="tag">\<span class="name">begin</span><span class="string">&#123;equation&#125;</span></span></span><br><span class="line">A=<span class="tag">\<span class="name">begin</span><span class="string">&#123;cases&#125;</span></span></span><br><span class="line">     &amp;x^2 <span class="tag">\<span class="name">\</span></span></span><br><span class="line">     &amp;x^2+x <span class="tag">\<span class="name">\</span></span></span><br><span class="line">     <span class="tag">\<span class="name">end</span><span class="string">&#123;cases&#125;</span></span></span><br><span class="line"> <span class="tag">\<span class="name">end</span><span class="string">&#123;equation&#125;</span></span></span><br></pre></td></tr></table></figure>
 </li>
 <li>
 <p>符号说明</p>
