@@ -17,6 +17,7 @@
 <h3 id="下载安装包"><a class="markdownIt-Anchor" href="#下载安装包"></a> 下载安装包</h3>
 <p>我使用的<code>Windows</code>版本是<code>Windows 10 Pro</code>，因此以<code>Windows 10 Pro</code>为例。<br />
 首先前往MySQL的官网，<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">下载安装包</a>。<br />
+如果官网打不开，或者访问比较慢，请继续往下阅读。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423125326.png"></p>
 <blockquote>
 <p>上面的<code>MySQL Installer MSI</code>貌似是提供图形安装界面。但是我没试过。可能会简化安装流程。或许懒癌用户可以试试。</p>
@@ -2219,7 +2220,7 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <ul>
 <li>数据库系统(DatabaseSystem，简称DBS)是指在计算机系统中引入数据库后的系统构成。</li>
 <li>在不引起混淆的情况下常常把数据库系统简称为数据库。<br />
-数据库系统由**数据库、数据库管理系统(及其开发工具)、应用系统、数据库管理员(和用户)**构成。</li>
+数据库系统由<strong>数据库、数据库管理系统(及其开发工具)、应用系统、数据库管理员(和用户)构成</strong>。</li>
 </ul>
 <h2 id="数据库的来历"><a class="markdownIt-Anchor" href="#数据库的来历"></a> 数据库的来历</h2>
 <p>数据库技术是数据管理的一个发展阶段，是最有效的<strong>数据管理</strong>方式。<br />
