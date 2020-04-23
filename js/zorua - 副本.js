@@ -6,11 +6,6 @@ jQuery(document).on('copy', function(e)
 	                        + '商业转载请联系作者获得授权，非商业转载请注明出处。<br>'
 	                        + '作者：Zorua Zhang<br> 源地址：' + document.location.href
 	                        + '<br>来源：Zorua\'s Blog<br>© 版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 4.0 许可协议。';
-	  if (selectedText.length < 300) {
-	    copyFooter = '';}
-	  if (selectedText.length > 1234) {
-	    selectedText = '';
-                    copyFooter = '';}
 	  var copyHolder = $('<div>', {id: 'temp', html: selectedText + copyFooter, style: {position: 'absolute', left: '-99999px'}});
 	  
   	  $('body').append(copyHolder);
