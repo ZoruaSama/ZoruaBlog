@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zoruasama.gitee.io/"/>
-  <updated>2020-04-22T07:09:27.589Z</updated>
+  <updated>2020-04-23T05:33:28.400Z</updated>
   <id>https://zoruasama.gitee.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL | 0. MySQL安装教程</title>
+    <link href="https://zoruasama.gitee.io/2020/04/23/mysql_0/"/>
+    <id>https://zoruasama.gitee.io/2020/04/23/mysql_0/</id>
+    <published>2020-04-23T05:28:35.000Z</published>
+    <updated>2020-04-23T05:33:28.400Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="为什么要安装mysql"><a class="markdownIt-Anchor" href="#为什么要安装mysql"></a> 为什么要安装MySQL</h1><p>这个学期开设了一门专业课，即数据库原理。现在学到<strong>第三章关系数据库标准语言SQL</strong>了。这门课程对这一部分有着操作实验的要求。因此老师要求我们安装一个SQL软件。我看了看我开始菜单里的<code>Access</code>，貌似人家也有着SQL语句可以用。<s>emmmm，不过老师不让用</s>因为好像得用<code>CLI</code>的SQL软件😂。</p><p>所以找一个别的SQL软件。也就是这个MySQL。<br />无论是在<code>Windows</code>还是<code>Linux</code>我都尝试安装了一下MySQL。结果发现还是<code>Linux</code>环境下较为方便。</p><p>下文我会简单地说明分别在<code>Windows</code> <code>Linux</code>和<code>Mac OS</code>下安装MySQL的流程。</p><blockquote><p>命令行界面（英语：command-line interface，缩写：CLI）是在图形用户界面得到普及之前使用最为广泛的用户界面，它通常不支持鼠标，用户通过键盘输入指令，计算机接收到指令后，予以执行。也有人称之为字符用户界面（CUI）。<br />通常认为，命令行界面（CLI）没有图形用户界面（GUI）那么方便用户操作。因为，命令行界面的软件通常需要用户记忆操作的命令，但是，由于其本身的特点，命令行界面要较图形用户界面节约计算机系统的资源。在熟记命令的前提下，使用命令行界面往往要较使用图形用户界面的操作速度要快。所以，图形用户界面的操作系统中，都保留着可选的命令行界面。</p></blockquote><h1 id="windows-篇"><a class="markdownIt-Anchor" href="#windows-篇"></a> Windows 篇</h1><h2 id="安装mysql"><a class="markdownIt-Anchor" href="#安装mysql"></a> 安装MySQL</h2><h3 id="下载安装包"><a class="markdownIt-Anchor" href="#下载安装包"></a> 下载安装包</h3><p>我使用的<code>Windows</code>版本是<code>Windows 10 Pro</code>，因此以<code>Windows 10 Pro</code>为例。<br />首先前往MySQL的官网，<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">下载安装包</a>。<br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423125326.png"></p><blockquote><p>上面的<code>MySQL Installer MSI</code>貌似是提供图形安装界面。但是我没试过。可能会简化安装流程。或许懒癌用户可以试试。</p></blockquote><p>如果从官网的下载速度比较缓慢的话，可以尝试一下从镜像站中下载。例如<a href="https://mirrors.tuna.tsinghua.edu.cn/mysql/downloads/MySQL-8.0/" target="_blank" rel="noopener">清华大学开源软件镜像站</a><br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423125945.png"></p><p>下载完压缩包后，解压至你要安装的目录下。例如我选择的目录是下图。<br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423130345.png"></p><h3 id="配置环境变量"><a class="markdownIt-Anchor" href="#配置环境变量"></a> 配置环境变量</h3><ul><li><p>在此电脑上右击，选择<code>属性(R)</code><br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423131224.png"></p></li><li><p>选择高级系统设置<br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423131300.png"></p></li><li><p>选择<strong>高级-环境变量</strong><br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423131336.png"></p></li><li><p>选择<strong>系统变量-新建</strong><br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423131425.png"></p></li><li><p>变量名为 <code>MYSQL_HOME</code>，变量值为<code>D:\mysql\mysql-5.7.20-winx64</code>。值按你所安装的目录来决定。输入完毕后依次确定来完成配置。</p></li></ul><h3 id="开始安装"><a class="markdownIt-Anchor" href="#开始安装"></a> 开始安装</h3><p>按下开始菜单，键入<code>cmd</code>，选择以管理员身份运行。（其他<code>Shell</code>也可以，此处以<code>cmd</code>为例）<br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423130449.png"></p><p>打不开这个页面的同学，可以在系统目录下找到<code>cmd.exe</code>。右键-以管理员身份运行。<br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423130615.png"></p><p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423130857.png"></p><p>如果你是和我一样，安装在别的盘符下。先使用<code>D:</code>切换盘符。再使用<code>cd</code>命令切换目录至安装目录。再使用<code>cd</code>命令切换目录至<code>bin</code>目录。</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Microsoft Windows [版本 <span class="number">10</span>.<span class="number">0</span>.<span class="number">18362</span>.<span class="number">778</span>]</span><br><span class="line">(c) <span class="number">2019</span> Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line"><span class="function">C:\<span class="title">WINDOWS</span>\<span class="title">system32</span>&gt;<span class="title">D</span>:</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\&gt;<span class="title">cd</span> <span class="title">MySQL</span>\<span class="title">mysql</span>-8.0.19-<span class="title">winx64</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">MySQL</span>\<span class="title">mysql</span>-8.0.19-<span class="title">winx64</span>&gt;<span class="title">cd</span> <span class="title">bin</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">MySQL</span>\<span class="title">mysql</span>-8.0.19-<span class="title">winx64</span>\<span class="title">bin</span>&gt;</span></span><br></pre></td></tr></table></figure><p>键入命令 <code>mysqld --initialize-insecure --user=mysql</code>。<br />有点长，可以复制粘贴或者利用<code>Tab</code>键的自动填充功能完成键入。</p><blockquote><p>PowerShell 用户需要改为 <code>.\mysqld</code> 才能执行 <code>mysqld</code><br />在这条命令输入完毕后，会在安装目录下生成一个<code>data</code>文件夹。</p></blockquote><p>再键入<code>mysqld -install</code>命令即可完成安装。</p><h2 id="开启和关闭服务"><a class="markdownIt-Anchor" href="#开启和关闭服务"></a> 开启和关闭服务</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> MySQL</span><br><span class="line"><span class="built_in">net</span> stop MySQL</span><br></pre></td></tr></table></figure><h2 id="登录mysql"><a class="markdownIt-Anchor" href="#登录mysql"></a> 登录MySQL</h2><p>在<code>bin</code>目录下使用指令<code>mysql -u root -p</code>即可登录。<br />如果询问密码，直接回车即可。因为并没有设置密码。<br />如果嫌每次打开/切换目录比较麻烦的话，可以在<code>bin</code>目录下创建一个文本文档，编辑其中内容为：</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure><p>然后将后缀改为<code>.cmd</code>。之后只需要运行这个批处理文件即可登录MySQL。<br />之后你可以自行把这个批处理文件创建一个桌面快捷方式或改图标什么的。这里就不赘述了。<br />至此，<code>Windows</code>的MySQL安装完毕。<br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423132724.png"></p><h1 id="linux-篇"><a class="markdownIt-Anchor" href="#linux-篇"></a> Linux 篇</h1><h2 id="安装mysql-2"><a class="markdownIt-Anchor" href="#安装mysql-2"></a> 安装MySQL</h2><p>我使用的<code>Linux</code>发行版是<code>ubuntu 16.04</code>。因此以<code>ubuntu 16.04</code>为例。如果是<code>centos</code>则选择<code>Yum</code>仓库。同理，如果是其他发行版，使用对应仓库。<br />执行下列三条语句即可完成安装。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br><span class="line">sudo apt install mysql-client</span><br><span class="line">sudo apt install libmysqlclient-dev</span><br></pre></td></tr></table></figure><p>安装时，会出现一个图形界面要求你设置一个密码。键入密码并按下回车键。<br />安装完毕后，可以用下面这条指令进行检验。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tap | grep mysql</span><br></pre></td></tr></table></figure><p>上述指令实现的效果是，在网络连接状态中，寻找和mysql相关的连接。<br /><code>|</code>符号是<strong>管道</strong>，我会在日后的<a href="/tags/Linux/">Linux入门</a>中提及。</p><ul><li><code>netstat</code>查看网络相关信息<ul><li><code>a</code>显示所有选项，默认不显示LISTEN相关</li><li><code>t</code>仅显示TCP相关选项</li><li><code>u</code>仅显示UDP相关选项</li><li><code>n</code>拒绝显示别名，能显示数字的全部转化成数字。</li><li><code>l</code>仅列出有在LISTEN的服务状态</li><li><code>p</code>显示建立相关链接的程序名</li><li><code>r</code>显示路由信息，路由表</li><li><code>e</code>显示扩展信息，例如uid等</li><li><code>s</code>按各个协议进行统计</li><li><code>c</code>每隔一个固定时间，执行该netstat命令。</li><li>提示：LISTEN和LISTENING的状态只有用<code>-a</code>或者<code>-l</code>才能看到。</li></ul></li></ul><p>因为MySQL安装完成后默认是启动的，所以出现类似的如下信息即为安装成功。<code>6580</code>是<code>PID</code>，无需和我一致。<br /><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423120349.png"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ sudo netstat -tap | grep mysql</span><br><span class="line">[sudo] password for zorua: </span><br><span class="line">tcp        0      0 localhost:mysql         *:*                     LISTEN      6580&#x2F;mysqld</span><br></pre></td></tr></table></figure><h2 id="开启和关闭服务-2"><a class="markdownIt-Anchor" href="#开启和关闭服务-2"></a> 开启和关闭服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">service mysql start</span><br><span class="line">service mysql stop</span><br><span class="line">service mysql restart</span><br></pre></td></tr></table></figure><p>上面三条指令分别是，开启/关闭/重启。<br />验证服务的开启与否同样也可以使用上面的<code>sudo netstat -tap | grep mysql</code>。</p><h2 id="登录mysql-2"><a class="markdownIt-Anchor" href="#登录mysql-2"></a> 登录MySQL</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure><ul><li><code>u</code>是<code>username</code></li><li><code>p</code>是<code>password</code></li></ul><p>使用这条命令后，会请求用户键入密码。密码就是在安装时设置的那个。</p><p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423124405.png"></p><p>然后就进入了MySQL Shell。<br />至此 MySQL 安装完成。</p><h1 id="mac-os篇"><a class="markdownIt-Anchor" href="#mac-os篇"></a> Mac OS篇</h1><p><s>我没得苹果家的电脑，写不了教程辽。</s><br /><s>好心人可以捐一台给我嗷</s></p><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;为什么要安装mysql&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#为什么要安装mysql&quot;&gt;&lt;/a&gt; 为什么要安装MySQL&lt;/h1&gt;
+&lt;p&gt;这个学期开设了一门专业课，即数据库原理。现在学到&lt;strong&gt;第三章关系数据库标准语言S
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="https://zoruasama.gitee.io/categories/MySQL/"/>
+    
+    
+      <category term="数据库原理" scheme="https://zoruasama.gitee.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/"/>
+    
+      <category term="数据库" scheme="https://zoruasama.gitee.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="SQL" scheme="https://zoruasama.gitee.io/tags/SQL/"/>
+    
+      <category term="MySQL" scheme="https://zoruasama.gitee.io/tags/MySQL/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机网络 | 2. 物理层</title>
@@ -115,8 +148,8 @@
   
   <entry>
     <title>Linux入门 | 2. 终端介绍</title>
-    <link href="https://zoruasama.gitee.io/2020/04/14/Linux%E7%BB%88%E7%AB%AF%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://zoruasama.gitee.io/2020/04/14/Linux%E7%BB%88%E7%AB%AF%E4%BB%8B%E7%BB%8D/</id>
+    <link href="https://zoruasama.gitee.io/2020/04/14/Linux_1/"/>
+    <id>https://zoruasama.gitee.io/2020/04/14/Linux_1/</id>
     <published>2020-04-14T07:30:00.000Z</published>
     <updated>2020-04-18T13:26:57.221Z</updated>
     
@@ -207,8 +240,8 @@
   
   <entry>
     <title>Linux入门 | 1. Linux的介绍</title>
-    <link href="https://zoruasama.gitee.io/2020/03/29/Linux%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://zoruasama.gitee.io/2020/03/29/Linux%E4%BB%8B%E7%BB%8D/</id>
+    <link href="https://zoruasama.gitee.io/2020/03/29/Linux_0/"/>
+    <id>https://zoruasama.gitee.io/2020/03/29/Linux_0/</id>
     <published>2020-03-29T11:10:35.000Z</published>
     <updated>2020-04-18T13:26:50.954Z</updated>
     
