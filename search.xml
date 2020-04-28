@@ -27,7 +27,9 @@
 <p>下载完压缩包后，解压至你要安装的目录下。例如我选择的目录是下图。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423130345.png"></p>
 <h3 id="配置环境变量"><a class="markdownIt-Anchor" href="#配置环境变量"></a> 配置环境变量</h3>
-<p>环境变量的配置比较重要，如果配置得不正确，会使得后面的步骤略麻烦。</p>
+<p>环境变量的配置比较重要，如果配置得不正确，会使得后面的步骤略麻烦。<br />
+如果你不能完成配置该部分内容，可以选择跳过。<br />
+后面部分的内容将<strong>基于你没有完成配置</strong>来进行，但是也会<strong>说明配置完成的做法</strong>。</p>
 <ul>
 <li>
 <p>在此电脑上右击，选择<code>属性(R)</code><br />
@@ -90,6 +92,7 @@
 然后将后缀改为<code>.cmd</code>。之后只需要运行这个批处理文件即可登录MySQL。<br />
 之后你可以自行把这个批处理文件创建一个桌面快捷方式或改图标什么的。这里就不赘述了。<br />
 <strong>如果你的环境变量配置的是正确的话，可以直接打开终端，键入<code>mysql -u root -p</code>，而不需要在<code>bin</code>目录下。</strong><br />
+<strong>同时这个批处理文件也不一定要创建在<code>bin</code>目录下</strong><br />
 至此，<code>Windows</code>的MySQL安装完毕。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423132724.png"></p>
 <h1 id="linux-篇"><a class="markdownIt-Anchor" href="#linux-篇"></a> Linux 篇</h1>
