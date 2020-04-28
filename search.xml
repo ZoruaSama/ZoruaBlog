@@ -27,6 +27,7 @@
 <p>下载完压缩包后，解压至你要安装的目录下。例如我选择的目录是下图。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423130345.png"></p>
 <h3 id="配置环境变量"><a class="markdownIt-Anchor" href="#配置环境变量"></a> 配置环境变量</h3>
+<p>环境变量的配置比较重要，如果配置得不正确，会使得后面的步骤略麻烦。</p>
 <ul>
 <li>
 <p>在此电脑上右击，选择<code>属性(R)</code><br />
@@ -48,17 +49,20 @@
 <p>变量名为 <code>MYSQL_HOME</code>，变量值为<code>D:\mysql\mysql-5.7.20-winx64</code>。值按你所安装的目录来决定。输入完毕后依次确定来完成配置。</p>
 </li>
 </ul>
-<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200428195351.png"><br />
-再编辑<code>Path</code>这个用户环境变量，内容为<code>%MYSQL_HOME%\bin</code><br />
-<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200428195512.png"></p>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200428195351.png"></p>
+<ul>
+<li>再编辑<code>Path</code>这个用户环境变量，新建文本，内容为<code>%MYSQL_HOME%\bin</code><br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200428195512.png"></li>
+</ul>
 <h3 id="开始安装"><a class="markdownIt-Anchor" href="#开始安装"></a> 开始安装</h3>
 <p>按下开始菜单，键入<code>cmd</code>，选择以管理员身份运行。（其他<code>Shell</code>也可以，此处以<code>cmd</code>为例）<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423130449.png"></p>
 <p>打不开这个页面的同学，可以在系统目录下找到<code>cmd.exe</code>。右键-以管理员身份运行。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423130615.png"></p>
 <p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423130857.png"></p>
-<p>如果你是和我一样，安装在别的盘符下。先使用<code>D:</code>切换盘符。再使用<code>cd</code>命令切换目录至安装目录。再使用<code>cd</code>命令切换目录至<code>bin</code>目录。</p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">Microsoft Windows [版本 <span class="number">10</span>.<span class="number">0</span>.<span class="number">18362</span>.<span class="number">778</span>]</span><br><span class="line">(c) <span class="number">2019</span> Microsoft Corporation。保留所有权利。</span><br><span class="line"></span><br><span class="line"><span class="function">C:\<span class="title">WINDOWS</span>\<span class="title">system32</span>&gt;<span class="title">D</span>:</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\&gt;<span class="title">cd</span> <span class="title">MySQL</span>\<span class="title">mysql</span>-8.0.19-<span class="title">winx64</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">MySQL</span>\<span class="title">mysql</span>-8.0.19-<span class="title">winx64</span>&gt;<span class="title">cd</span> <span class="title">bin</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">MySQL</span>\<span class="title">mysql</span>-8.0.19-<span class="title">winx64</span>\<span class="title">bin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">Microsoft Windows [版本 <span class="number">10</span>.<span class="number">0</span>.<span class="number">18362</span>.<span class="number">778</span>]</span><br><span class="line">(c) <span class="number">2019</span> Microsoft Corporation。保留所有权利。</span><br><span class="line"><span class="function">C:\<span class="title">WINDOWS</span>\<span class="title">system32</span>&gt;<span class="title">D</span>:</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\&gt;<span class="title">cd</span> <span class="title">MySQL</span>\<span class="title">mysql</span>-8.0.19-<span class="title">winx64</span></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">MySQL</span>\<span class="title">mysql</span>-8.0.19-<span class="title">winx64</span>&gt;<span class="title">cd</span> <span class="title">bin</span></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">MySQL</span>\<span class="title">mysql</span>-8.0.19-<span class="title">winx64</span>\<span class="title">bin</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果你是和我一样，安装在别的盘符下。先使用<code>D:</code>切换盘符。再使用<code>cd</code>命令切换目录至安装目录。再使用<code>cd</code>命令切换目录至<code>bin</code>目录。<br />
+如果你的环境变量配置得是正确的，无须切换目录至<code>bin</code>目录。可以直接执行下面的内容。</p>
 <p>键入命令 <code>mysqld --initialize-insecure --user=mysql</code>。<br />
 有点长，可以复制粘贴或者利用<code>Tab</code>键的自动填充功能完成键入。</p>
 <blockquote>
