@@ -63,6 +63,15 @@
 在这条命令输入完毕后，会在安装目录下生成一个<code>data</code>文件夹。</p>
 </blockquote>
 <p>再键入<code>mysqld -install</code>命令即可完成安装。</p>
+<h3 id="其他问题"><a class="markdownIt-Anchor" href="#其他问题"></a> 其他问题</h3>
+<h4 id="提示缺少-vcruntime140dll"><a class="markdownIt-Anchor" href="#提示缺少-vcruntime140dll"></a> 提示缺少 VCRUNTIME140.dll</h4>
+<p>这是C++应用的必要组件，<br />
+在微软的官网下载安装程序，安装完毕再重新进行安装操作。<br />
+请根据计算机的具体硬件配置来选择x64，ARM64或x86。<br />
+可以在搜索引擎中直接搜索你的计算机的处理器型号来获取相关信息。<br />
+获取处理器型号可以在此电脑上<code>右击-属性</code>中看到。<br />
+<a href="https://visualstudio.microsoft.com/zh-hans/downloads/" target="_blank" rel="noopener">官方下载地址</a><br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200428175628.png"></p>
 <h2 id="开启和关闭服务"><a class="markdownIt-Anchor" href="#开启和关闭服务"></a> 开启和关闭服务</h2>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">net</span> <span class="built_in">start</span> MySQL</span><br><span class="line"><span class="built_in">net</span> stop MySQL</span><br></pre></td></tr></table></figure>
 <h2 id="登录mysql"><a class="markdownIt-Anchor" href="#登录mysql"></a> 登录MySQL</h2>
@@ -70,7 +79,8 @@
 如果询问密码，直接回车即可。因为并没有设置密码。<br />
 如果嫌每次打开/切换目录比较麻烦的话，可以在<code>bin</code>目录下创建一个文本文档，编辑其中内容为：</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">mysql -u root -p</span><br><span class="line"><span class="built_in">pause</span></span><br></pre></td></tr></table></figure>
-<p>然后将后缀改为<code>.cmd</code>。之后只需要运行这个批处理文件即可登录MySQL。<br />
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200428180255.png"><br />
+然后将后缀改为<code>.cmd</code>。之后只需要运行这个批处理文件即可登录MySQL。<br />
 之后你可以自行把这个批处理文件创建一个桌面快捷方式或改图标什么的。这里就不赘述了。<br />
 至此，<code>Windows</code>的MySQL安装完毕。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423132724.png"></p>
