@@ -48,6 +48,9 @@
 <p>变量名为 <code>MYSQL_HOME</code>，变量值为<code>D:\mysql\mysql-5.7.20-winx64</code>。值按你所安装的目录来决定。输入完毕后依次确定来完成配置。</p>
 </li>
 </ul>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200428195351.png"><br />
+再编辑<code>Path</code>这个用户环境变量，内容为<code>%MYSQL_HOME%\bin</code><br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200428195512.png"></p>
 <h3 id="开始安装"><a class="markdownIt-Anchor" href="#开始安装"></a> 开始安装</h3>
 <p>按下开始菜单，键入<code>cmd</code>，选择以管理员身份运行。（其他<code>Shell</code>也可以，此处以<code>cmd</code>为例）<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423130449.png"></p>
@@ -82,6 +85,7 @@
 <p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200428180255.png"><br />
 然后将后缀改为<code>.cmd</code>。之后只需要运行这个批处理文件即可登录MySQL。<br />
 之后你可以自行把这个批处理文件创建一个桌面快捷方式或改图标什么的。这里就不赘述了。<br />
+<strong>如果你的环境变量配置的是正确的话，可以直接打开终端，键入<code>mysql -u root -p</code>，而不需要在<code>bin</code>目录下。</strong><br />
 至此，<code>Windows</code>的MySQL安装完毕。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423132724.png"></p>
 <h1 id="linux-篇"><a class="markdownIt-Anchor" href="#linux-篇"></a> Linux 篇</h1>
@@ -128,6 +132,8 @@
 <p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423124405.png"></p>
 <p>然后就进入了MySQL Shell。<br />
 至此 MySQL 安装完成。</p>
+<h2 id="安装命令行工具"><a class="markdownIt-Anchor" href="#安装命令行工具"></a> 安装命令行工具</h2>
+<p>为了更好的使用MySQL，~~我实在是受不了没有自动补全功能，~~可以安装命令行工具MyCli</p>
 <h1 id="mac-os篇"><a class="markdownIt-Anchor" href="#mac-os篇"></a> Mac OS篇</h1>
 <p><s>我没得苹果家的电脑，写不了教程辽。</s><br />
 <s>好心人可以捐一台给我嗷</s></p>
