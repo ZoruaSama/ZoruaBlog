@@ -3,7 +3,128 @@
   <entry>
     <title>操作系统 | 1. 操作系统引论</title>
     <url>/2020/04/29/operating_system_0/</url>
-    <content><![CDATA[<h1 id="操作系统的目标与作用"><a class="markdownIt-Anchor" href="#操作系统的目标与作用"></a> 操作系统的目标与作用</h1>
+    <content><![CDATA[<h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>操作系统引论
+<ul>
+<li>操作系统的目标与作用
+<ul>
+<li>操作系统的目标</li>
+<li>操作系统的作用
+<ul>
+<li>用户与硬件系统之间的接口</li>
+<li>计算机资源的管理者</li>
+<li>扩充机器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>推动操作系统发展的主要动力</li>
+<li>操作系统的发展过程
+<ul>
+<li>无操作系统的计算机系统
+<ul>
+<li>脱机输入/输出（Off-Line I/O）方式</li>
+<li>无操作系统的主要问题</li>
+</ul>
+</li>
+<li>单道批处理系统
+<ul>
+<li>联机批处理</li>
+<li>脱机批处理</li>
+<li>单道批处理系统的特征</li>
+</ul>
+</li>
+<li>多道批处理系统
+<ul>
+<li>多道批处理系统的特征</li>
+<li>单道批处理和多道批处理的比较</li>
+<li>多道批处理系统的特点</li>
+<li>多道批处理系统需要解决的问题</li>
+</ul>
+</li>
+<li>分时系统
+<ul>
+<li>分时系统中的关键问题</li>
+<li>分时系统的特征</li>
+</ul>
+</li>
+<li>实时系统</li>
+<li>网络操作系统
+<ul>
+<li>计算机网络</li>
+<li>网络操作系统功能</li>
+</ul>
+</li>
+<li>分布式操作系统
+<ul>
+<li>分布式操作系统的特征</li>
+<li>网络和分布式的区别</li>
+</ul>
+</li>
+<li>嵌入式操作系统
+<ul>
+<li>典型嵌入式操作系统的特性</li>
+<li>嵌入式操作系统的应用</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>操作系统的基本特征
+<ul>
+<li>并发
+<ul>
+<li>进程</li>
+</ul>
+</li>
+<li>共享</li>
+<li>虚拟</li>
+<li>异步</li>
+</ul>
+</li>
+<li>操作系统的主要功能
+<ul>
+<li>处理机管理功能</li>
+<li>存储器管理功能</li>
+<li>设备管理功能</li>
+<li>文件管理功能</li>
+<li>用户接口</li>
+</ul>
+</li>
+<li>操作系统的结构设计
+<ul>
+<li>软件工程的基本概念</li>
+<li>传统的操作系统结构
+<ul>
+<li>无结构操作系统</li>
+<li>模块化OS结构</li>
+<li>分层式OS结构</li>
+</ul>
+</li>
+<li>微内核OS结构
+<ul>
+<li>微内核的基本功能</li>
+<li>客户/服务器模式</li>
+<li>面向对象的程序设计技术(Object-Orientated Programming)</li>
+<li>OS设计原则</li>
+<li>现代操作系统的特点</li>
+</ul>
+</li>
+<li>操作系统实例
+<ul>
+<li>目前常用的操作系统</li>
+<li>操作系统领域中新的操作系统</li>
+<li>研究中的新的操作系统</li>
+<li>国内操作系统的研制状况</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="操作系统的目标与作用"><a class="markdownIt-Anchor" href="#操作系统的目标与作用"></a> 操作系统的目标与作用</h1>
 <p>操作系统(Operating System OS)属于软件中的<code>系统软件</code>，是管理<code>软硬件资源、数据</code>的计算机程序，控制其他程序运行并为用户提供交互界面的软件集合。</p>
 <h2 id="操作系统的目标"><a class="markdownIt-Anchor" href="#操作系统的目标"></a> 操作系统的目标</h2>
 <p>目前存在着多种类型的OS,不同类型的OS,其目标各有所侧重。通常在计算机硬件上配置的OS，其目标有以下几点：</p>
@@ -53,8 +174,9 @@ OS应采用<code>层次化</code>结构，以便于增加新的功能层次和<c
 </ul>
 <h3 id="扩充机器"><a class="markdownIt-Anchor" href="#扩充机器"></a> 扩充机器</h3>
 <ul>
-<li>OS是扩展机(extended machine)/虚拟机(virtualmachine)[^1]<br />
-[^1]： 扩展机/虚拟机：将覆盖了软件的机器称为扩充机器或虚拟机</li>
+<li>OS是扩展机(extended machine)/虚拟机(virtualmachine)<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></li>
+</ul>
+<ul>
 <li>在裸机上添加：设备管理、文件管理、存储管理（针对内存和外存）、处理机管理（针对CPU）</li>
 <li>合理组织工作流程：作业管理、进程管理</li>
 </ul>
@@ -1046,6 +1168,13 @@ OS应采用<code>层次化</code>结构，以便于增加新的功能层次和<c
 <li>嵌入式操作系统Hopen（女娲计划）</li>
 <li>Linux类操作系统</li>
 </ul>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>扩展机/虚拟机：将覆盖了软件的机器称为扩充机器或虚拟机 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>操作系统</category>
@@ -1213,7 +1342,131 @@ OS应采用<code>层次化</code>结构，以便于增加新的功能层次和<c
   <entry>
     <title>计算机网络 | 2. 物理层</title>
     <url>/2020/04/20/network_1/</url>
-    <content><![CDATA[<h1 id="物理层的基本概念"><a class="markdownIt-Anchor" href="#物理层的基本概念"></a> 物理层的基本概念</h1>
+    <content><![CDATA[<h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>思维导图
+<ul>
+<li>物理层的基本概念
+<ul>
+<li>物理层的主要任务</li>
+</ul>
+</li>
+<li>数据通信的基础知识
+<ul>
+<li>数据通信系统的模型
+<ul>
+<li>常用术语</li>
+</ul>
+</li>
+<li>有关信道的几个基本概念
+<ul>
+<li>常用编码方式</li>
+<li>基本的带通调制方法
+<ul>
+<li>正交振幅调制 QAM (Quadrature Amplitude Modulation)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>信道的极限容量
+<ul>
+<li>信道能够通过的频率范围</li>
+<li>信噪比
+<ul>
+<li>香农公式</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>物理层下面的传输媒体
+<ul>
+<li>导引型传输媒体
+<ul>
+<li>双绞线
+<ul>
+<li>双绞线标准</li>
+</ul>
+</li>
+<li>同轴电缆</li>
+<li>光缆
+<ul>
+<li>光线在光纤中的折射</li>
+<li>多模光纤与单模光纤</li>
+<li>光纤通信中使用的光波的波段</li>
+<li>光纤优点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>非导引型传输媒体
+<ul>
+<li>无线局域网使用的 ISM 频段</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>信道复用技术
+<ul>
+<li>频分复用 FDM (Frequency Division Multiplexing)</li>
+<li>时分复用TDM (Time Division Multiplexing)
+<ul>
+<li>时分复用可能会造成线路资源的浪费</li>
+<li>统计时分复用 STDM  (Statistic TDM)</li>
+</ul>
+</li>
+<li>波分复用 WDM(Wavelength Division Multiplexing)</li>
+<li>码分复用 CDM  (Code Division Multiplexing)
+<ul>
+<li>码片序列(chip sequence)</li>
+<li>码片序列实现了扩频</li>
+<li>码分复用的重要特点</li>
+<li>码片序列的正交关系</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数字传输系统
+<ul>
+<li>旧的数字传输系统存在许多缺点</li>
+<li>同步光纤网 SONET</li>
+<li>同步数字系列 SDH</li>
+<li>SONET / SDH 标准的意义</li>
+</ul>
+</li>
+<li>宽带接入技术
+<ul>
+<li>ADSL技术
+<ul>
+<li>DSL 的几种类型</li>
+<li>ADSL 的传输距离</li>
+<li>ADSL 的特点</li>
+<li>DMT 技术</li>
+<li>ADSL 的数据率</li>
+<li>ADSL 的组成</li>
+<li>第二代ADSL</li>
+</ul>
+</li>
+<li>光纤同轴混合网(HFC网)</li>
+<li>HFC 网的主干线路采用光纤
+<ul>
+<li>每个家庭要安装一个用户接口盒</li>
+<li>电缆调制解调器 (Cable Modem)</li>
+</ul>
+</li>
+<li>FTTx技术
+<ul>
+<li>无源光网络 PON (Passive Optical Network) 的组成</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="物理层的基本概念"><a class="markdownIt-Anchor" href="#物理层的基本概念"></a> 物理层的基本概念</h1>
 <ul>
 <li>物理层考虑的是怎样才能在连接各种计算机的传输媒体上<strong>传输数据比特流</strong>，而<strong>不是指具体的传输媒体</strong>。</li>
 <li>物理层的作用是要尽可能地<strong>屏蔽</strong>掉不同传输媒体和通信手段的差异。</li>
@@ -1722,7 +1975,116 @@ OS应采用<code>层次化</code>结构，以便于增加新的功能层次和<c
   <entry>
     <title>计算机网络 | 1. 计算机网络概述</title>
     <url>/2020/04/19/network_0/</url>
-    <content><![CDATA[<h1 id="计算机网络的定义及其特点"><a class="markdownIt-Anchor" href="#计算机网络的定义及其特点"></a> 计算机网络的定义及其特点</h1>
+    <content><![CDATA[<h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>思维导图
+<ul>
+<li>计算机网络的定义及其特点
+<ul>
+<li>定义</li>
+<li>特点</li>
+</ul>
+</li>
+<li>互联网概述
+<ul>
+<li>互联网概念</li>
+<li>互联网基础结构发展的三个阶段</li>
+<li>互联网的标准化工作</li>
+</ul>
+</li>
+<li>互联网的组成
+<ul>
+<li>边缘部分
+<ul>
+<li>客户-服务器方式</li>
+<li>对等连接方式</li>
+</ul>
+</li>
+<li>核心部分
+<ul>
+<li>电路交换
+<ul>
+<li>交换的含义</li>
+<li>电路交换的阶段</li>
+<li>电路交换的特点</li>
+</ul>
+</li>
+<li>分组交换
+<ul>
+<li>路由器</li>
+<li>主机和路由器的作用不同</li>
+<li>分组交换的优点</li>
+<li>分组交换带来的问题</li>
+</ul>
+</li>
+<li>报文交换</li>
+<li>三种交换的比较</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>计算机网络在我国的发展</li>
+<li>计算机网络的类别
+<ul>
+<li>作用范围</li>
+<li>网络的使用者</li>
+<li>用来把用户接入互联网</li>
+</ul>
+</li>
+<li>计算机网络的性能
+<ul>
+<li>速率</li>
+<li>带宽</li>
+<li>吞吐量</li>
+<li>时延
+<ul>
+<li>发送时延</li>
+<li>传播时延</li>
+<li>处理时延</li>
+<li>排队时延</li>
+<li>容易产生的错误概念</li>
+</ul>
+</li>
+<li>时延带宽积</li>
+<li>往返时间</li>
+<li>利用率</li>
+<li>时延与网络利用率的关系</li>
+<li>计算机网络的非性能特征</li>
+</ul>
+</li>
+<li>计算机网络的体系结构
+<ul>
+<li>定义</li>
+<li>计算机网络体系结构的形成
+<ul>
+<li>开放系统互连参考模型 OSI/RM</li>
+<li>两种国际标准</li>
+</ul>
+</li>
+<li>协议与划分层次
+<ul>
+<li>网络协议的三个组成要素</li>
+<li>协议的两种形式</li>
+<li>层次式协议结构</li>
+<li>分层的好处与缺点</li>
+<li>各层完成的主要功能</li>
+</ul>
+</li>
+<li>具有五层协议的体系结构</li>
+<li>实体、协议、服务和服务访问点
+<ul>
+<li>服务访问点</li>
+<li>协议很复杂</li>
+</ul>
+</li>
+<li>TCP/IP 的体系结构</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="计算机网络的定义及其特点"><a class="markdownIt-Anchor" href="#计算机网络的定义及其特点"></a> 计算机网络的定义及其特点</h1>
 <h2 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h2>
 <p>“网络”是一个统称，泛指把人或物互连在一起而形成的系统。<br />
 <img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419204250.png"></p>
@@ -2398,7 +2760,115 @@ OS应采用<code>层次化</code>结构，以便于增加新的功能层次和<c
   <entry>
     <title>数据库原理 | 2. 关系数据库</title>
     <url>/2020/04/18/database_1/</url>
-    <content><![CDATA[<h1 id="关系模型概述"><a class="markdownIt-Anchor" href="#关系模型概述"></a> 关系模型概述</h1>
+    <content><![CDATA[<h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>关系数据库
+<ul>
+<li>关系模型概述
+<ul>
+<li>关系操作集合
+<ul>
+<li>常用的关系操作</li>
+<li>关系操作的特点</li>
+<li>关系数据语言的种类</li>
+<li>关系数据语言的特点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关系数据结构
+<ul>
+<li>概述</li>
+<li>关系
+<ul>
+<li>域（Domain）</li>
+<li>笛卡尔积（Cartesian Product）</li>
+<li>关系（Relation）
+<ul>
+<li>元组</li>
+<li>单元关系与二元关系</li>
+<li>关系的表示</li>
+<li>属性</li>
+<li>码
+<ul>
+<li>候选码（Candidate Key）</li>
+<li>全码（All-key）</li>
+<li>主码（Primary Key）</li>
+</ul>
+</li>
+<li>三类关系</li>
+<li>基本关系的性质</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关系模式
+<ul>
+<li>什么是关系模式</li>
+<li>定义关系模式</li>
+<li>关系模式与关系</li>
+</ul>
+</li>
+<li>关系数据库
+<ul>
+<li>简介</li>
+<li>定义</li>
+<li>型与值</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关系完整性约束
+<ul>
+<li>实体完整性</li>
+<li>参照完整性
+<ul>
+<li>关系间的引用</li>
+<li>外码</li>
+<li>规则</li>
+</ul>
+</li>
+<li>用户定义的完整性</li>
+</ul>
+</li>
+<li>关系代数
+<ul>
+<li>关系代数运算符
+<ul>
+<li>集合运算符</li>
+<li>比较运算符</li>
+<li>专门的关系运算符</li>
+<li>逻辑运算符</li>
+</ul>
+</li>
+<li>传统的集合运算符
+<ul>
+<li>并（Union）</li>
+<li>差（Difference）</li>
+<li>交（Intersection）</li>
+<li>广义笛卡尔积（Extended Cartesian Product）</li>
+</ul>
+</li>
+<li>专门的关系运算符
+<ul>
+<li>选择（Selection）</li>
+<li>投影（Projection）</li>
+<li>连接（Join）
+<ul>
+<li>等值连接（equijoin）</li>
+<li>自然连接（Natural join）</li>
+</ul>
+</li>
+<li>除（Division）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="关系模型概述"><a class="markdownIt-Anchor" href="#关系模型概述"></a> 关系模型概述</h1>
 <ul>
 <li>关系数据库系统<br />
 是支持关系模型的数据库系统</li>
@@ -3233,7 +3703,73 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
   <entry>
     <title>数据库原理 | 1. 概述</title>
     <url>/2020/04/13/database_0/</url>
-    <content><![CDATA[<h1 id="数据库概述"><a class="markdownIt-Anchor" href="#数据库概述"></a> 数据库概述</h1>
+    <content><![CDATA[<h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>概述
+<ul>
+<li>数据库概述
+<ul>
+<li>数据库的重要性</li>
+<li>数据库是什么
+<ul>
+<li>数据</li>
+<li>数据库</li>
+<li>数据库管理系统</li>
+<li>数据库系统</li>
+</ul>
+</li>
+<li>数据库的来历</li>
+<li>数据库系统的特点</li>
+</ul>
+</li>
+<li>数据模型
+<ul>
+<li>信息世界的概念模型
+<ul>
+<li>基本概念</li>
+<li>概念模型</li>
+</ul>
+</li>
+<li>机器世界的数据模型
+<ul>
+<li>数据模型</li>
+<li>数据模型的三要素</li>
+<li>类别</li>
+<li>层次模型</li>
+<li>网状模型</li>
+<li>关系模型
+<ul>
+<li>关系模型的基本概念</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据库系统结构
+<ul>
+<li>数据库系统模式的概念</li>
+<li>数据库系统的三级模式结构
+<ul>
+<li>模式</li>
+<li>外模式</li>
+<li>内模式</li>
+</ul>
+</li>
+<li>数据库的二级映像功能与数据独立性
+<ul>
+<li>三级模式与二级映像</li>
+<li>外模式/模式映像</li>
+<li>模式/内模式映像</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="数据库概述"><a class="markdownIt-Anchor" href="#数据库概述"></a> 数据库概述</h1>
 <h2 id="数据库的重要性"><a class="markdownIt-Anchor" href="#数据库的重要性"></a> 数据库的重要性</h2>
 <p>如果把计算机分为如下几个层次：</p>
 <ul>
