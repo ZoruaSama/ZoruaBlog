@@ -1,0 +1,1305 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>计算机网络 | 3. 数据链路层 | Zorua's Blog</title><meta name="description" content="计算机网络 | 3. 数据链路层"><meta name="keywords" content="计算机网络,网络,互联网"><meta name="author" content="Zorua"><meta name="copyright" content="Zorua"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://hm.baidu.com"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="计算机网络 | 3. 数据链路层"><meta name="twitter:description" content="计算机网络 | 3. 数据链路层"><meta name="twitter:image" content="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png"><meta property="og:type" content="article"><meta property="og:title" content="计算机网络 | 3. 数据链路层"><meta property="og:url" content="https://zoruasama.gitee.io/2020/05/02/network_2/"><meta property="og:site_name" content="Zorua's Blog"><meta property="og:description" content="计算机网络 | 3. 数据链路层"><meta property="og:image" content="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>const autoChangeMode = 'false'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      now = new Date();
+      hour = now.getHours();
+      isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="https://zoruasama.gitee.io/2020/05/02/network_2/"><link rel="next" title="操作系统 | 1. 操作系统引论" href="https://zoruasama.gitee.io/2020/04/29/operating_system_0/"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?46932657b6919c7a90436ce852f93565";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    title: 'Snackbar.bookmark.title',
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: {"bookmark":{"title":"Snackbar.bookmark.title","message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#2d3035","position":"bottom-left"},
+  baiduPush: true,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false
+}</script><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Zorua's Blog" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">11</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">14</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">6</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思维导图"><span class="toc-number">1.</span> <span class="toc-text"> 思维导图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据链路层概述"><span class="toc-number">2.</span> <span class="toc-text"> 数据链路层概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用点对点信道的数据链路层"><span class="toc-number">3.</span> <span class="toc-text"> 使用点对点信道的数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据链路和帧"><span class="toc-number">3.1.</span> <span class="toc-text"> 数据链路和帧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层像个数字管道"><span class="toc-number">3.1.1.</span> <span class="toc-text"> 数据链路层像个数字管道</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三个基本问题"><span class="toc-number">3.2.</span> <span class="toc-text"> 三个基本问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#封装成帧"><span class="toc-number">3.2.1.</span> <span class="toc-text"> 封装成帧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#透明传输"><span class="toc-number">3.2.2.</span> <span class="toc-text"> 透明传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#差错控制"><span class="toc-number">3.2.3.</span> <span class="toc-text"> 差错控制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#循环冗余检验的原理"><span class="toc-number">3.2.3.1.</span> <span class="toc-text"> 循环冗余检验的原理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#冗余码的计算"><span class="toc-number">3.2.3.1.1.</span> <span class="toc-text"> 冗余码的计算</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#冗余码的计算举例"><span class="toc-number">3.2.3.1.2.</span> <span class="toc-text"> 冗余码的计算举例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#帧检验序列-fcs"><span class="toc-number">3.2.3.2.</span> <span class="toc-text"> 帧检验序列 FCS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#接收端对收到的每一帧进行-crc-检验"><span class="toc-number">3.2.3.3.</span> <span class="toc-text"> 接收端对收到的每一帧进行 CRC 检验</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#点对点协议-ppp"><span class="toc-number">4.</span> <span class="toc-text"> 点对点协议 PPP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ppp-协议的特点"><span class="toc-number">4.1.</span> <span class="toc-text"> PPP 协议的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ppp-协议应满足的需求"><span class="toc-number">4.1.1.</span> <span class="toc-text"> PPP 协议应满足的需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ppp-协议不需要的功能"><span class="toc-number">4.1.2.</span> <span class="toc-text"> PPP 协议不需要的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ppp-协议的组成"><span class="toc-number">4.1.3.</span> <span class="toc-text"> PPP 协议的组成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ppp-协议的帧格式"><span class="toc-number">4.2.</span> <span class="toc-text"> PPP 协议的帧格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#透明传输问题"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 透明传输问题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#字符填充"><span class="toc-number">4.2.1.1.</span> <span class="toc-text"> 字符填充</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#零比特填充"><span class="toc-number">4.2.1.2.</span> <span class="toc-text"> 零比特填充</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#不提供使用序号和确认的可靠传输"><span class="toc-number">4.2.2.</span> <span class="toc-text"> 不提供使用序号和确认的可靠传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ppp-协议的工作状态"><span class="toc-number">4.3.</span> <span class="toc-text"> PPP 协议的工作状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用广播信道的数据链路层"><span class="toc-number">5.</span> <span class="toc-text"> 使用广播信道的数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#局域网的数据链路层"><span class="toc-number">5.1.</span> <span class="toc-text"> 局域网的数据链路层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#局域网的拓扑"><span class="toc-number">5.1.1.</span> <span class="toc-text"> 局域网的拓扑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#媒体共享技术"><span class="toc-number">5.1.2.</span> <span class="toc-text"> 媒体共享技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以太网的两个标准"><span class="toc-number">5.1.3.</span> <span class="toc-text"> 以太网的两个标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据链路层的两个子层"><span class="toc-number">5.1.4.</span> <span class="toc-text"> 数据链路层的两个子层</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#局域网对-llc-子层是透明的"><span class="toc-number">5.1.4.1.</span> <span class="toc-text"> 局域网对 LLC 子层是透明的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#以后一般不考虑llc子层"><span class="toc-number">5.1.4.2.</span> <span class="toc-text"> 以后一般不考虑LLC子层</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器的作用"><span class="toc-number">5.1.5.</span> <span class="toc-text"> 适配器的作用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#csmacd-协议"><span class="toc-number">5.2.</span> <span class="toc-text"> CSMA&#x2F;CD 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#以太网的广播方式发送"><span class="toc-number">5.2.1.</span> <span class="toc-text"> 以太网的广播方式发送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以太网提供的服务"><span class="toc-number">5.2.2.</span> <span class="toc-text"> 以太网提供的服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#载波监听多点接入碰撞检测-csmacd"><span class="toc-number">5.2.3.</span> <span class="toc-text"> 载波监听多点接入&#x2F;碰撞检测  CSMA&#x2F;CD</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#碰撞检测"><span class="toc-number">5.2.3.1.</span> <span class="toc-text"> 碰撞检测</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#检测到碰撞后"><span class="toc-number">5.2.3.1.1.</span> <span class="toc-text"> 检测到碰撞后</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#电磁波在总线上的有限传播速率的影响"><span class="toc-number">5.2.4.</span> <span class="toc-text"> 电磁波在总线上的有限传播速率的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传播时延对载波监听的影响"><span class="toc-number">5.2.5.</span> <span class="toc-text"> 传播时延对载波监听的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#重要特性"><span class="toc-number">5.2.6.</span> <span class="toc-text"> 重要特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#争用期"><span class="toc-number">5.2.7.</span> <span class="toc-text"> 争用期</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#二进制指数类型退避算法"><span class="toc-number">5.2.7.1.</span> <span class="toc-text"> 二进制指数类型退避算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#争用期的长度"><span class="toc-number">5.2.7.2.</span> <span class="toc-text"> 争用期的长度</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#最短有效帧长"><span class="toc-number">5.2.7.3.</span> <span class="toc-text"> 最短有效帧长</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#强化碰撞"><span class="toc-number">5.2.7.4.</span> <span class="toc-text"> 强化碰撞</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用广播信道的以太网"><span class="toc-number">6.</span> <span class="toc-text"> 使用广播信道的以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用集线器的星形拓扑"><span class="toc-number">6.1.</span> <span class="toc-text"> 使用集线器的星形拓扑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#星形网-10base-t"><span class="toc-number">6.1.1.</span> <span class="toc-text"> 星形网 10BASE-T</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以太网在局域网中的统治地位"><span class="toc-number">6.1.2.</span> <span class="toc-text"> 以太网在局域网中的统治地位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集线器的一些特点"><span class="toc-number">6.1.3.</span> <span class="toc-text"> 集线器的一些特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以太网的信道利用率"><span class="toc-number">6.2.</span> <span class="toc-text"> 以太网的信道利用率</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#参数a"><span class="toc-number">6.2.1.</span> <span class="toc-text"> 参数a</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对以太网参数的要求"><span class="toc-number">6.2.2.</span> <span class="toc-text"> 对以太网参数的要求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信道利用率的最大值-s_max"><span class="toc-number">6.2.3.</span> <span class="toc-text"> 信道利用率的最大值 SmaxS_{max}Smax​</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以太网的-mac-层"><span class="toc-number">6.3.</span> <span class="toc-text"> 以太网的 MAC 层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mac-层的硬件地址"><span class="toc-number">6.3.1.</span> <span class="toc-text"> MAC 层的硬件地址</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#48位的mac地址"><span class="toc-number">6.3.1.1.</span> <span class="toc-text"> 48位的MAC地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#适配器检查-mac-地址"><span class="toc-number">6.3.1.2.</span> <span class="toc-text"> 适配器检查 MAC 地址</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mac-帧的格式"><span class="toc-number">6.3.2.</span> <span class="toc-text"> MAC 帧的格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#无效的-mac-帧"><span class="toc-number">6.3.2.1.</span> <span class="toc-text"> 无效的 MAC 帧</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#帧间最小间隔"><span class="toc-number">6.3.2.2.</span> <span class="toc-text"> 帧间最小间隔</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#扩展的以太网"><span class="toc-number">7.</span> <span class="toc-text"> 扩展的以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#在物理层扩展局域网"><span class="toc-number">7.1.</span> <span class="toc-text"> 在物理层扩展局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用集线器扩展局域网"><span class="toc-number">7.1.1.</span> <span class="toc-text"> 用集线器扩展局域网</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在数据链路层扩展以太网"><span class="toc-number">7.2.</span> <span class="toc-text"> 在数据链路层扩展以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网桥的内部结构"><span class="toc-number">7.2.1.</span> <span class="toc-text"> 网桥的内部结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用网桥带来的好处"><span class="toc-number">7.2.1.1.</span> <span class="toc-text"> 使用网桥带来的好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用网桥带来的缺点"><span class="toc-number">7.2.1.2.</span> <span class="toc-text"> 使用网桥带来的缺点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网桥和集线器或转发器不同"><span class="toc-number">7.2.1.3.</span> <span class="toc-text"> 网桥和集线器（或转发器）不同</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#透明网桥"><span class="toc-number">7.2.2.</span> <span class="toc-text"> 透明网桥</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#转发表中登记的信息"><span class="toc-number">7.2.2.1.</span> <span class="toc-text"> 转发表中登记的信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#网桥的自学习和转发帧的步骤归纳"><span class="toc-number">7.2.2.2.</span> <span class="toc-text"> 网桥的自学习和转发帧的步骤归纳</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#透明网桥使用了生成树算法"><span class="toc-number">7.2.2.3.</span> <span class="toc-text"> 透明网桥使用了生成树算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#生成树的得出"><span class="toc-number">7.2.2.3.1.</span> <span class="toc-text"> 生成树的得出</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源路由网桥"><span class="toc-number">7.2.3.</span> <span class="toc-text"> 源路由网桥</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多接口网桥以太网交换机"><span class="toc-number">7.2.4.</span> <span class="toc-text"> 多接口网桥——以太网交换机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#以太网交换机的特点"><span class="toc-number">7.2.4.1.</span> <span class="toc-text"> 以太网交换机的特点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用以太网交换机扩展局域网"><span class="toc-number">7.3.</span> <span class="toc-text"> 用以太网交换机扩展局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟局域网使用的以太网帧格式"><span class="toc-number">7.3.1.</span> <span class="toc-text"> 虚拟局域网使用的以太网帧格式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高速以太网"><span class="toc-number">8.</span> <span class="toc-text"> 高速以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#100base-t-以太网"><span class="toc-number">8.1.</span> <span class="toc-text"> 100BASE-T 以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#特点"><span class="toc-number">8.1.1.</span> <span class="toc-text"> 特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三种不同的物理层标准"><span class="toc-number">8.1.2.</span> <span class="toc-text"> 三种不同的物理层标准</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#吉比特以太网"><span class="toc-number">8.2.</span> <span class="toc-text"> 吉比特以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#吉比特以太网的物理层"><span class="toc-number">8.2.1.</span> <span class="toc-text"> 吉比特以太网的物理层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全双工方式"><span class="toc-number">8.2.2.</span> <span class="toc-text"> 全双工方式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-吉比特以太网"><span class="toc-number">8.3.</span> <span class="toc-text"> 10 吉比特以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#吉比特以太网的物理层-2"><span class="toc-number">8.3.1.</span> <span class="toc-text"> 吉比特以太网的物理层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#端到端的以太网传输"><span class="toc-number">8.3.2.</span> <span class="toc-text"> 端到端的以太网传输</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#以太网从-10-mbs-到10-gbs-的演进"><span class="toc-number">8.3.3.</span> <span class="toc-text"> 以太网从 10 Mb&#x2F;s 到10 Gb&#x2F;s 的演进</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用高速以太网进行宽带接入"><span class="toc-number">8.4.</span> <span class="toc-text"> 使用高速以太网进行宽带接入</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://gitee.com/zoruasama/Zorua-Pic/raw/master/spots.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Zorua's Blog</a></span><span class="toggle-menu pull_right close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span><span class="pull_right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></span><span class="pull_right" id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></span></div><div id="post-info"><div id="post-title"><div class="posttitle">计算机网络 | 3. 数据链路层</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-05-02<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-05-02</time><span class="post-meta__separator">|</span><span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span><div class="post-meta-wordcount"><i class="post-meta__icon fa fa-file-word-o" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">10.4k</span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-clock-o" aria-hidden="true"></i><span>阅读时长: 32 分钟</span><div class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span><span class="post-meta__separator">|</span><i class="post-meta__icon fa fa-comment-o" aria-hidden="true"></i><span>评论数:</span><a href="/2020/05/02/network_2/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/2020/05/02/network_2/" itemprop="commentCount"></span></a></div></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div id="article-container"><h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>数据链路层
+<ul>
+<li>数据链路层概述</li>
+<li>使用点对点信道的数据链路层
+<ul>
+<li>数据链路和帧
+<ul>
+<li>数据链路层像个数字管道</li>
+</ul>
+</li>
+<li>三个基本问题
+<ul>
+<li>封装成帧</li>
+<li>透明传输</li>
+<li>差错控制
+<ul>
+<li>循环冗余检验的原理
+<ul>
+<li>冗余码的计算</li>
+<li>冗余码的计算举例</li>
+</ul>
+</li>
+<li>帧检验序列 FCS</li>
+<li>接收端对收到的每一帧进行 CRC 检验</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>点对点协议 PPP
+<ul>
+<li>PPP 协议的特点
+<ul>
+<li>PPP 协议应满足的需求</li>
+<li>PPP 协议不需要的功能</li>
+<li>PPP 协议的组成</li>
+</ul>
+</li>
+<li>PPP 协议的帧格式
+<ul>
+<li>透明传输问题
+<ul>
+<li>字符填充</li>
+<li>零比特填充</li>
+</ul>
+</li>
+<li>不提供使用序号和确认的可靠传输</li>
+</ul>
+</li>
+<li>PPP 协议的工作状态</li>
+</ul>
+</li>
+<li>使用广播信道的数据链路层
+<ul>
+<li>局域网的数据链路层
+<ul>
+<li>局域网的拓扑</li>
+<li>媒体共享技术</li>
+<li>以太网的两个标准</li>
+<li>数据链路层的两个子层
+<ul>
+<li>局域网对 LLC 子层是透明的</li>
+<li>以后一般不考虑LLC子层</li>
+</ul>
+</li>
+<li>适配器的作用</li>
+</ul>
+</li>
+<li>CSMA/CD 协议
+<ul>
+<li>以太网的广播方式发送</li>
+<li>以太网提供的服务</li>
+<li>载波监听多点接入/碰撞检测  CSMA/CD
+<ul>
+<li>碰撞检测
+<ul>
+<li>检测到碰撞后</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>电磁波在总线上的有限传播速率的影响</li>
+<li>传播时延对载波监听的影响</li>
+<li>重要特性</li>
+<li>争用期
+<ul>
+<li>二进制指数类型退避算法</li>
+<li>争用期的长度</li>
+<li>最短有效帧长</li>
+<li>强化碰撞</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用广播信道的以太网
+<ul>
+<li>使用集线器的星形拓扑
+<ul>
+<li>星形网 10BASE-T</li>
+<li>以太网在局域网中的统治地位</li>
+<li>集线器的一些特点</li>
+</ul>
+</li>
+<li>以太网的信道利用率
+<ul>
+<li>参数a</li>
+<li>对以太网参数的要求</li>
+<li>信道利用率的最大值 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">S_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+</li>
+<li>以太网的 MAC 层
+<ul>
+<li>MAC 层的硬件地址
+<ul>
+<li>48位的MAC地址</li>
+<li>适配器检查 MAC 地址</li>
+</ul>
+</li>
+<li>MAC 帧的格式
+<ul>
+<li>无效的 MAC 帧</li>
+<li>帧间最小间隔</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>扩展的以太网
+<ul>
+<li>在物理层扩展局域网
+<ul>
+<li>用集线器扩展局域网</li>
+</ul>
+</li>
+<li>在数据链路层扩展以太网
+<ul>
+<li>网桥的内部结构
+<ul>
+<li>使用网桥带来的好处</li>
+<li>使用网桥带来的缺点</li>
+<li>网桥和集线器（或转发器）不同</li>
+</ul>
+</li>
+<li>透明网桥
+<ul>
+<li>转发表中登记的信息</li>
+<li>网桥的自学习和转发帧的步骤归纳</li>
+<li>透明网桥使用了生成树算法
+<ul>
+<li>生成树的得出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>源路由网桥</li>
+<li>多接口网桥——以太网交换机
+<ul>
+<li>以太网交换机的特点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>用以太网交换机扩展局域网
+<ul>
+<li>虚拟局域网使用的以太网帧格式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>高速以太网
+<ul>
+<li>100BASE-T 以太网
+<ul>
+<li>特点</li>
+<li>三种不同的物理层标准</li>
+</ul>
+</li>
+<li>吉比特以太网
+<ul>
+<li>吉比特以太网的物理层</li>
+<li>全双工方式</li>
+</ul>
+</li>
+<li>10 吉比特以太网
+<ul>
+<li>吉比特以太网的物理层</li>
+<li>端到端的以太网传输</li>
+<li>以太网从 10 Mb/s 到10 Gb/s 的演进</li>
+</ul>
+</li>
+<li>使用高速以太网进行宽带接入</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="数据链路层概述"><a class="markdownIt-Anchor" href="#数据链路层概述"></a> 数据链路层概述</h1>
+<p>数据链路层使用的信道主要有以下两种类型：</p>
+<ul>
+<li><strong>点对点信道</strong>。这种信道使用一对一的点对点通信方式。</li>
+<li><strong>广播信道</strong>。这种信道使用一对多的广播通信方式，因此过程比较复杂。广播信道上连接的主机很多，因此必须使用专用的共享信道协议来协调这些主机的数据发</li>
+</ul>
+<h1 id="使用点对点信道的数据链路层"><a class="markdownIt-Anchor" href="#使用点对点信道的数据链路层"></a> 使用点对点信道的数据链路层</h1>
+<h2 id="数据链路和帧"><a class="markdownIt-Anchor" href="#数据链路和帧"></a> 数据链路和帧</h2>
+<ul>
+<li><strong>链路</strong>(link)是一条无源的点到点的物理线路段，中间没有任何其他的交换结点。
+<ul>
+<li>一条链路只是一条通路的一个组成部分。</li>
+</ul>
+</li>
+<li><strong>数据链路</strong>(data link) 除了物理线路外，还必须有通信协议来控制这些数据的传输。若把实现这些协议的硬件和软件加到链路上，就构成了数据链路。
+<ul>
+<li>现在最常用的方法是使用适配器（即网卡）来实现这些协议的硬件和软件。</li>
+<li>一般的适配器都包括了数据链路层和物理层这两层的功能。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425174730.png"></p>
+<h3 id="数据链路层像个数字管道"><a class="markdownIt-Anchor" href="#数据链路层像个数字管道"></a> 数据链路层像个数字管道</h3>
+<ul>
+<li>常常在两个对等的数据链路层之间画出一个数字管道，而在这条数字管道上传输的数据单位是<strong>帧</strong>。</li>
+<li>早期的数据通信协议曾叫作<strong>通信规程</strong>(procedure)。因此在数据链路层，规程和协议是同义语。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425174839.png"></li>
+</ul>
+<h2 id="三个基本问题"><a class="markdownIt-Anchor" href="#三个基本问题"></a> 三个基本问题</h2>
+<ol>
+<li>封装成帧</li>
+<li>透明传输</li>
+<li>差错控制</li>
+</ol>
+<h3 id="封装成帧"><a class="markdownIt-Anchor" href="#封装成帧"></a> 封装成帧</h3>
+<ul>
+<li><strong>封装成帧</strong>(framing)就是在一段数据的前后分别添加首部和尾部，然后就构成了一个帧。确定帧的界限。</li>
+<li>首部和尾部的一个重要作用就是进行<strong>帧定界</strong>。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425174935.png"><br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425175040.png"></li>
+</ul>
+<h3 id="透明传输"><a class="markdownIt-Anchor" href="#透明传输"></a> 透明传输</h3>
+<p>如果数据中的某个字节的二进制代码恰好和SOH或EOT一样，数据链路层就会错误地找到“<strong>帧的边界</strong>”。</p>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425175103.png"></p>
+<ul>
+<li>发送端的数据链路层在数据中出现控制字符“SOH”或“EOT”的前面插入一个<strong>转义字符</strong>“ESC”(其十六进制编码是 1B)。</li>
+<li><strong>字节填充</strong>(byte stuffing)或<strong>字符填充</strong>(character stuffing)——接收端的数据链路层在将数据送往网络层之前删除插入的转义字符。</li>
+<li>如果转义字符也出现数据当中，那么应在转义字符前面插入一个转义字符。当接收端收到连续的两个转义字符时，就删除其中前面的一个。</li>
+</ul>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425175329.png"></p>
+<h3 id="差错控制"><a class="markdownIt-Anchor" href="#差错控制"></a> 差错控制</h3>
+<ul>
+<li>在传输过程中可能会产生<strong>比特差错</strong>：1 可能会变成 0 而 0 也可能变成 1。</li>
+<li>在一段时间内，传输错误的比特占所传输比特总数的比率称为<strong>误码率</strong> BER (Bit Error Rate)。</li>
+<li>误码率与信噪比有很大的关系。</li>
+<li>为了保证数据传输的可靠性，在计算机网络传输数据时，必须采用各种差错检测措施。</li>
+</ul>
+<h4 id="循环冗余检验的原理"><a class="markdownIt-Anchor" href="#循环冗余检验的原理"></a> 循环冗余检验的原理</h4>
+<ul>
+<li>在数据链路层传送的帧中，广泛使用了<strong>循环冗余检验</strong> CRC 的检错技术。</li>
+<li>在发送端，先把数据划分为组。假定每组 k 个比特。</li>
+<li>假设待传送的一组数据 M = 101001（现在 k = 6）。我们在 M 的后面再添加供差错检测用的 n 位<strong>冗余码</strong>一起发送。</li>
+</ul>
+<h5 id="冗余码的计算"><a class="markdownIt-Anchor" href="#冗余码的计算"></a> 冗余码的计算</h5>
+<ul>
+<li>用二进制的模 2 运算进行 2n 乘 M 的运算，这相当于在 M 后面添加 n 个 0。</li>
+<li>得到的 (k + n) 位的数除以事先选定好的长度为 (n + 1) 位的<strong>除数</strong> P，得出<strong>商</strong>是 Q 而<strong>余数</strong>是 R，余数 R 比除数 P 少1 位，即 R 是 n位。</li>
+</ul>
+<h5 id="冗余码的计算举例"><a class="markdownIt-Anchor" href="#冗余码的计算举例"></a> 冗余码的计算举例</h5>
+<ul>
+<li>现在 k = 6, M = 101001。</li>
+<li>设 n = 3, 除数 P = 1101，</li>
+<li>被除数是 2nM = 101001000。</li>
+<li>模 2 运算的结果是：商 Q = 110101，余数 R = 001。</li>
+<li>把余数 R 作为冗余码添加在数据 M 的后面发送出去。发送的数据是：2nM + R，即：101001001，共 (k + n) 位。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425202747.png"></li>
+</ul>
+<h4 id="帧检验序列-fcs"><a class="markdownIt-Anchor" href="#帧检验序列-fcs"></a> 帧检验序列 FCS</h4>
+<ul>
+<li>在数据后面添加上的冗余码称为<strong>帧检验序列</strong> FCS (Frame Check Sequence)。</li>
+<li>循环冗余检验 CRC 和帧检验序列 FCS并不等同。
+<ul>
+<li>CRC 是一种常用的<strong>检错方法</strong>，而 FCS 是添加在数据后面的<strong>冗余码</strong>。</li>
+<li>FCS 可以用 CRC 这种方法得出，但 CRC 并非用来获得 FCS 的唯一方法。</li>
+</ul>
+</li>
+</ul>
+<h4 id="接收端对收到的每一帧进行-crc-检验"><a class="markdownIt-Anchor" href="#接收端对收到的每一帧进行-crc-检验"></a> 接收端对收到的每一帧进行 CRC 检验</h4>
+<p>(1) 若得出的余数 R = 0，则判定这个帧没有差错，就接受(accept)。<br />
+(2) 若余数 R <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>≠</mo></mrow><annotation encoding="application/x-tex">\not=</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mrel"><span class="mord"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="rlap"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="inner"><span class="mrel"></span></span><span class="fix"></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.19444em;"><span></span></span></span></span></span></span></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span></span></span></span> 0，则判定这个帧有差错，就丢弃。<br />
+但这种检测方法并不能确定究竟是哪一个或哪几个比特出现了差错。<br />
+只要经过严格的挑选，并使用位数足够多的除数 P，那么出现检测不到的差错的概率就很小很小。</p>
+<blockquote>
+<p><strong>应当注意</strong></p>
+<ul>
+<li>仅用循环冗余检验 CRC 差错检测技术只能做到无差错<strong>接受</strong>(accept)。</li>
+<li>“无差错接受”是指：“凡是接受的帧（即<strong>不包括丢弃的帧</strong>），我们都能以非常接近于 1 的概率认为这些帧在传输过程中没有产生差错”。</li>
+<li>也就是说：“凡是接收端数据链路层接受的帧都没有传输差错”（有差错的帧就丢弃而不接受）。</li>
+<li>要做到“<strong>可靠传输</strong>”（即发送什么就收到什么）就必须再加上<strong>确认</strong>和<strong>重传</strong>机制。</li>
+</ul>
+</blockquote>
+<h1 id="点对点协议-ppp"><a class="markdownIt-Anchor" href="#点对点协议-ppp"></a> 点对点协议 PPP</h1>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425203250.png"></p>
+<h2 id="ppp-协议的特点"><a class="markdownIt-Anchor" href="#ppp-协议的特点"></a> PPP 协议的特点</h2>
+<ul>
+<li>现在全世界使用得最多的数据链路层协议是<strong>点对点协议</strong> PPP (Point-to-Point Protocol)。</li>
+<li>用户使用拨号电话线接入因特网时，一般都是使用 PPP 协议。</li>
+</ul>
+<h3 id="ppp-协议应满足的需求"><a class="markdownIt-Anchor" href="#ppp-协议应满足的需求"></a> PPP 协议应满足的需求</h3>
+<ul>
+<li><strong>简单——这是首要的要求</strong></li>
+<li>封装成帧</li>
+<li>透明性</li>
+<li>多种网络层协议</li>
+<li>多种类型链路</li>
+<li>差错检测</li>
+<li>检测连接状态</li>
+<li>最大传送单元</li>
+<li>网络层地址协商</li>
+<li>数据压缩协商</li>
+</ul>
+<h3 id="ppp-协议不需要的功能"><a class="markdownIt-Anchor" href="#ppp-协议不需要的功能"></a> PPP 协议不需要的功能</h3>
+<ul>
+<li>纠错</li>
+<li>流量控制</li>
+<li>序号</li>
+<li>多点线路</li>
+<li>半双工或单工链路</li>
+</ul>
+<h3 id="ppp-协议的组成"><a class="markdownIt-Anchor" href="#ppp-协议的组成"></a> PPP 协议的组成</h3>
+<ul>
+<li>1992 年制订了 PPP 协议。经过 1993 年和 1994 年的修订，现在的 PPP 协议已成为因特网的正式标准[RFC 1661]。</li>
+<li>PPP 协议有三个组成部分
+<ul>
+<li>一个将 IP 数据报封装到串行链路的方法。</li>
+<li>链路控制协议 LCP (Link Control Protocol)。</li>
+<li>网络控制协议 NCP (Network Control Protocol)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="ppp-协议的帧格式"><a class="markdownIt-Anchor" href="#ppp-协议的帧格式"></a> PPP 协议的帧格式</h2>
+<ul>
+<li>标志字段 F = 0x7E （符号“0x”表示后面的字符是用十六进制表示。十六进制的 7E 的二进制表示是 01111110）。</li>
+<li>地址字段 A 只置为 0xFF。地址字段实际上并不起作用。</li>
+<li>控制字段 C 通常置为 0x03。</li>
+<li>PPP 是<strong>面向字节</strong>的，所有的 PPP 帧的长度都是整数字节。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425203705.png"></li>
+</ul>
+<h3 id="透明传输问题"><a class="markdownIt-Anchor" href="#透明传输问题"></a> 透明传输问题</h3>
+<ul>
+<li>当 PPP 用在同步传输链路时，协议规定采用硬件来完成比特填充（和 HDLC 的做法一样）。</li>
+<li>当 PPP 用在异步传输时，就使用一种特殊的<strong>字符填充法</strong>。</li>
+</ul>
+<h4 id="字符填充"><a class="markdownIt-Anchor" href="#字符填充"></a> 字符填充</h4>
+<ul>
+<li>将信息字段中出现的每一个 0x7E 字节转变成为 2 字节序列(0x7D, 0x5E)。</li>
+<li>若信息字段中出现一个 0x7D 的字节, 则将其转变成为 2 字节序列(0x7D, 0x5D)。</li>
+<li>若信息字段中出现 ASCII 码的控制字符（即数值小于 0x20 的字符），则在该字符前面要加入一个 0x7D 字节，同时将该字符的编码加以改变。</li>
+</ul>
+<h4 id="零比特填充"><a class="markdownIt-Anchor" href="#零比特填充"></a> 零比特填充</h4>
+<ul>
+<li>PPP 协议用在 SONET/SDH 链路时，是使用同步传输（一连串的比特连续传送）。这时 PPP 协议采用零比特填充方法来实现透明传输。</li>
+<li>在发送端，只要发现有 5 个连续 1，则立即填入一个 0。接收端对帧中的比特流进行扫描。每当发现 5 个连续1时，就把这 5 个连续 1 后的一个 0 删除。</li>
+<li>0x7E是01111110。0xFF是11111111。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425204240.png"></li>
+</ul>
+<h3 id="不提供使用序号和确认的可靠传输"><a class="markdownIt-Anchor" href="#不提供使用序号和确认的可靠传输"></a> 不提供使用序号和确认的可靠传输</h3>
+<ul>
+<li>PPP 协议之所以不使用序号和确认机制是出于以下的考虑：
+<ul>
+<li>在数据链路层出现差错的概率不大时，使用比较简单的 PPP 协议较为合理。</li>
+<li>在因特网环境下，PPP 的信息字段放入的数据是 IP 数据报。数据链路层的可靠传输并不能够保证网络层的传输也是可靠的。</li>
+<li>帧检验序列 FCS 字段可保证无差错接受。</li>
+</ul>
+</li>
+</ul>
+<h2 id="ppp-协议的工作状态"><a class="markdownIt-Anchor" href="#ppp-协议的工作状态"></a> PPP 协议的工作状态</h2>
+<ul>
+<li>当用户拨号接入 ISP 时，路由器的调制解调器对拨号做出确认，并建立一条物理连接。</li>
+<li>PC 机向路由器发送一系列的 LCP 分组（封装成多个 PPP 帧）。</li>
+<li>这些分组及其响应选择一些 PPP 参数，和进行网络层配置，NCP 给新接入的 PC机分配一个临时的 IP 地址，使 PC 机成为因特网上的一个主机。</li>
+<li>通信完毕时，NCP 释放网络层连接，收回原来分配出去的 IP 地址。接着，LCP 释放数据链路层连接。最后释放的是物理层的连接。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425204750.png"></li>
+</ul>
+<h1 id="使用广播信道的数据链路层"><a class="markdownIt-Anchor" href="#使用广播信道的数据链路层"></a> 使用广播信道的数据链路层</h1>
+<h2 id="局域网的数据链路层"><a class="markdownIt-Anchor" href="#局域网的数据链路层"></a> 局域网的数据链路层</h2>
+<ul>
+<li>局域网最主要的特点是：网络为一个单位所拥有，且地理范围和站点数目均有限。</li>
+<li>局域网具有如下的一些主要优点：</li>
+<li>具有广播功能，从一个站点可很方便地访问全网。局域网上的主机可共享连接在局域网上的各种硬件和软件资源。</li>
+<li>便于系统的扩展和逐渐地演变，各设备的位置可灵活调整和改变。</li>
+<li>提高了系统的可靠性、可用性和残存性。</li>
+</ul>
+<h3 id="局域网的拓扑"><a class="markdownIt-Anchor" href="#局域网的拓扑"></a> 局域网的拓扑</h3>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425210853.png"></p>
+<h3 id="媒体共享技术"><a class="markdownIt-Anchor" href="#媒体共享技术"></a> 媒体共享技术</h3>
+<ul>
+<li>静态划分信道
+<ul>
+<li>频分复用</li>
+<li>时分复用</li>
+<li>波分复用</li>
+<li>码分复用</li>
+</ul>
+</li>
+<li>动态媒体接入控制（多点接入）
+<ul>
+<li>随机接入</li>
+<li>受控接入 ，如多点线路探询(polling)，或轮询。</li>
+</ul>
+</li>
+</ul>
+<h3 id="以太网的两个标准"><a class="markdownIt-Anchor" href="#以太网的两个标准"></a> 以太网的两个标准</h3>
+<ul>
+<li>DIX Ethernet V2 是世界上第一个局域网产品（以太网）的规约。</li>
+<li>IEEE 的 802.3 标准。</li>
+<li>DIX Ethernet V2 标准与 IEEE 的 802.3 标准只有很小的差别，因此可以将 802.3 局域网简称为“<strong>以太网</strong>”。</li>
+<li>严格说来，“以太网”应当是指符合 DIX Ethernet V2 标准的局域网</li>
+</ul>
+<h3 id="数据链路层的两个子层"><a class="markdownIt-Anchor" href="#数据链路层的两个子层"></a> 数据链路层的两个子层</h3>
+<ul>
+<li>为了使数据链路层能更好地适应多种局域网标准，802 委员会就将局域网的数据链路层拆成两个子层：</li>
+<li>逻辑链路控制 LLC (Logical Link Control)子层</li>
+<li>媒体接入控制 MAC (Medium Access Control)子层。</li>
+<li>与接入到传输媒体有关的内容都放在 MAC子层，而 LLC 子层则与传输媒体无关，不管采用何种协议的局域网对 LLC 子层来说都是透明的</li>
+</ul>
+<h4 id="局域网对-llc-子层是透明的"><a class="markdownIt-Anchor" href="#局域网对-llc-子层是透明的"></a> 局域网对 LLC 子层是透明的</h4>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200425211053.png"></p>
+<h4 id="以后一般不考虑llc子层"><a class="markdownIt-Anchor" href="#以后一般不考虑llc子层"></a> 以后一般不考虑LLC子层</h4>
+<ul>
+<li>由于 TCP/IP 体系经常使用的局域网是 DIX Ethernet V2 而不是 802.3 标准中的几种局域网，因此现在 802 委员会制定的逻辑链路控制子层 LLC（即 802.2 标准）的作用已经不大了。</li>
+<li>很多厂商生产的适配器上就仅装有 MAC 协议而没有 LLC 协议。</li>
+</ul>
+<h3 id="适配器的作用"><a class="markdownIt-Anchor" href="#适配器的作用"></a> 适配器的作用</h3>
+<ul>
+<li>网络接口板又称为<strong>通信适配器</strong>(adapter)或<strong>网络接口卡</strong> NIC (Network Interface Card)，或“<strong>网卡</strong>”。</li>
+<li>适配器的重要功能：</li>
+<li>进行串行/并行转换。</li>
+<li>对数据进行缓存。</li>
+<li>在计算机的操作系统安装设备驱动程序。</li>
+<li>实现以太网协议。</li>
+</ul>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427161937.png"></p>
+<h2 id="csmacd-协议"><a class="markdownIt-Anchor" href="#csmacd-协议"></a> CSMA/CD 协议</h2>
+<ul>
+<li>最初的以太网是将许多计算机都连接到一根总线上。当初认为这样的连接方法既简单又可靠，因为总线上没有有源器件。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427161959.png"></li>
+</ul>
+<h3 id="以太网的广播方式发送"><a class="markdownIt-Anchor" href="#以太网的广播方式发送"></a> 以太网的广播方式发送</h3>
+<ul>
+<li>总线上的每一个工作的计算机都能检测到 B 发送的数据信号。</li>
+<li>由于只有计算机 D 的地址与数据帧首部写入的地址一致，因此只有 D 才接收这个数据帧。</li>
+<li>其他所有的计算机（A, C 和 E）都检测到不是发送给它们的数据帧，因此就丢弃这个数据帧而不能够收下来。</li>
+<li>具有广播特性的总线上实现了一对一的通信。</li>
+</ul>
+<p>为了通信的简便以太网采取了两种重要的措施：</p>
+<ul>
+<li>采用较为灵活的无连接的工作方式，即不必先建立连接就可以直接发送数据。</li>
+<li>以太网对发送的数据帧不进行编号，也不要求对方发回确认。
+<ul>
+<li>这样做的理由是局域网信道的质量很好，因信道质量产生差错的概率是很小的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="以太网提供的服务"><a class="markdownIt-Anchor" href="#以太网提供的服务"></a> 以太网提供的服务</h3>
+<ul>
+<li>以太网提供的服务是不可靠的交付，即尽最大努力的交付。</li>
+<li>当目的站收到有差错的数据帧时就丢弃此帧，其他什么也不做。差错的纠正由高层来决定。</li>
+<li>如果高层发现丢失了一些数据而进行重传，但以太网并不知道这是一个重传的帧，而是当作一个新的数据帧来发送。</li>
+</ul>
+<p>以太网发送的数据都使用曼彻斯特(Manchester)编码。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427162313.png"></p>
+<h3 id="载波监听多点接入碰撞检测-csmacd"><a class="markdownIt-Anchor" href="#载波监听多点接入碰撞检测-csmacd"></a> 载波监听多点接入/碰撞检测  CSMA/CD</h3>
+<ul>
+<li>CSMA/CD 表示 Carrier Sense Multiple Access with Collision Detection。</li>
+<li>“<strong>多点接入</strong>”表示许多计算机以多点接入的方式连接在一根总线上。</li>
+<li>“<strong>载波监听</strong>”是指每一个站在发送数据之前先要检测一下总线上是否有其他计算机在发送数据，如果有，则暂时不要发送数据，以免发生碰撞。</li>
+<li>总线上并没有什么“载波”。因此， “载波监听”就是用电子技术检测总线上有没有其他计算机发送的数据信号。</li>
+</ul>
+<h4 id="碰撞检测"><a class="markdownIt-Anchor" href="#碰撞检测"></a> 碰撞检测</h4>
+<ul>
+<li>“<strong>碰撞检测</strong>”就是计算机边发送数据边检测信道上的信号电压大小。</li>
+<li>当几个站同时在总线上发送数据时，总线上的信号电压摆动值将会增大（互相叠加）。</li>
+<li>当一个站检测到的信号电压摆动值超过一定的门限值时，就认为总线上至少有两个站同时在发送数据，表明产生了碰撞。</li>
+<li>所谓“碰撞”就是发生了冲突。因此“碰撞检测”也称为“冲突检测”。</li>
+</ul>
+<h5 id="检测到碰撞后"><a class="markdownIt-Anchor" href="#检测到碰撞后"></a> 检测到碰撞后</h5>
+<ul>
+<li>在发生碰撞时，总线上传输的信号产生了严重的失真，无法从中恢复出有用的信息来。</li>
+<li>每一个正在发送数据的站，一旦发现总线上出现了碰撞，就要立即停止发送，免得继续浪费网络资源，然后等待一段随机时间后再次发送。</li>
+</ul>
+<h3 id="电磁波在总线上的有限传播速率的影响"><a class="markdownIt-Anchor" href="#电磁波在总线上的有限传播速率的影响"></a> 电磁波在总线上的有限传播速率的影响</h3>
+<ul>
+<li>当某个站监听到总线是空闲时，也可能总线并非真正是空闲的。</li>
+<li>A 向 B 发出的信息，要经过一定的时间后才能传送到 B。</li>
+<li>B 若在 A 发送的信息到达 B 之前发送自己的帧(因为这时 B 的载波监听检测不到 A 所发送的信息)，则必然要在某个时间和 A 发送的帧发生碰撞。</li>
+<li>碰撞的结果是两个帧都变得无用。</li>
+</ul>
+<h3 id="传播时延对载波监听的影响"><a class="markdownIt-Anchor" href="#传播时延对载波监听的影响"></a> 传播时延对载波监听的影响</h3>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427162724.png"><br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427162741.png"></p>
+<h3 id="重要特性"><a class="markdownIt-Anchor" href="#重要特性"></a> 重要特性</h3>
+<ul>
+<li>使用 CSMA/CD 协议的以太网不能进行<strong>全双工通信而只能进行双向交替通信（半双工通信）</strong>。</li>
+<li>每个站在发送数据之后的一小段时间内，存在着遭遇碰撞的可能性。</li>
+<li>这种<strong>发送的不确定性</strong>使整个以太网的平均通信量远小于以太网的最高数据率。</li>
+</ul>
+<h3 id="争用期"><a class="markdownIt-Anchor" href="#争用期"></a> 争用期</h3>
+<ul>
+<li>最先发送数据帧的站，在发送数据帧后至多经过时间  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span> （两倍的端到端往返时延）就可知道发送的数据帧是否遭受了碰撞。</li>
+<li>以太网的端到端往返时延  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span> 称为<strong>争用期</strong>，或<strong>碰撞窗口</strong>。</li>
+<li>经过争用期这段时间还没有检测到碰撞，才能肯定这次发送不会发生碰撞。</li>
+</ul>
+<h4 id="二进制指数类型退避算法"><a class="markdownIt-Anchor" href="#二进制指数类型退避算法"></a> 二进制指数类型退避算法</h4>
+<ul>
+<li>发生碰撞的站在停止发送数据后，要推迟（退避）一个随机时间才能再发送数据。
+<ul>
+<li>确定基本退避时间，一般是取为争用期 2 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>τ</mi></mrow><annotation encoding="application/x-tex">\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span>。</li>
+<li>定义重传次数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo separator="true">,</mo><mi>k</mi><mo>≤</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">k,k \le 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">0</span></span></span></span>，即
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi><mo>=</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">{</mo><mi mathvariant="normal">重</mi><mi mathvariant="normal">传</mi><mi mathvariant="normal">次</mi><mi mathvariant="normal">数</mi><mo separator="true">,</mo><mn>10</mn><mo stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">k = \min\{重传次数, 10\}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop">min</span><span class="mopen">{</span><span class="mord cjk_fallback">重</span><span class="mord cjk_fallback">传</span><span class="mord cjk_fallback">次</span><span class="mord cjk_fallback">数</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mclose">}</span></span></span></span></li>
+</ul>
+</li>
+<li>从整数集合<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>1</mn><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><mo stretchy="false">(</mo><msup><mn>2</mn><mi>k</mi></msup><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[0,1,\cdots,(2^k-1)]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.099108em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mopen">(</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.849108em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mclose">]</span></span></span></span>中随机地取出一个数，记为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span>。重传所需的时延就是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span></span></span></span> 倍的基本退避时间。</li>
+<li>当重传达 16 次仍不能成功时即丢弃该帧，并向高层报告。</li>
+</ul>
+</li>
+</ul>
+<h4 id="争用期的长度"><a class="markdownIt-Anchor" href="#争用期的长度"></a> 争用期的长度</h4>
+<ul>
+<li>以太网取  <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>51.2</mn><mi>μ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">51.2\mu s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">5</span><span class="mord">1</span><span class="mord">.</span><span class="mord">2</span><span class="mord mathdefault">μ</span><span class="mord mathdefault">s</span></span></span></span>为争用期的长度。</li>
+<li>对于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>10</mn><mi>M</mi><mi>b</mi><mi mathvariant="normal">/</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">10 Mb/s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mord">0</span><span class="mord mathdefault" style="margin-right:0.10903em;">M</span><span class="mord mathdefault">b</span><span class="mord">/</span><span class="mord mathdefault">s</span></span></span></span> 以太网，在争用期内可发送<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>512</mn><mi>b</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">512 bit</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">1</span><span class="mord">2</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span></span></span></span>，即 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>64</mn></mrow><annotation encoding="application/x-tex">64</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">4</span></span></span></span> 字节。</li>
+<li>以太网在发送数据时，若前 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>64</mn></mrow><annotation encoding="application/x-tex">64</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">6</span><span class="mord">4</span></span></span></span>字节没有发生冲突，则后续的数据就不会发生冲突。</li>
+</ul>
+<h4 id="最短有效帧长"><a class="markdownIt-Anchor" href="#最短有效帧长"></a> 最短有效帧长</h4>
+<ul>
+<li>如果发生冲突，就一定是在发送的前 64 字节之内。</li>
+<li>由于一检测到冲突就立即中止发送，这时已经发送出去的数据一定小于 64 字节。</li>
+<li>以太网规定了<strong>最短有效帧长为 64 字节，凡长度小于 64 字节的帧都是由于冲突而异常中止的无效帧</strong>。</li>
+</ul>
+<h4 id="强化碰撞"><a class="markdownIt-Anchor" href="#强化碰撞"></a> 强化碰撞</h4>
+<ul>
+<li>当发送数据的站一旦发现发生了碰撞时：
+<ul>
+<li>立即停止发送数据；</li>
+<li>再继续发送若干比特的人为干扰信号(jamming signal)，以便让所有用户都知道现在已经发生了碰撞。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427164014.png"></p>
+<h1 id="使用广播信道的以太网"><a class="markdownIt-Anchor" href="#使用广播信道的以太网"></a> 使用广播信道的以太网</h1>
+<h2 id="使用集线器的星形拓扑"><a class="markdownIt-Anchor" href="#使用集线器的星形拓扑"></a> 使用集线器的星形拓扑</h2>
+<ul>
+<li>传统以太网最初是使用粗同轴电缆，后来演进到使用比较便宜的细同轴电缆，最后发展为使用更便宜和更灵活的双绞线。</li>
+<li>这种以太网采用星形拓扑，在星形的中心则增加了一种可靠性非常高的设备，叫做<strong>集线器</strong>(hub)<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427164237.png"></li>
+</ul>
+<h3 id="星形网-10base-t"><a class="markdownIt-Anchor" href="#星形网-10base-t"></a> 星形网 10BASE-T</h3>
+<ul>
+<li>不用电缆而使用无屏蔽双绞线。每个站需要用两对双绞线，分别用于发送和接收。</li>
+<li>集线器使用了大规模集成电路芯片，因此这样的硬件设备的可靠性已大大提高了。</li>
+</ul>
+<h3 id="以太网在局域网中的统治地位"><a class="markdownIt-Anchor" href="#以太网在局域网中的统治地位"></a> 以太网在局域网中的统治地位</h3>
+<ul>
+<li>10BASE-T 的通信距离稍短，每个站到集线器的距离不超过 100 m。</li>
+<li>这种 10 Mb/s 速率的无屏蔽双绞线星形网的出现，既降低了成本，又提高了可靠性。</li>
+<li>10BASE-T 双绞线以太网的出现，是局域网发展史上的一个非常重要的里程碑，它为以太网在局域网中的统治地位奠定了牢固的基础。</li>
+</ul>
+<h3 id="集线器的一些特点"><a class="markdownIt-Anchor" href="#集线器的一些特点"></a> 集线器的一些特点</h3>
+<ul>
+<li>集线器是使用电子器件来模拟实际电缆线的工作，因此整个系统仍然像一个传统的以太网那样运行。</li>
+<li>使用集线器的以太网在逻辑上仍是一个总线网，各工作站使用的还是 CSMA/CD 协议，并共享逻辑上的总线。</li>
+<li>集线器很像一个多接口的转发器，工作在物理层。</li>
+</ul>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427164444.png"></p>
+<h2 id="以太网的信道利用率"><a class="markdownIt-Anchor" href="#以太网的信道利用率"></a> 以太网的信道利用率</h2>
+<ul>
+<li>以太网的信道被占用的情况：
+<ul>
+<li>争用期长度为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>τ</mi></mrow><annotation encoding="application/x-tex">2\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span>，即端到端传播时延的两倍。检测到碰撞后不发送干扰信号。</li>
+<li>帧长为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo stretchy="false">(</mo><mi>b</mi><mi>i</mi><mi>t</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">L (bit)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mopen">(</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span></span>，数据发送速率为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo stretchy="false">(</mo><mi>b</mi><mi mathvariant="normal">/</mi><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">C (b/s)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathdefault">b</span><span class="mord">/</span><span class="mord mathdefault">s</span><span class="mclose">)</span></span></span></span>，因而帧的发送时间为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mi mathvariant="normal">/</mi><mi>C</mi><mo>=</mo><msub><mi>T</mi><mn>0</mn></msub><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">L/C = T_0 (s)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">L</span><span class="mord">/</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mclose">)</span></span></span></span>。</li>
+</ul>
+</li>
+<li>一个帧从开始发送，经可能发生的碰撞后，将再重传数次，到发送成功且信道转为空闲(即再经过时间   使得信道上无信号在传播)时为止，是发送一帧所需的平均时间。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427164648.png"></li>
+</ul>
+<h3 id="参数a"><a class="markdownIt-Anchor" href="#参数a"></a> 参数a</h3>
+<ul>
+<li>要提高以太网的信道利用率，就必须减小 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>τ</mi></mrow><annotation encoding="application/x-tex">\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span> 与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">T_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 之比。在以太网中定义了参数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>，它是以太网单程端到端时延 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>t</mi><mi>a</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">a</span><span class="mord mathdefault">u</span></span></span></span> 与帧的发送时间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">T_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 之比：</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mi>τ</mi><msub><mi>T</mi><mn>0</mn></msub></mfrac></mstyle></mrow><annotation encoding="application/x-tex">a=\dfrac{\tau}{T_0}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.9435600000000002em;vertical-align:-0.8360000000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>→</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">a\rightarrow 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">→</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>表示一发生碰撞就立即可以检测出来，并立即停止发送，因而信道利用率很高。</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span>越大，表明争用期所占的比例增大，每发生一次碰撞就浪费许多信道资源，使得信道利用率明显降低。</li>
+</ul>
+<h3 id="对以太网参数的要求"><a class="markdownIt-Anchor" href="#对以太网参数的要求"></a> 对以太网参数的要求</h3>
+<ul>
+<li>当数据率一定时，以太网的连线的长度受到限制，否则 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>τ</mi></mrow><annotation encoding="application/x-tex">\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span> 的数值会太大。</li>
+<li>以太网的帧长不能太短，否则 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">T_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的值会太小，使 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">a</span></span></span></span> 值太大。</li>
+</ul>
+<h3 id="信道利用率的最大值-s_max"><a class="markdownIt-Anchor" href="#信道利用率的最大值-s_max"></a> 信道利用率的最大值 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">S_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></h3>
+<ul>
+<li>在<strong>理想化</strong>的情况下，以太网上的各站发送数据都不会产生碰撞（这显然已经不是 CSMA/CD，而是需要使用一种特殊的调度方法），即总线一旦空闲就有某一个站立即发送数据。</li>
+<li>发送一帧占用线路的时间是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mn>0</mn></msub><mo>+</mo><mi>τ</mi></mrow><annotation encoding="application/x-tex">T_0+\tau</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span></span>，而帧本身的发送时间是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>T</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">T_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>。于是我们可计算出<strong>理想情况下</strong>的极限信道利用率<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub></mrow><annotation encoding="application/x-tex">S_{max}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>为：
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>S</mi><mrow><mi>m</mi><mi>a</mi><mi>x</mi></mrow></msub><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><msub><mi>T</mi><mn>0</mn></msub><mrow><msub><mi>T</mi><mn>0</mn></msub><mo>+</mo><mi>τ</mi></mrow></mfrac></mstyle><mo>=</mo><mstyle displaystyle="true" scriptlevel="0"><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><mi>a</mi></mrow></mfrac></mstyle></mrow><annotation encoding="application/x-tex">S_{max}=\dfrac{T_0}{T_0+\tau}=\dfrac{1}{1+a}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.05764em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.19633em;vertical-align:-0.8360000000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.36033em;"><span style="top:-2.3139999999999996em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault" style="margin-right:0.1132em;">τ</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.8360000000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.09077em;vertical-align:-0.7693300000000001em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.32144em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">a</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693300000000001em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></li>
+</ul>
+</li>
+</ul>
+<h2 id="以太网的-mac-层"><a class="markdownIt-Anchor" href="#以太网的-mac-层"></a> 以太网的 MAC 层</h2>
+<h3 id="mac-层的硬件地址"><a class="markdownIt-Anchor" href="#mac-层的硬件地址"></a> MAC 层的硬件地址</h3>
+<ul>
+<li>在局域网中，<strong>硬件地址</strong>又称为<strong>物理地址</strong>，或 <strong>MAC 地址</strong>。</li>
+<li>802 标准所说的“地址”严格地讲应当是每一个站的“<strong>名字</strong>”或<strong>标识符</strong>。</li>
+<li>但鉴于大家都早已习惯了将这种 48 位的“名字”称为“地址”，所以本书也采用这种习惯用法，尽管这种说法并不太严格。</li>
+</ul>
+<h4 id="48位的mac地址"><a class="markdownIt-Anchor" href="#48位的mac地址"></a> 48位的MAC地址</h4>
+<ul>
+<li>IEEE 的<strong>注册管理机构</strong> RA 负责向厂家分配地址字段的前三个字节(即高位 24 位)。</li>
+<li>地址字段中的后三个字节(即低位 24 位)由厂家自行指派，称为<strong>扩展标识符</strong>，必须保证生产出的适配器没有重复地址。</li>
+<li>一个地址块可以生成224个不同的地址。这种 48 位地址称为 MAC-48，它的通用名称是EUI-48。</li>
+<li>“MAC地址”实际上就是适配器地址或适配器标识符EUI-48。</li>
+</ul>
+<h4 id="适配器检查-mac-地址"><a class="markdownIt-Anchor" href="#适配器检查-mac-地址"></a> 适配器检查 MAC 地址</h4>
+<ul>
+<li>适配器从网络上每收到一个 MAC 帧就首先用硬件检查 MAC 帧中的 MAC 地址.
+<ul>
+<li>如果是发往本站的帧则收下，然后再进行其他的处理。</li>
+<li>否则就将此帧丢弃，不再进行其他的处理。</li>
+</ul>
+</li>
+<li>“发往本站的帧”包括以下三种帧：
+<ul>
+<li>单播(unicast)帧（一对一）</li>
+<li>广播(broadcast)帧（一对全体）</li>
+<li>多播(multicast)帧（一对多）</li>
+</ul>
+</li>
+</ul>
+<h3 id="mac-帧的格式"><a class="markdownIt-Anchor" href="#mac-帧的格式"></a> MAC 帧的格式</h3>
+<ul>
+<li>常用的以太网MAC帧格式有两种标准 ：
+<ul>
+<li>DIX Ethernet V2 标准</li>
+<li>IEEE 的 802.3 标准</li>
+</ul>
+</li>
+<li>最常用的 MAC 帧是<strong>以太网 V2 的格式</strong>。</li>
+</ul>
+<p><img src="/img/loading.gif" alt="以太网的 MAC 帧格式" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502193859.png"></p>
+<ul>
+<li>类型字段用来标志上一层使用的是什么协议，以便把收到的 MAC 帧的数据上交给上一层的这个协议。</li>
+<li>数据字段的正式名称是 MAC 客户数据字段最小长度 64 字节 - 18 字节的首部和尾部 = 数据字段的最小长度46字节</li>
+<li>当传输媒体的误码率为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mrow><mo>−</mo><mn>8</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1\times 10^{-8}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">8</span></span></span></span></span></span></span></span></span></span></span></span> 时，MAC 子层可使未检测到的差错小于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mrow><mo>−</mo><mn>14</mn></mrow></msup></mrow><annotation encoding="application/x-tex">1\times 10^{-14}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></span>。</li>
+<li>当数据字段的长度小于 46 字节时，应在数据字段的后面加入整数字节的填充字段，以保证以太网的 MAC 帧长不小于 64 字节。</li>
+<li>在帧的前面插入的 8 字节中的第一个字段共 7 个字节，是前同步码，用来迅速实现 MAC 帧的比特同步。第二个字段是帧开始定界符，表示后面的信息就是MAC 帧。</li>
+<li>为了达到比特同步，在传输媒体上实际传送的要比 MAC 帧还多 8 个字节。</li>
+</ul>
+<h4 id="无效的-mac-帧"><a class="markdownIt-Anchor" href="#无效的-mac-帧"></a> 无效的 MAC 帧</h4>
+<ul>
+<li>数据字段的长度与长度字段的值不一致；</li>
+<li>帧的长度不是整数个字节；</li>
+<li>用收到的帧检验序列 FCS 查出有差错；</li>
+<li>数据字段的长度不在 46 ~ 1500 字节之间。</li>
+<li>有效的 MAC 帧长度为 64 ~ 1518 字节之间。</li>
+<li>对于检查出的无效 MAC 帧就简单地丢弃。以太网不负责重传丢弃的帧。</li>
+</ul>
+<h4 id="帧间最小间隔"><a class="markdownIt-Anchor" href="#帧间最小间隔"></a> 帧间最小间隔</h4>
+<ul>
+<li>帧间最小间隔为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9.6</mn><mi>μ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">9.6 \mu s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">9</span><span class="mord">.</span><span class="mord">6</span><span class="mord mathdefault">μ</span><span class="mord mathdefault">s</span></span></span></span>，相当于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>96</mn><mi>b</mi><mi>i</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">96 bit</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">9</span><span class="mord">6</span><span class="mord mathdefault">b</span><span class="mord mathdefault">i</span><span class="mord mathdefault">t</span></span></span></span> 的发送时间。</li>
+<li>一个站在检测到总线开始空闲后，还要等待 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9.6</mn><mi>μ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">9.6 \mu s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">9</span><span class="mord">.</span><span class="mord">6</span><span class="mord mathdefault">μ</span><span class="mord mathdefault">s</span></span></span></span>才能再次发送数据。</li>
+<li>这样做是为了使刚刚收到数据帧的站的接收缓存来得及清理，做好接收下一帧的准备。</li>
+</ul>
+<h1 id="扩展的以太网"><a class="markdownIt-Anchor" href="#扩展的以太网"></a> 扩展的以太网</h1>
+<h2 id="在物理层扩展局域网"><a class="markdownIt-Anchor" href="#在物理层扩展局域网"></a> 在物理层扩展局域网</h2>
+<p>主机使用光纤和一对光纤调制解调器连接到集线器。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502194610.png"></p>
+<hr />
+<p>用多个集线器可连成更大的局域网。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502194637.png"></p>
+<hr />
+<p>用集线器组成更大的局域网都在一个碰撞域中。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502194904.png"></p>
+<h3 id="用集线器扩展局域网"><a class="markdownIt-Anchor" href="#用集线器扩展局域网"></a> 用集线器扩展局域网</h3>
+<ul>
+<li>优点
+<ul>
+<li>使原来属于不同碰撞域的局域网上的计算机能够进行跨碰撞域的通信。</li>
+<li>扩大了局域网覆盖的地理范围。</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>碰撞域增大了，但总的吞吐量并未提高。</li>
+<li>如果不同的碰撞域使用不同的数据率，那么就不能用集线器将它们互连起来。</li>
+</ul>
+</li>
+</ul>
+<h2 id="在数据链路层扩展以太网"><a class="markdownIt-Anchor" href="#在数据链路层扩展以太网"></a> 在数据链路层扩展以太网</h2>
+<ul>
+<li>在数据链路层扩展局域网是使用<strong>网桥</strong>。</li>
+<li>网桥工作在数据链路层，它根据 MAC 帧的目的地址对收到的帧进行转发。</li>
+<li>网桥具有过滤帧的功能。当网桥收到一个帧时，并不是向所有的接口转发此帧，而是先检查此帧的目的 MAC 地址，然后再确定将该帧转发到哪一个接口。</li>
+</ul>
+<h3 id="网桥的内部结构"><a class="markdownIt-Anchor" href="#网桥的内部结构"></a> 网桥的内部结构</h3>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502195047.png"></p>
+<h4 id="使用网桥带来的好处"><a class="markdownIt-Anchor" href="#使用网桥带来的好处"></a> 使用网桥带来的好处</h4>
+<ul>
+<li>过滤通信量。</li>
+<li>扩大了物理范围。</li>
+<li>提高了可靠性。</li>
+<li>可互连不同物理层、不同 MAC 子层和不同速率（如10 Mb/s 和 100 Mb/s 以太网）的局域网。<br />
+<img src="/img/loading.gif" alt="网桥使各网段成为隔离开的碰撞域" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502195123.png"></li>
+</ul>
+<h4 id="使用网桥带来的缺点"><a class="markdownIt-Anchor" href="#使用网桥带来的缺点"></a> 使用网桥带来的缺点</h4>
+<ul>
+<li>存储转发增加了时延。</li>
+<li>在MAC 子层并没有流量控制功能。</li>
+<li>具有不同 MAC 子层的网段桥接在一起时时延更大。</li>
+<li>网桥只适合于用户数不太多(不超过几百个)和通信量不太大的局域网，否则有时还会因传播过多的广播信息而产生网络拥塞。这就是所谓的<strong>广播风暴</strong>。</li>
+</ul>
+<hr />
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502195320.png"></p>
+<h4 id="网桥和集线器或转发器不同"><a class="markdownIt-Anchor" href="#网桥和集线器或转发器不同"></a> 网桥和集线器（或转发器）不同</h4>
+<ul>
+<li>集线器在转发帧时，不对传输媒体进行检测。</li>
+<li>网桥在转发帧之前必须执行 CSMA/CD 算法。
+<ul>
+<li>若在发送过程中出现碰撞，就必须停止发送和进行退避。</li>
+</ul>
+</li>
+</ul>
+<h3 id="透明网桥"><a class="markdownIt-Anchor" href="#透明网桥"></a> 透明网桥</h3>
+<p>目前使用得最多的网桥是<strong>透明网桥</strong>(transparent bridge)。<br />
+“透明”是指局域网上的站点并不知道所发送的帧将经过哪几个网桥，因为网桥对各站来说是看不见的。<br />
+透明网桥是一种<strong>即插即用设备</strong>，其标准是 IEEE 802.1D。</p>
+<p>网桥应当按照以下自学习算法处理收到的帧和建立转发表：</p>
+<ul>
+<li>若从 A 发出的帧从接口 x 进入了某网桥，那么从这个接口出发沿相反方向一定可把一个帧传送到 A。</li>
+<li>网桥每收到一个帧，就记下其源地址和进入网桥的接口，作为转发表中的一个项目。</li>
+<li>在建立转发表时是把帧首部中的源地址写在“地址”这一栏的下面。</li>
+<li>在转发帧时，则是根据收到的帧首部中的目的地址来转发的。这时就把在“地址”栏下面已经记下的源地址当作目的地址，而把记下的进入接口当作转发接口。</li>
+</ul>
+<p><img src="/img/loading.gif" alt="转发表的建立过程举例" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502195641.png"></p>
+<h4 id="转发表中登记的信息"><a class="markdownIt-Anchor" href="#转发表中登记的信息"></a> 转发表中登记的信息</h4>
+<ul>
+<li>在网桥的转发表中写入的信息除了<strong>地址</strong>和<strong>接口</strong>外，还有帧进入该网桥的<strong>时间</strong>。</li>
+<li>这是因为以太网的拓扑可能经常会发生变化，站点也可能会更换适配器（这就改变了站点的地址）。另外，以太网上的工作站并非总是接通电源的。</li>
+<li>把每个帧到达网桥的时间登记下来，就可以在转发表中只保留网络拓扑的<strong>最新状态信息</strong>。这样就使得网桥中的转发表能反映当前网络的最新拓扑状态。</li>
+</ul>
+<h4 id="网桥的自学习和转发帧的步骤归纳"><a class="markdownIt-Anchor" href="#网桥的自学习和转发帧的步骤归纳"></a> 网桥的自学习和转发帧的步骤归纳</h4>
+<ul>
+<li>网桥收到一帧后先进行<strong>自学习</strong>。查找转发表中与收到帧的源地址有无相匹配的项目。如没有，就在转发表中增加一个项目（源地址、进入的接口和时间）。如有，则把原有的项目进行更新。</li>
+<li><strong>转发帧</strong>。查找转发表中与收到帧的目的地址有无相匹配的项目。
+<ul>
+<li>如没有，则通过所有其他接口（但进入网桥的接口除外）按进行转发。</li>
+<li>如有，则按转发表中给出的接口进行转发。</li>
+<li>若转发表中给出的接口就是该帧进入网桥的接口，则应丢弃这个帧（因为这时不需要经过网桥进行转发）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="透明网桥使用了生成树算法"><a class="markdownIt-Anchor" href="#透明网桥使用了生成树算法"></a> 透明网桥使用了生成树算法</h4>
+<p>这是为了避免产生转发的帧在网络中不断地兜圈子。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502195902.png"></p>
+<h5 id="生成树的得出"><a class="markdownIt-Anchor" href="#生成树的得出"></a> 生成树的得出</h5>
+<ul>
+<li>互连在一起的网桥在进行彼此通信后，就能找出原来的网络拓扑的一个子集。在这个子集里，整个连通的网络中不存在回路，即<strong>在任何两个站之间只有一条路径</strong>。</li>
+<li>为了避免产生转发的帧在网络中不断地兜圈子。</li>
+<li>为了得出能够反映网络拓扑发生变化时的生成树，在生成树上的根网桥每隔一段时间还要对生成树的拓扑进行更新。</li>
+</ul>
+<h3 id="源路由网桥"><a class="markdownIt-Anchor" href="#源路由网桥"></a> 源路由网桥</h3>
+<ul>
+<li>透明网桥容易安装，但网络资源的利用不充分。</li>
+<li><strong>源路由</strong>(source route)网桥在发送帧时将详细的路由信息放在帧的首部中。</li>
+<li>源站以广播方式向欲通信的目的站发送一个发现帧，每个发现帧都记录所经过的路由。</li>
+<li>发现帧到达目的站时就沿各自的路由返回源站。源站在得知这些路由后，从所有可能的路由中选择出一个最佳路由。凡从该源站向该目的站发送的帧的首部，都必须携带源站所确定的这一路由信息。</li>
+</ul>
+<h3 id="多接口网桥以太网交换机"><a class="markdownIt-Anchor" href="#多接口网桥以太网交换机"></a> 多接口网桥——以太网交换机</h3>
+<ul>
+<li>1990 年问世的<strong>交换式集线器</strong>(switching hub)，可明显地提高局域网的性能。</li>
+<li>交换式集线器常称为<strong>以太网交换机</strong>(switch)或第二层交换机（表明此交换机工作在数据链路层）。</li>
+<li>以太网交换机通常都有十几个接口。因此，以太网交换机实质上就是一个<strong>多接口的网桥</strong>，可见交换机工作在数据链路层。</li>
+</ul>
+<h4 id="以太网交换机的特点"><a class="markdownIt-Anchor" href="#以太网交换机的特点"></a> 以太网交换机的特点</h4>
+<ul>
+<li>以太网交换机的每个接口都直接与主机相连，并且一般都工作在<strong>全双工方式</strong>。</li>
+<li>交换机能同时连通许多对的接口，使每一对相互通信的主机都能像独占通信媒体那样，进行无碰撞地传输数据。</li>
+<li>以太网交换机由于使用了专用的交换结构芯片，其交换速率就较高。</li>
+<li>独占传输媒体的带宽
+<ul>
+<li>对于普通 10 Mb/s 的共享式以太网，若共有 N 个用户，则每个用户占有的平均带宽只有总带宽(10 Mb/s)的 N 分之一。</li>
+<li>使用以太网交换机时，虽然在每个接口到主机的带宽还是 10 Mb/s，但由于一个用户在通信时是独占而不是和其他网络用户共享传输媒体的带宽，因此对于拥有 N 对接口的交换机的总容量为 N10 Mb/s。这正是交换机的最大优点。</li>
+</ul>
+</li>
+</ul>
+<h2 id="用以太网交换机扩展局域网"><a class="markdownIt-Anchor" href="#用以太网交换机扩展局域网"></a> 用以太网交换机扩展局域网</h2>
+<p><img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502200212.png"><br />
+利用以太网交换机可以很方便地实现虚拟局域网。</p>
+<ul>
+<li><strong>虚拟局域网</strong> VLAN 是由一些局域网网段构成的与物理位置无关的逻辑组。
+<ul>
+<li>这些网段具有某些共同的需求。</li>
+<li>每一个 VLAN 的帧都有一个明确的标识符，指明发送这个帧的工作站是属于哪一个 VLAN。</li>
+</ul>
+</li>
+<li>虚拟局域网其实只是局域网给用户提供的一种服务，而并不是一种新型局域网。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502200251.png"><br />
+当 B1 向 VLAN2 工作组内成员发送数据时，工作站 B2 和 B3 将会收到广播的信息。<br />
+B1 发送数据时，工作站 A1, A2 和 C1都不会收到 B1 发出的广播信息。<br />
+虚拟局域网限制了接收广播信息的工作站数，使得网络不会因传播过多的广播信息(即“广播风暴”)而引起性能恶化。</li>
+</ul>
+<h3 id="虚拟局域网使用的以太网帧格式"><a class="markdownIt-Anchor" href="#虚拟局域网使用的以太网帧格式"></a> 虚拟局域网使用的以太网帧格式</h3>
+<p>虚拟局域网协议允许在以太网的帧格式中插入一个 4 字节的标识符，称为 VLAN 标记(tag)，用来指明发送该帧的工作站属于哪一个虚拟局域网。<br />
+<img src="/img/loading.gif" alt="" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502200428.png"></p>
+<h1 id="高速以太网"><a class="markdownIt-Anchor" href="#高速以太网"></a> 高速以太网</h1>
+<h2 id="100base-t-以太网"><a class="markdownIt-Anchor" href="#100base-t-以太网"></a> 100BASE-T 以太网</h2>
+<ul>
+<li>速率达到或超过 100 Mb/s 的以太网称为<strong>高速以太网</strong>。</li>
+<li>在双绞线上传送 100 Mb/s 基带信号的星型拓扑以太网，仍使用 IEEE 802.3 的CSMA/CD 协议。100BASE-T 以太网又称为<strong>快速以太网</strong>(Fast Ethernet)。</li>
+</ul>
+<h3 id="特点"><a class="markdownIt-Anchor" href="#特点"></a> 特点</h3>
+<ul>
+<li>可在全双工方式下工作而无冲突发生。因此，不使用 CSMA/CD 协议。</li>
+<li>MAC 帧格式仍然是 802.3 标准规定的。</li>
+<li>保持最短帧长不变，但将一个网段的最大电缆长度减小到 100 m。</li>
+<li>帧间时间间隔从原来的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>9.6</mn><mi>μ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">9.6 \mu s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">9</span><span class="mord">.</span><span class="mord">6</span><span class="mord mathdefault">μ</span><span class="mord mathdefault">s</span></span></span></span> 改为现在的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0.96</mn><mi>μ</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">0.96 \mu s</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">0</span><span class="mord">.</span><span class="mord">9</span><span class="mord">6</span><span class="mord mathdefault">μ</span><span class="mord mathdefault">s</span></span></span></span>。</li>
+</ul>
+<h3 id="三种不同的物理层标准"><a class="markdownIt-Anchor" href="#三种不同的物理层标准"></a> 三种不同的物理层标准</h3>
+<ul>
+<li>100BASE-TX
+<ul>
+<li>使用 2 对 UTP 5 类线或屏蔽双绞线 STP。</li>
+</ul>
+</li>
+<li>100BASE-FX
+<ul>
+<li>使用 2 对光纤。</li>
+</ul>
+</li>
+<li>100BASE-T4
+<ul>
+<li>使用 4 对 UTP 3 类线或 5 类线。</li>
+</ul>
+</li>
+</ul>
+<h2 id="吉比特以太网"><a class="markdownIt-Anchor" href="#吉比特以太网"></a> 吉比特以太网</h2>
+<ul>
+<li>允许在 1 Gb/s 下全双工和半双工两种方式工作。</li>
+<li>使用 802.3 协议规定的帧格式。</li>
+<li>在半双工方式下使用 CSMA/CD 协议（全双工方式不需要使用 CSMA/CD 协议）。</li>
+<li>与 10BASE-T 和 100BASE-T 技术向后兼容。</li>
+</ul>
+<h3 id="吉比特以太网的物理层"><a class="markdownIt-Anchor" href="#吉比特以太网的物理层"></a> 吉比特以太网的物理层</h3>
+<ul>
+<li>1000BASE-X      基于光纤通道的物理层：
+<ul>
+<li>1000BASE-SX   SX表示短波长</li>
+<li>1000BASE-LX   LX表示长波长</li>
+<li>1000BASE-CX   CX表示铜线</li>
+</ul>
+</li>
+<li>1000BASE-T
+<ul>
+<li>使用 4对 5 类线 UTP</li>
+</ul>
+</li>
+</ul>
+<h3 id="全双工方式"><a class="markdownIt-Anchor" href="#全双工方式"></a> 全双工方式</h3>
+<p>当吉比特以太网工作在全双工方式时（即通信双方可同时进行发送和接收数据），不使用载波延伸和分组突发。<br />
+<img src="/img/loading.gif" alt="吉比特以太网的配置举例 " / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502200656.png"></p>
+<h2 id="10-吉比特以太网"><a class="markdownIt-Anchor" href="#10-吉比特以太网"></a> 10 吉比特以太网</h2>
+<ul>
+<li>10 吉比特以太网与 10 Mb/s，100 Mb/s 和 1 Gb/s 以太网的帧格式完全相同。</li>
+<li>10 吉比特以太网还保留了 802.3 标准规定的以太网最小和最大帧长，便于升级。</li>
+<li>10 吉比特以太网不再使用铜线而只使用光纤作为传输媒体。</li>
+<li>10 吉比特以太网只工作在<strong>全双工方式</strong>，因此没有争用问题，也不使用 CSMA/CD 协议。</li>
+</ul>
+<h3 id="吉比特以太网的物理层-2"><a class="markdownIt-Anchor" href="#吉比特以太网的物理层-2"></a> 吉比特以太网的物理层</h3>
+<ul>
+<li>局域网物理层 LAN PHY。局域网物理层的数据率是 10.000 Gb/s。</li>
+<li>可选的广域网物理层 WAN PHY。广域网物理层具有另一种数据率，这是为了和所谓的“Gb/s”的 SONET/SDH（即OC-192/STM-64）相连接。
+<ul>
+<li>为了使 10 吉比特以太网的帧能够插入到 OC-192/STM-64 帧的有效载荷中，就要使用可选的广域网物理层，其数据率为 9.95328 Gb/s。</li>
+</ul>
+</li>
+</ul>
+<h3 id="端到端的以太网传输"><a class="markdownIt-Anchor" href="#端到端的以太网传输"></a> 端到端的以太网传输</h3>
+<ul>
+<li>10 吉比特以太网的出现，以太网的工作范围已经从局域网（校园网、企业网）扩大到城域网和广域网，从而实现了端到端的以太网传输。</li>
+<li>这种工作方式的好处是：
+<ul>
+<li>成熟的技术</li>
+<li>互操作性很好</li>
+<li>在广域网中使用以太网时价格便宜。</li>
+<li>统一的帧格式简化了操作和管理。</li>
+</ul>
+</li>
+</ul>
+<h3 id="以太网从-10-mbs-到10-gbs-的演进"><a class="markdownIt-Anchor" href="#以太网从-10-mbs-到10-gbs-的演进"></a> 以太网从 10 Mb/s 到10 Gb/s 的演进</h3>
+<ul>
+<li>以太网从 10 Mb/s 到 10 Gb/s 的演进证明了以太网是：</li>
+<li>可扩展的（从 10 Mb/s 到 10 Gb/s）。</li>
+<li>灵活的（多种传输媒体、全/半双工、共享/交换）。</li>
+<li>易于安装。</li>
+<li>稳健性好。</li>
+</ul>
+<h2 id="使用高速以太网进行宽带接入"><a class="markdownIt-Anchor" href="#使用高速以太网进行宽带接入"></a> 使用高速以太网进行宽带接入</h2>
+<ul>
+<li>以太网已成功地把速率提高到 1 ~ 10 Gb/s ，所覆盖的地理范围也扩展到了城域网和广域网，因此现在人们正在尝试使用以太网进行宽带接入。</li>
+<li>以太网接入的重要特点是它可提供双向的宽带通信，并且可根据用户对带宽的需求灵活地进行带宽升级。</li>
+<li>采用以太网接入可实现端到端的以太网传输，中间不需要再进行帧格式的转换。这就提高了数据的传输效率和降低了传输的成本。<br />
+<img src="/img/loading.gif" alt="以太网接入举例：光纤到大楼 FTTB" / class="lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502200847.png"></li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css"></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Zorua</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zoruasama.gitee.io/2020/05/02/network_2/">https://zoruasama.gitee.io/2020/05/02/network_2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zoruasama.gitee.io" target="_blank">Zorua's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络    </a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络    </a><a class="post-meta__tags" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/">互联网    </a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/%E5%BE%AE%E4%BF%A1.png" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lazyload post-qr-code__img" src="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.png" alt="支付宝"/><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2020/04/29/operating_system_0/"><img class="next_cover lazyload" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200429125019.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">操作系统 | 1. 操作系统引论</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/04/20/network_1/" title="计算机网络 | 2. 物理层"><img class="relatedPosts_cover lazyload"data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-04-20</div><div class="relatedPosts_title">计算机网络 | 2. 物理层</div></div></a></div><div class="relatedPosts_item"><a href="/2020/04/19/network_0/" title="计算机网络 | 1. 计算机网络概述"><img class="relatedPosts_cover lazyload"data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-04-19</div><div class="relatedPosts_title">计算机网络 | 1. 计算机网络概述</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var GUEST_INFO = ['nick','mail','link'];
+var guest_info = 'nick,mail'.split(',').filter(function(item){
+  return GUEST_INFO.indexOf(item) > -1
+});
+guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+
+window.valine = new Valine({
+  el:'#vcomment',
+  notify: true,
+  verify: true,
+  appId: 'gtDhzUoM6l4cOwFAa021yuW3-gzGzoHsz',
+  appKey: 'qSUhKjTn3OISBHTYFUpfGQJi',
+  placeholder: '回复时留下邮箱便于收到回复提醒~',
+  avatar: 'monsterid',
+  meta: guest_info,
+  pageSize: '10',
+  lang: 'zh-cn',
+  recordIP: false,
+  serverURLs: '',
+  enableQQ: true,
+  emojiCDN: 'https://valinecdn.bili33.top/', 
+  emojiMaps: {
+      "bilibiliHotKey1": "bilibiliHotKey/1.jpg",
+      "bilibiliHotKey2": "bilibiliHotKey/10.jpg",
+      "bilibiliHotKey3": "bilibiliHotKey/11.jpg",
+      "bilibiliHotKey4": "bilibiliHotKey/12.jpg",
+      "bilibiliHotKey5": "bilibiliHotKey/13.jpg",
+      "bilibiliHotKey6": "bilibiliHotKey/14.jpg",
+      "bilibiliHotKey7": "bilibiliHotKey/15.jpg",
+      "bilibiliHotKey8": "bilibiliHotKey/16.jpg",
+      "bilibiliHotKey9": "bilibiliHotKey/17.jpg",
+      "bilibiliHotKey10": "bilibiliHotKey/18.jpg",
+      "bilibiliHotKey11": "bilibiliHotKey/19.jpg",
+      "bilibiliHotKey12": "bilibiliHotKey/2.jpg",
+      "bilibiliHotKey13": "bilibiliHotKey/20.jpg",
+      "bilibiliHotKey14": "bilibiliHotKey/21.jpg",
+      "bilibiliHotKey15": "bilibiliHotKey/22.jpg",
+      "bilibiliHotKey16": "bilibiliHotKey/23.jpg",
+      "bilibiliHotKey17": "bilibiliHotKey/24.jpg",
+      "bilibiliHotKey18": "bilibiliHotKey/25.jpg",
+      "bilibiliHotKey19": "bilibiliHotKey/26.jpg",
+      "bilibiliHotKey20": "bilibiliHotKey/27.jpg",
+      "bilibiliHotKey21": "bilibiliHotKey/28.jpg",
+      "bilibiliHotKey22": "bilibiliHotKey/29.jpg",
+      "bilibiliHotKey23": "bilibiliHotKey/3.jpg",
+      "bilibiliHotKey24": "bilibiliHotKey/30.jpg",
+      "bilibiliHotKey25": "bilibiliHotKey/31.jpg",
+      "bilibiliHotKey26": "bilibiliHotKey/32.jpg",
+      "bilibiliHotKey27": "bilibiliHotKey/4.jpg",
+      "bilibiliHotKey28": "bilibiliHotKey/5.jpg",
+      "bilibiliHotKey29": "bilibiliHotKey/6.jpg",
+      "bilibiliHotKey30": "bilibiliHotKey/7.jpg",
+      "bilibiliHotKey31": "bilibiliHotKey/8.jpg",
+      "bilibiliHotKey32": "bilibiliHotKey/9.jpg",
+      "alu2": "alu/不出所料.png",
+      "alu3": "alu/不说话.png",
+      "alu4": "alu/不高兴.png",
+      "alu5": "alu/中刀.png",
+      "alu6": "alu/中指.png",
+      "alu7": "alu/中枪.png",
+      "alu8": "alu/亲亲.png",
+      "alu9": "alu/便便.png",
+      "alu10": "alu/内伤.png",
+      "alu11": "alu/击掌.png",
+      "alu12": "alu/口水.png",
+      "alu13": "alu/吐.png",
+      "alu14": "alu/吐舌.png",
+      "alu15": "alu/吐血倒地.png",
+      "alu16": "alu/呲牙.png",
+      "alu17": "alu/咽气.png",
+      "alu18": "alu/哭泣.png",
+      "alu19": "alu/喜极而泣.png",
+      "alu20": "alu/喷水.png",
+      "alu21": "alu/喷血.png",
+      "alu22": "alu/坐等.png",
+      "alu23": "alu/害羞.png",
+      "alu24": "alu/小眼睛.png",
+      "alu25": "alu/尴尬.png",
+      "alu26": "alu/得意.png",
+      "alu27": "alu/惊喜.png",
+      "alu28": "alu/想一想.png",
+      "alu29": "alu/愤怒.png",
+      "alu30": "alu/扇耳光.png",
+      "alu31": "alu/投降.png",
+      "alu32": "alu/抠鼻.png",
+      "alu33": "alu/抽烟.png",
+      "alu34": "alu/无奈.png",
+      "alu35": "alu/无所谓.png",
+      "alu36": "alu/无语.png",
+      "alu37": "alu/暗地观察.png",
+      "alu38": "alu/期待.png",
+      "alu39": "alu/欢呼.png",
+      "alu40": "alu/汗.png",
+      "alu41": "alu/深思.png",
+      "alu42": "alu/狂汗.png",
+      "alu43": "alu/献花.png",
+      "alu44": "alu/献黄瓜.png",
+      "alu45": "alu/皱眉.png",
+      "alu46": "alu/看不见.png",
+      "alu47": "alu/看热闹.png",
+      "alu48": "alu/瞅你.png",
+      "alu49": "alu/肿包.png",
+      "alu50": "alu/脸红.png",
+      "alu51": "alu/蜡烛.png",
+      "alu52": "alu/装大款.png",
+      "alu53": "alu/观察.png",
+      "alu54": "alu/赞一个.png",
+      "alu55": "alu/邪恶.png",
+      "alu56": "alu/锁眉.png",
+      "alu57": "alu/长草.png",
+      "alu58": "alu/阴暗.png",
+      "alu59": "alu/高兴.png",
+      "alu60": "alu/黑线.png",
+      "alu61": "alu/鼓掌.png",
+      "bilibilitv2": "bilibilitv/[tv_doge].png",
+      "bilibilitv3": "bilibilitv/[tv_亲亲].png",
+      "bilibilitv4": "bilibilitv/[tv_偷笑].png",
+      "bilibilitv5": "bilibilitv/[tv_再见].png",
+      "bilibilitv6": "bilibilitv/[tv_冷漠].png",
+      "bilibilitv7": "bilibilitv/[tv_发怒].png",
+      "bilibilitv8": "bilibilitv/[tv_发财].png",
+      "bilibilitv9": "bilibilitv/[tv_可爱].png",
+      "bilibilitv10": "bilibilitv/[tv_吐血].png",
+      "bilibilitv11": "bilibilitv/[tv_呆].png",
+      "bilibilitv12": "bilibilitv/[tv_呕吐].png",
+      "bilibilitv13": "bilibilitv/[tv_困].png",
+      "bilibilitv14": "bilibilitv/[tv_坏笑].png",
+      "bilibilitv15": "bilibilitv/[tv_大佬].png",
+      "bilibilitv16": "bilibilitv/[tv_大哭].png",
+      "bilibilitv17": "bilibilitv/[tv_委屈].png",
+      "bilibilitv18": "bilibilitv/[tv_害羞].png",
+      "bilibilitv19": "bilibilitv/[tv_尴尬].png",
+      "bilibilitv20": "bilibilitv/[tv_微笑].png",
+      "bilibilitv21": "bilibilitv/[tv_思考].png",
+      "bilibilitv22": "bilibilitv/[tv_惊吓].png",
+      "bilibilitv23": "bilibilitv/[tv_打脸].png",
+      "bilibilitv24": "bilibilitv/[tv_抓狂].png",
+      "bilibilitv25": "bilibilitv/[tv_抠鼻].png",
+      "bilibilitv26": "bilibilitv/[tv_斜眼笑].png",
+      "bilibilitv27": "bilibilitv/[tv_无奈].png",
+      "bilibilitv28": "bilibilitv/[tv_晕].png",
+      "bilibilitv29": "bilibilitv/[tv_流汗].png",
+      "bilibilitv30": "bilibilitv/[tv_流泪].png",
+      "bilibilitv31": "bilibilitv/[tv_流鼻血].png",
+      "bilibilitv32": "bilibilitv/[tv_点赞].png",
+      "bilibilitv33": "bilibilitv/[tv_生气].png",
+      "bilibilitv34": "bilibilitv/[tv_生病].png",
+      "bilibilitv35": "bilibilitv/[tv_疑问].png",
+      "bilibilitv36": "bilibilitv/[tv_白眼].png",
+      "bilibilitv37": "bilibilitv/[tv_皱眉].png",
+      "bilibilitv38": "bilibilitv/[tv_目瞪口呆].png",
+      "bilibilitv39": "bilibilitv/[tv_睡着].png",
+      "bilibilitv40": "bilibilitv/[tv_笑哭].png",
+      "bilibilitv41": "bilibilitv/[tv_腼腆].png",
+      "bilibilitv42": "bilibilitv/[tv_色].png",
+      "bilibilitv43": "bilibilitv/[tv_调侃].png",
+      "bilibilitv44": "bilibilitv/[tv_调皮].png",
+      "bilibilitv45": "bilibilitv/[tv_鄙视].png",
+      "bilibilitv46": "bilibilitv/[tv_闭嘴].png",
+      "bilibilitv47": "bilibilitv/[tv_难过].png",
+      "bilibilitv48": "bilibilitv/[tv_馋].png",
+      "bilibilitv49": "bilibilitv/[tv_鬼脸].png",
+      "bilibilitv50": "bilibilitv/[tv_黑人问号].png",
+      "bilibilitv51": "bilibilitv/[tv_鼓掌].png",
+      "bilibili22332": "bilibili2233/[2233娘_卖萌].png",
+      "bilibili22333": "bilibili2233/[2233娘_吃惊].png",
+      "bilibili22334": "bilibili2233/[2233娘_吐魂].png",
+      "bilibili22335": "bilibili2233/[2233娘_喝水].png",
+      "bilibili22336": "bilibili2233/[2233娘_困惑].png",
+      "bilibili22337": "bilibili2233/[2233娘_大哭].png",
+      "bilibili22338": "bilibili2233/[2233娘_大笑].png",
+      "bilibili22339": "bilibili2233/[2233娘_委屈].png",
+      "bilibili223310": "bilibili2233/[2233娘_怒].png",
+      "bilibili223311": "bilibili2233/[2233娘_无言].png",
+      "bilibili223312": "bilibili2233/[2233娘_汗].png",
+      "bilibili223313": "bilibili2233/[2233娘_疑问].png",
+      "bilibili223314": "bilibili2233/[2233娘_第一].png",
+      "bilibili223315": "bilibili2233/[2233娘_耶].png",
+      "bilibili223316": "bilibili2233/[2233娘_郁闷].png",
+      "Menhera-chan1": "Menhera-chan/1.jpg",
+      "Menhera-chan2": "Menhera-chan/10.jpg",
+      "Menhera-chan3": "Menhera-chan/100.jpg",
+      "Menhera-chan4": "Menhera-chan/101.jpg",
+      "Menhera-chan5": "Menhera-chan/102.jpg",
+      "Menhera-chan6": "Menhera-chan/103.jpg",
+      "Menhera-chan7": "Menhera-chan/104.jpg",
+      "Menhera-chan8": "Menhera-chan/105.jpg",
+      "Menhera-chan9": "Menhera-chan/106.jpg",
+      "Menhera-chan10": "Menhera-chan/107.jpg",
+      "Menhera-chan11": "Menhera-chan/108.jpg",
+      "Menhera-chan12": "Menhera-chan/109.jpg",
+      "Menhera-chan13": "Menhera-chan/11.jpg",
+      "Menhera-chan14": "Menhera-chan/110.jpg",
+      "Menhera-chan15": "Menhera-chan/111.jpg",
+      "Menhera-chan16": "Menhera-chan/112.jpg",
+      "Menhera-chan17": "Menhera-chan/113.jpg",
+      "Menhera-chan18": "Menhera-chan/114.jpg",
+      "Menhera-chan19": "Menhera-chan/115.jpg",
+      "Menhera-chan20": "Menhera-chan/116.jpg",
+      "Menhera-chan21": "Menhera-chan/117.jpg",
+      "Menhera-chan22": "Menhera-chan/118.jpg",
+      "Menhera-chan23": "Menhera-chan/119.jpg",
+      "Menhera-chan24": "Menhera-chan/12.jpg",
+      "Menhera-chan25": "Menhera-chan/120.jpg",
+      "Menhera-chan26": "Menhera-chan/13.jpg",
+      "Menhera-chan27": "Menhera-chan/14.jpg",
+      "Menhera-chan28": "Menhera-chan/15.jpg",
+      "Menhera-chan29": "Menhera-chan/16.jpg",
+      "Menhera-chan30": "Menhera-chan/17.jpg",
+      "Menhera-chan31": "Menhera-chan/18.jpg",
+      "Menhera-chan32": "Menhera-chan/19.jpg",
+      "Menhera-chan33": "Menhera-chan/2.jpg",
+      "Menhera-chan34": "Menhera-chan/20.jpg",
+      "Menhera-chan35": "Menhera-chan/21.jpg",
+      "Menhera-chan36": "Menhera-chan/22.jpg",
+      "Menhera-chan37": "Menhera-chan/23.jpg",
+      "Menhera-chan38": "Menhera-chan/24.jpg",
+      "Menhera-chan39": "Menhera-chan/25.jpg",
+      "Menhera-chan40": "Menhera-chan/26.jpg",
+      "Menhera-chan41": "Menhera-chan/27.jpg",
+      "Menhera-chan42": "Menhera-chan/28.jpg",
+      "Menhera-chan43": "Menhera-chan/29.jpg",
+      "Menhera-chan44": "Menhera-chan/3.jpg",
+      "Menhera-chan45": "Menhera-chan/30.jpg",
+      "Menhera-chan46": "Menhera-chan/31.jpg",
+      "Menhera-chan47": "Menhera-chan/32.jpg",
+      "Menhera-chan48": "Menhera-chan/33.jpg",
+      "Menhera-chan49": "Menhera-chan/34.jpg",
+      "Menhera-chan50": "Menhera-chan/35.jpg",
+      "Menhera-chan51": "Menhera-chan/36.jpg",
+      "Menhera-chan52": "Menhera-chan/37.jpg",
+      "Menhera-chan53": "Menhera-chan/38.jpg",
+      "Menhera-chan54": "Menhera-chan/39.jpg",
+      "Menhera-chan55": "Menhera-chan/4.jpg",
+      "Menhera-chan56": "Menhera-chan/40.jpg",
+      "Menhera-chan57": "Menhera-chan/41.jpg",
+      "Menhera-chan58": "Menhera-chan/42.jpg",
+      "Menhera-chan59": "Menhera-chan/43.jpg",
+      "Menhera-chan60": "Menhera-chan/44.jpg",
+      "Menhera-chan61": "Menhera-chan/45.jpg",
+      "Menhera-chan62": "Menhera-chan/46.jpg",
+      "Menhera-chan63": "Menhera-chan/47.jpg",
+      "Menhera-chan64": "Menhera-chan/48.jpg",
+      "Menhera-chan65": "Menhera-chan/49.jpg",
+      "Menhera-chan66": "Menhera-chan/5.jpg",
+      "Menhera-chan67": "Menhera-chan/50.jpg",
+      "Menhera-chan68": "Menhera-chan/51.jpg",
+      "Menhera-chan69": "Menhera-chan/52.jpg",
+      "Menhera-chan70": "Menhera-chan/53(1).jpg",
+      "Menhera-chan71": "Menhera-chan/53.jpg",
+      "Menhera-chan72": "Menhera-chan/54.jpg",
+      "Menhera-chan73": "Menhera-chan/55.jpg",
+      "Menhera-chan74": "Menhera-chan/56.jpg",
+      "Menhera-chan75": "Menhera-chan/57.jpg",
+      "Menhera-chan76": "Menhera-chan/58.jpg",
+      "Menhera-chan77": "Menhera-chan/59.jpg",
+      "Menhera-chan78": "Menhera-chan/6.jpg",
+      "Menhera-chan79": "Menhera-chan/60.jpg",
+      "Menhera-chan80": "Menhera-chan/61.jpg",
+      "Menhera-chan81": "Menhera-chan/62.jpg",
+      "Menhera-chan82": "Menhera-chan/63.jpg",
+      "Menhera-chan83": "Menhera-chan/64.jpg",
+      "Menhera-chan84": "Menhera-chan/65.jpg",
+      "Menhera-chan85": "Menhera-chan/66.jpg",
+      "Menhera-chan86": "Menhera-chan/67.jpg",
+      "Menhera-chan87": "Menhera-chan/68.jpg",
+      "Menhera-chan88": "Menhera-chan/69.jpg",
+      "Menhera-chan89": "Menhera-chan/7.jpg",
+      "Menhera-chan90": "Menhera-chan/70.jpg",
+      "Menhera-chan91": "Menhera-chan/71.jpg",
+      "Menhera-chan92": "Menhera-chan/72.jpg",
+      "Menhera-chan93": "Menhera-chan/73.jpg",
+      "Menhera-chan94": "Menhera-chan/74.jpg",
+      "Menhera-chan95": "Menhera-chan/75.jpg",
+      "Menhera-chan96": "Menhera-chan/76.jpg",
+      "Menhera-chan97": "Menhera-chan/77.jpg",
+      "Menhera-chan98": "Menhera-chan/78.jpg",
+      "Menhera-chan99": "Menhera-chan/79.jpg",
+      "Menhera-chan100": "Menhera-chan/8.jpg",
+      "Menhera-chan101": "Menhera-chan/80.jpg",
+      "Menhera-chan102": "Menhera-chan/81.jpg",
+      "Menhera-chan103": "Menhera-chan/82.jpg",
+      "Menhera-chan104": "Menhera-chan/83.jpg",
+      "Menhera-chan105": "Menhera-chan/84.jpg",
+      "Menhera-chan106": "Menhera-chan/85.jpg",
+      "Menhera-chan107": "Menhera-chan/86.jpg",
+      "Menhera-chan108": "Menhera-chan/87.jpg",
+      "Menhera-chan109": "Menhera-chan/88.jpg",
+      "Menhera-chan110": "Menhera-chan/89.jpg",
+      "Menhera-chan111": "Menhera-chan/9.jpg",
+      "Menhera-chan112": "Menhera-chan/90.jpg",
+      "Menhera-chan113": "Menhera-chan/91.jpg",
+      "Menhera-chan114": "Menhera-chan/92.jpg",
+      "Menhera-chan115": "Menhera-chan/93.jpg",
+      "Menhera-chan116": "Menhera-chan/94.jpg",
+      "Menhera-chan117": "Menhera-chan/95.jpg",
+      "Menhera-chan118": "Menhera-chan/96.jpg",
+      "Menhera-chan119": "Menhera-chan/97.jpg",
+      "Menhera-chan120": "Menhera-chan/98.jpg",
+      "Menhera-chan121": "Menhera-chan/99.jpg"
+  }
+});</script></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Zorua</div><div class="framework-info"><span>Powered BY </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">这是我的底线。</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode fa fa-moon-o" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/zorua.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lazysizes@latest/lazysizes.min.js" async=""></script><script src="/js/search/local-search.js"></script></body></html>
