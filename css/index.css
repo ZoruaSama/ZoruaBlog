@@ -3750,7 +3750,7 @@ figure.gallery-group .gallery-group-name:after {
   position: absolute;
   top: calc(50% - 0.35rem);
   color: #f47466;
-  content: '\f0c1';
+  content: '\f0c6';
   font-style: normal;
   font-variant: normal;
   line-height: 1;
@@ -4171,7 +4171,7 @@ img {
   position: absolute;
   top: calc(50% - 0.35rem);
   color: #f47466;
-  content: '\f0c1';
+  content: '\f0c6';
   font-style: normal;
   font-variant: normal;
   line-height: 1;
