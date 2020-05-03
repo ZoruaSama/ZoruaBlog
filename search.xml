@@ -2267,35 +2267,6 @@ OS应采用<code>层次化</code>结构，以便于增加新的功能层次和<c
       </tags>
   </entry>
   <entry>
-    <title>测试页</title>
-    <url>/2020/04/20/test/</url>
-    <content><![CDATA[<blockquote class="pullquote mindmap mindmap-md"><ul>
-<li><a href="https://hunterx.xyz/hexo-simple-mindmap-plugin-intro.html" target="_blank" rel="noopener">Hexo 的思维导图插件</a>
-<ul>
-<li>前言</li>
-<li>使用方法
-<ul>
-<li>一</li>
-<li>二</li>
-<li>三</li>
-</ul>
-</li>
-<li>太长不看</li>
-<li>参考资料</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>2020.4.30</p>
-<ul>
-<li>新增思维导图</li>
-<li>字体调大</li>
-<li>美化了Markdown标识</li>
-<li>增加了页面宽度</li>
-</ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
-  </entry>
-  <entry>
     <title>计算机网络 | 2. 物理层</title>
     <url>/2020/04/20/network_1/</url>
     <content><![CDATA[<h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
