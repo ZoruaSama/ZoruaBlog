@@ -190,14 +190,14 @@
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> BookRecord <span class="keyword">ADD</span> PublishiDate datetime <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
 <p>不论基本表中原来是否已有数据，新增加的列一律为空值。</p>
 <p><strong>【例】 将折扣的数据类型改为整数</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;ALTER TABLE BookRecord MODIFY Discount int;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> BookRecord <span class="keyword">MODIFY</span> Discount <span class="built_in">int</span>;</span><br></pre></td></tr></table></figure>
 <p>修改原有的列定义有可能会破坏已有数据。</p>
 </blockquote>
 <blockquote>
 <p><strong>【例】 删除字段“出版日期” PublishiDate列</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;ALTER TABLE BookRecord DROP COLUMN PublishiDate;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> BookRecord <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> PublishiDate;</span><br></pre></td></tr></table></figure>
 <p><strong>【例】 删除关于书号必须取唯一值的约束</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;ALTER TABLE BookRecord DROP   UNIQUE(BookNo);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> BookRecord <span class="keyword">DROP</span>   <span class="keyword">UNIQUE</span>(BookNo);</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h1 id="查询"><a class="markdownIt-Anchor" href="#查询"></a> 查询</h1>
 <h2 id="概述"><a class="markdownIt-Anchor" href="#概述"></a> 概述</h2>
@@ -259,7 +259,7 @@
 <p>使用谓词<code>BETWEEN … AND …</code> <code>NOT BETWEEN … AND …</code></p>
 <blockquote>
 <p><strong>[例]  查询年龄在20~23岁（包括20岁和23岁）之间的学生的姓名、系别和年龄。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT Sname,Sdept,Sage</span><br><span class="line">&gt;FROM   Student</span><br><span class="line">&gt;WHERE Sage BETWEEN 20 AND 23;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sname,Sdept,Sage</span><br><span class="line"><span class="keyword">FROM</span>   Student</span><br><span class="line"><span class="keyword">WHERE</span> Sage <span class="keyword">BETWEEN</span> <span class="number">20</span> <span class="keyword">AND</span> <span class="number">23</span>;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h4 id="确定集合"><a class="markdownIt-Anchor" href="#确定集合"></a> 确定集合</h4>
 <ul>
@@ -271,7 +271,7 @@
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sname,Ssex</span><br><span class="line"><span class="keyword">FROM</span>  Student</span><br><span class="line"><span class="keyword">WHERE</span> Sdept <span class="keyword">IN</span> (<span class="string">'IS'</span>,<span class="string">'MA'</span>,<span class="string">'CS'</span>);</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h4 id="字符匹配"><a class="markdownIt-Anchor" href="#字符匹配"></a> 字符匹配</h4>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">[NOT] LIKE  ‘&lt;匹配串&gt;’  [ESCAPE ‘&lt;换码字符&gt;’]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[NOT] LIKE  ‘&lt;匹配串&gt;’  [ESCAPE ‘&lt;换码字符&gt;’]</span><br></pre></td></tr></table></figure>
 <ul>
 <li>&lt;匹配串&gt;：指定匹配模板</li>
 <li>匹配模板：固定字符串或含通配符的字符串。当匹配模板为固定字符串时，可以用<code>=</code> 运算符取代 LIKE 谓词,用 <code>!=</code> 或 <code>&lt; &gt;</code>运算符取代 NOT LIKE 谓词</li>
@@ -338,7 +338,7 @@
 </ul>
 <blockquote>
 <p><strong>[例]  查询计算机系年龄在20岁以下的学生姓名。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT Sname</span><br><span class="line">&gt;FROM  Student</span><br><span class="line">&gt;WHERE Sdept= ‘CS’ AND Sage&lt;20;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sname</span><br><span class="line"><span class="keyword">FROM</span>  Student</span><br><span class="line"><span class="keyword">WHERE</span> Sdept= ‘CS’ <span class="keyword">AND</span> Sage&lt;<span class="number">20</span>;</span><br></pre></td></tr></table></figure>
 <p><strong>[例]  查询年龄在20~23岁（包括20岁和23岁）之间的学生的姓名、系别和年龄。</strong></p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sname,Sdept,Sage</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span>  Sage&gt;=<span class="number">20</span> <span class="keyword">AND</span> Sage&lt;=<span class="number">23</span>;</span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -405,7 +405,7 @@
 </blockquote>
 <blockquote>
 <p><strong>[例]  查询全体学生情况，查询结果按所在系的系号升序排列，同一系中的学生按年龄降序排列。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT  *</span><br><span class="line">&gt;FROM  Student</span><br><span class="line">&gt;ORDER BY Sdept,Sage DESC;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  *</span><br><span class="line"><span class="keyword">FROM</span>  Student</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> Sdept,Sage <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="使用集函数"><a class="markdownIt-Anchor" href="#使用集函数"></a> 使用集函数</h3>
 <ul>
@@ -450,7 +450,7 @@
 </ul>
 <blockquote>
 <p><strong>[例]  求各个课程号及相应的选课人数。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT Cno,COUNT(Sno)</span><br><span class="line">&gt;FROM    SC</span><br><span class="line">&gt;GROUP BY Cno;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Cno,<span class="keyword">COUNT</span>(Sno)</span><br><span class="line"><span class="keyword">FROM</span>    SC</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Cno;</span><br></pre></td></tr></table></figure>
 <p>结果</p>
 <table>
 <thead>
@@ -495,14 +495,14 @@
 </ul>
 <blockquote>
 <p><strong>[例]  查询选修了3门以上课程的学生学号。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT Sno</span><br><span class="line">&gt;FROM  SC</span><br><span class="line">&gt;GROUP BY Sno</span><br><span class="line">&gt;HAVING  COUNT(*) &gt;3;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sno</span><br><span class="line"><span class="keyword">FROM</span>  SC</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Sno</span><br><span class="line"><span class="keyword">HAVING</span>  <span class="keyword">COUNT</span>(*) &gt;<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
 <p><strong>[例]  查询有3门以上课程是90分以上的学生的学号及（90分以上的）课程数。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT Sno,COUNT(*)</span><br><span class="line">&gt;FROM SC</span><br><span class="line">&gt;WHERE Grade&gt;=90</span><br><span class="line">&gt;GROUP BY Sno</span><br><span class="line">&gt;HAVING COUNT(*)&gt;=3;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sno,<span class="keyword">COUNT</span>(*)</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">WHERE</span> Grade&gt;=<span class="number">90</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Sno</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">COUNT</span>(*)&gt;=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="限制查询结果数量"><a class="markdownIt-Anchor" href="#限制查询结果数量"></a> 限制查询结果数量</h3>
 <p>当使用SELECT语句返回的结果集中行数很多时，为了便于用户对结果数据的浏览和操作，可以使用LIMIT子句来限制被SELECT语句返回的行数。<br />
 语法格式：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">LIMIT &#123;[offset,] row_count | row_count OFFSET offset&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LIMIT &#123;[offset,] row_count | row_count OFFSET offset&#125;</span><br></pre></td></tr></table></figure>
 <p>其中，offset为可选项，<strong>默认为数字0</strong>，用于指定返回数据的第一行在SELECT语句结果集中的偏移量，其必须是非负的整数常量。注意，SELECT语句结果集中<strong>第一行（初始行）的偏移量为0而不是1</strong>。row_count用于指定返回数据的行数，其也必须是非负的整数常量。若这个指定行数大于实际能返回的行数时，MySQL将只返回它能返回的数据行。<br />
 row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第offset+1行开始，取row_count行。</p>
 <blockquote>
@@ -546,13 +546,13 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 </ul>
 <blockquote>
 <p><strong>例：</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT  Student.* ,SC.*</span><br><span class="line">&gt;FROM     Student, SC;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  Student.* ,SC.*</span><br><span class="line"><span class="keyword">FROM</span>     Student, SC;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="等值与非等值连接查询"><a class="markdownIt-Anchor" href="#等值与非等值连接查询"></a> 等值与非等值连接查询</h3>
 <p>等值连接、自然连接、非等值连接</p>
 <blockquote>
 <p><strong>[例]  查询每个学生及其选修课程的情况。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT  Student.*,SC.*</span><br><span class="line">&gt;FROM     Student,SC</span><br><span class="line">&gt;WHERE  Student.Sno = SC.Sno;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  Student.*,SC.*</span><br><span class="line"><span class="keyword">FROM</span>     Student,SC</span><br><span class="line"><span class="keyword">WHERE</span>  Student.Sno = SC.Sno;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h4 id="等值连接"><a class="markdownIt-Anchor" href="#等值连接"></a> 等值连接</h4>
 <ul>
@@ -567,7 +567,7 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 <p>等值连接的一种特殊情况，把目标列中重复的属性列去掉。</p>
 <blockquote>
 <p><strong>[例]  对上例中查询条件用自然连接完成。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT  Student.Sno, Sname, Ssex, Sage, Sdept, Cno, Grade</span><br><span class="line">&gt;FROM    Student,SC</span><br><span class="line">&gt;WHERE  Student.Sno = SC.Sno;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  Student.Sno, Sname, Ssex, Sage, Sdept, Cno, Grade</span><br><span class="line"><span class="keyword">FROM</span>    Student,SC</span><br><span class="line"><span class="keyword">WHERE</span>  Student.Sno = SC.Sno;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h4 id="自身连接"><a class="markdownIt-Anchor" href="#自身连接"></a> 自身连接</h4>
 <ul>
@@ -577,7 +577,7 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 </ul>
 <blockquote>
 <p><strong>[例]  查询每一门课的间接先修课（即先修课的先修课）</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT  FIRST.Cno,SECOND.Cpno</span><br><span class="line">&gt;FROM  Course  FIRST,Course  SECOND</span><br><span class="line">&gt;WHERE FIRST.Cpno = SECOND.Cno;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  FIRST.Cno,SECOND.Cpno</span><br><span class="line"><span class="keyword">FROM</span>  Course  <span class="keyword">FIRST</span>,Course  <span class="keyword">SECOND</span></span><br><span class="line"><span class="keyword">WHERE</span> FIRST.Cpno = SECOND.Cno;</span><br></pre></td></tr></table></figure>
 <p>FIRST和SECOND表</p>
 <table>
 <thead>
@@ -668,7 +668,7 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 </ul>
 <blockquote>
 <p><strong>[例] 查询每个学生及其选修课程的情况包括没有选修课程的学生——用外连接操作</strong></p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">&gt;SELECT  Student.Sno, Sname, Ssex, Sage, Sdept, Cno, Grade</span><br><span class="line">&gt;FROM    Student, SC</span><br><span class="line">&gt;WHERE  Student.Sno = SC.Sno(*);</span><br><span class="line">&gt;from  表1 left out join 表2 on (正常连接条件)</span><br><span class="line">         right</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  Student.Sno, Sname, Ssex, Sage, Sdept, Cno, Grade</span><br><span class="line"><span class="keyword">FROM</span>    Student, SC</span><br><span class="line"><span class="keyword">WHERE</span>  Student.Sno = SC.Sno(*);</span><br><span class="line">from  表1 left out join 表2 on (正常连接条件)</span><br><span class="line">               right</span><br></pre></td></tr></table></figure>
 </blockquote>
 <ul>
 <li>在表名后面加外连接操作符(*)或(+)指定非主体表</li>
@@ -800,7 +800,7 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 </ul>
 <blockquote>
 <p><strong>[例]  用嵌套查询查询所有选修了1号课程的学生姓名。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;SELECT Sname</span><br><span class="line">&gt;FROM Student</span><br><span class="line">&gt;WHERE EXISTS</span><br><span class="line">&gt;(SELECT *</span><br><span class="line">&gt;FROM SC          /*相关子查询*/</span><br><span class="line">&gt;WHERE Sno=Student.Sno AND  Cno= ' 1 ');</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sname</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span></span><br><span class="line">(<span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> SC          <span class="comment">/*相关子查询*/</span></span><br><span class="line"><span class="keyword">WHERE</span> Sno=Student.Sno <span class="keyword">AND</span>  Cno= <span class="string">' 1 '</span>);</span><br></pre></td></tr></table></figure>
 <p><strong>思路分析：</strong><br />
 本查询涉及Student和SC关系。<br />
 在Student中依次取每个元组的Sno值，用此值去检查SC关系。<br />
@@ -844,10 +844,10 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 </li>
 </ul>
 <h3 id="并操作"><a class="markdownIt-Anchor" href="#并操作"></a> 并操作</h3>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;查询块&gt;</span><br><span class="line">UNION</span><br><span class="line">&lt;查询块&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;查询块&gt;</span><br><span class="line">UNION</span><br><span class="line">&lt;查询块&gt;</span><br></pre></td></tr></table></figure>
 <p>参加<code>UNION</code>操作的各结果表的列数必须相同；对应项的数据类型也必须相同。<br />
 等价于：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SELECT  DISTINCT  *</span><br><span class="line">FROM Student</span><br><span class="line">WHERE Sdept&#x3D; &#39;CS&#39;  OR  Sage&lt;&#x3D;19;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span>  <span class="keyword">DISTINCT</span>  *</span><br><span class="line"><span class="keyword">FROM</span> Student</span><br><span class="line"><span class="keyword">WHERE</span> Sdept= <span class="string">'CS'</span>  <span class="keyword">OR</span>  Sage&lt;=<span class="number">19</span>;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>[例]  查询选修了课程1或者选修了课程2的学生。</strong></p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Sno</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">WHERE</span> Cno=<span class="string">' 1 '</span></span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> Sno</span><br><span class="line"><span class="keyword">FROM</span> SC</span><br><span class="line"><span class="keyword">WHERE</span> Cno= <span class="string">' 2 '</span>;</span><br></pre></td></tr></table></figure>
@@ -881,7 +881,7 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 <p>功能：将新元组插入指定表中。</p>
 <blockquote>
 <p><strong>[例]  将一个新学生记录（学号：95020；姓名：陈冬；性别：男；所在系：IS；年龄：18岁）插入到Student表中。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;INSERT</span><br><span class="line">&gt;INTO Student</span><br><span class="line">&gt;VALUES ('95020','陈冬','男','IS',18);</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">INTO</span> Student</span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">'95020'</span>,<span class="string">'陈冬'</span>,<span class="string">'男'</span>,<span class="string">'IS'</span>,<span class="number">18</span>);</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="插入子查询结果"><a class="markdownIt-Anchor" href="#插入子查询结果"></a> 插入子查询结果</h3>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">INSERT</span><br><span class="line">INTO &lt;表名&gt;  [(&lt;属性列1&gt; [,&lt;属性列2&gt;…  )]</span><br><span class="line">子查询;</span><br></pre></td></tr></table></figure>
@@ -889,7 +889,7 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 <blockquote>
 <p><strong>[例]  对每一个系，求学生的平均年龄，并把结果存入数据库。</strong></p>
 <p>第一步：建表</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;CREATE  TABLE  Deptage</span><br><span class="line">&gt;(Sdept  CHAR(15)           /* 系名*/</span><br><span class="line">&gt;Avgage SMALLINT);  /*学生平均年龄*/</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span>  <span class="keyword">TABLE</span>  Deptage</span><br><span class="line">(Sdept  <span class="built_in">CHAR</span>(<span class="number">15</span>)           <span class="comment">/* 系名*/</span></span><br><span class="line">Avgage <span class="built_in">SMALLINT</span>);  <span class="comment">/*学生平均年龄*/</span></span><br></pre></td></tr></table></figure>
 <p>第二步：插入数据</p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">INSERT</span></span><br><span class="line"><span class="keyword">INTO</span>  Deptage(Sdept,Avgage)</span><br><span class="line"><span class="keyword">SELECT</span>  Sdept,<span class="keyword">AVG</span>(Sage)</span><br><span class="line"><span class="keyword">FROM</span>  Student</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Sdept；</span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -899,12 +899,12 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 <h3 id="修改某一个元组的值"><a class="markdownIt-Anchor" href="#修改某一个元组的值"></a> 修改某一个元组的值</h3>
 <blockquote>
 <p><strong>[例]  将学生95001的年龄改为22岁。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;UPDATE  Student</span><br><span class="line">&gt;SET Sage=22</span><br><span class="line">&gt;WHERE  Sno=' 95001 ';</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span>  Student</span><br><span class="line"><span class="keyword">SET</span> Sage=<span class="number">22</span></span><br><span class="line"><span class="keyword">WHERE</span>  Sno=<span class="string">' 95001 '</span>;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="修改多个元组的值"><a class="markdownIt-Anchor" href="#修改多个元组的值"></a> 修改多个元组的值</h3>
 <blockquote>
 <p><strong>[例]  将所有学生的年龄增加1岁。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;UPDATE Student</span><br><span class="line">&gt;SET Sage= Sage+1;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> Student</span><br><span class="line"><span class="keyword">SET</span> Sage= Sage+<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="带子查询的修改语句"><a class="markdownIt-Anchor" href="#带子查询的修改语句"></a> 带子查询的修改语句</h3>
 <blockquote>
@@ -959,7 +959,7 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span>  <span class="keyword">VIEW</span></span><br><span class="line">&lt;视图名&gt;  [(&lt;列名&gt;  [,&lt;列名&gt;]…)]</span><br><span class="line"><span class="keyword">AS</span>  &lt;子查询&gt;</span><br><span class="line">[<span class="keyword">WITH</span>  <span class="keyword">CHECK</span>  <span class="keyword">OPTION</span>];</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>[例]  建立信息系学生的视图。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;CREATE VIEW IS_Student</span><br><span class="line">&gt;AS</span><br><span class="line">&gt;SELECT Sno,Sname,Sage</span><br><span class="line">&gt;FROM   Student</span><br><span class="line">&gt;WHERE  Sdept= 'IS';</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> IS_Student</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> Sno,Sname,Sage</span><br><span class="line"><span class="keyword">FROM</span>   Student</span><br><span class="line"><span class="keyword">WHERE</span>  Sdept= <span class="string">'IS'</span>;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <p>从单个基本表导出，只是去掉了基本表的某些行和某些列，保留了码。把这样的视图叫做<strong>行列子集视图</strong>。</p>
 <ul>
@@ -971,21 +971,21 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 </ul>
 <blockquote>
 <p><strong>[例]  建立信息系选修了1号课程的学生视图。这是一个基于多个基表的视图。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;CREATE VIEW IS_S1(Sno,Sname,Grade)</span><br><span class="line">&gt;AS</span><br><span class="line">&gt;SELECT Student.Sno,Sname,Grade</span><br><span class="line">&gt;FROM  Student,SC</span><br><span class="line">&gt;WHERE  Sdept= 'IS' AND</span><br><span class="line">&gt;Student.Sno=SC.Sno AND</span><br><span class="line">&gt;SC.Cno= '1';</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> IS_S1(Sno,Sname,Grade)</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> Student.Sno,Sname,Grade</span><br><span class="line"><span class="keyword">FROM</span>  Student,SC</span><br><span class="line"><span class="keyword">WHERE</span>  Sdept= <span class="string">'IS'</span> <span class="keyword">AND</span></span><br><span class="line">Student.Sno=SC.Sno <span class="keyword">AND</span></span><br><span class="line">SC.Cno= <span class="string">'1'</span>;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p><strong>[例]  建立信息系选修了1号课程且成绩在90分以上的学生的视图。这是一个基于视图的视图。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;CREATE VIEW IS_S2</span><br><span class="line">&gt;AS</span><br><span class="line">&gt;SELECT Sno,Sname,Grade</span><br><span class="line">&gt;FROM  IS_S1</span><br><span class="line">&gt;WHERE  Grade&gt;=90;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> IS_S2</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> Sno,Sname,Grade</span><br><span class="line"><span class="keyword">FROM</span>  IS_S1</span><br><span class="line"><span class="keyword">WHERE</span>  Grade&gt;=<span class="number">90</span>;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p><strong>[例]  定义一个反映学生出生年份的视图。这是一个带表达式的视图。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;CREATE  VIEW BT_S(Sno,Sname,Sbirth)</span><br><span class="line">&gt;AS</span><br><span class="line">&gt;SELECT Sno,Sname,2020-Sage  //2020-Sage就等于出生年份</span><br><span class="line">&gt;FROM  Student;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span>  <span class="keyword">VIEW</span> BT_S(Sno,Sname,Sbirth)</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> Sno,Sname,<span class="number">2020</span>-Sage  //<span class="number">2020</span>-Sage就等于出生年份</span><br><span class="line"><span class="keyword">FROM</span>  Student;</span><br></pre></td></tr></table></figure>
 <p>设置一些派生属性列, 也称为虚拟列——Sbirth，带表达式的视图必须明确定义组成视图的各个属性列名</p>
 </blockquote>
 <blockquote>
 <p><strong>[例]  将学生的学号及他的平均成绩定义为一个视图。这是一个分组视图。</strong><br />
 假设SC表中“成绩”列Grade为数字型</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;CREAT  VIEW S_G(Sno,Gavg)</span><br><span class="line">&gt;AS</span><br><span class="line">&gt;SELECT Sno,AVG(Grade)</span><br><span class="line">&gt;FROM  SC</span><br><span class="line">&gt;GROUP BY Sno;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">CREAT  VIEW S_G(Sno,Gavg)</span><br><span class="line">AS</span><br><span class="line"><span class="keyword">SELECT</span> Sno,<span class="keyword">AVG</span>(Grade)</span><br><span class="line"><span class="keyword">FROM</span>  SC</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Sno;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <h2 id="删除视图"><a class="markdownIt-Anchor" href="#删除视图"></a> 删除视图</h2>
 <ul>
@@ -1054,9 +1054,9 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 <p>一些视图是不可更新的，因为对这些视图的更新不能唯一地有意义地转换成对相应基本表的更新(对两类方法均如此)</p>
 <blockquote>
 <p><strong>例：视图S_G为不可更新视图。</strong></p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;CREATE VIEW S_G (Sno,Gavg)</span><br><span class="line">&gt;AS</span><br><span class="line">&gt;SELECT  Sno,AVG(Grade)</span><br><span class="line">&gt;FROM    SC</span><br><span class="line">&gt;GROUP BY Sno;</span><br><span class="line">&gt;//不能直接修改平均分</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> S_G (Sno,Gavg)</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span>  Sno,<span class="keyword">AVG</span>(Grade)</span><br><span class="line"><span class="keyword">FROM</span>    SC</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Sno;</span><br><span class="line">//不能直接修改平均分</span><br></pre></td></tr></table></figure>
 <p>对于如下更新语句：</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&gt;UPDATE S_G</span><br><span class="line">&gt;SET    Gavg=90</span><br><span class="line">&gt;WHERE  Sno= '95001';</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> S_G</span><br><span class="line"><span class="keyword">SET</span>    Gavg=<span class="number">90</span></span><br><span class="line"><span class="keyword">WHERE</span>  Sno= <span class="string">'95001'</span>;</span><br></pre></td></tr></table></figure>
 <p>无论实体化法还是消解法都无法将其转换成对基本表SC的更新。</p>
 </blockquote>
 <hr />
