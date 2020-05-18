@@ -1,0 +1,19 @@
+body {
+    cursor: url(/img/Deepin/Arrow.cur),
+      auto;
+}
+a {
+    cursor: url(/img/Deepin/Hand.cur),
+      default;
+}
+img {
+    cursor: url(/img/Deepin/Hand2.cur),
+      default;
+}
+p,
+text,
+textPath,
+textarea {
+    cursor: url(/img/Deepin/IBeam.cur),
+    default;
+}

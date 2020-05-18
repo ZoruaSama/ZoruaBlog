@@ -339,7 +339,7 @@
 <li>对不同的查询计划计算代价，选择代价最小的一个。</li>
 <li>在计算代价时主要考虑磁盘读写的I/O数，内存CPU处理时间在粗略计算时可不考虑。</li>
 </ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>数据库原理</category>
       </categories>
@@ -546,7 +546,7 @@ EMP关系的主码为职工号Empno, 外码为部门号Deptno；<br />
 <li>需要向用户提供定义主码、外码的机制</li>
 <li>向用户提供按照自己的应用要求选择处理依赖关系中对应的元组的方法</li>
 </ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>数据库原理</category>
       </categories>
@@ -603,7 +603,7 @@ EMP关系的主码为职工号Empno, 外码为部门号Deptno；<br />
 <p>在建立外键的那个部分磨蹭了我半个小时多，查阅各种资料无果。<br />
 最后才发现<code>Linux</code>下的MySQL是区分<strong>表名</strong>的大小写的！</p>
 <p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/664a90c0f91a4fd468d63f66a12b2bf3_1-1P224050129-50.jpg" alt="" /></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>MySQL</category>
       </categories>
@@ -1423,7 +1423,7 @@ A至少需要进行1+(N-2)/M次查询<br />
 所以，数据库安全机制的设计目标：<strong>试图破坏安全的人所花费的代价  &gt;&gt; 得到的利益</strong></li>
 </ol>
 </blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>数据库原理</category>
       </categories>
@@ -2544,7 +2544,7 @@ row_count OFFSET offset是MySQL5.0开始支持的另外一种语法，即从第o
 <blockquote>
 <p><strong>[例]  建立1号课程的选课视图，并要求透过该视图进行的更新操作只涉及1号课程，同时对该视图的任何操作只能在工作时间进行。</strong></p>
 <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">VIEW</span> IS_SC</span><br><span class="line"><span class="keyword">AS</span></span><br><span class="line"><span class="keyword">SELECT</span> Sno，Cno，Grade</span><br><span class="line"><span class="keyword">FROM</span>  SC</span><br><span class="line"><span class="keyword">WHERE</span>  Cno= <span class="string">'1'</span></span><br><span class="line"><span class="keyword">AND</span>  TO_CHAR(<span class="keyword">SYSDATE</span>,<span class="string">'HH24'</span>)  <span class="keyword">BETWEEN</span>  <span class="number">9</span>  <span class="keyword">AND</span>  <span class="number">17</span></span><br><span class="line"><span class="keyword">AND</span>  TO_CHAR(<span class="keyword">SYSDATE</span>,<span class="string">'D'</span>)  <span class="keyword">BETWEEN</span>  <span class="number">2</span>  <span class="keyword">AND</span>  <span class="number">6</span></span><br><span class="line"><span class="keyword">WITH</span> <span class="keyword">CHECK</span> <span class="keyword">OPTION</span>;</span><br></pre></td></tr></table></figure></blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>数据库原理</category>
       </categories>
@@ -4171,7 +4171,7 @@ LAN（局域网）中的一个文件服务器，在一段时间内需要处理�
 <blockquote>
 <p>当用户级线程要通信时，须借助于轻型进程LWP，而且每个要通信的用户级线程都需要一个LWP</p>
 </blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>操作系统</category>
       </categories>
@@ -4376,7 +4376,7 @@ LAN（局域网）中的一个文件服务器，在一段时间内需要处理�
 <ul>
 <li>吉比特以太网的物理层</li>
 <li>端到端的以太网传输</li>
-<li>以太网从 10 Mb/s 到10 Gb/s 的演进</li>
+<li>以太网从 10 Mb/s 到 10 Gb/s 的演进</li>
 </ul>
 </li>
 <li>使用高速以太网进行宽带接入</li>
@@ -5082,7 +5082,7 @@ B1 发送数据时，工作站 A1, A2 和 C1都不会收到 B1 发出的广播�
 </ul>
 </li>
 </ul>
-<h3 id="以太网从-10-mbs-到10-gbs-的演进"><a class="markdownIt-Anchor" href="#以太网从-10-mbs-到10-gbs-的演进"></a> 以太网从 10 Mb/s 到10 Gb/s 的演进</h3>
+<h3 id="以太网从-10-mbs-到-10-gbs-的演进"><a class="markdownIt-Anchor" href="#以太网从-10-mbs-到-10-gbs-的演进"></a> 以太网从 10 Mb/s 到 10 Gb/s 的演进</h3>
 <ul>
 <li>以太网从 10 Mb/s 到 10 Gb/s 的演进证明了以太网是：</li>
 <li>可扩展的（从 10 Mb/s 到 10 Gb/s）。</li>
@@ -5097,7 +5097,7 @@ B1 发送数据时，工作站 A1, A2 和 C1都不会收到 B1 发出的广播�
 <li>采用以太网接入可实现端到端的以太网传输，中间不需要再进行帧格式的转换。这就提高了数据的传输效率和降低了传输的成本。<br />
 <img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200502200847.png" alt="以太网接入举例：光纤到大楼 FTTB" /></li>
 </ul>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>计算机网络</category>
       </categories>
@@ -6282,7 +6282,7 @@ OS应采用<code>层次化</code>结构，以便于增加新的功能层次和<c
 </li>
 </ol>
 </section>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>操作系统</category>
       </categories>
@@ -6435,7 +6435,7 @@ OS应采用<code>层次化</code>结构，以便于增加新的功能层次和<c
 <h1 id="mac-os篇"><a class="markdownIt-Anchor" href="#mac-os篇"></a> Mac OS篇</h1>
 <p><s>我没得苹果家的电脑，写不了教程辽。</s><br />
 <s>好心人可以捐一台给我嗷</s></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>MySQL</category>
       </categories>
@@ -7069,7 +7069,7 @@ OS应采用<code>层次化</code>结构，以便于增加新的功能层次和<c
 </ul>
 <h3 id="无源光网络-pon-passive-optical-network-的组成"><a class="markdownIt-Anchor" href="#无源光网络-pon-passive-optical-network-的组成"></a> 无源光网络 PON (Passive Optical Network) 的组成</h3>
 <p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200420163052.png" alt="" /></p>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>计算机网络</category>
       </categories>
@@ -7854,7 +7854,7 @@ OS应采用<code>层次化</code>结构，以便于增加新的功能层次和<c
 <img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419230701.png" alt="" /><br />
 <img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/1587353657_20200419230734906_24963.png" alt="" /></p>
 </blockquote>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>计算机网络</category>
       </categories>
@@ -8701,7 +8701,7 @@ R和S具有相同的属性组B<br />
 <h1 id="练习题"><a class="markdownIt-Anchor" href="#练习题"></a> 练习题</h1>
 <div class="note success">
             <ul><li><p>有两个关系<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo stretchy="false">(</mo><mi>A</mi><mi mathvariant="normal">，</mi><mi>B</mi><mi mathvariant="normal">，</mi><mi>C</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">R(A，B，C)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mopen">(</span><span class="mord mathdefault">A</span><span class="mord cjk_fallback">，</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mord cjk_fallback">，</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mclose">)</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mo stretchy="false">(</mo><mi>B</mi><mo separator="true">,</mo><mi>C</mi><mo separator="true">,</mo><mi>D</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">S(B,C,D)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">D</span><span class="mclose">)</span></span></span></span>，则<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>R</mi><mo>×</mo><mi>S</mi></mrow><annotation encoding="application/x-tex">R\times S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.00773em;">R</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span></span></span></span>结果的属性个数是（   <span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">D</span></span>  ）<br />A. 3<br />B. 4<br />C. 5<br />D. 6</p></li><li><p>下述哪个是单目运算？（<span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">C</span></span> ）<br />A. 差<br />B. 并<br />C. 投影<br />D. 除</p></li><li><p>取出关系中的某些列，并消去重复元组的关系代数运算称为（<span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">B</span></span> ）<br />A. 取列运算<br />B. 投影运算<br />C. 连接运算<br />D. 选择运算</p></li></ul>
-          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>数据库原理</category>
       </categories>
@@ -8851,7 +8851,7 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <h1 id="小练习"><a class="markdownIt-Anchor" href="#小练习"></a> 小练习</h1>
 <div class="note success">
             <p><strong>小练习</strong></p><ul><li>根据作用的提示，来思考命令名称。<ul><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">ls</span></span>  列出指定文件夹下的内容</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">pwd</span></span>显示当前工作路径</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">cd</span></span> 改变当前工作路径</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">touch</span></span>新建一个空白文件</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">mkdir</span></span> 创建一个新的目录</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">rm</span></span>   删除指定文件</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">clear</span></span> 清除当前屏幕上的信息（新建一屏）</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">reset</span></span>  重置终端</li></ul></li></ul>
-          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -9401,7 +9401,7 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <h1 id="练习题"><a class="markdownIt-Anchor" href="#练习题"></a> 练习题</h1>
 <div class="note success">
             <ul><li><p>信息世界下的数据模型是（   <span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">C</span></span>  ）<br />A. 网状模型<br />B. 层次模型<br />C. 概念模型<br />D. 逻辑模型</p></li><li><p>在数据库管理技术发展的三阶段中，没有专门的软件对数据进行管理的是（<span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">D</span></span> ）</p><ol><li>人工管理阶段</li><li>文件系统阶段</li><li>数据库阶段</li></ol><p>A. 1和2<br />B. 只有2<br />C. 2和3<br />D. 只有1</p></li><li><p>DB、DBS、DBMS之间的关系是（<span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">A</span></span> ）<br />A. DBS包括DB和DBMS<br />B. DBMS包括DBIDBS<br />C. DB包括DBS和DBMNS<br />D. DBS就是DB，也就是DBMS</p></li><li><p>在E-R图中，用来表示属性的图形是（  <span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">B</span></span>）<br />A. 矩形<br />B. 椭圆形<br />C. 菱形<br />D. 平行四边形</p></li></ul>
-          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>数据库原理</category>
       </categories>
@@ -9624,7 +9624,7 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
 </li>
 </ol>
 </section>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>其他</category>
       </categories>
@@ -9717,7 +9717,7 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <p>#小练习</p>
 <div class="note success">
             <p><strong>小练习</strong></p><ul><li>对于用户<code>Zorua</code>，<code>~</code>目录指的是： <span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">C</span></span><br />A.<code>/</code><br />B.<code>/home</code><br />C.<code>/home/Zorua</code><br />D.<code>/Zorua</code></li><li>对于目录<code>/home/Zorua/Desktop</code>，<code>.</code>目录指的是： <span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">D</span></span><br />A.<code>/</code><br />B.<code>/home</code><br />C.<code>/home/Zorua</code><br />D.<code>/home/Zorua/Desktop</code></li></ul>
-          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -10237,7 +10237,7 @@ Tips. 基圆处的渐开线曲率半径为0</li>
 </li>
 </ol>
 </section>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.css">]]></content>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>其他</category>
       </categories>
