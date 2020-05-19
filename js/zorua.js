@@ -8,7 +8,7 @@ jQuery(document).on('copy', function(e)
 	                        + '<br>来源：Zorua\'s Blog<br>© 版权声明：本博客所有文章除特别声明外，均采用 CC BY-NC-SA 4.0 许可协议。';
 	  if (selectedText.length < 300) {
 	    copyFooter = '';}
-	  if (selectedText.length > 1234) {
+	  if (selectedText.length > 1500) {
 	    selectedText = '';
                     copyFooter = '';}
 	  var copyHolder = $('<div>', {id: 'temp', html: selectedText + copyFooter, style: {position: 'absolute', left: '-99999px'}});
