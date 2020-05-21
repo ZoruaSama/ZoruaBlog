@@ -598,9 +598,9 @@
 <li>若一个路由器连接在两个子网上就拥有两个网络地址和两个子网掩码。</li>
 </ul>
 <blockquote>
-<p>**【例4-2】已知 IP 地址是 141.14.72.24，子网掩码是 255.255.192.0。试求网络地址。 **<br />
+<p><strong>【例】已知 IP 地址是 141.14.72.24，子网掩码是 255.255.192.0。试求网络地址。</strong><br />
 <img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517165035.png" alt="" /><br />
-**【例4-3】在上例中，若子网掩码改为255.255.224.0。试求网络地址，讨论所得结果。 **<br />
+<strong>【例】在上例中，若子网掩码改为255.255.224.0。试求网络地址，讨论所得结果。</strong><br />
 <img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517165116.png" alt="" /></p>
 </blockquote>
 <h2 id="使用子网时分组转发"><a class="markdownIt-Anchor" href="#使用子网时分组转发"></a> 使用子网时分组转发</h2>
@@ -620,7 +620,7 @@
 </ol>
 <h2 id="无分类编址-cidr构造超网"><a class="markdownIt-Anchor" href="#无分类编址-cidr构造超网"></a> 无分类编址 CIDR（构造超网）</h2>
 <blockquote>
-<p><strong>【例4-4】已知互联网和路由器 R1 中的路由表。主机 H1 向 H2 发送分组。试讨论 R1 收到 H1 向 H2 发送的分组后查找路由表的过程。</strong><br />
+<p><strong>【例】已知互联网和路由器 R1 中的路由表。主机 H1 向 H2 发送分组。试讨论 R1 收到 H1 向 H2 发送的分组后查找路由表的过程。</strong><br />
 <img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517165438.png" alt="" /><br />
 因此 H1 首先检查主机 128.30.33.138 是否连接在本网络上。如果是，则直接交付；否则，就送交路由器 R1，并逐项查找路由表。<br />
 主机 H1 首先将本子网的子网掩码 255.255.255.128与分组的 IP 地址 128.30.33.138 逐比特相“与”(AND 操作) 。<br />
