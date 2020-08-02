@@ -146,6 +146,502 @@
       </tags>
   </entry>
   <entry>
+    <title>实训日记 | Day 01. Hello Python.</title>
+    <url>/2020/07/20/training_0/</url>
+    <content><![CDATA[<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>2020年7月20日，实训开始了。<br />
+这个日记系列将用于记录我在这一个月内的成长与收获。由于一天的工作量很大，很难再安排时间进行整理😂。<br />
+先说说这个实训相关的一些情况叭。</p>
+<div class="tabs" id="tab-id"><ul class="nav-tabs"><li class="tab active"><a href="#tab-id-1">日程安排</a></li><li class="tab"><a href="#tab-id-2">使用到的工具</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-1"><p>7月20日到8月14日，周末正常休息。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">节次</th>
+<th style="text-align:center">时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1–2节</td>
+<td style="text-align:center">🕣 8:30–10:00</td>
+</tr>
+<tr>
+<td style="text-align:center">3–4节</td>
+<td style="text-align:center">🕙 10:15–11:45</td>
+</tr>
+<tr>
+<td style="text-align:center">5–6节</td>
+<td style="text-align:center">🕜 13:30–15:00</td>
+</tr>
+<tr>
+<td style="text-align:center">7–8节</td>
+<td style="text-align:center">🕞15:15–16:45</td>
+</tr>
+</tbody>
+</table></div><div class="tab-pane" id="tab-id-2"><p><span class="inline-tag green">Python 3.7.4</span><br />
+<span class="inline-tag green">Pycharm</span><br />
+<span class="inline-tag yellow">Navicat</span><br />
+<span class="inline-tag red">腾讯QQ</span><br />
+<span class="inline-tag blue">腾讯会议 WeMeet</span></p></div></div></div>
+<h1 id="什么是python"><a class="markdownIt-Anchor" href="#什么是python"></a> 什么是Python</h1>
+<blockquote>
+<p>以下内容援引自<strong>百度百科</strong>。<br />
+Python是一种跨平台的计算机程序设计语言。 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。最初被设计用于编写自动化脚本(shell)，随着版本的不断更新和语言新功能的添加，越多被用于独立的、大型项目的开发。<br />
+Python是一种解释型脚本语言，可以应用于以下领域：</p>
+<ul>
+<li>Web 和 Internet开发</li>
+<li>科学计算和统计</li>
+<li>人工智能</li>
+<li>桌面界面开发</li>
+<li>软件开发</li>
+<li>后端开发</li>
+<li>网络爬虫</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>以下内容援引自<strong>菜鸟教程</strong>。<br />
+Python 是一个高层次的结合了解释性、编译性、互动性和面向对象的脚本语言。<br />
+Python 的设计具有很强的可读性，相比其他语言经常使用英文关键字，其他语言的一些标点符号，它具有比其他语言更有特色语法结构。</p>
+<ul>
+<li>Python 是一种解释型语言： 这意味着开发过程中没有了编译这个环节。类似于PHP和Perl语言。</li>
+<li>Python 是交互式语言： 这意味着，您可以在一个 Python 提示符 <code>&gt;&gt;&gt;</code> 后直接执行代码。</li>
+<li>Python 是面向对象语言: 这意味着Python支持面向对象的风格或代码封装在对象的编程技术。</li>
+<li>Python 是初学者的语言：Python 对初级程序员而言，是一种伟大的语言，它支持广泛的应用程序开发，从简单的文字处理到 WWW 浏览器再到游戏。</li>
+</ul>
+</blockquote>
+<h2 id="项目新建"><a class="markdownIt-Anchor" href="#项目新建"></a> 项目新建</h2>
+<p>按下<code>Alt</code>+<code>INSERT</code>新建项目。<br />
+除了可以选择<strong>项目位置</strong>以外，还可以<strong>配置项目的解释器</strong>。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802133103.png" alt="" /><br />
+在文件夹下右键，<strong>新建-Python File</strong>可创建*.py文件。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802133333.png" alt="" /></p>
+<h1 id="python文件的声明"><a class="markdownIt-Anchor" href="#python文件的声明"></a> Python文件的声明</h1>
+<p>一般的*.py文件都会以如下的代码开头。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># coding=utf-8</span></span><br></pre></td></tr></table></figure>
+<p>这是作什么用处的呢？<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<h2 id="第一行"><a class="markdownIt-Anchor" href="#第一行"></a> 第一行</h2>
+<p>通常为<code>#!/usr/bin/env python3</code>或<code>#!/usr/bin/python</code>。<br />
+作用为<strong>指定解释器，增强代码可移植性</strong>。<br />
+必须处在第一行，用来指定本脚本用什么Interpreter来执行。<br />
+那么，刚刚在新建项目时已经指定了Interpreter了，为什么这里还需要呢？<br />
+因为有时候，我们执行*.py文件，是直接在shell里使用<code>./</code>来执行。这里的声明，就是为了这种执行提供了解释器位置。</p>
+<h2 id="第二行"><a class="markdownIt-Anchor" href="#第二行"></a> 第二行</h2>
+<p>通常为以下三种之一：</p>
+<ul>
+<li><code># coding=utf-8</code></li>
+<li><code># coding:utf-8</code></li>
+<li><code># -*- coding:utf-8 -*-</code></li>
+</ul>
+<p>声明Python文件使用UTF-8编码（无此声明时，默认为ASCII编码），以解决python2中有中文字符（包括注释中的）会报错的情况。<br />
+必须处在首行或第二行，格式满足正则表达式<code>^[ \t\f]*#.*?coding[:=][ \t]*([-_.a-zA-Z0-9]+)</code>即可。</p>
+<h1 id="python语法特点"><a class="markdownIt-Anchor" href="#python语法特点"></a> Python语法特点</h1>
+<h2 id="无需结尾符"><a class="markdownIt-Anchor" href="#无需结尾符"></a> 无需结尾符</h2>
+<p><code>C/C++</code>和<code>Java</code>等等编程语言，每一条语句都以<code>;</code>进行结尾，Python以换行符结尾。</p>
+<h2 id="强调缩进"><a class="markdownIt-Anchor" href="#强调缩进"></a> 强调缩进</h2>
+<p>在<code>C/C++</code>中，代码块以<code>{ }</code>分割开，而Python中则以缩进来表示。<br />
+同一级的代码，缩进的空格数量应该一致。<br />
+例如下面两个代码，执行的结果是不一样的。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"True"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"False"</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Over"</span>) <span class="comment">#这个语句和if判断语句是同级的</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"True"</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"False"</span>)</span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"Over"</span>)<span class="comment">#这个语句和输出false的语句是同级的</span></span><br></pre></td></tr></table></figure>
+<h2 id="同一语句多行"><a class="markdownIt-Anchor" href="#同一语句多行"></a> 同一语句多行</h2>
+<p>如果一行代码很长，影响阅读或观感，可以使用<code>\</code>来实现多行语句。例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">averylongvariablename = anotherverylongvariablename + \</span><br><span class="line">wowawesomeman + \</span><br><span class="line">thatsmyveryfirsttime</span><br></pre></td></tr></table></figure>
+<p>效果等价于<code>averylongvariablename = anotherverylongvariablename + wowawesomeman + thatsmyveryfirsttime</code><br />
+在<code>[ ]</code>, <code>{ }</code>,  <code>( )</code> ,<code>''' '''</code>的多行语句，不需要使用<code>\</code>就可以换行，例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">dic1 = &#123; <span class="string">'name'</span>:<span class="string">'Zorua'</span>,</span><br><span class="line">         <span class="string">'class'</span>:<span class="number">5</span>,</span><br><span class="line">         <span class="string">'hobby'</span>:<span class="string">'game'</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="同一行多个语句"><a class="markdownIt-Anchor" href="#同一行多个语句"></a> 同一行多个语句</h2>
+<p>由于Python不再使用<code>;</code>而是使用换行符来分割语句，因此如果想在同一行写多个语句的话，应使用<code>;</code>来进行分割。<br />
+例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i = <span class="number">100</span>;i = i + <span class="number">100</span>;print(i)</span><br></pre></td></tr></table></figure>
+<h2 id="区分大小写"><a class="markdownIt-Anchor" href="#区分大小写"></a> 区分大小写</h2>
+<p>python中是区分大小写的，不管是<strong>变量、函数、还是类</strong>，都要严格的区分大小写。<br />
+例如，zorua和Zorua是两个不同的变量，name和Name也是完全不同的两个变量。</p>
+<h1 id="标识符命名规则"><a class="markdownIt-Anchor" href="#标识符命名规则"></a> 标识符命名规则</h1>
+<ul>
+<li>可以以<strong>字母</strong>或下划线<code>_</code>打头。</li>
+<li>由<strong>字母、数字、下划线</strong>组成。</li>
+<li>标识符对大小写敏感。<br />
+即使在Python3中，使用中文命名也是可以的，但仍不建议这样使用(因为切换输入法挺麻烦的)。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/Snipaste_2020-08-02_13-57-26.png" alt="" /></li>
+</ul>
+<h1 id="关键字"><a class="markdownIt-Anchor" href="#关键字"></a> 关键字</h1>
+<p>关键字也叫保留字，类似C语言中的<code>for``while</code>等词，不能被用于变量命名的，具有特别意义的标识符。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> keyword</span><br><span class="line">print(keyword.kwlist)</span><br></pre></td></tr></table></figure>
+<p>上面的代码可以输出<span class="inline-tag green">Python</span>中的关键字。<br />
+输出的结果为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">[<span class="string">'False'</span>, <span class="string">'None'</span>, <span class="string">'True'</span>, <span class="string">'and'</span>, <span class="string">'as'</span>, <span class="string">'assert'</span>, <span class="string">'async'</span>, <span class="string">'await'</span>, <span class="string">'break'</span>, <span class="string">'class'</span>, <span class="string">'continue'</span>, <span class="string">'def'</span>, <span class="string">'del'</span>, <span class="string">'elif'</span>, <span class="string">'else'</span>, <span class="string">'except'</span>, <span class="string">'finally'</span>, <span class="string">'for'</span>, <span class="string">'from'</span>, <span class="string">'global'</span>, <span class="string">'if'</span>, <span class="string">'import'</span>, <span class="string">'in'</span>, <span class="string">'is'</span>, <span class="string">'lambda'</span>, <span class="string">'nonlocal'</span>, <span class="string">'not'</span>, <span class="string">'or'</span>, <span class="string">'pass'</span>, <span class="string">'raise'</span>, <span class="string">'return'</span>, <span class="string">'try'</span>, <span class="string">'while'</span>, <span class="string">'with'</span>, <span class="string">'yield'</span>]</span><br></pre></td></tr></table></figure>
+<h1 id="注释"><a class="markdownIt-Anchor" href="#注释"></a> 注释</h1>
+<p>不论在何种编程语言中，都有注释这一设计存在。注释可以增加代码的可阅读性；在调试代码时，注释也可被用于阻止某一代码的进行。<br />
+Python中的注释以<code>#</code>开头。<br />
+在Pycharm中，快速注释/取消注释可以使用<code>Ctrl</code>+<code>/</code>的快捷键。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#可以顶格写注释。</span></span><br><span class="line">print(<span class="string">'Hello, world!'</span>) <span class="comment">#也可以在代码句后写注释。</span></span><br></pre></td></tr></table></figure>
+<p>如果需要块注释，可以使用<code>'''</code>或<code>&quot;&quot;&quot;</code>（连续三个单引号或双引号），作用等同于C/C++中的<code>/* */</code></p>
+<h1 id="序列解包"><a class="markdownIt-Anchor" href="#序列解包"></a> 序列解包</h1>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">i,j = <span class="number">100</span>,<span class="number">50</span></span><br><span class="line">print(i)</span><br><span class="line">print(j)</span><br></pre></td></tr></table></figure>
+<p><code>i,j = 100,50</code>等价于<code>i=100 j=50</code><br />
+以此类推，还可以实现<code>i,j,k = 1,2,3</code>，<code>i,j,k=[1,2],1,(1,2)</code>等等。需要注意左右的表达式元素数量相同。</p>
+<h1 id="输出及输入"><a class="markdownIt-Anchor" href="#输出及输入"></a> 输出及输入</h1>
+<ul>
+<li>输出 print()</li>
+<li>输入 input()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">name = input(<span class="string">"Please input your name:"</span>)   <span class="comment">#括号里是提示语</span></span><br><span class="line">print(<span class="string">"&#123;0&#125; &#123;1&#125;"</span>.format(name,<span class="string">"   Hello"</span>))  <span class="comment">#格式化的输出</span></span><br></pre></td></tr></table></figure>
+<p>格式化的输出除了可以使用上述形式以外，也可以使用如下形式：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">"%s %s"</span> % (name,<span class="string">"   Hello"</span>))</span><br></pre></td></tr></table></figure>
+<p>其中的<code>%s</code>为占位符。占位符的表示形式和C/C++的一样，也就是说，上述语句用C语言写就是：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="built_in">printf</span>(<span class="string">"%s %s"</span>,name,<span class="string">"  Hello"</span>);</span><br></pre></td></tr></table></figure>
+<p>不过，需要注意的是，这些格式化字符串除了能用在print语句以外，也可以在其他场合格式化字符串。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802143329.png" alt="" /><br />
+另外，<code>print()</code>函数也能接收多个参数来进行输出，中间会自动添加一个空格(由sep参数来指定)。</p>
+<h2 id="不换行的输出"><a class="markdownIt-Anchor" href="#不换行的输出"></a> 不换行的输出</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802143056.png" alt="" /><br />
+<code>print()</code> 函数中的<code>end</code>参数，默认为<code>\n</code>。因此每次在输出语句后，它会自动补充一个换行符。<br />
+如果想不换行的输出，可以将其改为<code>print(123,end='')</code>。<br />
+同理，如果想在每次输出后，自动补充一个空格，可以为<code>print(123,end=' ')</code>。</p>
+<h2 id="input函数的其他用法"><a class="markdownIt-Anchor" href="#input函数的其他用法"></a> input函数的其他用法</h2>
+<p>当你想实现如同C语言语句中的<code>system(&quot;pause&quot;)</code>（请按任意键继续）的效果时，可以键入：<br />
+<code>input('请按回车键继续')</code></p>
+<h1 id="运算符"><a class="markdownIt-Anchor" href="#运算符"></a> 运算符</h1>
+<p>运算符号和其他编程语言大同小异。在此简要地说明一些和其他语言所有区别的。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">作用</th>
+<th style="text-align:center">示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">**</td>
+<td style="text-align:center">幂</td>
+<td style="text-align:center">3**2 -&gt; 9</td>
+</tr>
+<tr>
+<td style="text-align:center">//</td>
+<td style="text-align:center">取整除</td>
+<td style="text-align:center">9//4 -&gt; 2</td>
+</tr>
+<tr>
+<td style="text-align:center">in</td>
+<td style="text-align:center">如果在指定的序列中找到值返回 True，否则返回 False。</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">is</td>
+<td style="text-align:center">is 是判断两个标识符是不是引用自一个对象</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">:=</td>
+<td style="text-align:center">海象运算符，可在表达式内部为变量赋值。</td>
+<td style="text-align:center"><a href="https://www.cnblogs.com/wongbingming/p/12743802.html" target="_blank" rel="noopener">详情可以看这篇文章</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="常见的函数"><a class="markdownIt-Anchor" href="#常见的函数"></a> 常见的函数</h1>
+<p>以下内容援引自菜鸟教程。</p>
+<h2 id="数学函数"><a class="markdownIt-Anchor" href="#数学函数"></a> 数学函数</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>返回值 ( 描述 )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-abs.html" target="_blank" rel="noopener">abs(x)</a></td>
+<td>返回数字的绝对值，如abs(-10) 返回 10</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-ceil.html" target="_blank" rel="noopener">ceil(x)</a></td>
+<td>返回数字的上入整数，如math.ceil(4.1) 返回 5</td>
+</tr>
+<tr>
+<td>cmp(x, y)</td>
+<td>如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1。 <strong>Python 3 已废弃，使用 (x&gt;y)-(x&lt;y) 替换</strong>。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-exp.html" target="_blank" rel="noopener">exp(x)</a></td>
+<td>返回e的x次幂(e<sup>x</sup>),如math.exp(1) 返回2.718281828459045</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-fabs.html" target="_blank" rel="noopener">fabs(x)</a></td>
+<td>返回数字的绝对值，如math.fabs(-10) 返回10.0</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-floor.html" target="_blank" rel="noopener">floor(x)</a></td>
+<td>返回数字的下舍整数，如math.floor(4.9)返回 4</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-log.html" target="_blank" rel="noopener">log(x)</a></td>
+<td>如math.log(math.e)返回1.0,math.log(100,10)返回2.0</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-log10.html" target="_blank" rel="noopener">log10(x)</a></td>
+<td>返回以10为基数的x的对数，如math.log10(100)返回 2.0</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-max.html" target="_blank" rel="noopener">max(x1, x2,…)</a></td>
+<td>返回给定参数的最大值，参数可以为序列。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-min.html" target="_blank" rel="noopener">min(x1, x2,…)</a></td>
+<td>返回给定参数的最小值，参数可以为序列。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-modf.html" target="_blank" rel="noopener">modf(x)</a></td>
+<td>返回x的整数部分与小数部分，两部分的数值符号与x相同，整数部分以浮点型表示。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-pow.html" target="_blank" rel="noopener">pow(x, y)</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-round.html" target="_blank" rel="noopener">round(x [,n])</a></td>
+<td>返回浮点数 x 的四舍五入值，如给出 n 值，则代表舍入到小数点后的位数。<strong>其实准确的说是保留值将保留到离上一位更近的一端。</strong></td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-sqrt.html" target="_blank" rel="noopener">sqrt(x)</a></td>
+<td>返回数字x的平方根。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="随机数函数"><a class="markdownIt-Anchor" href="#随机数函数"></a> 随机数函数</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-choice.html" target="_blank" rel="noopener">choice(seq)</a></td>
+<td>从序列的元素中随机挑选一个元素，比如random.choice(range(10))，从0到9中随机挑选一个整数。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-randrange.html" target="_blank" rel="noopener">randrange ([start,] stop [,step])</a></td>
+<td>从指定范围内，按指定基数递增的集合中获取一个随机数，基数默认值为 1</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-random.html" target="_blank" rel="noopener">random()</a></td>
+<td>随机生成下一个实数，它在[0,1)范围内。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-seed.html" target="_blank" rel="noopener">seed([x])</a></td>
+<td>改变随机数生成器的种子seed。如果你不了解其原理，你不必特别去设定seed，Python会帮你选择seed。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-shuffle.html" target="_blank" rel="noopener">shuffle(lst)</a></td>
+<td>将序列的所有元素随机排序</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-uniform.html" target="_blank" rel="noopener">uniform(x, y)</a></td>
+<td>随机生成下一个实数，它在[x,y]范围内。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="三角函数"><a class="markdownIt-Anchor" href="#三角函数"></a> 三角函数</h3>
+<h2 id="三角函数-2"><a class="markdownIt-Anchor" href="#三角函数-2"></a> 三角函数</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-acos.html" target="_blank" rel="noopener">acos(x)</a></td>
+<td>返回x的反余弦弧度值。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-asin.html" target="_blank" rel="noopener">asin(x)</a></td>
+<td>返回x的反正弦弧度值。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-atan.html" target="_blank" rel="noopener">atan(x)</a></td>
+<td>返回x的反正切弧度值。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-atan2.html" target="_blank" rel="noopener">atan2(y, x)</a></td>
+<td>返回给定的 X 及 Y 坐标值的反正切值。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-cos.html" target="_blank" rel="noopener">cos(x)</a></td>
+<td>返回x的弧度的余弦值。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-hypot.html" target="_blank" rel="noopener">hypot(x, y)</a></td>
+<td>返回欧几里德范数 sqrt(x*x + y*y)。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-sin.html" target="_blank" rel="noopener">sin(x)</a></td>
+<td>返回的x弧度的正弦值。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-tan.html" target="_blank" rel="noopener">tan(x)</a></td>
+<td>返回x弧度的正切值。</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-degrees.html" target="_blank" rel="noopener">degrees(x)</a></td>
+<td>将弧度转换为角度,如degrees(math.pi/2) ， 返回90.0</td>
+</tr>
+<tr>
+<td><a href="https://www.runoob.com/python3/python3-func-number-radians.html" target="_blank" rel="noopener">radians(x)</a></td>
+<td>将角度转换为弧度</td>
+</tr>
+</tbody>
+</table>
+<h2 id="数学常量"><a class="markdownIt-Anchor" href="#数学常量"></a> 数学常量</h2>
+<table>
+<thead>
+<tr>
+<th>常量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pi</td>
+<td>数学常量 pi（圆周率，一般以π来表示）</td>
+</tr>
+<tr>
+<td>e</td>
+<td>数学常量 e，e即自然常数（自然常数）。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="字符串"><a class="markdownIt-Anchor" href="#字符串"></a> 字符串</h1>
+<p>定义：一个<strong>有序的</strong>，<strong>不可修改的</strong>，<strong>以引号包围</strong>的序列。<br />
+可以使用单引号<code>'</code>或<code>&quot;</code>创建字符串。<br />
+如果要创建多行的字符串，可以使用<code>'''</code>或<code>&quot;&quot;&quot;</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">strHello1 = <span class="string">'Hello World!'</span></span><br><span class="line">strHello2 = <span class="string">"Hello World!"</span></span><br><span class="line">strHello3 = <span class="string">'''Hello</span></span><br><span class="line"><span class="string">World!'''</span></span><br></pre></td></tr></table></figure>
+<h2 id="访问字符串的值"><a class="markdownIt-Anchor" href="#访问字符串的值"></a> 访问字符串的值</h2>
+<p>Python中没有类似C语言中的char类型，即使是单个字符，也会被认为是字符串。<br />
+可以使用<strong>切片</strong>来访问字符串的值。格式为<code>str[start:end:step]</code>，效果是左闭右开 [a,b)。<br />
+例如<code>str[0:3:1]</code>会从str的第一个字符取到第二个字符。<br />
+可以省略其中的几个参数。</p>
+<ul>
+<li>start缺省值为0，是起始位置。</li>
+<li>end缺省值为字符串长度-1，是终止位置。</li>
+<li>step缺省值为1，是间隔字符。</li>
+<li>参数为负数时，是从右到左数的索引。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">strAlphaBet7=<span class="string">'abcdefg'</span></span><br><span class="line">print(strAlphaBet7[<span class="number">-1</span>])   <span class="comment">#1</span></span><br><span class="line">print(strAlphaBet7[<span class="number">6</span>])    <span class="comment">#2</span></span><br><span class="line">print(strAlphaBet7[<span class="number">6</span>:<span class="number">7</span>]    <span class="comment">#3</span></span><br><span class="line">print(strAlphaBet7[len(strAlphaBet7)<span class="number">-1</span>])    <span class="comment">#4</span></span><br><span class="line">print(strAlphaBet7[<span class="number">0</span>:<span class="number">3</span>:<span class="number">1</span>])    <span class="comment">#5</span></span><br><span class="line">print(strAlphaBet7[<span class="number">0</span>:<span class="number">3</span>])      <span class="comment">#6</span></span><br><span class="line">print(strAlphaBet7[<span class="number">3</span>:<span class="number">0</span>:<span class="number">-1</span>])   <span class="comment">#7</span></span><br><span class="line">print(strAlphaBet7[<span class="number">-7</span>:<span class="number">-4</span>])    <span class="comment">#8</span></span><br><span class="line">print(strAlphaBet7[<span class="number">0</span>:<span class="number">7</span>:<span class="number">2</span>])    <span class="comment">#9</span></span><br><span class="line">print(strAlphaBet7[:<span class="number">3</span>])        <span class="comment">#10</span></span><br><span class="line">print(strAlphaBet7[<span class="number">2</span>:])        <span class="comment">#11</span></span><br></pre></td></tr></table></figure>
+<p>上面的前四行输出语句，全都可以输出字符串<code>g</code>。<br />
+5-8条语句，会输出字符串<code>abc</code>。<br />
+9-11条语句，会输出不同的内容。感兴趣的读者可以自行测试。</p>
+<h2 id="分割字符串"><a class="markdownIt-Anchor" href="#分割字符串"></a> 分割字符串</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">'123ab456ab1'</span>.split(<span class="string">'ab'</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<p>上述语句输出的结果为<code>['123','456','1']</code>。</p>
+<ul>
+<li>第一个参数是按照什么字符串来分割</li>
+<li>第二个参数是分割几次。分割2次，就是分割成3部分。</li>
+</ul>
+<h2 id="替换字符串"><a class="markdownIt-Anchor" href="#替换字符串"></a> 替换字符串</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">'aBcDabcdabcd'</span>.replace(<span class="string">'a'</span>,<span class="string">'A'</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+<p>上述语句输出的结果为<code>ABcDAbcdabcd</code>。</p>
+<ul>
+<li>第一个参数是原字符。</li>
+<li>第二个参数是替换字符。</li>
+<li>第三个参数是替换次数。</li>
+</ul>
+<h2 id="字符串查找"><a class="markdownIt-Anchor" href="#字符串查找"></a> 字符串查找</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">strFind=<span class="string">"My name is aaabc"</span></span><br><span class="line">print(<span class="string">"the position of bc = %d"</span>%strFind.find(<span class="string">'bc'</span>))</span><br></pre></td></tr></table></figure>
+<p>上述语句输出的结果为<code>the position of bc = 14</code>。<br />
+<code>find</code>函数将在字符串中找到首个匹配的字符串的起始位置。</p>
+<h2 id="字符串计数"><a class="markdownIt-Anchor" href="#字符串计数"></a> 字符串计数</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">strCount=<span class="string">"My name is aaabc"</span></span><br><span class="line">print(<span class="string">"the amount of a = %d"</span>%str5.count(<span class="string">'a'</span>))</span><br><span class="line">print(<span class="string">"the amount of aa = %d"</span>%str5.count(<span class="string">'aa'</span>))</span><br></pre></td></tr></table></figure>
+<p>上述语句输出的结果为：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">the amount of a &#x3D; 4</span><br><span class="line">the amount of aa &#x3D; 1</span><br></pre></td></tr></table></figure>
+<p>注意，第二条计数，查找<code>aa</code>，并不会认为字符串<code>aaa</code>中存在两个<code>aa</code>。</p>
+<h2 id="字符串位置"><a class="markdownIt-Anchor" href="#字符串位置"></a> 字符串位置</h2>
+<p>该系列的函数可以通过填充字符来调节原字符串的位置。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(<span class="string">'aaa'</span>.center(<span class="number">10</span>))</span><br><span class="line">print(<span class="string">'aaa.center(10,'</span><span class="number">0</span><span class="string">'))   #居中</span></span><br><span class="line"><span class="string">print('</span>aaa<span class="string">'.ljust(10,'</span><span class="number">0</span><span class="string">'))   #居左</span></span><br><span class="line"><span class="string">print('</span>aaa<span class="string">'.rjust(10,'</span><span class="number">0</span><span class="string">'))   #居右</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   aaa    </span><br><span class="line">000aaa0000</span><br><span class="line">aaa0000000</span><br><span class="line">0000000aaa</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一个参数为参考的长度值。</li>
+<li>第二个参数是填充字符。缺省值为空格。</li>
+</ul>
+<h2 id="去空格"><a class="markdownIt-Anchor" href="#去空格"></a> 去空格</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">strWhitespace=<span class="string">'    abc    '</span></span><br><span class="line">print(strWhitespace.strip())  <span class="comment">#去掉两边空格</span></span><br><span class="line">print(strWhitespace.lstrip()) <span class="comment">#去掉左边空格</span></span><br><span class="line">print(strWhitespace.rstrip()) <span class="comment">#去掉右边空格</span></span><br></pre></td></tr></table></figure>
+<h2 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h2>
+<p><strong>只例举了一些可能比较常用的。</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数名称</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lower</td>
+<td>将字符串里的字符全变成小写</td>
+</tr>
+<tr>
+<td>upper</td>
+<td>将字符串里的字符全变成大写</td>
+</tr>
+<tr>
+<td>isupper</td>
+<td>判断字符串当中的字母是否完全是大写</td>
+</tr>
+<tr>
+<td>islower</td>
+<td>判断字符串当中的字母是否完全是小写</td>
+</tr>
+<tr>
+<td>istitle</td>
+<td>判断字符申是否满足title格式</td>
+</tr>
+<tr>
+<td>isspace</td>
+<td>判断字符串是否完全由空格组成</td>
+</tr>
+<tr>
+<td>startswith</td>
+<td>判断字符串的开头字符，也可以截取判断</td>
+</tr>
+<tr>
+<td>endswith</td>
+<td>判断字符串的结尾字符，也可以截取判断</td>
+</tr>
+<tr>
+<td>isalnum</td>
+<td>判断是否完全由字母和数字组成</td>
+</tr>
+<tr>
+<td>isalpha</td>
+<td>判断是否完全由字母组成</td>
+</tr>
+<tr>
+<td>isdigit</td>
+<td>判断是否完全由数字组成</td>
+</tr>
+</tbody>
+</table>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>参考资料：<a href="https://blog.csdn.net/u010871448/article/details/96476455" target="_blank" rel="noopener">https://blog.csdn.net/u010871448/article/details/96476455</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>计算机网络 | 4. 网络层</title>
     <url>/2020/05/21/network_3/</url>
     <content><![CDATA[<h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
