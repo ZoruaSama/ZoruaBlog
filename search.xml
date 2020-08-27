@@ -1,6 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux入门 | 3.常用命令</title>
+    <url>/2020/08/27/Linux_2/</url>
+    <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<h1 id="基础命令"><a class="markdownIt-Anchor" href="#基础命令"></a> 基础命令</h1>
+<p>在<a href="/2020/04/14/Linux_1/#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4">上一篇文章</a>中，我写到了在<code>Linux</code>系统中常用了8个命令，在这篇文章中，将会对这8个命令作较为详细的解析。<br />
+如果各位读者对本文有所不清晰或认为有错误的地方，欢迎来评论区指出。我会及时确认并修正。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>对应英语</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>ls</td>
+<td>list</td>
+<td>列出指定文件夹下的内容</td>
+</tr>
+<tr>
+<td>02</td>
+<td>pwd</td>
+<td>print work directory</td>
+<td>显示当前工作路径</td>
+</tr>
+<tr>
+<td>03</td>
+<td>cd</td>
+<td>change directory</td>
+<td>改变当前工作路径</td>
+</tr>
+<tr>
+<td>04</td>
+<td>touch</td>
+<td>touch</td>
+<td>新建一个空白文件</td>
+</tr>
+<tr>
+<td>05</td>
+<td>mkdir</td>
+<td>make directory</td>
+<td>创建一个新的目录</td>
+</tr>
+<tr>
+<td>06</td>
+<td>rm</td>
+<td>remove</td>
+<td>删除指定文件</td>
+</tr>
+<tr>
+<td>07</td>
+<td>clear</td>
+<td>clear</td>
+<td>清除当前屏幕上的信息（新建一屏）</td>
+</tr>
+<tr>
+<td>08</td>
+<td>reset</td>
+<td>reset</td>
+<td>重置终端</td>
+</tr>
+</tbody>
+</table>
+<h1 id="命令格式"><a class="markdownIt-Anchor" href="#命令格式"></a> 命令格式</h1>
+<p>在终端中，命令通常是按照如下格式进行的：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">command</span> [-options] [parameter]</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>command</code>：命令名称，</li>
+<li><code>[-options]</code>：选项，可用来对命令进行控制，实现不同的效果。这一项可以省略。</li>
+<li><code>parameter</code>：传给命令的参数，可以是 <strong>零个</strong>、<strong>一个</strong> 或者 <strong>多个</strong></li>
+</ul>
+<h1 id="ls-命令说明"><a class="markdownIt-Anchor" href="#ls-命令说明"></a> ls 命令说明</h1>
+<ul>
+<li><code>ls</code> 是<strong>list</strong> 的缩写，功能是列出指定文件夹下的内容，可以类比于 <strong>DOS</strong> 下的 <code>dir</code> 命令。</li>
+<li><code>ls path</code>显示path路径的目录下的内容。</li>
+<li>如果直接使用<code>ls</code>，等价于<code>ls .</code>（下文有解释<code>.</code>）。</li>
+</ul>
+<h2 id="ls-常用选项"><a class="markdownIt-Anchor" href="#ls-常用选项"></a> ls 常用选项</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>显示指定目录下所有子目录与文件，包括<strong>隐藏文件</strong></td>
+</tr>
+<tr>
+<td>-l</td>
+<td>以<strong>列表方式</strong>显示文件的详细信息</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>配合 -l 以人性化的方式显示文件大小</td>
+</tr>
+</tbody>
+</table>
+<h2 id="linux-系统的文件和目录的特点"><a class="markdownIt-Anchor" href="#linux-系统的文件和目录的特点"></a> Linux 系统的文件和目录的特点</h2>
+<ul>
+<li><strong>文件</strong> 或者 <strong>目录</strong> 名称最长可以有 <code>256</code> 个字符</li>
+<li>以 <code>.</code> 开头的文件为隐藏文件，需要用 -a 参数才能显示</li>
+<li><strong>.</strong> 代表当前目录，也可以叫做工作目录（或者工作路径）</li>
+<li><strong>…</strong> 代表上一级目录</li>
+<li>上面这两个目录严格来说也是<code>.</code>开头的，所以也是在 -a 参数下才能显示。</li>
+</ul>
+<h3 id="绝对路径与相对路径"><a class="markdownIt-Anchor" href="#绝对路径与相对路径"></a> 绝对路径与相对路径</h3>
+<p>在Linux中，以path作为参数时，可分为绝对路径和相对路径。</p>
+<ul>
+<li>
+<p><strong>绝对路径</strong><br />
+从<strong>根目录</strong><code>/</code>开始，依次将各级子目录的名字组合起来，形成的路径就称为某个文件的绝对路径。例如，根目录（/）下有目录usr，usr目录下有子目录bin，bin目录下有文件chsh，则chsh文件的绝对路径就是：/usr/bin/chsh。</p>
+</li>
+<li>
+<p><strong>相对路径</strong><br />
+相对当前所在路径的位置，例如当前所在的位置为/usr，也就是在根目录的usr子目录下，则chsh文件相对当前位置的路径为：bin/chsh。</p>
+</li>
+</ul>
+<div class="snote guide"><p>相对路径就是相对于当前工作目录的路径。例如我想显示当前工作目录的上一级目录下的文件：ls ..</p></div>
+<h2 id="ls-通配符的使用"><a class="markdownIt-Anchor" href="#ls-通配符的使用"></a> ls 通配符的使用</h2>
+<p>在<code>ls</code>命令的参数中，可以使用通配符。</p>
+<table>
+<thead>
+<tr>
+<th>通配符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*</td>
+<td>代表任意个数个字符</td>
+</tr>
+<tr>
+<td>?</td>
+<td>代表任意一个字符，至少 1 个</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>表示可以匹配字符组中的任一一个</td>
+</tr>
+<tr>
+<td>[abc]</td>
+<td>匹配 a、b、c 中的任意一个</td>
+</tr>
+<tr>
+<td>[a-f]</td>
+<td>匹配从 a 到 f 范围内的的任意一个字符</td>
+</tr>
+</tbody>
+</table>
+<h2 id="演示"><a class="markdownIt-Anchor" href="#演示"></a> 演示</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827191622.gif" alt="" /></p>
+<h1 id="pwd-命令说明"><a class="markdownIt-Anchor" href="#pwd-命令说明"></a> pwd 命令说明</h1>
+<ul>
+<li><code>pwd</code> 命令相对比较简单，就是显示当前工作目录。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827192734.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827192945.png" alt="" /></li>
+</ul>
+<h2 id="演示-2"><a class="markdownIt-Anchor" href="#演示-2"></a> 演示</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827191855.gif" alt="" /></p>
+<h1 id="cd-命令说明"><a class="markdownIt-Anchor" href="#cd-命令说明"></a> cd 命令说明</h1>
+<h2 id="使用cd命令"><a class="markdownIt-Anchor" href="#使用cd命令"></a> 使用cd命令</h2>
+<ul>
+<li>如果单纯地使用<code>cd</code>命令，等价于<code>cd ~</code>或<code>cd /home/username</code>
+<ul>
+<li>即切换到家目录</li>
+</ul>
+</li>
+<li><code>cd</code>后面可以接<strong>绝对路径</strong>或<strong>相对路径</strong>作为参数。</li>
+</ul>
+<h2 id="演示-3"><a class="markdownIt-Anchor" href="#演示-3"></a> 演示</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827192449.gif" alt="" /></p>
+<h1 id="touch-命令说明"><a class="markdownIt-Anchor" href="#touch-命令说明"></a> touch 命令说明</h1>
+<p><code>touch</code>用于修改文件或者目录的时间属性，包括存取时间和更改时间。若文件不存在，<strong>系统会建立一个新的文件</strong>。<br />
+作为入门级教程，我们只需要知道<code>touch</code>命令可以创建一个空白文件就行了。<br />
+语法：<code>touch filename</code></p>
+<h2 id="演示-4"><a class="markdownIt-Anchor" href="#演示-4"></a> 演示</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827200707.gif" alt="" /></p>
+<h1 id="mkdir-命令说明"><a class="markdownIt-Anchor" href="#mkdir-命令说明"></a> mkdir 命令说明</h1>
+<ul>
+<li><code>mkdir path</code>会创建一个path目录。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827203633.gif" alt="" /></li>
+</ul>
+<hr />
+<p>如果path是一个较长的路径，例如<code>aaa/bbb/ccc/ddd</code>这个例子，需要确保<code>aaa``bbb``ccc</code>文件夹都已经存在。<br />
+如果加一个<code>-p</code>选项（递归创建目录），则不需要确保这些文件夹都已经存在。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827204408.gif" alt="" /></p>
+<h1 id="rm-命令说明"><a class="markdownIt-Anchor" href="#rm-命令说明"></a> rm 命令说明</h1>
+<p>使用<code>rm</code>时请<strong>万分小心</strong>，<code>rm</code>是删除文件或目录，是<strong>不可逆操作</strong>。<br />
+<code>rm</code>后接文件名就可以了。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827204738.gif" alt="" /></p>
+<h2 id="选项"><a class="markdownIt-Anchor" href="#选项"></a> 选项</h2>
+<p>如果想用<code>rm</code>删除目录，则应该加一个<code>-r</code>选项，代表递归删除。<br />
+如果想用<code>rm</code>删除前进行提示，则应该加一个<code>-i</code>选项。<br />
+如果想用<code>rm</code>强制删除，则应该加一个<code>-f</code>选项。<br />
+下面是这些选项的演示：</p>
+<h3 id="递归删除"><a class="markdownIt-Anchor" href="#递归删除"></a> 递归删除</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827205022.gif" alt="" /></p>
+<h3 id="删除前提示"><a class="markdownIt-Anchor" href="#删除前提示"></a> 删除前提示</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827205304.gif" alt="" /></p>
+<h1 id="查阅命令帮助信息"><a class="markdownIt-Anchor" href="#查阅命令帮助信息"></a> 查阅命令帮助信息</h1>
+<blockquote>
+<p>提示</p>
+<ul>
+<li>现阶段只需要 <strong>知道</strong> 通过以下两种方式可以查询命令的帮助信息</li>
+<li>先学习<strong>常用命令</strong>及<strong>常用选项</strong>的使用即可，工作中如果遇到问题可以借助 <strong>网络搜索</strong></li>
+</ul>
+</blockquote>
+<h2 id="-help"><a class="markdownIt-Anchor" href="#-help"></a> <code>--help</code></h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">command</span> --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<ul>
+<li>显示 <code>command</code> 命令的帮助信息</li>
+<li>示例：<code>pwd --help</code></li>
+</ul>
+<h2 id="man"><a class="markdownIt-Anchor" href="#man"></a> man</h2>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">man <span class="built_in">command</span></span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<ul>
+<li>查阅 <code>command</code> 命令的使用手册</li>
+<li>示例：<code>man pwd</code></li>
+</ul>
+<blockquote>
+<p><code>man</code> 是 <strong>manual</strong> 的缩写，是 Linux 提供的一个 <strong>手册</strong>，包含了绝大部分的命令、函数的详细使用说明</p>
+</blockquote>
+<p>使用 <code>man</code> 时的操作键：</p>
+<table>
+<thead>
+<tr>
+<th>操作键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>空格键</td>
+<td>显示手册页的下一屏</td>
+</tr>
+<tr>
+<td>Enter 键</td>
+<td>一次滚动手册页的一行</td>
+</tr>
+<tr>
+<td>b</td>
+<td>回滚一屏</td>
+</tr>
+<tr>
+<td>f</td>
+<td>前滚一屏</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>/word</td>
+<td>搜索 <strong>word</strong> 字符串</td>
+</tr>
+</tbody>
+</table>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Windows | 应用程序的Zorua有机分类使用管理办法</title>
     <url>/2020/07/22/windows_0/</url>
     <content><![CDATA[<h1 id="引言"><a class="markdownIt-Anchor" href="#引言"></a> 引言</h1>
@@ -10893,282 +11169,6 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
 <div class="note success">
             <p><strong>小练习</strong></p><ul><li>根据作用的提示，来思考命令名称。<ul><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">ls</span></span>  列出指定文件夹下的内容</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">pwd</span></span>显示当前工作路径</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">cd</span></span> 改变当前工作路径</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">touch</span></span>新建一个空白文件</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">mkdir</span></span> 创建一个新的目录</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">rm</span></span>   删除指定文件</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">clear</span></span> 清除当前屏幕上的信息（新建一屏）</li><li><span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">reset</span></span>  重置终端</li></ul></li></ul>
           </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux入门 | 3.常用命令</title>
-    <url>/2020/04/14/Linux_2/</url>
-    <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-# 基础命令
-在[上一篇文章](/2020/04/14/Linux_1/#基础命令)中，我写到了在`Linux`系统中常用了8个命令，在这篇文章中，将会对这8个命令作较为详细的解析。
-如果各位读者对本文有所不清晰或认为有错误的地方，欢迎来评论区指出。我会及时确认并修正。
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>命令</th>
-<th>对应英语</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>01</td>
-<td>ls</td>
-<td>list</td>
-<td>列出指定文件夹下的内容</td>
-</tr>
-<tr>
-<td>02</td>
-<td>pwd</td>
-<td>print work directory</td>
-<td>显示当前工作路径</td>
-</tr>
-<tr>
-<td>03</td>
-<td>cd</td>
-<td>change directory</td>
-<td>改变当前工作路径</td>
-</tr>
-<tr>
-<td>04</td>
-<td>touch</td>
-<td>touch</td>
-<td>新建一个空白文件</td>
-</tr>
-<tr>
-<td>05</td>
-<td>mkdir</td>
-<td>make directory</td>
-<td>创建一个新的目录</td>
-</tr>
-<tr>
-<td>06</td>
-<td>rm</td>
-<td>remove</td>
-<td>删除指定文件</td>
-</tr>
-<tr>
-<td>07</td>
-<td>clear</td>
-<td>clear</td>
-<td>清除当前屏幕上的信息（新建一屏）</td>
-</tr>
-<tr>
-<td>08</td>
-<td>reset</td>
-<td>reset</td>
-<td>重置终端</td>
-</tr>
-</tbody>
-</table>
-<h1 id="命令格式"><a class="markdownIt-Anchor" href="#命令格式"></a> 命令格式</h1>
-<p>在终端中，命令通常是按照如下格式进行的：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">command</span> [-options] [parameter]</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>command</code>：命令名称，</li>
-<li><code>[-options]</code>：选项，可用来对命令进行控制，实现不同的效果。这一项可以省略。</li>
-<li><code>parameter</code>：传给命令的参数，可以是 <strong>零个</strong>、<strong>一个</strong> 或者 <strong>多个</strong></li>
-</ul>
-<h1 id="ls-命令说明"><a class="markdownIt-Anchor" href="#ls-命令说明"></a> ls 命令说明</h1>
-<ul>
-<li><code>ls</code> 是<strong>list</strong> 的缩写，功能是列出指定文件夹下的内容，可以类比于 <strong>DOS</strong> 下的 <code>dir</code> 命令。</li>
-<li><code>ls path</code>显示path路径的目录下的内容。</li>
-<li>如果直接使用<code>ls</code>，等价于<code>ls .</code>（下文有解释<code>.</code>）。</li>
-</ul>
-<h2 id="ls-常用选项"><a class="markdownIt-Anchor" href="#ls-常用选项"></a> ls 常用选项</h2>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-a</td>
-<td>显示指定目录下所有子目录与文件，包括<strong>隐藏文件</strong></td>
-</tr>
-<tr>
-<td>-l</td>
-<td>以<strong>列表方式</strong>显示文件的详细信息</td>
-</tr>
-<tr>
-<td>-h</td>
-<td>配合 -l 以人性化的方式显示文件大小</td>
-</tr>
-</tbody>
-</table>
-<h2 id="linux-系统的文件和目录的特点"><a class="markdownIt-Anchor" href="#linux-系统的文件和目录的特点"></a> Linux 系统的文件和目录的特点</h2>
-<ul>
-<li><strong>文件</strong> 或者 <strong>目录</strong> 名称最长可以有 <code>256</code> 个字符</li>
-<li>以 <code>.</code> 开头的文件为隐藏文件，需要用 -a 参数才能显示</li>
-<li><strong>.</strong> 代表当前目录，也可以叫做工作目录（或者工作路径）</li>
-<li><strong>…</strong> 代表上一级目录</li>
-<li>上面这两个目录严格来说也是<code>.</code>开头的，所以也是在 -a 参数下才能显示。</li>
-</ul>
-<h3 id="绝对路径与相对路径"><a class="markdownIt-Anchor" href="#绝对路径与相对路径"></a> 绝对路径与相对路径</h3>
-<p>在Linux中，以path作为参数时，可分为绝对路径和相对路径。</p>
-<ul>
-<li>
-<p><strong>绝对路径</strong><br />
-从<strong>根目录</strong><code>/</code>开始，依次将各级子目录的名字组合起来，形成的路径就称为某个文件的绝对路径。例如，根目录（/）下有目录usr，usr目录下有子目录bin，bin目录下有文件chsh，则chsh文件的绝对路径就是：/usr/bin/chsh。</p>
-</li>
-<li>
-<p><strong>相对路径</strong><br />
-相对当前所在路径的位置，例如当前所在的位置为/usr，也就是在根目录的usr子目录下，则chsh文件相对当前位置的路径为：bin/chsh。</p>
-</li>
-</ul>
-<div class="snote guide"><p>相对路径就是相对于当前工作目录的路径。例如我想显示当前工作目录的上一级目录下的文件：ls ..</p></div>
-<h2 id="ls-通配符的使用"><a class="markdownIt-Anchor" href="#ls-通配符的使用"></a> ls 通配符的使用</h2>
-<p>在<code>ls</code>命令的参数中，可以使用通配符。</p>
-<table>
-<thead>
-<tr>
-<th>通配符</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*</td>
-<td>代表任意个数个字符</td>
-</tr>
-<tr>
-<td>?</td>
-<td>代表任意一个字符，至少 1 个</td>
-</tr>
-<tr>
-<td>[]</td>
-<td>表示可以匹配字符组中的任一一个</td>
-</tr>
-<tr>
-<td>[abc]</td>
-<td>匹配 a、b、c 中的任意一个</td>
-</tr>
-<tr>
-<td>[a-f]</td>
-<td>匹配从 a 到 f 范围内的的任意一个字符</td>
-</tr>
-</tbody>
-</table>
-<h2 id="演示"><a class="markdownIt-Anchor" href="#演示"></a> 演示</h2>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827191622.gif" alt="" /></p>
-<h1 id="pwd-命令说明"><a class="markdownIt-Anchor" href="#pwd-命令说明"></a> pwd 命令说明</h1>
-<ul>
-<li><code>pwd</code> 命令相对比较简单，就是显示当前工作目录。<br />
-<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827192734.png" alt="" /><br />
-<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827192945.png" alt="" /></li>
-</ul>
-<h2 id="演示-2"><a class="markdownIt-Anchor" href="#演示-2"></a> 演示</h2>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827191855.gif" alt="" /></p>
-<h1 id="cd-命令说明"><a class="markdownIt-Anchor" href="#cd-命令说明"></a> cd 命令说明</h1>
-<h2 id="使用cd命令"><a class="markdownIt-Anchor" href="#使用cd命令"></a> 使用cd命令</h2>
-<ul>
-<li>如果单纯地使用<code>cd</code>命令，等价于<code>cd ~</code>或<code>cd /home/username</code>
-<ul>
-<li>即切换到家目录</li>
-</ul>
-</li>
-<li><code>cd</code>后面可以接<strong>绝对路径</strong>或<strong>相对路径</strong>作为参数。</li>
-</ul>
-<h2 id="演示-3"><a class="markdownIt-Anchor" href="#演示-3"></a> 演示</h2>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827192449.gif" alt="" /></p>
-<h1 id="touch-命令说明"><a class="markdownIt-Anchor" href="#touch-命令说明"></a> touch 命令说明</h1>
-<p><code>touch</code>用于修改文件或者目录的时间属性，包括存取时间和更改时间。若文件不存在，<strong>系统会建立一个新的文件</strong>。<br />
-作为入门级教程，我们只需要知道<code>touch</code>命令可以创建一个空白文件就行了。<br />
-语法：<code>touch filename</code></p>
-<h2 id="演示-4"><a class="markdownIt-Anchor" href="#演示-4"></a> 演示</h2>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827200707.gif" alt="" /></p>
-<h1 id="mkdir-命令说明"><a class="markdownIt-Anchor" href="#mkdir-命令说明"></a> mkdir 命令说明</h1>
-<ul>
-<li><code>mkdir path</code>会创建一个path目录。<br />
-<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827203633.gif" alt="" /></li>
-</ul>
-<hr />
-<p>如果path是一个较长的路径，例如<code>aaa/bbb/ccc/ddd</code>这个例子，需要确保<code>aaa``bbb``ccc</code>文件夹都已经存在。<br />
-如果加一个<code>-p</code>选项（递归创建目录），则不需要确保这些文件夹都已经存在。<br />
-<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827204408.gif" alt="" /></p>
-<h1 id="rm-命令说明"><a class="markdownIt-Anchor" href="#rm-命令说明"></a> rm 命令说明</h1>
-<p>使用<code>rm</code>时请<strong>万分小心</strong>，<code>rm</code>是删除文件或目录，是<strong>不可逆操作</strong>。<br />
-<code>rm</code>后接文件名就可以了。<br />
-<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827204738.gif" alt="" /></p>
-<h2 id="选项"><a class="markdownIt-Anchor" href="#选项"></a> 选项</h2>
-<p>如果想用<code>rm</code>删除目录，则应该加一个<code>-r</code>选项，代表递归删除。<br />
-如果想用<code>rm</code>删除前进行提示，则应该加一个<code>-i</code>选项。<br />
-如果想用<code>rm</code>强制删除，则应该加一个<code>-f</code>选项。<br />
-下面是这些选项的演示：</p>
-<h3 id="递归删除"><a class="markdownIt-Anchor" href="#递归删除"></a> 递归删除</h3>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827205022.gif" alt="" /></p>
-<h3 id="删除前提示"><a class="markdownIt-Anchor" href="#删除前提示"></a> 删除前提示</h3>
-<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200827205304.gif" alt="" /></p>
-<h1 id="查阅命令帮助信息"><a class="markdownIt-Anchor" href="#查阅命令帮助信息"></a> 查阅命令帮助信息</h1>
-<blockquote>
-<p>提示</p>
-<ul>
-<li>现阶段只需要 <strong>知道</strong> 通过以下两种方式可以查询命令的帮助信息</li>
-<li>先学习<strong>常用命令</strong>及<strong>常用选项</strong>的使用即可，工作中如果遇到问题可以借助 <strong>网络搜索</strong></li>
-</ul>
-</blockquote>
-<h2 id="-help"><a class="markdownIt-Anchor" href="#-help"></a> <code>--help</code></h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">command</span> --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
-<p>说明：</p>
-<ul>
-<li>显示 <code>command</code> 命令的帮助信息</li>
-<li>示例：<code>pwd --help</code></li>
-</ul>
-<h2 id="man"><a class="markdownIt-Anchor" href="#man"></a> man</h2>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">man <span class="built_in">command</span></span><br></pre></td></tr></table></figure>
-<p>说明：</p>
-<ul>
-<li>查阅 <code>command</code> 命令的使用手册</li>
-<li>示例：<code>man pwd</code></li>
-</ul>
-<blockquote>
-<p><code>man</code> 是 <strong>manual</strong> 的缩写，是 Linux 提供的一个 <strong>手册</strong>，包含了绝大部分的命令、函数的详细使用说明</p>
-</blockquote>
-<p>使用 <code>man</code> 时的操作键：</p>
-<table>
-<thead>
-<tr>
-<th>操作键</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>空格键</td>
-<td>显示手册页的下一屏</td>
-</tr>
-<tr>
-<td>Enter 键</td>
-<td>一次滚动手册页的一行</td>
-</tr>
-<tr>
-<td>b</td>
-<td>回滚一屏</td>
-</tr>
-<tr>
-<td>f</td>
-<td>前滚一屏</td>
-</tr>
-<tr>
-<td>q</td>
-<td>退出</td>
-</tr>
-<tr>
-<td>/word</td>
-<td>搜索 <strong>word</strong> 字符串</td>
-</tr>
-</tbody>
-</table>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
         <category>Linux</category>
       </categories>
