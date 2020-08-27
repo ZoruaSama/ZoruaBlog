@@ -88,7 +88,7 @@ hr:before {
   left: 5%;
   z-index: 1;
   color: #369;
-  content: '\f21c';
+  content: '\f121 Zorua';
   font-style: normal;
   font-variant: normal;
   font-size: 20px;
@@ -125,7 +125,7 @@ table td {
   vertical-align: middle;
 }
 *::selection {
-  background: #39c;
+  background: #47a3d1;
   color: #f7f7f7;
 }
 #nav #site_title,
@@ -1498,7 +1498,7 @@ blockquote footer cite:before {
 #article-container code {
   padding: 0.1rem 0.2rem;
   background: rgba(27,31,35,0.05);
-  color: #39c;
+  color: #49b1f5;
   word-wrap: break-word;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -3303,7 +3303,7 @@ blockquote footer cite:before {
   cursor: pointer;
 }
 #pagination .page-number.current {
-  background: #39c;
+  background: #47a3d1;
   color: #fff;
   cursor: default;
 }
@@ -4298,15 +4298,15 @@ img {
   transition: all 0.2s ease-in-out;
 }
 #sidebar .sidebar-toc .toc-link.active {
-  border-right-color: #297aa3;
-  background: #39c;
+  border-right-color: #2d86b3;
+  background: #47a3d1;
   color: #fff;
 }
 #sidebar .sidebar-toc__progress {
   position: relative;
   margin-bottom: 0.3rem;
   padding-left: 0.6rem;
-  color: #39c;
+  color: #47a3d1;
 }
 #sidebar .sidebar-toc__progress .progress-notice {
   margin-right: 0.4rem;
@@ -4318,7 +4318,7 @@ img {
 #sidebar .sidebar-toc__progress-bar {
   width: 0;
   height: 1px;
-  background: #39c;
+  background: #47a3d1;
 }
 @media screen and (max-width: 1024px) {
   i#toggle-sidebar {
