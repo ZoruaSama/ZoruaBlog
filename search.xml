@@ -663,6 +663,953 @@ SD的码为Sno， DL的码为Sdept。<br />
       </tags>
   </entry>
   <entry>
+    <title>实训日记 | Day 20. 答辩的终稿</title>
+    <url>/2020/08/20/training_20/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>今天是8月14日，实训的第20天。实训的最后一天。<br />
+今天我如预期一样地完成了答辩，两位老师似乎对我的项目及答辩都还很满意。<br />
+看着自己完整的项目和老师的认可，我感到非常有成就感。<br />
+我能在这取得一个小小的进步，离不开孟老师的耐心教导，同学们友爱的帮助。<br />
+由于我今天中午又加了一些新的内容，所以也在这里再对昨天的内容进行补充。</p>
+<h1 id="事先准备"><a class="markdownIt-Anchor" href="#事先准备"></a> 事先准备</h1>
+<ul>
+<li>另一块屏幕用来播放本文档</li>
+<li>已经开启服务的项目（原项目，处于登录状态，数据仅有一页）</li>
+<li>ZOL手机报价网站</li>
+<li>360安全浏览器</li>
+</ul>
+<h1 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h1>
+<ul>
+<li>名称：指上云霄手机信息查阅系统</li>
+<li>功能：提供爬虫和数据可视化两部分功能。
+<ul>
+<li>爬虫：可以在页面上调用后台接口，爬取ZOL手机报价网站上的数据并存储到数据库中。</li>
+<li>数据可视化：可以在页面上显示手机的相关数据信息。</li>
+</ul>
+</li>
+</ul>
+<h1 id="介绍数据爬取来源"><a class="markdownIt-Anchor" href="#介绍数据爬取来源"></a> 介绍数据爬取来源</h1>
+<ul>
+<li>手机报价首页</li>
+<li>手机配置参数页</li>
+<li>手机评价页面</li>
+<li>bilibili搜索</li>
+</ul>
+<p>难点：ZOL手机报价的页面很多都不一样。对于一些没有评价或未上市的手机数据不予爬取。</p>
+<h1 id="应用页面"><a class="markdownIt-Anchor" href="#应用页面"></a> 应用页面</h1>
+<p>应用的页面有<strong>登录注册页面</strong>、<strong>数据可视化首页</strong>、<strong>爬虫页面</strong>、<strong>数据柱状图页面</strong>、<strong>关于页面</strong>五个页面。</p>
+<h2 id="登录注册页面"><a class="markdownIt-Anchor" href="#登录注册页面"></a> 登录注册页面</h2>
+<ul>
+<li>在图1中点击注册按钮可切换为图2界面，图2界面点击返回按钮可切换为图1界面。</li>
+<li>在<strong>注册登录界面</strong>，对填充的文本内容有长度和字符内容的限制。例如用户名和密码只能为字母和数字组成。</li>
+<li>在此界面注册后，密码将以加密后的文本进行存储。</li>
+<li><strong>如果还未登录，企图访问其他网页，则会自动跳转至登录注册页面</strong>。反之，若在登录后，访问该登录注册页面，将会自动跳转至首页。</li>
+</ul>
+<h2 id="数据可视化首页"><a class="markdownIt-Anchor" href="#数据可视化首页"></a> 数据可视化首页</h2>
+<ul>
+<li>数据可视化首页会在顶部显示<strong>当前的数据库条目数量</strong>。</li>
+<li>数据可视化首页显示的手机信息的序列，将是一个<strong>随机序列</strong>。</li>
+<li><strong>在刚载入页面时，首页只会显示8条数据。当滚轮被滑到底部时，将会再次载入至多4条数据。实现了动态加载数据的过程，直至数据库的所有数据都已呈现</strong>。
+<ul>
+<li>每次载入的数据都是从后端被渲染完毕后，以HTML的形式插入的。</li>
+</ul>
+</li>
+<li><strong>每个标签左侧会读取数据库中的基本信息并显示，右侧会以echarts雷达图的形式显示当前的数据和平均的数据。</strong></li>
+<li>点击名字可以弹出bilibili的视频。</li>
+</ul>
+<h2 id="爬虫页面"><a class="markdownIt-Anchor" href="#爬虫页面"></a> 爬虫页面</h2>
+<p>在文本框填入要爬取数据的第几页，点击爬虫，即可爬取数据。<br />
+数据来源是<strong>ZOL手机报价</strong>。</p>
+<ul>
+<li>如果选择的页号已经被爬取到数据库中，后端将会拒绝该爬取请求。</li>
+<li>如果选择的页号不符合要求，后端也会拒绝该爬取请求。</li>
+<li>清空数据库前，需要填入事先在后端设置好的密码。</li>
+</ul>
+<h2 id="数据柱状图页面"><a class="markdownIt-Anchor" href="#数据柱状图页面"></a> 数据柱状图页面</h2>
+<p>该页面将会呈现数据库中所有条目的售价以及得分状况。通过调节图像四周的工具，可以获取不同的信息。<br />
+该页面将会呈现数据库中所有条目的售价以及得分状况。通过调节图像四周的工具，可以获取不同的信息。</p>
+<ul>
+<li>单击柱状条可以在下方显示手机信息卡片。</li>
+<li>双击柱状条会自动跳转到和这个手机相关的B站视频链接。</li>
+</ul>
+<h2 id="关于页面"><a class="markdownIt-Anchor" href="#关于页面"></a> 关于页面</h2>
+<p>关于页面比较简单，仅仅只是显示了本文档的<strong>简介</strong>部分的内容。在此不再赘述。</p>
+<h1 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h1>
+<p>接口分成两个模块，UserInfo模块和echarts模块。</p>
+<h2 id="userinfo"><a class="markdownIt-Anchor" href="#userinfo"></a> UserInfo</h2>
+<ul>
+<li>index，被请求时，将会返回<strong>登录注册页面</strong>。</li>
+<li>user_login，仅能被POST请求，参数为username和password。用于登录。</li>
+<li>user_register，仅能被POST请求，参数为username和password及emailAddress。用于注册。</li>
+<li>user_activate，能被GET请求，参数为id。用于注册账号的激活。将会返回一个JsonResponse。</li>
+<li>is_login，参数为id。被请求时，会检查浏览器的session，查看是否登录。</li>
+<li>user_logout，参数为id。被请求时，将会删除浏览器的session。</li>
+</ul>
+<h2 id="echarts"><a class="markdownIt-Anchor" href="#echarts"></a> echarts</h2>
+<ul>
+<li>空，被请求时，返回<strong>数据可视化首页</strong>。</li>
+<li>run_page，被请求时，返回<strong>爬虫页面</strong>。</li>
+<li>hot_page，被请求时，返回<strong>数据柱状图页面</strong>。</li>
+<li>about，被请求时，返回<strong>关于页面</strong>。</li>
+<li>timenow，被请求时，返回含有系统现行时间信息的JsonResponse。</li>
+<li>run，参数为index，仅能被POST请求。被请求后，将会启动爬虫程序。</li>
+<li>get_hot_json，被请求时，返回一个字典。字典内容为数据库中所有手机的名称、价格、分数数据。</li>
+<li>delete，仅能被POST请求。将会清空数据库数据。</li>
+<li>get_data，参数为index，将会从数据库中读取序号为index的手机数据并返回一个JsonResponse。</li>
+<li>get_random_dict，以列表的形式产生一个随机的序列。</li>
+<li>get_average，被请求时，将以JsonResponse返回数据库中所有数据的评分的平均值。</li>
+<li>init_zorua_box，参数为index，将读取数据库中的数据，并对指定的HTML文件进行渲染，然后<strong>将渲染后的HTML文件返回</strong>。</li>
+</ul>
+<h1 id="数据库结构"><a class="markdownIt-Anchor" href="#数据库结构"></a> 数据库结构</h1>
+<ul>
+<li>User(id,username,password,is_activate)</li>
+<li>Phone(id,name,price,img,score)</li>
+<li>config(phone,soc,camera,camera_vice,ram,battery,screen_size,image)</li>
+<li>evaluation(phone,cost_performance,performance,endurance,design,photograph)</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实训日记 | Day 19. 答辩的准备</title>
+    <url>/2020/08/13/training_19/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>今天是8月13日，实训的第19天。实训即将步入尾声。<br />
+今天是答辩的第一天。<br />
+而我是在第二天答辩。今天准备了一下答辩的思路。</p>
+<h1 id="事先准备"><a class="markdownIt-Anchor" href="#事先准备"></a> 事先准备</h1>
+<ul>
+<li>另一块屏幕用来播放本文档</li>
+<li>已经开启服务的项目（原项目，处于登录状态，数据仅有一页）</li>
+<li>ZOL手机报价网站</li>
+<li>360安全浏览器</li>
+</ul>
+<h1 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h1>
+<ul>
+<li>名称：指上云霄手机信息查阅系统</li>
+<li>功能：提供爬虫和数据可视化两部分功能。
+<ul>
+<li>爬虫：可以在页面上调用后台接口，爬取ZOL手机报价网站上的数据并存储到数据库中。</li>
+<li>数据可视化：可以在页面上显示手机的相关数据信息。</li>
+</ul>
+</li>
+</ul>
+<h1 id="介绍数据爬取来源"><a class="markdownIt-Anchor" href="#介绍数据爬取来源"></a> 介绍数据爬取来源</h1>
+<ul>
+<li>手机报价首页</li>
+<li>手机配置参数页</li>
+<li>手机评价页面</li>
+<li>bilibili搜索</li>
+</ul>
+<p>难点：ZOL手机报价的页面很多都不一样。对于一些没有评价或未上市的手机数据不予爬取。</p>
+<h1 id="应用页面"><a class="markdownIt-Anchor" href="#应用页面"></a> 应用页面</h1>
+<p>应用的页面有<strong>登录注册页面</strong>、<strong>数据可视化首页</strong>、<strong>爬虫页面</strong>、<strong>数据柱状图页面</strong>、<strong>关于页面</strong>五个页面。</p>
+<h2 id="登录注册页面"><a class="markdownIt-Anchor" href="#登录注册页面"></a> 登录注册页面</h2>
+<ul>
+<li>在图1中点击注册按钮可切换为图2界面，图2界面点击返回按钮可切换为图1界面。</li>
+<li>在<strong>注册登录界面</strong>，对填充的文本内容有长度和字符内容的限制。例如用户名和密码只能为字母和数字组成。</li>
+<li>在此界面注册后，密码将以加密后的文本进行存储。</li>
+<li><strong>如果还未登录，企图访问其他网页，则会自动跳转至登录注册页面</strong>。反之，若在登录后，访问该登录注册页面，将会自动跳转至首页。</li>
+</ul>
+<h2 id="数据可视化首页"><a class="markdownIt-Anchor" href="#数据可视化首页"></a> 数据可视化首页</h2>
+<ul>
+<li>数据可视化首页会在顶部显示<strong>当前的数据库条目数量</strong>。</li>
+<li>数据可视化首页显示的手机信息的序列，将是一个<strong>随机序列</strong>。</li>
+<li><strong>在刚载入页面时，首页只会显示8条数据。当滚轮被滑到底部时，将会再次载入至多4条数据。实现了动态加载数据的过程，直至数据库的所有数据都已呈现</strong>。
+<ul>
+<li>每次载入的数据都是从后端被渲染完毕后，以HTML的形式插入的。</li>
+</ul>
+</li>
+<li><strong>每个标签左侧会读取数据库中的基本信息并显示，右侧会以echarts雷达图的形式显示当前的数据和平均的数据。</strong></li>
+<li>点击名字可以弹出bilibili的视频。</li>
+</ul>
+<h2 id="爬虫页面"><a class="markdownIt-Anchor" href="#爬虫页面"></a> 爬虫页面</h2>
+<p>在文本框填入要爬取数据的第几页，点击爬虫，即可爬取数据。<br />
+数据来源是<strong>ZOL手机报价</strong>。</p>
+<ul>
+<li>如果选择的页号已经被爬取到数据库中，后端将会拒绝该爬取请求。</li>
+<li>如果选择的页号不符合要求，后端也会拒绝该爬取请求。</li>
+<li>清空数据库前，需要填入事先在后端设置好的密码。</li>
+</ul>
+<h2 id="数据柱状图页面"><a class="markdownIt-Anchor" href="#数据柱状图页面"></a> 数据柱状图页面</h2>
+<p>该页面将会呈现数据库中所有条目的售价以及得分状况。通过调节图像四周的工具，可以获取不同的信息。</p>
+<h2 id="关于页面"><a class="markdownIt-Anchor" href="#关于页面"></a> 关于页面</h2>
+<p>关于页面比较简单，仅仅只是显示了本文档的<strong>简介</strong>部分的内容。在此不再赘述。</p>
+<h1 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h1>
+<p>接口分成两个模块，UserInfo模块和echarts模块。</p>
+<h2 id="userinfo"><a class="markdownIt-Anchor" href="#userinfo"></a> UserInfo</h2>
+<ul>
+<li>index，被请求时，将会返回<strong>登录注册页面</strong>。</li>
+<li>user_login，仅能被POST请求，参数为username和password。用于登录。</li>
+<li>user_register，仅能被POST请求，参数为username和password及emailAddress。用于注册。</li>
+<li>user_activate，能被GET请求，参数为id。用于注册账号的激活。将会返回一个JsonResponse。</li>
+<li>is_login，参数为id。被请求时，会检查浏览器的session，查看是否登录。</li>
+<li>user_logout，参数为id。被请求时，将会删除浏览器的session。</li>
+</ul>
+<h2 id="echarts"><a class="markdownIt-Anchor" href="#echarts"></a> echarts</h2>
+<ul>
+<li>空，被请求时，返回<strong>数据可视化首页</strong>。</li>
+<li>run_page，被请求时，返回<strong>爬虫页面</strong>。</li>
+<li>hot_page，被请求时，返回<strong>数据柱状图页面</strong>。</li>
+<li>about，被请求时，返回<strong>关于页面</strong>。</li>
+<li>timenow，被请求时，返回含有系统现行时间信息的JsonResponse。</li>
+<li>run，参数为index，仅能被POST请求。被请求后，将会启动爬虫程序。</li>
+<li>get_hot_json，被请求时，返回一个字典。字典内容为数据库中所有手机的名称、价格、分数数据。</li>
+<li>delete，仅能被POST请求。将会清空数据库数据。</li>
+<li>get_data，参数为index，将会从数据库中读取序号为index的手机数据并返回一个JsonResponse。</li>
+<li>get_random_dict，以列表的形式产生一个随机的序列。</li>
+<li>get_average，被请求时，将以JsonResponse返回数据库中所有数据的评分的平均值。</li>
+<li>init_zorua_box，参数为index，将读取数据库中的数据，并对指定的HTML文件进行渲染，然后<strong>将渲染后的HTML文件返回</strong>。</li>
+</ul>
+<h1 id="数据库结构"><a class="markdownIt-Anchor" href="#数据库结构"></a> 数据库结构</h1>
+<ul>
+<li>User(id,username,password,is_activate)</li>
+<li>Phone(id,name,price,img,score)</li>
+<li>config(phone,soc,camera,camera_vice,ram,battery,screen_size,image)</li>
+<li>evaluation(phone,cost_performance,performance,endurance,design,photograph)</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实训日记 | Day 18. 我的项目介绍</title>
+    <url>/2020/08/12/training_18/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>今天是8月12日，实训的第18天。实训即将步入尾声。<br />
+今天孟老师依然全天给同学们进行答疑。<br />
+我整理了一下我的项目的相关信息以准备明天后天的答辩。<br />
+整理内容如下。</p>
+<h1 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h1>
+<ul>
+<li>名称：指上云霄手机信息查阅系统</li>
+<li>功能：提供爬虫和数据可视化两部分功能。
+<ul>
+<li>爬虫：可以在页面上调用后台接口，爬取ZOL手机报价网站上的数据并存储到数据库中。</li>
+<li>数据可视化：可以在页面上显示手机的相关数据信息。</li>
+</ul>
+</li>
+<li>开发工具：PyCharm</li>
+<li>后台开发语言：Python3</li>
+<li>前端开发语言：HTML5+CSS+JavaScript</li>
+<li>作者：张仁忠(Zorua) 2018065527</li>
+<li>指导老师：孟老师（mzm5466）</li>
+</ul>
+<h1 id="应用页面"><a class="markdownIt-Anchor" href="#应用页面"></a> 应用页面</h1>
+<p>应用的页面有<strong>登录注册页面</strong>、<strong>数据可视化首页</strong>、<strong>爬虫页面</strong>、<strong>数据柱状图页面</strong>、<strong>关于页面</strong>五个页面。</p>
+<h2 id="登录注册页面"><a class="markdownIt-Anchor" href="#登录注册页面"></a> 登录注册页面</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/1597240970_20200812210057628_27841.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/1597240972_20200812210113431_24575.png" alt="" /></p>
+<ul>
+<li>在图1中点击注册按钮可切换为图2界面，图2界面点击返回按钮可切换为图1界面。</li>
+<li>在<strong>注册登录界面</strong>，对填充的文本内容有长度和字符内容的限制。例如用户名和密码只能为字母和数字组成。</li>
+<li>在此界面注册后，密码将以加密后的文本进行存储。</li>
+<li><strong>如果还未登录，企图访问其他网页，则会自动跳转至登录注册页面</strong>。反之，若在登录后，访问该登录注册页面，将会自动跳转至首页。</li>
+</ul>
+<h2 id="数据可视化首页"><a class="markdownIt-Anchor" href="#数据可视化首页"></a> 数据可视化首页</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/1597240973_20200812210444412_15098.png" alt="" /></p>
+<ul>
+<li>数据可视化首页会在顶部显示<strong>当前的数据库条目数量</strong>。</li>
+<li>数据可视化首页显示的手机信息的序列，将是一个<strong>随机序列</strong>。</li>
+<li><strong>在刚载入页面时，首页只会显示8条数据。当滚轮被滑到底部时，将会再次载入至多4条数据。实现了动态加载数据的过程，直至数据库的所有数据都已呈现</strong>。
+<ul>
+<li>每次载入的数据都是从后端被渲染完毕后，以HTML的形式插入的。</li>
+</ul>
+</li>
+<li><strong>每个标签左侧会读取数据库中的基本信息并显示，右侧会以echarts雷达图的形式显示当前的数据和平均的数据。</strong></li>
+</ul>
+<h2 id="爬虫页面"><a class="markdownIt-Anchor" href="#爬虫页面"></a> 爬虫页面</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/1597240973_20200812212702692_31578.png" alt="" /><br />
+在文本框填入要爬取数据的第几页，点击爬虫，即可爬取数据。<br />
+数据来源是<strong>ZOL手机报价</strong>。</p>
+<ul>
+<li>如果选择的页号已经被爬取到数据库中，后端将会拒绝该爬取请求。</li>
+<li>如果选择的页号不符合要求，后端也会拒绝该爬取请求。</li>
+<li>清空数据库前，需要填入事先在后端设置好的密码。</li>
+</ul>
+<h2 id="数据柱状图页面"><a class="markdownIt-Anchor" href="#数据柱状图页面"></a> 数据柱状图页面</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/1597240973_20200812212945780_14328.png" alt="" /><br />
+该页面将会呈现数据库中所有条目的售价以及得分状况。通过调节图像四周的工具，可以获取不同的信息。</p>
+<h2 id="关于页面"><a class="markdownIt-Anchor" href="#关于页面"></a> 关于页面</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/1597240974_20200812214757439_29652.png" alt="" /><br />
+关于页面比较简单，仅仅只是显示了本文档的<strong>简介</strong>部分的内容。在此不再赘述。</p>
+<h1 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h1>
+<p>接口分成两个模块，UserInfo模块和echarts模块。</p>
+<h2 id="userinfo"><a class="markdownIt-Anchor" href="#userinfo"></a> UserInfo</h2>
+<ul>
+<li>index，被请求时，将会返回<strong>登录注册页面</strong>。</li>
+<li>user_login，仅能被POST请求，参数为username和password。用于登录。</li>
+<li>user_register，仅能被POST请求，参数为username和password及emailAddress。用于注册。</li>
+<li>user_activate，能被GET请求，参数为id。用于注册账号的激活。将会返回一个JsonResponse。</li>
+<li>is_login，参数为id。被请求时，会检查浏览器的session，查看是否登录。</li>
+<li>user_logout，参数为id。被请求时，将会删除浏览器的session。</li>
+</ul>
+<h2 id="echarts"><a class="markdownIt-Anchor" href="#echarts"></a> echarts</h2>
+<ul>
+<li>空，被请求时，返回<strong>数据可视化首页</strong>。</li>
+<li>run_page，被请求时，返回<strong>爬虫页面</strong>。</li>
+<li>hot_page，被请求时，返回<strong>数据柱状图页面</strong>。</li>
+<li>about，被请求时，返回<strong>关于页面</strong>。</li>
+<li>timenow，被请求时，返回含有系统现行时间信息的JsonResponse。</li>
+<li>run，参数为index，仅能被POST请求。被请求后，将会启动爬虫程序。</li>
+<li>get_hot_json，被请求时，返回一个字典。字典内容为数据库中所有手机的名称、价格、分数数据。</li>
+<li>delete，仅能被POST请求。将会清空数据库数据。</li>
+<li>get_data，参数为index，将会从数据库中读取序号为index的手机数据并返回一个JsonResponse。</li>
+<li>get_random_dict，以列表的形式产生一个随机的序列。</li>
+<li>get_average，被请求时，将以JsonResponse返回数据库中所有数据的评分的平均值。</li>
+<li>init_zorua_box，参数为index，将读取数据库中的数据，并对指定的HTML文件进行渲染，然后<strong>将渲染后的HTML文件返回</strong>。</li>
+</ul>
+<h1 id="数据库结构"><a class="markdownIt-Anchor" href="#数据库结构"></a> 数据库结构</h1>
+<ul>
+<li>User(id,username,password,is_activate)</li>
+<li>Phone(id,name,price,img,score)</li>
+<li>config(phone,soc,camera,camera_vice,ram,battery,screen_size,image)</li>
+<li>evaluation(phone,cost_performance,performance,endurance,design,photograph)</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实训日记 | Day 17. 一些乱七八糟的随笔</title>
+    <url>/2020/08/11/training_17/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>今天是8月11日，实训的第17天。实训即将步入尾声。<br />
+今天孟老师全程在给同学答疑，但是由于我的大作业已经完成了，基本上没有什么问题需要向孟老师询问。<br />
+所以今天的日志就写一写，在答疑过程中，收获的几个比较有意思的知识点吧。</p>
+<h1 id="eval"><a class="markdownIt-Anchor" href="#eval"></a> eval()</h1>
+<h2 id="描述"><a class="markdownIt-Anchor" href="#描述"></a> 描述</h2>
+<p>eval() 函数是python内置函数，用来执行一个字符串表达式，并返回表达式的值。</p>
+<h3 id="语法"><a class="markdownIt-Anchor" href="#语法"></a> 语法</h3>
+<p>以下是 eval() 方法的语法:<br />
+eval(expression[, globals[, locals]])</p>
+<h3 id="参数"><a class="markdownIt-Anchor" href="#参数"></a> 参数</h3>
+<ul>
+<li>expression – 表达式。</li>
+<li>globals – 变量作用域，全局命名空间，如果被提供，则必须是一个字典对象。</li>
+<li>locals – 变量作用域，局部命名空间，如果被提供，可以是任何映射对象。</li>
+</ul>
+<h3 id="返回值"><a class="markdownIt-Anchor" href="#返回值"></a> 返回值</h3>
+<p>返回表达式计算结果。</p>
+<h2 id="实例"><a class="markdownIt-Anchor" href="#实例"></a> 实例</h2>
+<p>以下展示了使用 eval() 方法的实例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt;x &#x3D; 7</span><br><span class="line">&gt;&gt;&gt; eval( &#39;3 * x&#39; )</span><br><span class="line">21</span><br><span class="line">&gt;&gt;&gt; eval(&#39;pow(2,2)&#39;)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; eval(&#39;2 + 2&#39;)</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&gt; n&#x3D;81</span><br><span class="line">&gt;&gt;&gt; eval(&quot;n + 4&quot;)</span><br><span class="line">85</span><br></pre></td></tr></table></figure>
+<h2 id="感悟"><a class="markdownIt-Anchor" href="#感悟"></a> 感悟</h2>
+<p>用这个eval()函数，我可以将一个列表以字符串的形式存储在一个文件中，然后读取文件并把数据作为eval()的函数，就可变成python中的列表对象。<br />
+我将这个特性应用在了我的大作业中，体现在可以“对已经爬取过数据的页码进行存档”。</p>
+<h1 id="html的for循环"><a class="markdownIt-Anchor" href="#html的for循环"></a> html的for循环</h1>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span></span><br><span class="line"><span class="css">            <span class="selector-class">.top</span>&#123;</span></span><br><span class="line">                float: left;</span><br><span class="line">                margin-left: 22px;</span><br><span class="line">                margin-top: 30px;</span><br><span class="line">                height: 320px;</span><br><span class="line">                width: 240px;</span><br><span class="line">            &#125;</span><br><span class="line"><span class="css">            <span class="selector-class">.top</span> <span class="selector-tag">img</span>&#123;</span></span><br><span class="line">                width: 100%;</span><br><span class="line">                height: 100%;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"tu1"</span> <span class="attr">src</span>=<span class="string">"../pic/1.jpg"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">//1、先用js获取到div的内容</span></span></span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.getElementsByClassName(<span class="string">'top'</span>).innerHTML;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> re = <span class="string">""</span>;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> tu = <span class="number">1</span>;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">9</span>; i++) &#123;</span></span><br><span class="line">        tu++;</span><br><span class="line"><span class="handlebars"><span class="xml">        re += '<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span>' +</span></span></span><br><span class="line"><span class="handlebars"><span class="xml">            '<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"tu1"</span> <span class="attr">src</span>=<span class="string">"../pic/'+tu+'.jpg"</span>&gt;</span>' +</span></span></span><br><span class="line"><span class="actionscript">            <span class="string">'&lt;/div&gt;'</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="built_in">document</span>.writeln(re);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>就像上面这段代码一样，可以在html里应用“for”循环来重复div元素。<br />
+众所周知，html并不被认为是一种编程语言，我也是这么想的，但是html里还有for循环实在让我有些惊讶。<br />
+可用来实现画面的渲染。（但是我的大作业中不是以这种方式实现的，而是以后端渲染html页面后，插入到已存在的标签中。）</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实训日记 | Day 16. 服务器的部署</title>
+    <url>/2020/08/10/training_16/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>今天是8月10日，实训的第16天。<br />
+上午孟老师演示了如何将Django项目部署在云服务器上。<br />
+由于我没有云服务器，因此用装有Centos7的虚拟机来代替。<br />
+将项目部署在虚拟机上的过程也不算容易，途中遇到了不少坎坷。例如我的centos在刚开始时连不上网络，rc命令无法上传等等。<br />
+靠着不断百度到的CSDN的资料还是艰难地克服了难题，完成了部署。<br />
+今天还有部分关于Nginx的还未讲授完，为保证该笔记的一体性，我也加上去了。</p>
+<h1 id="ssh设置"><a class="markdownIt-Anchor" href="#ssh设置"></a> SSH设置</h1>
+<h2 id="启动ssh服务"><a class="markdownIt-Anchor" href="#启动ssh服务"></a> 启动ssh服务</h2>
+<p>在打开centos虚拟机后，先用<code>yum install openssh* -y</code>安装开启SSH必备的程序。<br />
+而后用<code>vi /etc/ssh/sshd config</code>命令打开sshd的配置文件。<br />
+修改内容为：</p>
+<ul>
+<li><code>ListenAddress 0.0.0.0</code>和<code>ListenAddress ::</code>的井号去掉。</li>
+<li><code>PermitRootLogin</code>前的井号去掉。</li>
+</ul>
+<p>完成这些操作后，用<code>systemctl restart sshd</code>指令重启sshd服务。</p>
+<h2 id="查询ip地址"><a class="markdownIt-Anchor" href="#查询ip地址"></a> 查询IP地址</h2>
+<p>接下来使用<code>ifconfig</code>来查询虚拟机的IP地址。<br />
+由于我的centos7没有内置ifconfig命令，因此需要进行额外的安装。<br />
+通过<code>yum search ifconfig</code>命令发现，ifconfig命令在net-tools.x86_64这个包里。<br />
+因此使用<code>yum install net-tools.x86_64</code>命令来进行安装。</p>
+<h2 id="建立ssh连接"><a class="markdownIt-Anchor" href="#建立ssh连接"></a> 建立SSH连接</h2>
+<p>在配置完SSH服务和获取IP地址后，在本机上的XShell或者其他能SSH连接的shell中输入<code>ssh ip address</code>进行连接。<br />
+通过命令<code>sudo apt install lrzsz unzip -y</code>解压缩上传工具，但由于我安装成功后也无法使用<code>rc</code>命令，因此只能采用<code>scp</code>命令。<br />
+形如<code>scp a.txt root@ip:/home</code>的命令，来完成文件的上传。</p>
+<p>ln -s /usr/local/python3/bin/uwsgi /usr/bin/uwsgi 创建软连接</p>
+<h1 id="安装python3"><a class="markdownIt-Anchor" href="#安装python3"></a> 安装python3</h1>
+<p>centos自带了一个python2，但是没有python3。因此需要安装一个python3。依照以下步骤即可完成python3的安装。</p>
+<ol>
+<li>拉取远程包<code>yum install wget -y</code></li>
+<li>安装编译时需要的程序<code>yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel python-devel gcc make -y</code></li>
+<li>在home创建一个目录<code>mkdir python37</code></li>
+<li>切换到目标文件夹 <code>cd python37/</code></li>
+<li>获取python的源文件 <code>wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz</code>
+<ul>
+<li>直接从官网获取速度会比较慢，因此也可以使用阿里云的源<code>https://npm.taobao.org/mirrors/python/3.7.2/Python-3.7.2.tar.xz</code></li>
+</ul>
+</li>
+<li>使用tar命令进行解压 <code>tar -xvJf Python-3.7.2.tar.xz</code></li>
+<li>进入解压后的目录，指定编译路径 <code>./configure prefix=/usr/local/python3</code></li>
+<li>进行文件的编译<code>make &amp;&amp; make install</code>
+<ul>
+<li>如果报错ModuleNotFoundError: No module named ‘_ctypes’，则<code>yum install libffi-devel –y</code></li>
+</ul>
+</li>
+<li>删除旧的python2 <code>rm -rf /usr/bin/python</code></li>
+<li>创建软连接 <code>ln -s /usr/local/python3/bin/python3 /usr/bin/python</code></li>
+<li>修改yum vim <code>/usr/bin/yum</code></li>
+<li><code>vim /usr/libexec/urlgrabber-ext-down</code></li>
+<li>永久换pip源  <code>mkdir ~/.pip</code></li>
+<li>vim <code>~/.pip/pip.conf</code></li>
+<li>在前一步文件都迁移过来后，安装工程项目所需的包。</li>
+</ol>
+<pre><code>+ `python -m pip install -r r.txt -i https://pypi.tuna.tsinghua.edu.cn/simple`
++ 其中`r.txt`的内容是，工程项目所需要的包的名字。一行一个。
+</code></pre>
+<h1 id="uwsgi部署"><a class="markdownIt-Anchor" href="#uwsgi部署"></a> uwsgi部署</h1>
+<p>uwsgi --ini uwsgi.ini 前台以http方式启动uwsgi<br />
+uwsgi -d --ini uwsgi.ini 以后台运行uwsgi<br />
+pkill -f uwsgi -9 杀死uwsgi服务</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">chdir &#x3D; &#x2F;home&#x2F;qd201909dj #设置项目根目录</span><br><span class="line">module &#x3D; qd201909dj.wsgi:application #设置项目启动器</span><br><span class="line">master &#x3D; true  #设置主节点</span><br><span class="line">processes &#x3D; 1  #设置进程数</span><br><span class="line">http &#x3D; 0.0.0.0:80  #以http形式访问</span><br><span class="line">chmod-socket &#x3D; 644</span><br><span class="line">vacuum &#x3D; true #服务停止杀死pid</span><br><span class="line">logto &#x3D; &#x2F;home&#x2F;qd201909dj&#x2F;test.log  #输出日志</span><br><span class="line">pidfile &#x3D; &#x2F;home&#x2F;qd201909dj&#x2F;uwsgi.pid  #pid文件</span><br><span class="line">static-map &#x3D; &#x2F;static &#x3D;  &#x2F;home&#x2F;qd201909dj&#x2F; 静态文件</span><br><span class="line">py-autoreload &#x3D; 1  #修改后自动重启项目（生产不可用）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Nginx</span><br><span class="line">server&#123;</span><br><span class="line">    listen        80;</span><br><span class="line">    server_name   39.100.6.138;</span><br><span class="line">    charset       utf-8;</span><br><span class="line"></span><br><span class="line">    client_max_body_size 75M;</span><br><span class="line"></span><br><span class="line">    location &#x2F;static &#123;</span><br><span class="line">        alias &#x2F;home&#x2F;qd201909dj;</span><br><span class="line">    &#125;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">        uwsgi_pass 127.0.0.1:8888;</span><br><span class="line">        include     &#x2F;etc&#x2F;nginx&#x2F;uwsgi_params;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="生成文件服务器"><a class="markdownIt-Anchor" href="#生成文件服务器"></a> 生成文件服务器</h2>
+<ol>
+<li>yum install httpd-tools -y</li>
+<li>htpasswd -bc /home/htpasswd python（用户名） python2019（密码）</li>
+<li>配置文件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen        9999;</span><br><span class="line">    server_name   39.100.6.138;</span><br><span class="line">    charset       utf-8;</span><br><span class="line">    location &#x2F; &#123;</span><br><span class="line">       auth_basic &quot;input your user name and password&quot;;</span><br><span class="line">       auth_basic_user_file     &#x2F;home&#x2F;htpasswd;#密码文件</span><br><span class="line">       autoindex on;  #自动展示索引文件</span><br><span class="line">       root &#x2F;home&#x2F;;  #显示的目录</span><br><span class="line">    &#125;</span><br><span class="line">    location ^*\.(*)$ &#123;</span><br><span class="line">        add_header Content-Type text&#x2F;plain;</span><br><span class="line">        root &#x2F;home&#x2F;;   ##匹配下载的目录</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实训日记 | Day 15. Django打分系统示例</title>
+    <url>/2020/08/07/training_15/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>今天是8月7日，实训的第15天。<br />
+上午孟老师演示了如何用Django做一个打分系统，先是分析需求——<br />
+打分系统需要满足：</p>
+<ul>
+<li>录入学生信息</li>
+<li>添加评委账号</li>
+<li>企业打分占比50%</li>
+<li>校内打分占比50%</li>
+<li>成绩汇总显示</li>
+<li>导出成绩 查询账号 可查分数 学号</li>
+</ul>
+<p>下午主要是帮助同学们答疑。由于我的项目已经接近尾声，所以我比较闲，我也就跟着帮助同学了。</p>
+<h1 id="打分系统"><a class="markdownIt-Anchor" href="#打分系统"></a> 打分系统</h1>
+<h2 id="数据库的建立"><a class="markdownIt-Anchor" href="#数据库的建立"></a> 数据库的建立</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserTeacher</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    username =models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">'用户名'</span>)</span><br><span class="line">    password = models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">'密码'</span>)</span><br><span class="line">    nickname =  models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">'昵称'</span>)</span><br><span class="line">    kind = models.IntegerField(verbose_name=<span class="string">'是否企业老师'</span>) <span class="comment">#0不是 1 是</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.nickname</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'教师账号'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StundentInfo</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    username = models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">'用户名'</span>)</span><br><span class="line">    password = models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">'密码'</span>,default=<span class="string">'123456'</span>)</span><br><span class="line">    nickname =  models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">'昵称'</span>)</span><br><span class="line">    score = models.IntegerField(verbose_name=<span class="string">'总得分'</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.username+<span class="string">"_"</span>+self.nickname</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'学生账号'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CompanyScore</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    score1 = models.IntegerField(verbose_name=<span class="string">'寻求解决方案的能力'</span>)</span><br><span class="line">    score2 = models.IntegerField(verbose_name=<span class="string">'综合应用分析的能力'</span>)</span><br><span class="line">    score3 = models.IntegerField(verbose_name=<span class="string">'考虑社会等因素'</span>)</span><br><span class="line">    score4 = models.IntegerField(verbose_name=<span class="string">'工具的选择和使用能力'</span>)</span><br><span class="line">    score5 = models.IntegerField(verbose_name=<span class="string">'沟通交流能力'</span>)</span><br><span class="line">    score6 = models.IntegerField(verbose_name=<span class="string">'考勤'</span>)</span><br><span class="line">    student = models.ForeignKey(StundentInfo,on_delete=models.CASCADE,verbose_name=<span class="string">'学生'</span>)</span><br><span class="line">    teacher = models.ForeignKey(UserTeacher,on_delete=models.CASCADE,verbose_name=<span class="string">'老师'</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.student.nickname,self.teacher.nickname,self.student.username</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">'企业打分'</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SchoolScore</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    score1 = models.IntegerField(verbose_name=<span class="string">'实习日志'</span>)</span><br><span class="line">    score2 = models.IntegerField(verbose_name=<span class="string">'实习报告'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="视图的建立"><a class="markdownIt-Anchor" href="#视图的建立"></a> 视图的建立</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render,redirect</span><br><span class="line"><span class="keyword">from</span> api.models <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> JsonResponse</span><br><span class="line"><span class="keyword">from</span> django.forms.models <span class="keyword">import</span> model_to_dict</span><br><span class="line"><span class="keyword">from</span> django.views.decorators.csrf <span class="keyword">import</span> csrf_exempt</span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="meta">@csrf_exempt</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method==<span class="string">'POST'</span>:</span><br><span class="line">        username = request.POST.get(<span class="string">'username'</span>)</span><br><span class="line">        password = request.POST.get(<span class="string">'password'</span>)</span><br><span class="line">        user_check=UserTeacher.objects.filter(username=username,password=password)</span><br><span class="line">        <span class="keyword">if</span> user_check:</span><br><span class="line">            request.session[<span class="string">'techer_id'</span>]=user_check.first().id</span><br><span class="line">            <span class="keyword">return</span> redirect(<span class="string">'/student_page/'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">'data'</span>: <span class="string">'登陆失败'</span>&#125;)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render(request,<span class="string">'login.html'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="meta">@csrf_exempt</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_score_by_company</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method==<span class="string">'POST'</span>:</span><br><span class="line">        username=request.POST.get(<span class="string">'username'</span>)</span><br><span class="line">        teacher_id=request.session[<span class="string">'techer_id'</span>]</span><br><span class="line">        has_score=CompanyScore.objects.filter(teacher_id=teacher_id)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> has_score:</span><br><span class="line">            student_id=StundentInfo.objects.get(username=username).id</span><br><span class="line">            systemDict = &#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> key <span class="keyword">in</span> request.POST:</span><br><span class="line">                systemDict[key] = request.POST.get(key)</span><br><span class="line">            <span class="keyword">del</span> systemDict[<span class="string">'username'</span>]</span><br><span class="line">            CompanyScore.objects.create(**systemDict,teacher_id=teacher_id,student_id=student_id).save()</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">'data'</span>: <span class="string">'打分成功'</span>&#125;)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">'data'</span>: <span class="string">'您已经为该同学打过分了，请勿重复打分'</span>&#125;)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'company_score.html'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_score_by_school</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method==<span class="string">'POST'</span>:</span><br><span class="line">        username=request.POST.get(<span class="string">'username'</span>)</span><br><span class="line">        teacher_id=request.session[<span class="string">'techer_id'</span>]</span><br><span class="line">        has_score=SchoolScore.objects.filter(teacher_id=teacher_id)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> has_score:</span><br><span class="line">            student_id=StundentInfo.objects.get(username=username).id</span><br><span class="line">            systemDict = &#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> key <span class="keyword">in</span> request.POST:</span><br><span class="line">                systemDict[key] = request.POST.get(key)</span><br><span class="line">            <span class="keyword">del</span> systemDict[<span class="string">'username'</span>]</span><br><span class="line">            SchoolScore.objects.create(**systemDict,teacher_id=teacher_id,student_id=student_id).save()</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">'data'</span>: <span class="string">'打分成功'</span>&#125;)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">'data'</span>: <span class="string">'您已经为该同学打过分了，请勿重复打分'</span>&#125;)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">'shcool_score.html'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">score_all</span><span class="params">(request)</span>:</span></span><br><span class="line">    username = request.POST.get(<span class="string">'username'</span>)</span><br><span class="line">    student_id = StundentInfo.objects.get(username=username).id</span><br><span class="line">    cs = CompanyScore.objects.filter(student_id=student_id)</span><br><span class="line">    ss = SchoolScore.objects.filter(student_id=student_id)</span><br><span class="line">    list_cs=[]</span><br><span class="line">    list_ss=[]</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> cs:</span><br><span class="line">        list_cs.append(model_to_dict(c,exclude=[<span class="string">'student_id'</span>,<span class="string">'teacher_id'</span>]))</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> ss:</span><br><span class="line">        list_ss.append(model_to_dict(s,exclude=[<span class="string">'student_id'</span>,<span class="string">'teacher_id'</span>]))</span><br><span class="line">    cs_all=zip(*map(<span class="keyword">lambda</span> x: (x[<span class="string">'score1'</span>], x[<span class="string">'score2'</span>],x[<span class="string">'score3'</span>],x[<span class="string">'score4'</span>],x[<span class="string">'score5'</span>],x[<span class="string">'score6'</span>]), list_cs))</span><br><span class="line">    sum_cs=<span class="number">0</span> <span class="comment">#((1,2),(3,4),(5,6))</span></span><br><span class="line">    <span class="keyword">for</span> index,i <span class="keyword">in</span> enumerate(cs_all):</span><br><span class="line">        sum_cs+=sum(list(i))/len(i)</span><br><span class="line">    ss_all=zip(*map(<span class="keyword">lambda</span> x: (x[<span class="string">'score1'</span>], x[<span class="string">'score2'</span>],x[<span class="string">'score3'</span>]), list_ss))</span><br><span class="line">    sum_ss=<span class="number">0</span> <span class="comment">#((1,2),(3,4),(5,6))</span></span><br><span class="line">    <span class="keyword">for</span> index,i <span class="keyword">in</span> enumerate(ss_all):</span><br><span class="line">        sum_ss+=sum(list(i))/len(i)</span><br><span class="line">    total_score = sum_cs + sum_ss</span><br><span class="line">    StundentInfo.objects.filter(username=username).update(score=total_score)</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(&#123;<span class="string">'data'</span>: <span class="string">'成绩核算成功'</span>&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">student_list</span><span class="params">(request)</span>:</span></span><br><span class="line">    all_stus=StundentInfo.objects.all()</span><br></pre></td></tr></table></figure>
+<h2 id="登录界面"><a class="markdownIt-Anchor" href="#登录界面"></a> 登录界面</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/login/"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"username"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">"password"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登陆"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="学生列表界面"><a class="markdownIt-Anchor" href="#学生列表界面"></a> 学生列表界面</h2>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">"en"</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"UTF-8"</span>&gt;</span><br><span class="line">    &lt;title&gt;学生列表&lt;/title&gt;</span><br><span class="line">    &lt;script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"&gt;&lt;/script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;序号&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;学号&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;姓名&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;操作&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">'/student_list/'</span>,</span><br><span class="line">        type:<span class="string">'get'</span>,</span><br><span class="line">        dataType:<span class="string">'json'</span>,</span><br><span class="line">        success:function (res) &#123;</span><br><span class="line">          <span class="keyword">for</span>(var i = <span class="number">0</span>;i&lt;res.data.length;i++)&#123;</span><br><span class="line">              var htmlStr=<span class="string">'&lt;tr&gt;\n'</span> +</span><br><span class="line">                  <span class="string">'        &lt;td&gt;'</span>+(i+<span class="number">1</span>)+<span class="string">'&lt;/td&gt;\n'</span> +</span><br><span class="line">                  <span class="string">'        &lt;td&gt;'</span>+res.data[i].username+<span class="string">'&lt;/td&gt;\n'</span> +</span><br><span class="line">                  <span class="string">'        &lt;td&gt;'</span>+res.data[i].nickname+<span class="string">'&lt;/td&gt;\n'</span> +</span><br><span class="line">                  <span class="string">'        &lt;td&gt;&lt;button class="company"&gt;企业&lt;/button&gt;&lt;button class="school"&gt;学校&lt;/button&gt;&lt;/td&gt;\n'</span> +</span><br><span class="line">                  <span class="string">'    &lt;/tr&gt;'</span></span><br><span class="line">              $(<span class="string">'tbody'</span>).append(htmlStr);</span><br><span class="line">          &#125;</span><br><span class="line">          company();</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">    function company()&#123;</span><br><span class="line">        $(<span class="string">".company"</span>).click(function()&#123;</span><br><span class="line">            var username=$(this).parent().parent().find(<span class="string">'td:eq(1)'</span>).text();</span><br><span class="line">            window.location.href=<span class="string">'/msbc/?username='</span>+username+<span class="string">''</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="公司评分界面"><a class="markdownIt-Anchor" href="#公司评分界面"></a> 公司评分界面</h2>
+</head>
+<body>
+<h1></h1>
+<div>寻求解决方案的能力<input id="score1" type="text" placeholder="满分：16" value="0"></div>
+<div>综合应用分析的能力<input id="score2" type="text" placeholder="满分：23" value="0"></div>
+<div>考虑社会等因素<input id="score3" type="text" placeholder="满分：15" value="0"></div>
+<div>工具的选择和使用能力<input id="score4" type="text" placeholder="满分：22" value="0"></div>
+<div>沟通交流能力<input id="score5" type="text" placeholder="满分：4" value="0"></div>
+<div>考勤<input id="score6" type="text" placeholder="满分：20" value="0"></div>
+<div><span>目前分</span><span id="score"></span></div>
+<button id="submit">提交成绩</button>
+</body>
+<script>
+    function getUrlParam(name) { //a标签跳转获取参数
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if(r != null) return decodeURI(r[2]);
+        return null;
+    }
+    var username = getUrlParam('username');
+    $('h1').text(username);
+    $("#submit").click(function () {
+         $.ajax({
+        url:'/msbc/',
+        type:'post',
+        dataType:'json',
+        data:{
+            username:username,
+            score1:$("#score1").val(),
+            score2:$("#score2").val(),
+            score3:$("#score3").val(),
+            score4:$("#score4").val(),
+            score5:$("#score5").val(),
+            score6:$("#score6").val(),
+        },
+        success:function (res) {
+            alert(res.data);
+        },
+    })
+    });
+    $("input").change(function(){
+       $("#score").empty();
+       var sum = 0;
+       var a=$("input").each(function(){var value = $(this).val();sum+=parseInt(value)});
+       $("#score").text(sum);
+    });
+</script>
+</html>
+<h2 id="获取上一链接的参数"><a class="markdownIt-Anchor" href="#获取上一链接的参数"></a> 获取上一链接的参数</h2>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function getUrlParam(name) &#123; &#x2F;&#x2F;a标签跳转获取参数</span><br><span class="line">	var reg &#x3D; new RegExp(&quot;(^|&amp;)&quot; + name + &quot;&#x3D;([^&amp;]*)(&amp;|$)&quot;, &quot;i&quot;);</span><br><span class="line">	var r &#x3D; window.location.search.substr(1).match(reg);</span><br><span class="line">	if(r !&#x3D; null) return decodeURI(r[2]);</span><br><span class="line">	return null;</span><br><span class="line">&#125;</span><br><span class="line">var username &#x3D; getUrlParam(&#39;username&#39;);</span><br></pre></td></tr></table></figure><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实训日记 | Day 14. 调用第三方API</title>
+    <url>/2020/08/06/training_14/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>2020年8月6日。是实训的第14天。<br />
+今天上午孟老师带我们学习了如何将调用第三方的公开API以及如何使用HBuilder将web应用快速打包成安卓可以使用的apk包。<br />
+调用第三方的公开API，是以高德地图为例的。说实话，高德地图作为一个成熟的商业地图导航提供商，它的API调用并不算太简单。<br />
+老师还演示了如何将其他地方下载过来的数据与高德地图API结合的过程，过程十分繁琐，但也有趣。</p>
+<h1 id="调用api"><a class="markdownIt-Anchor" href="#调用api"></a> 调用API</h1>
+<h2 id="高德地图"><a class="markdownIt-Anchor" href="#高德地图"></a> 高德地图</h2>
+<p>打开<a href="https://lbs.amap.com/" target="_blank" rel="noopener">高德地图开放平台</a>。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/1596676271_20200806090924741_16028.png" alt="" /><br />
+点击注册并完成个人开发者认证。<br />
+点击控制台，在我的应用-应用管理中，创建新应用。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200806091127.png" alt="" /><br />
+点击左上角的添加，选择Web端的服务平台。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200806091200.png" alt="" /><br />
+注意这个Key，后续会使用到。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200806091649.png" alt="" /></p>
+<p>点击开发支持，有API文档可供阅读。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200806092049.png" alt="" /><br />
+复制一个示例到html文件中。点击运行，则可看到地图效果。</p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200806093048.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200806093122.png" alt="" /></p>
+<h2 id="pandas-to_dict-的用法"><a class="markdownIt-Anchor" href="#pandas-to_dict-的用法"></a> pandas to_dict 的用法</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.test <span class="keyword">import</span> TestCase</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">data = pd.read_excel(<span class="string">'黑龙江gps.xlsx'</span>)</span><br><span class="line">data_dict=data.to_dict(orient=<span class="string">'split'</span>)</span><br><span class="line">print(data_dict[<span class="string">'data'</span>])</span><br></pre></td></tr></table></figure>
+<p>pandas 中的to_dict 可以对DataFrame类型的数据进行转换<br />
+可以选择六种的转换类型，分别对应于参数 ‘dict’, ‘list’, ‘series’, ‘split’, ‘records’, ‘index’，下面逐一介绍每种的用法。</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">Help on method to_dict <span class="keyword">in</span> module pandas.core.frame:</span><br><span class="line"></span><br><span class="line">to_dict(orient=<span class="string">'dict'</span>) method of pandas.core.frame.DataFrame instance</span><br><span class="line">    Convert DataFrame to dictionary.</span><br><span class="line"></span><br><span class="line">    Parameters</span><br><span class="line">    ----------</span><br><span class="line">    orient : str &#123;<span class="string">'dict'</span>, <span class="string">'list'</span>, <span class="string">'series'</span>, <span class="string">'split'</span>, <span class="string">'records'</span>, <span class="string">'index'</span>&#125;</span><br><span class="line">        Determines the type of the values of the dictionary.</span><br><span class="line"></span><br><span class="line">        - dict (default) : dict like &#123;column -&gt; &#123;index -&gt; value&#125;&#125;</span><br><span class="line">        - list : dict like &#123;column -&gt; [values]&#125;</span><br><span class="line">        - series : dict like &#123;column -&gt; Series(values)&#125;</span><br><span class="line">        - split : dict like</span><br><span class="line">          &#123;index -&gt; [index], columns -&gt; [columns], data -&gt; [values]&#125;</span><br><span class="line">        - records : list like</span><br><span class="line">          [&#123;column -&gt; value&#125;, ... , &#123;column -&gt; value&#125;]</span><br><span class="line">        - index : dict like &#123;index -&gt; &#123;column -&gt; value&#125;&#125;</span><br><span class="line"></span><br><span class="line">          .. versionadded:: <span class="number">0.17</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line">        Abbreviations are allowed. `s` indicates `series` <span class="keyword">and</span> `sp`</span><br><span class="line">        indicates `split`.</span><br><span class="line"></span><br><span class="line">    Returns</span><br><span class="line">    -------</span><br><span class="line">    result : dict like &#123;column -&gt; &#123;index -&gt; value&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择参数orientdict"><a class="markdownIt-Anchor" href="#选择参数orientdict"></a> 选择参数orient=‘dict’</h3>
+<p>dict也是默认的参数，下面的data数据类型为DataFrame结构, 会形成 {column -&gt; {index -&gt; value}}这样的结构的字典，可以看成是一种双重字典结构。</p>
+<ul>
+<li>单独提取每列的值及其索引，然后组合成一个字典</li>
+<li>再将上述的列属性作为关键字（key），值（values）为上述的字典</li>
+</ul>
+<p>查询方式为 ：<code>data_dict[key1][key2]</code></p>
+<ul>
+<li>data_dict 为参数选择orient=’dict’时的数据名</li>
+<li>key1 为列属性的键值（外层）</li>
+<li>key2 为内层字典对应的键值</li>
+</ul>
+<h3 id="选择参数orientlist"><a class="markdownIt-Anchor" href="#选择参数orientlist"></a> 选择参数orient=‘list’</h3>
+<p>和1中比较相似，只不过内层变成了一个列表，结构为{column -&gt; [values]}<br />
+查询方式为： data_list[keys][index]</p>
+<h3 id="选择参数orientseries"><a class="markdownIt-Anchor" href="#选择参数orientseries"></a> 选择参数orient=‘series’</h3>
+<p>形成结构**{column -&gt; Series(values)}**<br />
+调用格式为：data_series[key1][key2]或data_dict[key1]</p>
+<ul>
+<li>data_series 为数据对应的名字</li>
+<li>key1 为列属性的键值，如本例中的’age’ , ‘embarked’等</li>
+<li>key2 使用数据原始的索引（可选）</li>
+</ul>
+<h3 id="选择参数orientsplit"><a class="markdownIt-Anchor" href="#选择参数orientsplit"></a> 选择参数orient=‘split’</h3>
+<p>形成**{index -&gt; [index], columns -&gt; [columns], data -&gt; [values]}**的结构，是将数据、索引、属性名单独脱离出来构成字典<br />
+调用方式有 data_split[‘index’],data_split[‘data’],data_split[‘columns’]+ data_list 为关键字orient=‘list’ 时对应的数据名</p>
+<ul>
+<li>keys 为列属性的键值，如本例中的’age’ , 'embarked’等</li>
+<li>index 为整型索引，从0开始到最后</li>
+</ul>
+<h3 id="选择参数orientrecords时"><a class="markdownIt-Anchor" href="#选择参数orientrecords时"></a> 选择参数orient='records’时</h3>
+<p>形成***[{column -&gt; value}, … , {column -&gt; value}]***的结构<br />
+整体构成一个列表，内层是将原始数据的每行提取出来形成字典<br />
+调用格式为data_records[index][key1]</p>
+<h3 id="选择参数orientindex时"><a class="markdownIt-Anchor" href="#选择参数orientindex时"></a> 选择参数orient='index’时</h3>
+<p>形成{index -&gt; {column -&gt; value}}的结构，调用格式正好和’dict’对应的反过来，请读者自己思考</p>
+<h1 id="django-cors-headers-解决跨域问题"><a class="markdownIt-Anchor" href="#django-cors-headers-解决跨域问题"></a> django-cors-headers 解决跨域问题</h1>
+<p>浏览器具有 “同源策略的限制”，导致 <code>发送ajax请求</code> + <code>跨域</code> 存在无法获取数据。</p>
+<ul>
+<li>简单请求，发送一次请求。</li>
+<li>复杂请求，先options请求做预检，然后再发送真正请求</li>
+</ul>
+<p><strong>1. pip安装</strong><br />
+<code>pip install django-cors-headers</code><br />
+<strong>2. 添加到setting的app中</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">INSTALLED_APPS &#x3D; (</span><br><span class="line">	...</span><br><span class="line">	&#39;corsheaders&#39;,</span><br><span class="line">	...</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p><strong>3. 添加中间件</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MIDDLEWARE &#x3D; [  # Or MIDDLEWARE_CLASSES on Django &lt; 1.10</span><br><span class="line">	...</span><br><span class="line">	&#39;corsheaders.middleware.CorsMiddleware&#39;,</span><br><span class="line">	&#39;django.middleware.common.CommonMiddleware&#39;,</span><br><span class="line">	...</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>4. setting下面添加下面的配置</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CORS_ALLOW_CREDENTIALS &#x3D; True</span><br><span class="line">CORS_ORIGIN_ALLOW_ALL &#x3D; True</span><br><span class="line">CORS_ORIGIN_WHITELIST &#x3D; (</span><br><span class="line">	&#39;*&#39;</span><br><span class="line">)</span><br><span class="line">CORS_ALLOW_METHODS &#x3D; (</span><br><span class="line">	&#39;DELETE&#39;,</span><br><span class="line">	&#39;GET&#39;,</span><br><span class="line">	&#39;OPTIONS&#39;,</span><br><span class="line">	&#39;PATCH&#39;,</span><br><span class="line">	&#39;POST&#39;,</span><br><span class="line">	&#39;PUT&#39;,</span><br><span class="line">	&#39;VIEW&#39;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">CORS_ALLOW_HEADERS &#x3D; (</span><br><span class="line">	&#39;XMLHttpRequest&#39;,</span><br><span class="line">	&#39;X_FILENAME&#39;,</span><br><span class="line">	&#39;accept-encoding&#39;,</span><br><span class="line">	&#39;authorization&#39;,</span><br><span class="line">	&#39;content-type&#39;,</span><br><span class="line">	&#39;dnt&#39;,</span><br><span class="line">	&#39;origin&#39;,</span><br><span class="line">	&#39;user-agent&#39;,</span><br><span class="line">	&#39;x-csrftoken&#39;,</span><br><span class="line">	&#39;x-requested-with&#39;,</span><br><span class="line">	&#39;Pragma&#39;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>启动项目时，使用<code>python manage.py runserver 0.0.0.0:8000</code></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实训日记 | Day 13. Flask的工程化</title>
+    <url>/2020/08/05/training_13/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>2020年8月5日。是实训的第13天。<br />
+今天上午孟老师带我们学习了如何将flask工程化。<s>其实是flask的django化。</s><br />
+flask作为一个轻量级的框架，把路由、数据库、项目启动全都放到了一起，虽然这样子一来开发的速度很快，但是内容一旦多起来，在一页代码中寻找会非常的麻烦。而且flask没有现成的数据库迁移工具。<br />
+所谓flask工程化，就是将app.py拆分开多个文件。<br />
+完成flask工程化后，flask稍微显得不那么轻量了（但是对比于django还是属于轻量水准的），但是工程化能使开发流程更加系统全面。<br />
+讲完flask的工程化后，时间还有剩余。孟老师向我们询问还有什么想知道的。我想起他之前说过django的session，便想让他在这时讲解一下。他很豪爽地讲解了。只用了短短10分钟。原来session这么简单啊。</p>
+<h1 id="flask工程化"><a class="markdownIt-Anchor" href="#flask工程化"></a> flask工程化</h1>
+<h2 id="文件配置"><a class="markdownIt-Anchor" href="#文件配置"></a> 文件配置</h2>
+<p>复制app.py的内容，然后粘贴到新建的app_config.py，略加修改，只应用在配置中使用到的包。<br />
+将<code>app = Flask(__name__)</code>修改为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app = Flask(__name__,</span><br><span class="line">template_folder=<span class="string">'templates'</span>,</span><br><span class="line">static_folder=<span class="string">"static"</span>,</span><br><span class="line">            )</span><br></pre></td></tr></table></figure>
+<p>同时新建两个文件夹：<code>templates</code>和<code>static</code>。<br />
+修改完的app_config.py全文如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask_cors <span class="keyword">import</span> CORS</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line">app = Flask(__name__,</span><br><span class="line">template_folder=<span class="string">'templates'</span>,</span><br><span class="line">static_folder=<span class="string">"static"</span>,</span><br><span class="line">            )</span><br><span class="line">BASEDIR = os.path.abspath(os.path.dirname(__file__))</span><br><span class="line"></span><br><span class="line">app.config[<span class="string">'SQLALCHEMY_DATABASE_URI'</span>] = <span class="string">'sqlite:///'</span>+os.path.join(BASEDIR,<span class="string">'data.sqlite'</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">如果设置成 True (默认情况)，Flask-SQLAlchemy 将会追踪对象的修改并且发送信号。这需要额外的内存， 如果不必要的可以禁用它。</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">app.config[<span class="string">'SQLALCHEMY_TRACK_MODIFICATIONS'</span>] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">CORS(app)</span><br></pre></td></tr></table></figure>
+<h2 id="数据库迁移工具"><a class="markdownIt-Anchor" href="#数据库迁移工具"></a> 数据库迁移工具</h2>
+<p>先使用<code>pip install flask-migrate</code>和<code>pip install flask-script</code>安装两个包。<br />
+安装完毕后，新建一个database.py文件。编写如下代码。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> app_config <span class="keyword">import</span> app</span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> db</span><br><span class="line"><span class="keyword">from</span> flask_migrate <span class="keyword">import</span> Migrate,MigrateCommand</span><br><span class="line"><span class="keyword">from</span> flask_script <span class="keyword">import</span> Manager</span><br><span class="line"></span><br><span class="line">manager = Manager(app)</span><br><span class="line"></span><br><span class="line">migrate = Migrate(app,db)</span><br><span class="line"></span><br><span class="line">manager.add_command(<span class="string">'db'</span>,MigrateCommand)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    manager.run()</span><br></pre></td></tr></table></figure>
+<p>接下来在命令行使用<code>python database.py db init</code>命令，就可以初始化数据库。<br />
+使用<code>python database.py db migrate</code>命令，就可以生成迁移文件。<br />
+使用<code>python database.py db upgrade</code>命令，就可以生成数据表。</p>
+<h2 id="模型"><a class="markdownIt-Anchor" href="#模型"></a> 模型</h2>
+<p>新建models.py文件。将app.py中关于models的复制到这里，也略加修改。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> app_config <span class="keyword">import</span> app</span><br><span class="line"><span class="keyword">from</span> flask_sqlalchemy <span class="keyword">import</span> SQLAlchemy</span><br><span class="line">db = SQLAlchemy(app)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Info</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    __tablename__=<span class="string">'info2'</span></span><br><span class="line">    id = db.Column(db.Integer, primary_key=<span class="literal">True</span>)</span><br><span class="line">    title = db.Column(db.String(<span class="number">255</span>))</span><br><span class="line">    category = db.Column(db.String(<span class="number">60</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&lt;info.&gt;%s '</span> % self.title</span><br></pre></td></tr></table></figure>
+<h2 id="主程序"><a class="markdownIt-Anchor" href="#主程序"></a> 主程序</h2>
+<p>新建run.py文件。将app.py关于路由和运行的复制到这里，略加修改。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask,jsonify,render_template,request</span><br><span class="line"><span class="keyword">from</span> app_config <span class="keyword">import</span> app</span><br><span class="line"><span class="keyword">from</span> models <span class="keyword">import</span> Info,db</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#函数和路由不可重复</span></span><br><span class="line"><span class="meta">@app.route('/',methods=['GET','POST']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span> <span class="comment">#视图函数</span></span><br><span class="line">    info1 = Info(id=<span class="number">1</span>,title=<span class="string">'新闻1'</span>,category=<span class="string">'娱乐新闻'</span>)</span><br><span class="line">    info2 = Info(id=<span class="number">2</span>,title=<span class="string">'新闻2'</span>,category=<span class="string">'工作新闻'</span>)</span><br><span class="line">    db.session.add_all([info1,info2]) <span class="comment">#将数据添加到会话</span></span><br><span class="line">    db.session.commit() <span class="comment">#提交会话</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'data'</span>:&#123;<span class="string">'name'</span>:<span class="string">'Zorua'</span>,<span class="string">'age'</span>:<span class="number">20</span>&#125;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/query',methods=['GET','POST']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">query</span><span class="params">()</span>:</span></span><br><span class="line">    results=Info.query.all()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> results:</span><br><span class="line">        print(i)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'data'</span>:<span class="string">'Success'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/update',methods=['GET','POST']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">()</span>:</span></span><br><span class="line">    Info.query.filter(Info.title==<span class="string">'新闻1'</span>).update(&#123;<span class="string">'category'</span>:<span class="string">'改后新闻'</span>&#125;)</span><br><span class="line">    db.session.commit()  <span class="comment"># 提交会话</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'data'</span>:<span class="string">'Success'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/delete',methods=['GET','POST']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delete</span><span class="params">()</span>:</span></span><br><span class="line">    Info.query.filter(Info.title==<span class="string">'新闻1'</span>).delete()</span><br><span class="line">    db.session.commit()  <span class="comment"># 提交会话</span></span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'data'</span>:<span class="string">'Success'</span>&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/index',methods=['POST','GET']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'index.html'</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/api',methods=['POST','GET']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api</span><span class="params">()</span>:</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    name = request.form.get(<span class="string">'name'</span>)</span><br><span class="line">    age = request.form.get(<span class="string">'age'</span>)</span><br><span class="line">    print(name)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'data'</span>:&#123;<span class="string">'name'</span>:name,<span class="string">'age'</span>:age&#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>,host=<span class="string">'0.0.0.0'</span>,port=<span class="number">8888</span>)</span><br></pre></td></tr></table></figure>
+<p>接下来运行项目只用在run.py中运行即可。</p>
+<h1 id="django的session"><a class="markdownIt-Anchor" href="#django的session"></a> django的session</h1>
+<p><code>session</code>就相当于是一个字典。<br />
+<code>request.session['user_id'] = User.objects.get(username=username).id</code><br />
+就可以在session中新增user_id字段并记录下来。<br />
+session中的记录是有有效期的。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实训日记 | Day 12. Flask框架</title>
+    <url>/2020/08/04/training_12/</url>
+    <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>2020年8月4日。是实训的第12天。<br />
+今天上午孟老师带我们回顾了过去在Django这一块所学的一些知识，然后开始讲授flask。完成从flask的创建到部署，再是路由、跨域、连接数据库等等任务。</p>
+<div class="snote quote">
+Flask 是一个微型的 Python 开发的 Web 框架，基于Werkzeug WSGI工具箱和Jinja2模板引擎。 Flask使用BSD授权。 Flask也被称为“microframework”，因为它使用简单的核心，用extension增加其他功能。Flask没有默认使用的数据库、窗体验证工具。然而，Flask保留了扩增的弹性，可以用Flask-extension加入这些功能：ORM、窗体验证工具、文件上传、各种开放式身份验证技术。
+</div>
+<p>通过今天的学习，我确实感受到了Flask比Django要简单一些。花费较少的精力和时间就能达到和Django同样的效果。但是即便如此，我依然决定在我的大作业上使用Django。因为就我自身而言，我对Django更加熟悉。</p>
+<p>今天的知识把握程度还行，基于对Django的理解上再去学习Flask就没有那么难。但是对于ajax嵌套，我仍是有一些不明白的地方。</p>
+<p>Flask的优势：</p>
+<ul>
+<li>Flask是一个轻量级的可定制框架</li>
+<li>插件超级多，不用自己造轮子</li>
+</ul>
+<h1 id="新建flask项目"><a class="markdownIt-Anchor" href="#新建flask项目"></a> 新建Flask项目</h1>
+<p>在Pycharm中点击新建，选择Flask项目，即可完成项目的创建。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804092656.png" alt="" /></p>
+<p>项目创建完毕后，可以看到如下的文件夹结构。Flask框架确实比Django框架要轻量得多。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804092804.png" alt="" /></p>
+<h2 id="运行测试"><a class="markdownIt-Anchor" href="#运行测试"></a> 运行测试</h2>
+<p>先来对主要的app.py的代码，作一些注释。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 路由不可重复，函数也不可重复。</span></span><br><span class="line"><span class="meta">@app.route('/') #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span> <span class="comment">#视图函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World!'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run()  <span class="comment">#会在这里启动。所以Flask不用像Django一样输入命令行启动。直接运行即可。</span></span><br></pre></td></tr></table></figure>
+<p>运行的结果如下图所示。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804095707.png" alt="" /></p>
+<p>一般，我们想要的数据，是json数据，在此引入一个包。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> jsonify</span><br></pre></td></tr></table></figure>
+<p>有了这样一个包，</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">jsonify(&#123;<span class="string">'data'</span>:&#123;<span class="string">'name'</span>:<span class="string">'Zorua'</span>,<span class="string">'age'</span>:<span class="number">20</span>&#125;&#125;)</span><br><span class="line"><span class="comment">#等价于之前在Django的JsonResponse</span></span><br></pre></td></tr></table></figure>
+<p>测试效果<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804095648.png" alt="" /></p>
+<h2 id="部署修改"><a class="markdownIt-Anchor" href="#部署修改"></a> 部署修改</h2>
+<p>现在这个站点是部署在本地的，如果部署在云服务器上，或需要修改端口。<br />
+可在<code>app.run()</code>中加入参数，如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.run(host=<span class="string">'0.0.0.0'</span>,port=<span class="number">8888</span>)</span><br></pre></td></tr></table></figure>
+<p>这个效果不能马上生效，还需要添加新的配置。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804094850.png" alt="" /><br />
+选择Python，然后在右侧，名称写为<code>app.py</code>，Script Path为该文件的绝对路径。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804093304.png" alt="" /></p>
+<p>最后在命令行键入<code>python app.py</code>即可生效。</p>
+<h2 id="debug模式"><a class="markdownIt-Anchor" href="#debug模式"></a> DEBUG模式</h2>
+<p>Flask默认是没有开启debug模式的，开启debug模式有很多好处：</p>
+<ul>
+<li>可以帮助我们查找代码里面的错误</li>
+<li>每次修改代码不需要重新运行代码</li>
+</ul>
+<p>为开启DEBUG模式，只需要在<code>app.run()</code>的参数中增加一个<code>debug=True</code>，或者在其下面加一句<code>app.debug=True</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.run(debug=<span class="literal">True</span>,host=<span class="string">'0.0.0.0'</span>,port=<span class="number">8888</span>)</span><br><span class="line">app.debug = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<h1 id="前后端分离"><a class="markdownIt-Anchor" href="#前后端分离"></a> 前后端分离</h1>
+<h2 id="添加新的路由"><a class="markdownIt-Anchor" href="#添加新的路由"></a> 添加新的路由</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route('/index') #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">'index.html'</span>)</span><br><span class="line">    <span class="comment">#为使用上面这个语句，需要引入包：</span></span><br><span class="line">    <span class="comment"># from flask import render_template</span></span><br></pre></td></tr></table></figure>
+<p>再在templates文件夹中，新建一个<code>index.html</code></p>
+<p>运行查看一下效果：<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804095612.png" alt="" /></p>
+<h3 id="请求类型"><a class="markdownIt-Anchor" href="#请求类型"></a> 请求类型</h3>
+<p>对于路由的请求类型，可以在装饰器的函数里面加一个参数<code>methods=['GET','POST']</code>。<br />
+即</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route('/api',methods=['POST','GET']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api</span><span class="params">()</span>:</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>如果想获取参数的话，需要引入一个包：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"><span class="meta">@app.route('/api',methods=['POST','GET']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api</span><span class="params">()</span>:</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    name = request.args.get(<span class="string">'name'</span>)</span><br><span class="line">    age = request.args.get(<span class="string">'age'</span>)</span><br><span class="line">    print(name)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'data'</span>:&#123;<span class="string">'name'</span>:name,<span class="string">'age'</span>:age&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>之后和Django类似，使用<code>request.args.get()</code>函数来获取参数。<br />
+对于post请求，只需要把上面的args改成form就可以了。<br />
+即：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"><span class="meta">@app.route('/api',methods=['POST','GET']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api</span><span class="params">()</span>:</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    name = request.form.get(<span class="string">'name'</span>)</span><br><span class="line">    age = request.form.get(<span class="string">'age'</span>)</span><br><span class="line">    print(name)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'data'</span>:&#123;<span class="string">'name'</span>:name,<span class="string">'age'</span>:age&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="跨域"><a class="markdownIt-Anchor" href="#跨域"></a> 跨域</h2>
+<p>引用包<code>flask_cors</code>，然后调用<code>flask_cors.CORS(app)</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> flask_cors</span><br><span class="line">flask_cors.CORS(app)</span><br></pre></td></tr></table></figure>
+<p>跨域能够实现前后端分离：</p>
+<ul>
+<li>前端：对json数据进行渲染，ajax请求后台接口</li>
+<li>后端：数据打包json，提供可以被调用的api</li>
+</ul>
+<h2 id="ajax"><a class="markdownIt-Anchor" href="#ajax"></a> ajax</h2>
+<p>和之前的Django类似，不同的地方在于url。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>wow<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    Wow awesome</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    $.ajax(&#123;</span></span><br><span class="line"><span class="actionscript">        url:<span class="string">'http://127.0.0.1:8888/api'</span>,</span></span><br><span class="line"><span class="actionscript">        type:<span class="string">'post'</span>,</span></span><br><span class="line"><span class="actionscript">        dataType:<span class="string">'json'</span>,</span></span><br><span class="line">        data:&#123;</span><br><span class="line"><span class="actionscript">          name:<span class="string">'Zorua'</span>,</span></span><br><span class="line">          age:13</span><br><span class="line">        &#125;,</span><br><span class="line"><span class="actionscript">        success:<span class="function"><span class="keyword">function</span><span class="params">(res)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(res.data)</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="连接数据库"><a class="markdownIt-Anchor" href="#连接数据库"></a> 连接数据库</h2>
+<h3 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h3>
+<p>先安装一个库。在命令行中键入<code>pip install Flask-SQLAlchemy</code>并按下回车键。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#数据库连接</span></span><br><span class="line">app.config[<span class="string">'SQLALCHEMY_DATABASE_URI'</span>] = <span class="string">'sqlite:///'</span>+os.path.join(BASEDIR,<span class="string">'data.sqlite'</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">如果设置成 True（默认情况），Flask-SQLAlchemy将会追踪对象的修改并且发送信号 这需要额外的内存 如果不必要的话可以禁用它</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">app.config[<span class="string">'SQLALCHEMY_TRACK_MODIFICATIONS'</span>]=<span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建数据库"><a class="markdownIt-Anchor" href="#创建数据库"></a> 创建数据库</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">db = SQLAlchemy(app)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Info</span><span class="params">(db.Model)</span>:</span></span><br><span class="line">    id = db.Column(db.Integer,primary_key=<span class="literal">True</span>)</span><br><span class="line">    title = db.Column(db.String(<span class="number">255</span>))</span><br><span class="line">    category = db.Column(db.String(<span class="number">60</span>))</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'&lt;info.&gt;%s '</span> %  self.title</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804145108.png" alt="" /><br />
+创建完毕后，再命令行中键入flask shell。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804145346.png" alt="" /></p>
+<h3 id="插入数据"><a class="markdownIt-Anchor" href="#插入数据"></a> 插入数据</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">info1 = Info(id=<span class="number">1</span>,title=<span class="string">'新闻1'</span>,category=<span class="string">'娱乐新闻'</span>)</span><br><span class="line">info2 = Info(id=<span class="number">2</span>,title=<span class="string">'新闻2'</span>,category=<span class="string">'工作新闻'</span>)</span><br><span class="line">db.session.add_all([info1,info2]) <span class="comment">#将数据添加到会话</span></span><br><span class="line">db.session.commit() <span class="comment">#提交会话</span></span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804152306.png" alt="" /></p>
+<h3 id="查询数据"><a class="markdownIt-Anchor" href="#查询数据"></a> 查询数据</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route('/query',methods=['GET','POST']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">query</span><span class="params">()</span>:</span></span><br><span class="line">    results=Info.query.all()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> results:</span><br><span class="line">        print(i)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'data'</span>:<span class="string">'Success'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804152941.png" alt="" /></p>
+<h3 id="更新数据"><a class="markdownIt-Anchor" href="#更新数据"></a> 更新数据</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route('/update',methods=['GET','POST']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">()</span>:</span></span><br><span class="line">    Info.query.filter(Info.title==<span class="string">'新闻1'</span>).update(&#123;<span class="string">'category'</span>:<span class="string">'改后新闻'</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'data'</span>:<span class="string">'Success'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="删除数据"><a class="markdownIt-Anchor" href="#删除数据"></a> 删除数据</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route('/update',methods=['GET','POST']) #装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">()</span>:</span></span><br><span class="line">    Info.query.filter(Info.title==<span class="string">'新闻1'</span>).delete()</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">'data'</span>:<span class="string">'Success'</span>&#125;)</span><br></pre></td></tr></table></figure>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实训日记 | Day 11. 数据的可视化</title>
+    <url>/2020/08/03/training_11/</url>
+    <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>2020年8月3日。到了实训的第三周的第一天。<br />
+今天主要讲了如何用echarts实现<strong>数据的可视化</strong>。<br />
+主要的活动有：</p>
+<ul>
+<li>数据打包</li>
+<li>echarts远程包</li>
+<li>echarts本地包（重点）<br />
+数据可视化主要旨在借助于图形化手段，清晰有效地传达与沟通信息。但是，这并不就意味着数据可视化就一定因为要实现其功能用途而令人感到枯燥乏味，或者是为了看上去绚丽多彩而显得极端复杂。为了有效地传达思想概念，美学形式与功能需要齐头并进，通过直观地传达关键的方面与特征，从而实现对于相当稀疏而又复杂的数据集的深入洞察。然而，设计人员往往并不能很好地把握设计与功能之间的平衡，从而创造出华而不实的数据可视化形式，无法达到其主要目的，也就是传达与沟通信息。<br />
+因此，我们不仅要掌握数据可视化的办法，也更要懂得如何让组织形式使得传达与沟通的效益最大化。<br />
+今天圆满地完成了主要工作，不仅完成了一边听课一边记录笔记，而且课中也没有遇到什么疑难杂症而纠结良久。</li>
+</ul>
+<p>今天的操作流程，一言以蔽之。对于本地存在的Excel数据、CSV数据等等，可以使用<code>pandas</code>或<code>xlrd</code>来进行提取，而后用<code>echarts</code>把它绘制在网页上。</p>
+<div class="snote quote">
+ECharts 是一个使用 JavaScript 实现的开源可视化库，涵盖各行业图表，满足各种需求。
+ECharts 遵循 Apache-2.0 开源协议，免费商用。
+ECharts 兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等）及兼容多种设备，可随时随地任性展示。
+</div>
+<h1 id="pandasxlrd"><a class="markdownIt-Anchor" href="#pandasxlrd"></a> pandas&amp;xlrd</h1>
+<div class="snote quote">
+Pandas是一个强大的分析结构化数据的工具集；它的使用基础是Numpy（提供高性能的矩阵运算）；用于数据挖掘和数据分析，同时也提供数据清洗功能。
+</div>
+<div class="snote quote">
+Python中操作excel主要用到xlrd和xlwt这两个库，即xlrd是读excel，xlwt是写excel的库。
+</div>
+<h2 id="安装流程"><a class="markdownIt-Anchor" href="#安装流程"></a> 安装流程</h2>
+<p>在Terminal中键入<code>pip install pandas</code>即可完成pandas的安装（如果没装过numpy和dateutil也会一并装了）。<br />
+出现了以下字样的安装成功信息。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Successfully installed numpy-1.19.1 pandas-1.1.0 python-dateutil-2.8.1</span><br></pre></td></tr></table></figure>
+<p>再在Terminal中键入<code>pip install xlrd</code>即可完成xlrd的安装。</p>
+<h2 id="数据的获取"><a class="markdownIt-Anchor" href="#数据的获取"></a> 数据的获取</h2>
+<p>除了可以用爬虫自己获取网页上的数据外，还可以上<a href="https://tianchi.aliyun.com/dataset/" target="_blank" rel="noopener">阿里云-天池</a>来获取数据。<br />
+为了方便练习，选择一些数据量不大的数据集。这里老师选择了<a href="http://www.stat-nba.com/" target="_blank" rel="noopener">NBA数据</a>中的球员勒布朗-詹姆斯的数据。<br />
+将网页表格复制到Excel中，得到如下结果。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803093457.png" alt="" /></p>
+<h2 id="应用伊始"><a class="markdownIt-Anchor" href="#应用伊始"></a> 应用伊始</h2>
+<p>键入<code>python manage.py startapp echarts</code>新建一个应用。<br />
+将<code>james.xlsx</code>复制到该应用的文件夹下。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803094147.png" alt="" /></p>
+<p>在 <code>tests.py</code> 文件中，键入如下代码以进行测试。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.test <span class="keyword">import</span> TestCase</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># Create your tests here.</span></span><br><span class="line">data = pd.read_excel(<span class="string">'james.xlsx'</span>)</span><br><span class="line">print(data)</span><br></pre></td></tr></table></figure>
+<p>可以看到输出结果为如下所示。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803094359.png" alt="" /></p>
+<h2 id="dataframe"><a class="markdownIt-Anchor" href="#dataframe"></a> DataFrame</h2>
+<div class="snote quote">
+DataFrame是一种表格型数据结构，它含有一组有序的列，每列可以是不同的值。DataFrame既有行索引，也有列索引，它可以看作是由Series组成的字典，不过这些Series公用一个索引。
+</div>
+<p>DataFrame的创建有多种方式，不过最重要的还是根据dict进行创建，以及读取csv或者txt文件来创建。<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></p>
+<p>将刚刚的测试代码修改为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.test <span class="keyword">import</span> TestCase</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># Create your tests here.</span></span><br><span class="line">data = pd.read_excel(<span class="string">'james.xlsx'</span>)</span><br><span class="line">df = pd.DataFrame(data=data,index=range(<span class="number">1</span>,<span class="number">17</span>)) <span class="comment">#创建了DataFrame, index是行索引, range是列索引</span></span><br><span class="line"><span class="comment"># 输出不同的形式，以便于观察DataFrame。</span></span><br><span class="line">print(list(df[<span class="string">'赛季'</span>])) <span class="comment">#强制转换为list, 方便后续使用。</span></span><br><span class="line">print(type(df[<span class="string">'得分'</span>]))</span><br><span class="line">print(df[<span class="string">'篮板'</span>])</span><br></pre></td></tr></table></figure>
+<p>输出结果为：<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803101318.png" alt="" /></p>
+<blockquote>
+<p>个人觉得用不用DataFrame，区别仅在于会不会去掉NaN数据。</p>
+</blockquote>
+<h2 id="views的配置"><a class="markdownIt-Anchor" href="#views的配置"></a> views的配置</h2>
+<p>按照之前的实训经验，完成views的配置。<br />
+为了使列表的数据以赛季递增，在列表后加入<code>[::-1]</code>完成倒装。</p>
+<blockquote>
+<p>上课时，我以为用<code>list.reverse()</code>，但是<code>reverse()</code>方法是没有返回值的。<br />
+这意味着，不能直接将这个方法写在<code>print</code>函数里。<br />
+所以为使代码简短，使用<code>[::-1]</code>确实是最佳解。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> JsonResponse</span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api_echarts</span><span class="params">(request)</span>:</span></span><br><span class="line">    data = pd.read_excel(<span class="string">'james.xlsx'</span>)  <span class="comment"># 这里还有一个路径的问题，如果是现行的代码，会报错，参考下面的图。</span></span><br><span class="line">    df = pd.DataFrame(data=data,index=range(<span class="number">1</span>,<span class="number">17</span>))</span><br><span class="line">    print(df)</span><br><span class="line">    season = (list(df[<span class="string">'赛季'</span>])[::<span class="number">-1</span>])</span><br><span class="line">    score = (list(df[<span class="string">'得分'</span>])[::<span class="number">-1</span>])</span><br><span class="line">    lanban = (list(df[<span class="string">'篮板'</span>])[::<span class="number">-1</span>])</span><br><span class="line">    zhugong = (list(df[<span class="string">'助攻'</span>])[::<span class="number">-1</span>])</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(&#123;<span class="string">'season'</span>:season,<span class="string">'score'</span>:score,<span class="string">'lanban'</span>:lanban,<span class="string">'zhugong'</span>:zhugong&#125;)</span><br></pre></td></tr></table></figure>
+<div class="hide-block"><a class="hide-button button--primary button--animated" style="background-color: red;color: white">出现的错误
+    </a><span class="hide-content"><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803104215.png" alt="" /></p></span></div>
+<p>为解决这个错误，将代码更改为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> JsonResponse</span><br><span class="line"><span class="keyword">import</span> os   <span class="comment">#新增行</span></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) <span class="comment">#新增行，获取项目的绝对路径</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api_echarts</span><span class="params">(request)</span>:</span></span><br><span class="line">    data = pd.read_excel(os.path.join(BASE_DIR,<span class="string">'echarts'</span>,<span class="string">'james.xlsx'</span>)) <span class="comment">#修改行</span></span><br><span class="line">    df = pd.DataFrame(data=data,index=range(<span class="number">1</span>,<span class="number">17</span>))</span><br><span class="line">    print(df)</span><br><span class="line">    season = (list(df[<span class="string">'赛季'</span>])[::<span class="number">-1</span>])</span><br><span class="line">    score = (list(df[<span class="string">'得分'</span>])[::<span class="number">-1</span>])</span><br><span class="line">    lanban = (list(df[<span class="string">'篮板'</span>])[::<span class="number">-1</span>])</span><br><span class="line">    zhugong = (list(df[<span class="string">'助攻'</span>])[::<span class="number">-1</span>])</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(&#123;<span class="string">'season'</span>:season,<span class="string">'score'</span>:score,<span class="string">'lanban'</span>:lanban,<span class="string">'zhugong'</span>:zhugong&#125;)</span><br></pre></td></tr></table></figure>
+<p>这样就可以成功获取数据了。</p>
+<div class="snote link blue">
+语法：<code>os.path.abspath(__file__)</code>
+<p>功能：获取当前运行文件的绝对路径</p>
+<p>语法：<code>os.path.dirname(path)</code></p>
+<p>功能：去掉文件名，返回目录</p>
+</div>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803104638.png" alt="" /></p>
+<p>完成后，为了和下文的HTML文件对接，还需要在view.py中加入：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">echarts_page</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'echarts.html'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="urls的配置"><a class="markdownIt-Anchor" href="#urls的配置"></a> urls的配置</h2>
+<p>在项目的路由配置里，加入：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">path(<span class="string">'echarts/'</span>,include(<span class="string">'echarts.urls'</span>)),</span><br></pre></td></tr></table></figure>
+<p>在echarts应用的路由里，加入：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">path(<span class="string">'api_echarts/'</span>,api_echarts),</span><br><span class="line">path(<span class="string">'echarts_page'</span>,echarts_page),</span><br></pre></td></tr></table></figure>
+<h1 id="echarts远程包"><a class="markdownIt-Anchor" href="#echarts远程包"></a> echarts远程包</h1>
+<div class="snote quote">
+远程包：调用CDN需要请求网络资源。
+</div>
+<p>在templates文件夹下新建一个<code>echarts.html</code></p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803105734.png" alt="" /><br />
+在头部，添加对jQuery和echarts的引用。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcdn.net/ajax/libs/echarts/4.8.0/echarts.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>接下来，再在body部分建一个容器来使用echarts。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span> <span class="attr">style</span>=<span class="string">"width:900px;height:500px;background: rgba(106,11,233,0.4)"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后，新建一个<code>script</code>标签，在其中键入以下代码。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> mycharts = echarts.init(<span class="built_in">document</span>.getElementById(<span class="string">'box'</span>));   <span class="comment">//mycharts的内容放在box容器里</span></span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">       url: <span class="string">'/echarts/api_echarts/'</span>,</span><br><span class="line">       type: <span class="string">'get'</span>,</span><br><span class="line">       dataType:<span class="string">'json'</span>,</span><br><span class="line">       success:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">         <span class="built_in">console</span>.log(res);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<p>打开<a href="https://echarts.apache.org/examples/zh/index.html?theme=light" target="_blank" rel="noopener">echarts官网</a>获取一个实例的代码。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803112146.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803112219.png" alt="" /><br />
+复制左边的代码，到script标签的funtion(res)中，修改数据部分为项目的内容。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">option = &#123;</span><br><span class="line">    xAxis: &#123;</span><br><span class="line">        type: <span class="string">'category'</span>,</span><br><span class="line">        data: res.season,</span><br><span class="line">    &#125;,</span><br><span class="line">    yAxis: &#123;</span><br><span class="line">        type: <span class="string">'value'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    series: [&#123;</span><br><span class="line">        data: res.score,</span><br><span class="line">        type: <span class="string">'line'</span>,</span><br><span class="line">        smooth: <span class="literal">true</span></span><br><span class="line">    &#125;]</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+<p>然后在之后加入以下代码来绘制图形。结果如下图所示。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">mycharts.setOption(option);</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803112915.png" alt="" /></p>
+<h2 id="绘制表格"><a class="markdownIt-Anchor" href="#绘制表格"></a> 绘制表格</h2>
+<p>在HTML的body部分加入以下代码：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--table是表格标签--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>&lt;thead&gt;</code>标签定义表格的表头。该标签用于组合 HTML 表格的表头内容。</li>
+<li>thead 元素应该与 tbody 和 tfoot 元素结合起来使用。</li>
+<li>tbody 元素用于对 HTML 表格中的主体内容进行分组，而 tfoot 元素用于对 HTML 表格中的表注（页脚）内容进行分组。</li>
+<li>tr 代表一行；td 代表一列。</li>
+<li>table的属性中有一个<code>border</code>，默认<code>border</code>=“0”，为无边框。这里就是无边框。<br />
+在Script标签中加入以下代码：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;res.score.length;i++)&#123;</span><br><span class="line">                $(<span class="string">'thead tr'</span>).append(<span class="string">'&lt;td&gt;'</span>+res.season[i]+<span class="string">'&lt;/td&gt;'</span>);<span class="comment">//追加表头</span></span><br><span class="line">                $(<span class="string">'tbody tr:eq(0)'</span>).append(<span class="string">'&lt;td&gt;'</span>+res.score[i]+<span class="string">'&lt;/td&gt;'</span>);<span class="comment">//追加得分</span></span><br><span class="line">                $(<span class="string">'tbody tr:eq(1)'</span>).append(<span class="string">'&lt;td&gt;'</span>+res.lanban[i]+<span class="string">'&lt;/td&gt;'</span>);<span class="comment">//追加篮板</span></span><br><span class="line">                $(<span class="string">'tbody tr:eq(2)'</span>).append(<span class="string">'&lt;td&gt;'</span>+res.zhugong[i]+<span class="string">'&lt;/td&gt;'</span>);<span class="comment">//追加助攻</span></span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p>结果如图所示。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803142332.png" alt="" /></p>
+<h1 id="echarts本地包"><a class="markdownIt-Anchor" href="#echarts本地包"></a> echarts本地包</h1>
+<p>重点。<br />
+调用本地资源，不需要网络。<br />
+拓展-静态文件的展示、图片或者文件的上传</p>
+<h2 id="调用本地图片"><a class="markdownIt-Anchor" href="#调用本地图片"></a> 调用本地图片</h2>
+<p>如果直接在网页中写以下代码时，浏览器并不能找到该资源。因此需进行路由配置。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/bg1.jpg"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意到settings.py里有如下内容。因此在项目的根目录新建一个<code>static</code>文件夹。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803144502.png" alt="" /><br />
+然后在这句代码的下面，加入下面的代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">STATICFILES_DIRS=[</span><br><span class="line">    os.path.join(BASE_DIR,<span class="string">'static'</span>)</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>对于这段代码，援引一段来自Django官方文档的解释。</p>
+<div class="snote link">
+<p class="p subtitle">提供文件/Serving the files</p>
+In addition to these configuration steps, you’ll also need to actually serve the static files.
+During development, if you use django.contrib.staticfiles, this will be done automatically by runserver when DEBUG is set to True (see django.contrib.staticfiles.views.serve()).
+This method is grossly inefficient and probably insecure, so it is unsuitable for production.
+See Deploying static files for proper strategies to serve static files in production environments.
+<p>除了这些配置步骤之外，您还需要实际提供静态文件。<br />
+在开发过程中，如果使用django.contrib.staticfiles，这将是自动完成的runserver，当DEBUG设置为True（见django.contrib.staticfiles.views.serve()）。<br />
+此方法效率极低，并且可能不安全，因此不适合生产。<br />
+有关在生产环境中提供静态文件的正确策略，请参阅部署静态文件。</p>
+</div class>
+<p><strong>然后在urls.py中配置static文件夹资源的路由。</strong><br />
+先引入下面这几个包并获取项目绝对路径。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> re_path <span class="comment">#正则表达式路径</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> django.views <span class="keyword">import</span> static</span><br><span class="line">BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))<span class="comment">#项目绝对路径</span></span><br></pre></td></tr></table></figure>
+<p>然后配置下面这条路由。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">path(<span class="string">r'^static/(?&lt;path&gt;.*)$'</span>,static.serve,&#123;<span class="string">'document_root'</span>:os.path.join(BASE_DIR,<span class="string">'static'</span>)&#125;),</span><br></pre></td></tr></table></figure>
+<p>完成后，图片就可以正常的访问了。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803150646.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803150731.png" alt="" /></p>
+<h2 id="调用本地js或css"><a class="markdownIt-Anchor" href="#调用本地js或css"></a> 调用本地JS或CSS</h2>
+<p>在配置完毕上面的路由之后。也可以调用本地的JS或CSS资源。<br />
+以jQuery为例，直接打开<a href="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js" target="_blank" rel="noopener">其CDN链接</a>。复制其中的内容到一个本地的js文件中放在static文件夹下即可。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/static/js/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="echarts增加细节"><a class="markdownIt-Anchor" href="#echarts增加细节"></a> echarts增加细节</h1>
+<p>更多的细节可以查询echarts的<a href="https://echarts.apache.org/zh/api.html" target="_blank" rel="noopener">API手册</a>。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">option = &#123;</span><br><span class="line">                color: [<span class="string">'red'</span>,<span class="string">'orange'</span>],   <span class="comment">//图线颜色</span></span><br><span class="line">                xAxis: &#123;</span><br><span class="line">                    type: <span class="string">'category'</span>,</span><br><span class="line">                    data: res.season,</span><br><span class="line">                &#125;,</span><br><span class="line">                tooltip:&#123;</span><br><span class="line">                  trigger: <span class="string">'axis'</span>,</span><br><span class="line">                  axisPointer:&#123;</span><br><span class="line">                      type:<span class="string">'shadow'</span>         <span class="comment">//当鼠标移动在点上时的提示窗口</span></span><br><span class="line">                  &#125;,</span><br><span class="line">                  show:<span class="literal">true</span>,</span><br><span class="line">                &#125;,</span><br><span class="line">                legend:&#123;</span><br><span class="line">                    data:[<span class="string">'篮板'</span>,<span class="string">'助攻'</span>]    <span class="comment">//图例</span></span><br><span class="line">                &#125;,</span><br><span class="line">                yAxis: &#123;</span><br><span class="line">                    type: <span class="string">'value'</span></span><br><span class="line">                &#125;,</span><br><span class="line">                series: [&#123;</span><br><span class="line">                    data: res.lanban,</span><br><span class="line">                    type: <span class="string">'line'</span>,</span><br><span class="line">                    name:<span class="string">'篮板'</span>,    <span class="comment">//系列名称</span></span><br><span class="line">                    smooth: <span class="literal">true</span></span><br><span class="line">                &#125;,&#123;</span><br><span class="line">                    data: res.zhugong,</span><br><span class="line">                    type: <span class="string">'line'</span>,</span><br><span class="line">                    name: <span class="string">'助攻'</span>,    <span class="comment">//系列名称</span></span><br><span class="line">                    smooth: <span class="literal">true</span>,</span><br><span class="line">                &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;;</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200803162734.png" alt="" /></p>
+<hr class="footnotes-sep" />
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>参考资料：<a href="https://www.jianshu.com/p/8024ceef4fe2" target="_blank" rel="noopener">https://www.jianshu.com/p/8024ceef4fe2</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实训日记 | Day 03. 函数、包和数据库</title>
     <url>/2020/07/22/training_2/</url>
     <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
