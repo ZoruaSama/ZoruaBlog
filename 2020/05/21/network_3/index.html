@@ -1,0 +1,1620 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>计算机网络 | 4. 网络层 | Zorua's Blog</title><meta name="description" content="思维导图  网络层  网络层提供的两种服务  虚电路是逻辑连接 因特网采用的设计思路 尽最大努力交付的好处 虚电路服务与数据报服务的对比   网际协议 IP  虚拟互连网络  网络互相连接起来要使用一些中间设备 网络互连使用路由器 虚拟互连网络的意义 从网络层看 IP 数据报的传送   分类的 IP 地址  IP 地址及其表示方法 IP 地址的编址方法 分类 IP 地址 点分十进制记法 常用的三"><meta name="keywords" content="Internet,互联网,TCP/IP,OSI,网络"><meta name="author" content="Zorua"><meta name="copyright" content="Zorua"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://hm.baidu.com"/><link rel="dns-prefetch" href="https://hm.baidu.com"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="计算机网络 | 4. 网络层"><meta name="twitter:description" content="思维导图  网络层  网络层提供的两种服务  虚电路是逻辑连接 因特网采用的设计思路 尽最大努力交付的好处 虚电路服务与数据报服务的对比   网际协议 IP  虚拟互连网络  网络互相连接起来要使用一些中间设备 网络互连使用路由器 虚拟互连网络的意义 从网络层看 IP 数据报的传送   分类的 IP 地址  IP 地址及其表示方法 IP 地址的编址方法 分类 IP 地址 点分十进制记法 常用的三"><meta name="twitter:image" content="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png"><meta property="og:type" content="article"><meta property="og:title" content="计算机网络 | 4. 网络层"><meta property="og:url" content="https://zoruasama.gitee.io/2020/05/21/network_3/"><meta property="og:site_name" content="Zorua's Blog"><meta property="og:description" content="思维导图  网络层  网络层提供的两种服务  虚电路是逻辑连接 因特网采用的设计思路 尽最大努力交付的好处 虚电路服务与数据报服务的对比   网际协议 IP  虚拟互连网络  网络互相连接起来要使用一些中间设备 网络互连使用路由器 虚拟互连网络的意义 从网络层看 IP 数据报的传送   分类的 IP 地址  IP 地址及其表示方法 IP 地址的编址方法 分类 IP 地址 点分十进制记法 常用的三"><meta property="og:image" content="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png"><meta property="article:published_time" content="2020-05-21T05:14:00.000Z"><meta property="article:modified_time" content="2020-05-21T10:25:19.143Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = 'false'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="https://zoruasama.gitee.io/2020/05/21/network_3/"><link rel="prev" title="实训日记 | Day 01. Hello Python." href="https://zoruasama.gitee.io/2020/07/20/training_0/"><link rel="next" title="数据库原理 | 6. 关系查询处理和查询优化" href="https://zoruasama.gitee.io/2020/05/13/database_5/"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?46932657b6919c7a90436ce852f93565";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://zoruasama.gitee/io/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#777777","bgDark":"#2d3035","position":"bottom-left"},
+  baiduPush: true,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/note.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/iconfont.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/hideCategory.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/buttons.min.css"><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Zorua's Blog" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/zorua.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">34</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">17</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思维导图"><span class="toc-number">1.</span> <span class="toc-text"> 思维导图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网络层提供的两种服务"><span class="toc-number">2.</span> <span class="toc-text"> 网络层提供的两种服务</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚电路是逻辑连接"><span class="toc-number">2.1.</span> <span class="toc-text"> 虚电路是逻辑连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#因特网采用的设计思路"><span class="toc-number">2.2.</span> <span class="toc-text"> 因特网采用的设计思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#尽最大努力交付的好处"><span class="toc-number">2.3.</span> <span class="toc-text"> 尽最大努力交付的好处</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#虚电路服务与数据报服务的对比"><span class="toc-number">2.4.</span> <span class="toc-text"> 虚电路服务与数据报服务的对比</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网际协议-ip"><span class="toc-number">3.</span> <span class="toc-text"> 网际协议 IP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟互连网络"><span class="toc-number">3.1.</span> <span class="toc-text"> 虚拟互连网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络互相连接起来要使用一些中间设备"><span class="toc-number">3.1.1.</span> <span class="toc-text"> 网络互相连接起来要使用一些中间设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网络互连使用路由器"><span class="toc-number">3.1.2.</span> <span class="toc-text"> 网络互连使用路由器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#虚拟互连网络的意义"><span class="toc-number">3.1.3.</span> <span class="toc-text"> 虚拟互连网络的意义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从网络层看-ip-数据报的传送"><span class="toc-number">3.1.4.</span> <span class="toc-text"> 从网络层看 IP 数据报的传送</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类的-ip-地址"><span class="toc-number">3.2.</span> <span class="toc-text"> 分类的 IP 地址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ip-地址及其表示方法"><span class="toc-number">3.2.1.</span> <span class="toc-text"> IP 地址及其表示方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ip-地址的编址方法"><span class="toc-number">3.2.2.</span> <span class="toc-text"> IP 地址的编址方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分类-ip-地址"><span class="toc-number">3.2.3.</span> <span class="toc-text"> 分类 IP 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#点分十进制记法"><span class="toc-number">3.2.4.</span> <span class="toc-text"> 点分十进制记法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用的三种类别的-ip-地址"><span class="toc-number">3.2.5.</span> <span class="toc-text"> 常用的三种类别的 IP 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ip-地址的一些重要特点"><span class="toc-number">3.2.6.</span> <span class="toc-text"> IP 地址的一些重要特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip-地址与硬件地址"><span class="toc-number">3.3.</span> <span class="toc-text"> IP 地址与硬件地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#地址解析协议-arp-与逆地址解析协议-rarp"><span class="toc-number">3.4.</span> <span class="toc-text"> 地址解析协议 ARP 与逆地址解析协议 RARP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#地址解析协议-arp"><span class="toc-number">3.4.1.</span> <span class="toc-text"> 地址解析协议 ARP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#arp-高速缓存的作用"><span class="toc-number">3.4.1.1.</span> <span class="toc-text"> ARP 高速缓存的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#应当注意的问题"><span class="toc-number">3.4.1.2.</span> <span class="toc-text"> 应当注意的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用-arp-的四种典型情况"><span class="toc-number">3.4.1.3.</span> <span class="toc-text"> 使用 ARP 的四种典型情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#什么我们不直接使用硬件地址进行通信"><span class="toc-number">3.4.1.4.</span> <span class="toc-text"> 什么我们不直接使用硬件地址进行通信？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆地址解析协议-rarp"><span class="toc-number">3.4.2.</span> <span class="toc-text"> 逆地址解析协议 RARP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip-数据报的格式"><span class="toc-number">3.5.</span> <span class="toc-text"> IP 数据报的格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ip-层转发分组的流程"><span class="toc-number">3.6.</span> <span class="toc-text"> IP 层转发分组的流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查找路由表"><span class="toc-number">3.6.1.</span> <span class="toc-text"> 查找路由表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#特定主机路由"><span class="toc-number">3.6.2.</span> <span class="toc-text"> 特定主机路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#默认路由default-route"><span class="toc-number">3.6.3.</span> <span class="toc-text"> 默认路由(default route)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#必须强调指出"><span class="toc-number">3.6.4.</span> <span class="toc-text"> 必须强调指出</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#划分子网和构造超网"><span class="toc-number">4.</span> <span class="toc-text"> 划分子网和构造超网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#划分子网"><span class="toc-number">4.1.</span> <span class="toc-text"> 划分子网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三级的-ip-地址"><span class="toc-number">4.1.1.</span> <span class="toc-text"> 三级的 IP 地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#划分子网的基本思路"><span class="toc-number">4.1.2.</span> <span class="toc-text"> 划分子网的基本思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#划分子网后变成了三级结构"><span class="toc-number">4.1.3.</span> <span class="toc-text"> 划分子网后变成了三级结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子网掩码"><span class="toc-number">4.2.</span> <span class="toc-text"> 子网掩码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#默认子网掩码"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 默认子网掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#子网掩码是一个重要属性"><span class="toc-number">4.2.2.</span> <span class="toc-text"> 子网掩码是一个重要属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用子网时分组转发"><span class="toc-number">4.3.</span> <span class="toc-text"> 使用子网时分组转发</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无分类编址-cidr构造超网"><span class="toc-number">4.4.</span> <span class="toc-text"> 无分类编址 CIDR（构造超网）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络前缀"><span class="toc-number">4.4.1.</span> <span class="toc-text"> 网络前缀</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ip-编址问题的演进"><span class="toc-number">4.4.2.</span> <span class="toc-text"> IP 编址问题的演进</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cidr-最主要的特点"><span class="toc-number">4.4.3.</span> <span class="toc-text"> CIDR 最主要的特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#无分类的两级编址"><span class="toc-number">4.5.</span> <span class="toc-text"> 无分类的两级编址</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cidr-地址块"><span class="toc-number">4.5.1.</span> <span class="toc-text"> CIDR 地址块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由聚合"><span class="toc-number">4.5.2.</span> <span class="toc-text"> 路由聚合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cidr-记法的其他形式"><span class="toc-number">4.5.3.</span> <span class="toc-text"> CIDR 记法的其他形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构成超网"><span class="toc-number">4.5.4.</span> <span class="toc-text"> 构成超网</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cidr-地址块划分举例"><span class="toc-number">4.5.5.</span> <span class="toc-text"> CIDR 地址块划分举例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#最长前缀匹配"><span class="toc-number">4.5.6.</span> <span class="toc-text"> 最长前缀匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用二叉线索查找路由表"><span class="toc-number">4.5.7.</span> <span class="toc-text"> 使用二叉线索查找路由表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网际控制报文协议-icmp"><span class="toc-number">5.</span> <span class="toc-text"> 网际控制报文协议 ICMP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#icmp-报文的种类"><span class="toc-number">5.1.</span> <span class="toc-text"> ICMP 报文的种类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icmp-差错报告报文共有-5-种"><span class="toc-number">5.2.</span> <span class="toc-text"> ICMP 差错报告报文共有 5 种</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#不应发送-icmp-差错报告报文的几种情况"><span class="toc-number">5.2.1.</span> <span class="toc-text"> 不应发送 ICMP 差错报告报文的几种情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#icmp-询问报文有两种"><span class="toc-number">5.2.2.</span> <span class="toc-text"> ICMP 询问报文有两种</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icmp-的应用举例"><span class="toc-number">5.3.</span> <span class="toc-text"> ICMP 的应用举例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ping"><span class="toc-number">5.3.1.</span> <span class="toc-text"> PING</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#traceroute"><span class="toc-number">5.3.2.</span> <span class="toc-text"> Traceroute</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#因特网的路由选择协议"><span class="toc-number">6.</span> <span class="toc-text"> 因特网的路由选择协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#有关路由选择协议的几个基本概念"><span class="toc-number">6.1.</span> <span class="toc-text"> 有关路由选择协议的几个基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#关于最佳路由"><span class="toc-number">6.1.1.</span> <span class="toc-text"> 关于“最佳路由”</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从路由算法的自适应性考虑"><span class="toc-number">6.1.2.</span> <span class="toc-text"> 从路由算法的自适应性考虑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分层次的路由选择协议"><span class="toc-number">6.1.3.</span> <span class="toc-text"> 分层次的路由选择协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自治系统-as"><span class="toc-number">6.1.4.</span> <span class="toc-text"> 自治系统 AS</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#因特网有两大类路由选择协议"><span class="toc-number">6.1.4.1.</span> <span class="toc-text"> 因特网有两大类路由选择协议</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因特网的路由选择协议-2"><span class="toc-number">6.1.5.</span> <span class="toc-text"> 因特网的路由选择协议</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内部网关协议-rip"><span class="toc-number">6.2.</span> <span class="toc-text"> 内部网关协议 RIP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#工作原理"><span class="toc-number">6.2.1.</span> <span class="toc-text"> 工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#距离"><span class="toc-number">6.2.1.1.</span> <span class="toc-text"> 距离</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rip-协议的三个要点"><span class="toc-number">6.2.2.</span> <span class="toc-text"> RIP 协议的三个要点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由表的建立"><span class="toc-number">6.2.3.</span> <span class="toc-text"> 路由表的建立</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#距离向量算法"><span class="toc-number">6.2.3.1.</span> <span class="toc-text"> 距离向量算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#路由器之间交换信息"><span class="toc-number">6.2.3.2.</span> <span class="toc-text"> 路由器之间交换信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rip2-协议的报文格式"><span class="toc-number">6.2.4.</span> <span class="toc-text"> RIP2 协议的报文格式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#rip2-的报文由首部和路由部分组成"><span class="toc-number">6.2.4.1.</span> <span class="toc-text"> RIP2 的报文由首部和路由部分组成</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#rip-协议的优缺点"><span class="toc-number">6.2.4.2.</span> <span class="toc-text"> RIP 协议的优缺点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内部网关协议-ospf"><span class="toc-number">6.3.</span> <span class="toc-text"> 内部网关协议 OSPF</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ospf-协议的基本特点"><span class="toc-number">6.3.1.</span> <span class="toc-text"> OSPF 协议的基本特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三个要点"><span class="toc-number">6.3.2.</span> <span class="toc-text"> 三个要点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链路状态数据库"><span class="toc-number">6.3.3.</span> <span class="toc-text"> 链路状态数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ospf-的区域area"><span class="toc-number">6.3.3.1.</span> <span class="toc-text"> OSPF 的区域(area)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#划分区域"><span class="toc-number">6.3.3.2.</span> <span class="toc-text"> 划分区域</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ospf-直接用-ip-数据报传送"><span class="toc-number">6.3.4.</span> <span class="toc-text"> OSPF 直接用 IP 数据报传送</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ospf-的其他特点"><span class="toc-number">6.3.5.</span> <span class="toc-text"> OSPF 的其他特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ospf-的五种分组类型"><span class="toc-number">6.3.6.</span> <span class="toc-text"> OSPF 的五种分组类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ospf的基本操作"><span class="toc-number">6.3.7.</span> <span class="toc-text"> OSPF的基本操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ospf-使用的是可靠的洪泛法"><span class="toc-number">6.3.8.</span> <span class="toc-text"> OSPF 使用的是可靠的洪泛法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ospf-的其他特点-2"><span class="toc-number">6.3.9.</span> <span class="toc-text"> OSPF 的其他特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#指定的路由器designated-router"><span class="toc-number">6.3.10.</span> <span class="toc-text"> 指定的路由器(designated router)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#外部网关协议-bgp"><span class="toc-number">6.4.</span> <span class="toc-text"> 外部网关协议 BGP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bgp-使用的环境却不同"><span class="toc-number">6.4.1.</span> <span class="toc-text"> BGP 使用的环境却不同</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bgp-发言人"><span class="toc-number">6.4.2.</span> <span class="toc-text"> BGP 发言人</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bgp-交换路由信息"><span class="toc-number">6.4.3.</span> <span class="toc-text"> BGP 交换路由信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bgp-发言人和自治系统-as-的关系"><span class="toc-number">6.4.4.</span> <span class="toc-text"> BGP 发言人和自治系统 AS 的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#as-的连通图举例"><span class="toc-number">6.4.4.1.</span> <span class="toc-text"> AS 的连通图举例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#bgp-发言人交换路径向量"><span class="toc-number">6.4.4.2.</span> <span class="toc-text"> BGP 发言人交换路径向量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bgp-协议的特点"><span class="toc-number">6.4.5.</span> <span class="toc-text"> BGP 协议的特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bgp-4-共使用四种报文"><span class="toc-number">6.4.6.</span> <span class="toc-text"> BGP-4 共使用四种报文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bgp-报文具有通用的首部"><span class="toc-number">6.4.7.</span> <span class="toc-text"> BGP 报文具有通用的首部</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路由器的构成"><span class="toc-number">6.5.</span> <span class="toc-text"> 路由器的构成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#转发和路由选择的区别"><span class="toc-number">6.5.1.</span> <span class="toc-text"> “转发”和“路由选择”的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输入端口对线路上收到的分组的处理"><span class="toc-number">6.5.2.</span> <span class="toc-text"> 输入端口对线路上收到的分组的处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#输出端口将交换结构传送来的分组发送到线路"><span class="toc-number">6.5.3.</span> <span class="toc-text"> 输出端口将交换结构传送来的分组发送到线路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分组丢弃"><span class="toc-number">6.5.4.</span> <span class="toc-text"> 分组丢弃</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交换结构"><span class="toc-number">6.5.5.</span> <span class="toc-text"> 交换结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ip-多播"><span class="toc-number">7.</span> <span class="toc-text"> IP 多播</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ip-多播的基本概念"><span class="toc-number">7.1.</span> <span class="toc-text"> IP 多播的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#多播可明显地减少网络中资源的消耗"><span class="toc-number">7.1.1.</span> <span class="toc-text"> 多播可明显地减少网络中资源的消耗</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ip-多播的一些特点"><span class="toc-number">7.1.2.</span> <span class="toc-text"> IP 多播的一些特点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在局域网上进行硬件多播"><span class="toc-number">7.2.</span> <span class="toc-text"> 在局域网上进行硬件多播</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#d-类-ip-地址与以太网多播地址的映射关系"><span class="toc-number">7.2.1.</span> <span class="toc-text"> D 类 IP 地址与以太网多播地址的映射关系</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#因特网组管理协议-igmp-和多播路由选择协议"><span class="toc-number">7.3.</span> <span class="toc-text"> 因特网组管理协议 IGMP 和多播路由选择协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ip多播需要两种协议"><span class="toc-number">7.3.1.</span> <span class="toc-text"> IP多播需要两种协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#igmp-使多播路由器知道多播组成员信息"><span class="toc-number">7.3.2.</span> <span class="toc-text"> IGMP 使多播路由器知道多播组成员信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#igmp-的本地使用范围"><span class="toc-number">7.3.3.</span> <span class="toc-text"> IGMP 的本地使用范围</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多播路由选择协议比单播路由选择协议复杂得多"><span class="toc-number">7.3.4.</span> <span class="toc-text"> 多播路由选择协议比单播路由选择协议复杂得多</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网际组管理协议-igmp"><span class="toc-number">7.3.5.</span> <span class="toc-text"> 网际组管理协议 IGMP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#igmp-是整个网际协议-ip-的一个组成部分"><span class="toc-number">7.3.5.1.</span> <span class="toc-text"> IGMP 是整个网际协议 IP 的一个组成部分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#igmp-可分为两个阶段"><span class="toc-number">7.3.5.2.</span> <span class="toc-text"> IGMP 可分为两个阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#igmp-采用的一些具体措施"><span class="toc-number">7.3.5.3.</span> <span class="toc-text"> IGMP 采用的一些具体措施</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多播路由选择"><span class="toc-number">7.3.6.</span> <span class="toc-text"> 多播路由选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#转发多播数据报使用的方法"><span class="toc-number">7.3.7.</span> <span class="toc-text"> 转发多播数据报使用的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#洪泛与剪除"><span class="toc-number">7.3.7.1.</span> <span class="toc-text"> 洪泛与剪除</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#rpb-的要点"><span class="toc-number">7.3.7.1.1.</span> <span class="toc-text"> RPB 的要点</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#反向路径广播-rpb-和剪除"><span class="toc-number">7.3.7.2.</span> <span class="toc-text"> 反向路径广播 RPB 和剪除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#隧道技术"><span class="toc-number">7.3.7.3.</span> <span class="toc-text"> 隧道技术</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基于核心的发现技术"><span class="toc-number">7.3.7.4.</span> <span class="toc-text"> 基于核心的发现技术</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几种多播路由选择协议"><span class="toc-number">7.3.8.</span> <span class="toc-text"> 几种多播路由选择协议</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟专用网-vpn-和网络地址转换-nat"><span class="toc-number">8.</span> <span class="toc-text"> 虚拟专用网 VPN 和网络地址转换 NAT</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#虚拟专用网-vpn"><span class="toc-number">8.1.</span> <span class="toc-text"> 虚拟专用网 VPN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#rfc-1918-指明的专用地址private-address"><span class="toc-number">8.1.1.</span> <span class="toc-text"> RFC 1918 指明的专用地址(private address)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用隧道技术实现虚拟专用网"><span class="toc-number">8.1.2.</span> <span class="toc-text"> 用隧道技术实现虚拟专用网</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#内联网-intranet-和外联网-extranet都是基于-tcpip-协议"><span class="toc-number">8.1.2.1.</span> <span class="toc-text"> 内联网 intranet 和外联网 extranet（都是基于 TCP&#x2F;IP 协议）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#远程接入vpn"><span class="toc-number">8.1.2.2.</span> <span class="toc-text"> 远程接入VPN</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网络地址转换-nat"><span class="toc-number">8.2.</span> <span class="toc-text"> 网络地址转换 NAT</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网络地址转换的过程"><span class="toc-number">8.2.1.</span> <span class="toc-text"> 网络地址转换的过程</span></a></li></ol></li></ol></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://gitee.com/zoruasama/Zorua-Pic/raw/master/spots.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Zorua's Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">计算机网络 | 4. 网络层</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-05-21 13:14:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-05-21</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-21 18:25:19"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-05-21</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon far fa-file-word" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">16.5k</span><span class="post-meta__separator">|</span><i class="post-meta__icon far fa-clock" aria-hidden="true"></i><span>阅读时长: 50 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"><span class="post-meta__separator">|</span><i class="post-meta__icon far fa-comments" aria-hidden="true"></i><span>评论数:</span><a href="/2020/05/21/network_3/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/2020/05/21/network_3/" itemprop="commentCount"></span></a></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>网络层
+<ul>
+<li>网络层提供的两种服务
+<ul>
+<li>虚电路是逻辑连接</li>
+<li>因特网采用的设计思路</li>
+<li>尽最大努力交付的好处</li>
+<li>虚电路服务与数据报服务的对比</li>
+</ul>
+</li>
+<li>网际协议 IP
+<ul>
+<li>虚拟互连网络
+<ul>
+<li>网络互相连接起来要使用一些中间设备</li>
+<li>网络互连使用路由器</li>
+<li>虚拟互连网络的意义</li>
+<li>从网络层看 IP 数据报的传送</li>
+</ul>
+</li>
+<li>分类的 IP 地址
+<ul>
+<li>IP 地址及其表示方法</li>
+<li>IP 地址的编址方法</li>
+<li>分类 IP 地址</li>
+<li>点分十进制记法</li>
+<li>常用的三种类别的 IP 地址</li>
+<li>IP 地址的一些重要特点</li>
+</ul>
+</li>
+<li>IP 地址与硬件地址</li>
+<li>地址解析协议 ARP 与逆地址解析协议 RARP
+<ul>
+<li>地址解析协议 ARP
+<ul>
+<li>ARP 高速缓存的作用</li>
+<li>应当注意的问题</li>
+<li>使用 ARP 的四种典型情况</li>
+<li>什么我们不直接使用硬件地址进行通信？</li>
+</ul>
+</li>
+<li>逆地址解析协议 RARP</li>
+</ul>
+</li>
+<li>IP 数据报的格式</li>
+<li>IP 层转发分组的流程
+<ul>
+<li>查找路由表</li>
+<li>特定主机路由</li>
+<li>默认路由(default route)</li>
+<li>必须强调指出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>划分子网和构造超网
+<ul>
+<li>划分子网
+<ul>
+<li>三级的 IP 地址</li>
+<li>划分子网的基本思路</li>
+<li>划分子网后变成了三级结构</li>
+</ul>
+</li>
+<li>子网掩码
+<ul>
+<li>默认子网掩码</li>
+<li>子网掩码是一个重要属性</li>
+</ul>
+</li>
+<li>使用子网时分组转发</li>
+<li>无分类编址 CIDR（构造超网）
+<ul>
+<li>网络前缀</li>
+<li>IP 编址问题的演进</li>
+<li>CIDR 最主要的特点</li>
+</ul>
+</li>
+<li>无分类的两级编址
+<ul>
+<li>CIDR 地址块</li>
+<li>路由聚合</li>
+<li>CIDR 记法的其他形式</li>
+<li>构成超网</li>
+<li>CIDR 地址块划分举例</li>
+<li>最长前缀匹配</li>
+<li>使用二叉线索查找路由表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网际控制报文协议 ICMP
+<ul>
+<li>ICMP 报文的种类</li>
+<li>ICMP 差错报告报文共有 5 种
+<ul>
+<li>不应发送 ICMP 差错报告报文的几种情况</li>
+<li>ICMP 询问报文有两种</li>
+</ul>
+</li>
+<li>ICMP 的应用举例
+<ul>
+<li>PING</li>
+<li>Traceroute</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>因特网的路由选择协议
+<ul>
+<li>有关路由选择协议的几个基本概念
+<ul>
+<li>关于“最佳路由”</li>
+<li>从路由算法的自适应性考虑</li>
+<li>分层次的路由选择协议</li>
+<li>自治系统 AS
+<ul>
+<li>因特网有两大类路由选择协议</li>
+</ul>
+</li>
+<li>因特网的路由选择协议</li>
+</ul>
+</li>
+<li>内部网关协议 RIP
+<ul>
+<li>工作原理
+<ul>
+<li>距离</li>
+</ul>
+</li>
+<li>RIP 协议的三个要点</li>
+<li>路由表的建立
+<ul>
+<li>距离向量算法</li>
+<li>路由器之间交换信息</li>
+</ul>
+</li>
+<li>RIP2 协议的报文格式
+<ul>
+<li>RIP2 的报文由首部和路由部分组成</li>
+<li>RIP 协议的优缺点</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内部网关协议 OSPF
+<ul>
+<li>OSPF 协议的基本特点</li>
+<li>三个要点</li>
+<li>链路状态数据库
+<ul>
+<li>OSPF 的区域(area)</li>
+<li>划分区域</li>
+</ul>
+</li>
+<li>OSPF 直接用 IP 数据报传送</li>
+<li>OSPF 的其他特点</li>
+<li>OSPF 的五种分组类型</li>
+<li>OSPF的基本操作</li>
+<li>OSPF 使用的是可靠的洪泛法</li>
+<li>OSPF 的其他特点</li>
+<li>指定的路由器(designated router)</li>
+</ul>
+</li>
+<li>外部网关协议 BGP
+<ul>
+<li>BGP 使用的环境却不同</li>
+<li>BGP 发言人</li>
+<li>BGP 交换路由信息</li>
+<li>BGP 发言人和自治系统 AS 的关系
+<ul>
+<li>AS 的连通图举例</li>
+<li>BGP 发言人交换路径向量</li>
+</ul>
+</li>
+<li>BGP 协议的特点</li>
+<li>BGP-4 共使用四种报文</li>
+<li>BGP 报文具有通用的首部</li>
+</ul>
+</li>
+<li>路由器的构成
+<ul>
+<li>“转发”和“路由选择”的区别</li>
+<li>输入端口对线路上收到的分组的处理</li>
+<li>输出端口将交换结构传送来的分组发送到线路</li>
+<li>分组丢弃</li>
+<li>交换结构</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>IP 多播
+<ul>
+<li>IP 多播的基本概念
+<ul>
+<li>多播可明显地减少网络中资源的消耗</li>
+<li>IP 多播的一些特点</li>
+</ul>
+</li>
+<li>在局域网上进行硬件多播
+<ul>
+<li>D 类 IP 地址与以太网多播地址的映射关系</li>
+</ul>
+</li>
+<li>因特网组管理协议 IGMP 和多播路由选择协议
+<ul>
+<li>IP多播需要两种协议</li>
+<li>IGMP 使多播路由器知道多播组成员信息</li>
+<li>IGMP 的本地使用范围</li>
+<li>多播路由选择协议比单播路由选择协议复杂得多</li>
+<li>网际组管理协议 IGMP
+<ul>
+<li>IGMP 是整个网际协议 IP 的一个组成部分</li>
+<li>IGMP 可分为两个阶段</li>
+<li>IGMP 采用的一些具体措施</li>
+</ul>
+</li>
+<li>多播路由选择</li>
+<li>转发多播数据报使用的方法
+<ul>
+<li>洪泛与剪除
+<ul>
+<li>RPB 的要点</li>
+</ul>
+</li>
+<li>反向路径广播 RPB 和剪除</li>
+<li>隧道技术</li>
+<li>基于核心的发现技术</li>
+</ul>
+</li>
+<li>几种多播路由选择协议</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>虚拟专用网 VPN 和网络地址转换 NAT
+<ul>
+<li>虚拟专用网 VPN
+<ul>
+<li>RFC 1918 指明的专用地址(private address)</li>
+<li>用隧道技术实现虚拟专用网
+<ul>
+<li>内联网 intranet 和外联网 extranet（都是基于 TCP/IP 协议）</li>
+<li>远程接入VPN</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网络地址转换 NAT
+<ul>
+<li>网络地址转换的过程</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="网络层提供的两种服务"><a class="markdownIt-Anchor" href="#网络层提供的两种服务"></a> 网络层提供的两种服务</h1>
+<p>在计算机网络领域，网络层应该向运输层提供怎样的服务（“面向连接”还是“无连接”）曾引起了长期的争论。<br />
+争论焦点的实质就是：在计算机通信中，<strong>可靠交付应当由谁来负责</strong>？<strong>是网络还是端系统</strong>？<br />
+根据电信网的成功经验，我们选择让网络负责可靠交付。</p>
+<ul>
+<li><strong>面向连接</strong>的通信方式。</li>
+<li>建立<strong>虚电路</strong>(Virtual Circuit)，以保证双方通信所需的一切网络资源。</li>
+<li>如果再使用可靠传输的网络协议，就可使所发送的分组无差错按序到达终点。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516190359.png" alt="H1 发送给 H2 的所有分组都沿着同一条虚电路传送" /></li>
+</ul>
+<h2 id="虚电路是逻辑连接"><a class="markdownIt-Anchor" href="#虚电路是逻辑连接"></a> 虚电路是逻辑连接</h2>
+<ul>
+<li>虚电路表示这只是一条<strong>逻辑上的连接</strong>，分组都沿着这条逻辑连接按照存储转发方式传送，而并不是真正建立了一条物理连接。</li>
+<li>请注意，电路交换的电话通信是先建立了一条<strong>真正的连接</strong>。因此分组交换的虚连接和电路交换的连接只是类似，但并不完全一样。</li>
+</ul>
+<h2 id="因特网采用的设计思路"><a class="markdownIt-Anchor" href="#因特网采用的设计思路"></a> 因特网采用的设计思路</h2>
+<p>网络层向上只提供简单灵活的、<strong>无连接的</strong>、<strong>尽最大努力交付</strong>的<strong>数据报服务</strong>。<br />
+网络在发送分组时不需要先建立连接。每一个分组（即 IP 数据报）独立发送，与其前后的分组无关（不进行编号）。<br />
+网络层不提供服务质量的承诺。即所传送的分组可能出错、丢失、重复和失序（不按序到达终点），当然也不保证分组传送的时限。</p>
+<h2 id="尽最大努力交付的好处"><a class="markdownIt-Anchor" href="#尽最大努力交付的好处"></a> 尽最大努力交付的好处</h2>
+<ul>
+<li>由于传输网络不提供端到端的可靠传输服务，这就使网络中的路由器可以做得比较简单，而且价格低廉（与电信网的交换机相比较）。</li>
+<li>如果主机（即端系统）中的进程之间的通信需要是可靠的，那么就由网络的主机中的运输层负责（包括差错处理、流量控制等）。</li>
+<li>采用这种设计思路的好处是：网络的造价大大降低，运行方式灵活，能够适应多种应用。</li>
+<li>因特网能够发展到今日的规模，充分证明了当初采用这种设计思路的正确性。</li>
+</ul>
+<hr />
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516191745.png" alt="H1 发送给 H2 的分组可能沿着不同路径传送" /></p>
+<h2 id="虚电路服务与数据报服务的对比"><a class="markdownIt-Anchor" href="#虚电路服务与数据报服务的对比"></a> 虚电路服务与数据报服务的对比</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>虚电路服务</strong></th>
+<th><strong>数据报服务</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>思路</strong></td>
+<td>可靠通信应当由网络来保证</td>
+<td>可靠通信应当由用户主机来保证</td>
+</tr>
+<tr>
+<td><strong>连接的建立</strong></td>
+<td>必须有</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td><strong>终点地址</strong></td>
+<td>仅在连接建立阶段使用，每个分组使用短的虚电路号</td>
+<td>每个分组都有终点的完整地址</td>
+</tr>
+<tr>
+<td><strong>分组的转发</strong></td>
+<td>属于同一条虚电路的分组均按照同一路由进行转发</td>
+<td>每个分组独立选择路由进行转发</td>
+</tr>
+<tr>
+<td><strong>当结点出故障时</strong></td>
+<td>所有通过出故障的结点的虚电路均不能工作</td>
+<td>出故障的结点可能会丢失分组，一些路由可能会发生变化</td>
+</tr>
+<tr>
+<td><strong>分组的顺序</strong></td>
+<td>总是按发送顺序到达终点</td>
+<td>到达终点时不一定按发送顺序</td>
+</tr>
+<tr>
+<td><strong>端到端的差错处理和流量控制</strong></td>
+<td>可以由网络负责，也可以由用户主机负责</td>
+<td>由用户主机负责</td>
+</tr>
+</tbody>
+</table>
+<h1 id="网际协议-ip"><a class="markdownIt-Anchor" href="#网际协议-ip"></a> 网际协议 IP</h1>
+<ul>
+<li>网际协议 IP 是 TCP/IP 体系中两个最主要的协议之一。与 IP 协议配套使用的还有四个协议：
+<ul>
+<li>地址解析协议 ARP(Address Resolution Protocol)</li>
+<li>逆地址解析协议 RARP(Reverse Address Resolution Protocol)</li>
+<li>网际控制报文协议 ICMP(Internet Control Message Protocol)</li>
+<li>网际组管理协议 IGMP(Internet Group Management Protocol)<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516192228.png" alt="" /></li>
+</ul>
+</li>
+</ul>
+<h2 id="虚拟互连网络"><a class="markdownIt-Anchor" href="#虚拟互连网络"></a> 虚拟互连网络</h2>
+<ul>
+<li>互连在一起的网络要进行通信，会遇到许多问题需要解决，如：
+<ul>
+<li>不同的寻址方案</li>
+<li>不同的最大分组长度</li>
+<li>不同的网络接入机制</li>
+<li>不同的超时控制</li>
+<li>不同的差错恢复方法</li>
+<li>不同的状态报告方法</li>
+<li>不同的路由选择技术</li>
+<li>不同的用户接入控制</li>
+<li>不同的服务（面向连接服务和无连接服务）</li>
+<li>不同的管理与控制方式</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络互相连接起来要使用一些中间设备"><a class="markdownIt-Anchor" href="#网络互相连接起来要使用一些中间设备"></a> 网络互相连接起来要使用一些中间设备</h3>
+<ul>
+<li><strong>中间设备</strong>又称为<strong>中间系统</strong>或<strong>中继</strong>(relay)系统。
+<ul>
+<li>物理层中继系统：<strong>转发器</strong>(repeater)。</li>
+<li>数据链路层中继系统：<strong>网桥或桥接器</strong>(bridge)。</li>
+<li>网络层中继系统：<strong>路由器</strong>(router)。</li>
+<li>网桥和路由器的混合物：<strong>桥路器</strong>(brouter)。</li>
+<li>网络层以上的中继系统：<strong>网关</strong>(gateway)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="网络互连使用路由器"><a class="markdownIt-Anchor" href="#网络互连使用路由器"></a> 网络互连使用路由器</h3>
+<ul>
+<li>当中继系统是转发器或网桥时，一般并不称之为网络互连，因为这仅仅是把一个网络扩大了，而这仍然是一个网络。</li>
+<li>网关由于比较复杂，目前使用得较少。</li>
+<li>互联网都是指用路由器进行互连的网络。</li>
+<li>由于历史的原因，许多有关 TCP/IP 的文献将网络层使用的路由器称为<strong>网关</strong>。</li>
+</ul>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516193146.png" alt="互连网络与虚拟互连网络" /></p>
+<h3 id="虚拟互连网络的意义"><a class="markdownIt-Anchor" href="#虚拟互连网络的意义"></a> 虚拟互连网络的意义</h3>
+<ul>
+<li>所谓虚拟互连网络也就是逻辑互连网络，它的意思就是互连起来的各种物理网络的异构性本来是客观存在的，但是我们利用 IP 协议就可以使这些性能各异的网络从用户看起来好像是一个统一的网络。</li>
+<li>使用 IP 协议的虚拟互连网络可简称为 IP 网。</li>
+<li>使用虚拟互连网络的好处是：当互联网上的主机进行通信时，就好像在一个网络上通信一样，而看不见互连的各具体的网络异构细节。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516194123.png" alt="" /></li>
+</ul>
+<h3 id="从网络层看-ip-数据报的传送"><a class="markdownIt-Anchor" href="#从网络层看-ip-数据报的传送"></a> 从网络层看 IP 数据报的传送</h3>
+<p>如果我们只从网络层考虑问题，那么 IP 数据报就可以想象是在网络层中传送。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516194200.png" alt="" /></p>
+<h2 id="分类的-ip-地址"><a class="markdownIt-Anchor" href="#分类的-ip-地址"></a> 分类的 IP 地址</h2>
+<h3 id="ip-地址及其表示方法"><a class="markdownIt-Anchor" href="#ip-地址及其表示方法"></a> IP 地址及其表示方法</h3>
+<ul>
+<li>我们把整个因特网看成为一个单一的、抽象的网络。IP 地址就是给每个连接在因特网上的主机（或路由器）分配一个在全世界范围是唯一的 32 位的标识符。</li>
+<li>IP 地址现在由<strong>因特网名字与号码指派公司</strong>ICANN (Internet Corporation for Assigned Names and Numbers)进行分配</li>
+</ul>
+<h3 id="ip-地址的编址方法"><a class="markdownIt-Anchor" href="#ip-地址的编址方法"></a> IP 地址的编址方法</h3>
+<p>分类的 IP 地址。这是最基本的编址方法，在 1981 年就通过了相应的标准协议。<br />
+子网的划分。这是对最基本的编址方法的改进，其标准[RFC 950]在 1985 年通过。<br />
+构成超网。这是比较新的无分类编址方法。1993 年提出后很快就得到推广应用。</p>
+<h3 id="分类-ip-地址"><a class="markdownIt-Anchor" href="#分类-ip-地址"></a> 分类 IP 地址</h3>
+<p>每一类地址都由两个固定长度的字段组成，其中一个字段是<strong>网络号 net-id</strong>，它标志主机（或路由器）所连接到的网络，而另一个字段则是<strong>主机号 host-id</strong>，它标志该主机（或路由器）。<br />
+两级的 IP 地址可以记为：<code>IP 地址 ::= { &lt;网络号&gt;, &lt;主机号&gt;}</code><br />
+<code>::=</code> 代表“定义为”。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516205541.gif" alt="" /></p>
+<h3 id="点分十进制记法"><a class="markdownIt-Anchor" href="#点分十进制记法"></a> 点分十进制记法</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516210727.png" alt="" /></p>
+<h3 id="常用的三种类别的-ip-地址"><a class="markdownIt-Anchor" href="#常用的三种类别的-ip-地址"></a> 常用的三种类别的 IP 地址</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516210753.png" alt="" /></p>
+<h3 id="ip-地址的一些重要特点"><a class="markdownIt-Anchor" href="#ip-地址的一些重要特点"></a> IP 地址的一些重要特点</h3>
+<ol>
+<li>IP 地址是一种分等级的地址结构。分两个等级的好处是：
+<ol>
+<li>IP 地址管理机构在分配 IP 地址时只分配网络号，而剩下的主机号则由得到该网络号的单位自行分配。这样就方便了 IP 地址的管理。</li>
+<li>路由器仅根据目的主机所连接的网络号来转发分组（而不考虑目的主机号），这样就可以使路由表中的项目数大幅度减少，从而减小了路由表所占的存储空间。</li>
+</ol>
+</li>
+<li>实际上 IP 地址是标志一个主机（或路由器）和一条链路的接口。
+<ol>
+<li>当一个主机同时连接到两个网络上时，该主机就必须同时具有两个相应的 IP 地址，其网络号 net-id 必须是不同的。这种主机称为多归属主机(multihomed host)。</li>
+<li>由于一个路由器至少应当连接到两个网络（这样它才能将 IP 数据报从一个网络转发到另一个网络），因此一个路由器至少应当有两个不同的 IP 地址。</li>
+</ol>
+</li>
+<li>用转发器或网桥连接起来的若干个局域网仍为一个网络，因此这些局域网都具有同样的网络号 net-id。</li>
+<li>所有分配到网络号 net-id 的网络，范围很小的局域网，还是可能覆盖很大地理范围的广域网，都是平等的。</li>
+</ol>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516211017.png" alt="" /></p>
+<blockquote>
+<p>在同一个局域网上的主机或路由器的IP 地址中的网络号必须是一样的。图中的网络号就是 IP 地址中的 net-id。<br />
+路由器总是具有两个或两个以上的 IP 地址。路由器的每一个接口都有一个不同网络号的 IP 地址。<br />
+两个路由器直接相连的接口处，可指明也可不指明 IP 地址。如指明 IP 地址，则这一段连线就构成了一种只包含一段线路的特殊“网络” 。现在常不指明 IP 地址。</p>
+</blockquote>
+<h2 id="ip-地址与硬件地址"><a class="markdownIt-Anchor" href="#ip-地址与硬件地址"></a> IP 地址与硬件地址</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516211438.png" alt="" /></p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516211439.gif" alt="" /></p>
+<h2 id="地址解析协议-arp-与逆地址解析协议-rarp"><a class="markdownIt-Anchor" href="#地址解析协议-arp-与逆地址解析协议-rarp"></a> 地址解析协议 ARP 与逆地址解析协议 RARP</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516212531.png" alt="" /></p>
+<h3 id="地址解析协议-arp"><a class="markdownIt-Anchor" href="#地址解析协议-arp"></a> 地址解析协议 ARP</h3>
+<ul>
+<li>不管网络层使用的是什么协议，在实际网络的链路上传送数据帧时，最终还是必须使用硬件地址。</li>
+<li>每一个主机都设有一个 ARP 高速缓存(ARP cache)，里面有所在的局域网上的各主机和路由器的 IP 地址到硬件地址的映射表。</li>
+<li>当主机 A 欲向本局域网上的某个主机 B 发送 IP 数据报时，就先在其 ARP 高速缓存中查看有无主机 B 的 IP 地址。如有，就可查出其对应的硬件地址，再将此硬件地址写入 MAC 帧，然后通过局域网将该 MAC 帧发往此硬件地址。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516212656.png" alt="" /></li>
+</ul>
+<h4 id="arp-高速缓存的作用"><a class="markdownIt-Anchor" href="#arp-高速缓存的作用"></a> ARP 高速缓存的作用</h4>
+<ul>
+<li>为了减少网络上的通信量，主机 A 在发送其 ARP 请求分组时，就将自己的 IP 地址到硬件地址的映射写入 ARP 请求分组。</li>
+<li>当主机 B 收到 A 的 ARP 请求分组时，就将主机 A 的这一地址映射写入主机 B 自己的 ARP 高速缓存中。这对主机 B 以后向 A 发送数据报时就更方便了。</li>
+</ul>
+<h4 id="应当注意的问题"><a class="markdownIt-Anchor" href="#应当注意的问题"></a> 应当注意的问题</h4>
+<ul>
+<li>ARP 是解决同一个局域网上的主机或路由器的 IP 地址和硬件地址的映射问题。</li>
+<li>如果所要找的主机和源主机不在同一个局域网上，那么就要通过 ARP 找到一个位于本局域网上的某个路由器的硬件地址，然后把分组发送给这个路由器，让这个路由器把分组转发给下一个网络。剩下的工作就由下一个网络来做。</li>
+<li>从IP地址到硬件地址的解析是自动进行的，主机的用户对这种地址解析过程是不知道的。</li>
+<li>只要主机或路由器要和本网络上的另一个已知 IP 地址的主机或路由器进行通信，ARP 协议就会自动地将该 IP 地址解析为链路层所需要的硬件地址。</li>
+</ul>
+<h4 id="使用-arp-的四种典型情况"><a class="markdownIt-Anchor" href="#使用-arp-的四种典型情况"></a> 使用 ARP 的四种典型情况</h4>
+<ul>
+<li>发送方是主机，要把IP数据报发送到本网络上的另一个主机。这时用 ARP 找到目的主机的硬件地址。</li>
+<li>发送方是主机，要把 IP 数据报发送到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。</li>
+<li>发送方是路由器，要把 IP 数据报转发到本网络上的一个主机。这时用 ARP 找到目的主机的硬件地址。</li>
+<li>发送方是路由器，要把 IP 数据报转发到另一个网络上的一个主机。这时用 ARP 找到本网络上的一个路由器的硬件地址。剩下的工作由这个路由器来完成。</li>
+</ul>
+<h4 id="什么我们不直接使用硬件地址进行通信"><a class="markdownIt-Anchor" href="#什么我们不直接使用硬件地址进行通信"></a> 什么我们不直接使用硬件地址进行通信？</h4>
+<ul>
+<li>由于全世界存在着各式各样的网络，它们使用不同的硬件地址。要使这些异构网络能够互相通信就必须进行非常复杂的硬件地址转换工作，因此几乎是不可能的事。</li>
+<li>连接到因特网的主机都拥有统一的 IP 地址，它们之间的通信就像连接在同一个网络上那样简单方便，因为调用 ARP 来寻找某个路由器或主机的硬件地址都是由计算机软件自动进行的，对用户来说是看不见这种调用过程的。</li>
+</ul>
+<h3 id="逆地址解析协议-rarp"><a class="markdownIt-Anchor" href="#逆地址解析协议-rarp"></a> 逆地址解析协议 RARP</h3>
+<ul>
+<li>逆地址解析协议 RARP 使只知道自己硬件地址的主机能够知道其 IP 地址。</li>
+<li>这种主机往往是无盘工作站。 因此 RARP协议目前已很少使用。</li>
+</ul>
+<h2 id="ip-数据报的格式"><a class="markdownIt-Anchor" href="#ip-数据报的格式"></a> IP 数据报的格式</h2>
+<ul>
+<li>一个 IP 数据报由首部和数据两部分组成。</li>
+<li>首部的前一部分是固定长度，共 20 字节，是所有 IP 数据报必须具有的。</li>
+<li>在首部的固定部分的后面是一些可选字段，其长度是可变的。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516213028.png" alt="" /></li>
+<li>版本——占 4 位，指 IP 协议的版本。目前的 IP 协议版本号为 4 (即 IPv4)</li>
+<li>首部长度——占 4 位，可表示的最大数值是 15 个单位(一个单位为 4 字节)。因此 IP 的首部长度的最大值是 60 字节。</li>
+<li>区分服务——占 8 位，用来获得更好的服务在旧标准中叫做服务类型，但实际上一直未被使用过。1998 年这个字段改名为区分服务。只有在使用区分服务（DiffServ）时，这个字段才起作用。在一般的情况下都不使用这个字段。</li>
+<li>总长度——占 16 位，指首部和数据之和的长度，单位为字节，因此数据报的最大长度为 65535 字节。总长度必须不超过最大传送单元 MTU。</li>
+<li>标识(identification) ——占 16 位，它是一个计数器，用来产生数据报的标识。</li>
+<li>标志(flag) ——占 3 位，目前只有前两位有意义。标志字段的最低位是 MF (More Fragment)。
+<ul>
+<li>MF =1 表示后面“还有分片”。MF = 0 表示最后一个分片。</li>
+<li>标志字段中间的一位是 DF (Don’t Fragment) 。</li>
+<li>只有当 DF = 0 时才允许分片。</li>
+</ul>
+</li>
+<li>片偏移——占13位，指出较长的分组在分片后某片在原分组中的相对位置。片偏移以 8 个字节为偏移单位。<a href="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516214248.png" target="_blank" rel="noopener">IP 数据报分片</a></li>
+<li>生存时间——占8位，记为 TTL (Time To Live)。数据报在网络中可通过的路由器数的最大值。</li>
+<li>协议——占8位，字段指出此数据报携带的数据使用何种协议，以便目的主机的 IP 层将数据部分上交给哪个处理过程。<a href="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516214435.png" target="_blank" rel="noopener">协议字段示意图</a></li>
+<li>首部检验和(16 位)字段只检验数据报的首部，不检验数据部分。这里不采用 CRC 检验码而采用简单的计算方法。<a href="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516214826.png" target="_blank" rel="noopener">检验算法</a></li>
+<li>源地址和目的地址——各占 4 字节</li>
+<li>IP 首部的可变部分就是一个选项字段，用来支持排错、测量以及安全等措施，内容很丰富。
+<ul>
+<li>选项字段的长度可变，从 1 个字节到 40 个字节不等，取决于所选择的项目。</li>
+<li>增加首部的可变部分是为了增加 IP 数据报的功能，但这同时也使得 IP 数据报的首部长度成为可变的。这就增加了每一个路由器处理数据报的开销。</li>
+<li>实际上这些选项很少被使用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="ip-层转发分组的流程"><a class="markdownIt-Anchor" href="#ip-层转发分组的流程"></a> IP 层转发分组的流程</h2>
+<ul>
+<li>有四个 A 类网络通过三个路由器连接在一起。每一个网络上都可能有成千上万个主机。</li>
+<li>可以想像，若按目的主机号来制作路由表，则所得出的路由表就会过于庞大。</li>
+<li>但若按主机所在的<strong>网络地址</strong>来制作路由表，那么每一个路由器中的路由表就只包含 4 个项目。这样就可使路由表大大简化。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516220101.png" alt="" /></li>
+</ul>
+<h3 id="查找路由表"><a class="markdownIt-Anchor" href="#查找路由表"></a> 查找路由表</h3>
+<p>根据目的网络地址就能确定下一跳路由器，这样做的结果是：</p>
+<ul>
+<li>IP 数据报最终一定可以找到目的主机所在目的网络上的路由器（可能要通过多次的间接交付）。</li>
+<li>只有到达最后一个路由器时，才试图向目的主机进行直接交付。</li>
+</ul>
+<h3 id="特定主机路由"><a class="markdownIt-Anchor" href="#特定主机路由"></a> 特定主机路由</h3>
+<ul>
+<li>这种路由是为特定的目的主机指明一个路由。</li>
+<li>采用特定主机路由可使网络管理人员能更方便地控制网络和测试网络，同时也可在需要考虑某种安全问题时采用这种特定主机路由。</li>
+</ul>
+<h3 id="默认路由default-route"><a class="markdownIt-Anchor" href="#默认路由default-route"></a> 默认路由(default route)</h3>
+<ul>
+<li>路由器还可采用<strong>默认路由</strong>以减少路由表所占用的空间和搜索路由表所用的时间。</li>
+<li>这种转发方式在一个网络只有很少的对外连接时是很有用的。</li>
+<li>默认路由在主机发送 IP 数据报时往往更能显示出它的好处。</li>
+<li>如果一个主机连接在一个小网络上，而这个网络只用一个路由器和因特网连接，那么在这种情况下使用默认路由是非常合适的。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200516225536.png" alt="" /></li>
+</ul>
+<h3 id="必须强调指出"><a class="markdownIt-Anchor" href="#必须强调指出"></a> 必须强调指出</h3>
+<ul>
+<li>IP 数据报的首部中没有地方可以用来指明“下一跳路由器的 IP 地址”。</li>
+<li>当路由器收到待转发的数据报，不是将下一跳路由器的 IP 地址填入 IP 数据报，而是送交下层的网络接口软件。</li>
+<li>网络接口软件使用 ARP 负责将下一跳路由器的 IP 地址转换成硬件地址，并将此硬件地址放在链路层的 MAC 帧的首部，然后根据这个硬件地址找到下一跳路由器。</li>
+</ul>
+<h1 id="划分子网和构造超网"><a class="markdownIt-Anchor" href="#划分子网和构造超网"></a> 划分子网和构造超网</h1>
+<h2 id="划分子网"><a class="markdownIt-Anchor" href="#划分子网"></a> 划分子网</h2>
+<p>从两级 IP 地址到三级 IP 地址。</p>
+<ul>
+<li>在 ARPANET 的早期，IP 地址的设计确实不够合理。
+<ul>
+<li>IP 地址空间的利用率有时很低。</li>
+<li>给每一个物理网络分配一个网络号会使路由表变得太大因而使网络性能变坏。</li>
+<li>两级的 IP 地址不够灵活。</li>
+</ul>
+</li>
+</ul>
+<h3 id="三级的-ip-地址"><a class="markdownIt-Anchor" href="#三级的-ip-地址"></a> 三级的 IP 地址</h3>
+<ul>
+<li>从 1985 年起在 IP 地址中又增加了一个“子网号字段”，使两级的 IP 地址变成为<strong>三级的 IP 地址</strong>。</li>
+<li>这种做法叫作<strong>划分子网</strong>(subnetting) 。划分子网已成为因特网的正式标准协议。</li>
+</ul>
+<h3 id="划分子网的基本思路"><a class="markdownIt-Anchor" href="#划分子网的基本思路"></a> 划分子网的基本思路</h3>
+<ul>
+<li>划分子网纯属<strong>一个单位内部的事情</strong>。单位对外仍然表现为没有划分子网的网络。</li>
+<li>从主机号<strong>借用</strong>若干个位作为<strong>子网号</strong> subnet-id，而主机号 host-id 也就相应减少了若干个位。
+<ul>
+<li><code>IP地址 ::= {&lt;网络号&gt;, &lt;子网号&gt;, &lt;主机号&gt;}</code></li>
+</ul>
+</li>
+<li>凡是从其他网络发送给本单位某个主机的 IP 数据报，仍然是根据 IP 数据报的目的网络号 net-id，先找到连接在本单位网络上的路由器。</li>
+<li>然后此路由器在收到 IP 数据报后，再按目的网络号 net-id 和子网号 subnet-id 找到目的子网。</li>
+<li>最后就将 IP 数据报直接交付目的主机。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517164156.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517164214.png" alt="" /></li>
+</ul>
+<h3 id="划分子网后变成了三级结构"><a class="markdownIt-Anchor" href="#划分子网后变成了三级结构"></a> 划分子网后变成了三级结构</h3>
+<ul>
+<li>当没有划分子网时，IP 地址是两级结构。</li>
+<li>划分子网后 IP 地址就变成了<strong>三级结构</strong>。</li>
+<li>划分子网只是把 IP 地址的主机号 host-id 这部分进行再划分，而不改变 IP 地址原来的网络号 net-id。</li>
+</ul>
+<h2 id="子网掩码"><a class="markdownIt-Anchor" href="#子网掩码"></a> 子网掩码</h2>
+<ul>
+<li>从一个 IP 数据报的首部并无法判断源主机或目的主机所连接的网络是否进行了子网划分。</li>
+<li>使用子网掩码(subnet mask)可以找出 IP 地址中的子网部分。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517164439.png" alt="" /></li>
+</ul>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517164522.png" alt="" /></p>
+<h3 id="默认子网掩码"><a class="markdownIt-Anchor" href="#默认子网掩码"></a> 默认子网掩码</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517164543.png" alt="" /></p>
+<h3 id="子网掩码是一个重要属性"><a class="markdownIt-Anchor" href="#子网掩码是一个重要属性"></a> 子网掩码是一个重要属性</h3>
+<ul>
+<li>子网掩码是一个网络或一个子网的重要属性。</li>
+<li>路由器在和相邻路由器交换路由信息时，必须把自己所在网络（或子网）的子网掩码告诉相邻路由器。</li>
+<li>路由器的路由表中的每一个项目，除了要给出目的网络地址外，还必须同时给出该网络的子网掩码。</li>
+<li>若一个路由器连接在两个子网上就拥有两个网络地址和两个子网掩码。</li>
+</ul>
+<blockquote>
+<p><strong>【例】已知 IP 地址是 141.14.72.24，子网掩码是 255.255.192.0。试求网络地址。</strong><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517165035.png" alt="" /><br />
+<strong>【例】在上例中，若子网掩码改为255.255.224.0。试求网络地址，讨论所得结果。</strong><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517165116.png" alt="" /></p>
+</blockquote>
+<h2 id="使用子网时分组转发"><a class="markdownIt-Anchor" href="#使用子网时分组转发"></a> 使用子网时分组转发</h2>
+<ul>
+<li>在不划分子网的两级 IP 地址下，从 IP 地址得出网络地址是个很简单的事。</li>
+<li>但在划分子网的情况下，从 IP 地址却不能唯一地得出网络地址来，这是因为网络地址取决于那个网络所采用的子网掩码，但数据报的首部并没有提供子网掩码的信息。</li>
+<li>因此分组转发的算法也必须做相应的改动。</li>
+</ul>
+<hr />
+<ol>
+<li>从收到的分组的首部提取目的 IP 地址 D。</li>
+<li>先用各网络的子网掩码和 D 逐位相“与”，看是否和否则就是间接交付，执行(3)。</li>
+<li>若路由表中有目的地址为 D 的特定主机路由，则将分组传送给指明的下一跳路由器；否则，执行(4)。</li>
+<li>对路由表中的每一行的子网掩码和 D 逐位相“与”，若其结果与该行的目的网络地址匹配，则将分组传送给该行指明的下一跳路由器；否则，执行(5)。</li>
+<li>若路由表中有一个默认路由，则将分组传送给路由表中所指明的默认路由器；否则，执行(6)。</li>
+<li>报告转发分组出错。</li>
+</ol>
+<h2 id="无分类编址-cidr构造超网"><a class="markdownIt-Anchor" href="#无分类编址-cidr构造超网"></a> 无分类编址 CIDR（构造超网）</h2>
+<blockquote>
+<p><strong>【例】已知互联网和路由器 R1 中的路由表。主机 H1 向 H2 发送分组。试讨论 R1 收到 H1 向 H2 发送的分组后查找路由表的过程。</strong><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517165438.png" alt="" /><br />
+因此 H1 首先检查主机 128.30.33.138 是否连接在本网络上。如果是，则直接交付；否则，就送交路由器 R1，并逐项查找路由表。<br />
+主机 H1 首先将本子网的子网掩码 255.255.255.128与分组的 IP 地址 128.30.33.138 逐比特相“与”(AND 操作) 。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517170116.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200517170148.png" alt="" /></p>
+</blockquote>
+<h3 id="网络前缀"><a class="markdownIt-Anchor" href="#网络前缀"></a> 网络前缀</h3>
+<ul>
+<li>划分子网在一定程度上缓解了因特网在发展中遇到的困难。然而在 1992 年因特网仍然面临三个必须尽早解决的问题，这就是：
+<ul>
+<li>B 类地址在 1992 年已分配了近一半，眼看就要在 1994 年 3 月全部分配完毕！</li>
+<li>因特网主干网上的路由表中的项目数急剧增长（从几千个增长到几万个）。</li>
+<li>整个 IPv4 的地址空间最终将全部耗尽。</li>
+</ul>
+</li>
+</ul>
+<h3 id="ip-编址问题的演进"><a class="markdownIt-Anchor" href="#ip-编址问题的演进"></a> IP 编址问题的演进</h3>
+<ul>
+<li>1987 年，RFC 1009 就指明了在一个划分子网的网络中可同时使用几个不同的子网掩码。使用<strong>变长子网掩码 VLSM</strong> (Variable Length Subnet Mask)可进一步提高 IP 地址资源的利用率。</li>
+<li>在 VLSM 的基础上又进一步研究出无分类编址方法，它的正式名字是<strong>无分类域间路由选择</strong> CIDR (Classless Inter-Domain Routing)。</li>
+</ul>
+<h3 id="cidr-最主要的特点"><a class="markdownIt-Anchor" href="#cidr-最主要的特点"></a> CIDR 最主要的特点</h3>
+<ul>
+<li>CIDR 消除了传统的 A 类、B 类和 C 类地址以及划分子网的概念，因而可以更加有效地分配 IPv4 的地址空间。</li>
+<li>CIDR使用各种长度的“<strong>网络前缀</strong>”(network-prefix)来代替分类地址中的网络号和子网号。</li>
+<li>IP 地址从三级编址（使用子网掩码）又回到了两级编址。</li>
+</ul>
+<h2 id="无分类的两级编址"><a class="markdownIt-Anchor" href="#无分类的两级编址"></a> 无分类的两级编址</h2>
+<ul>
+<li>无分类的两级编址的记法是：
+<ul>
+<li><code>IP地址 ::= {&lt;网络前缀&gt;, &lt;主机号&gt;}</code></li>
+</ul>
+</li>
+<li>CIDR 还使用“<strong>斜线记法</strong>”(slash notation)，它又称为<strong>CIDR记法</strong>，即在 IP 地址面加上一个斜线“/”，然后写上网络前缀所占的位数（这个数值对应于三级编址中子网掩码中 1 的个数）。</li>
+<li>CIDR 把网络前缀都相同的连续的 IP 地址组成“<strong>CIDR 地址块</strong>”。</li>
+</ul>
+<h3 id="cidr-地址块"><a class="markdownIt-Anchor" href="#cidr-地址块"></a> CIDR 地址块</h3>
+<ul>
+<li>128.14.32.0/20 表示的地址块共有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>1</mn></msup><mn>2</mn></mrow><annotation encoding="application/x-tex">2^12</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span><span class="mord">2</span></span></span></span> 个地址（因为<strong>斜线后面的 20 是网络前缀的位数，所以这个地址的主机号是 12 位</strong>）。</li>
+<li>这个地址块的起始地址是 128.14.32.0。</li>
+<li>在不需要指出地址块的起始地址时，也可将这样的地址块简称为“<strong>/20 地址块</strong>”。</li>
+<li>128.14.32.0/20 地址块的最小地址：128.14.32.0</li>
+<li>128.14.32.0/20 地址块的最大地址：128.14.47.255</li>
+<li>全 0 和全 1 的主机号地址一般不使用。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200518133738.png" alt="" /></li>
+</ul>
+<h3 id="路由聚合"><a class="markdownIt-Anchor" href="#路由聚合"></a> 路由聚合</h3>
+<ul>
+<li>一个 CIDR 地址块可以表示很多地址，这种地址的聚合常称为<strong>路由聚合</strong>，它使得路由表中的一个项目可以表示很多个（例如上千个）原来传统分类地址的路由。</li>
+<li>路由聚合也称为<strong>构成超网</strong>(supernetting)。</li>
+<li>CIDR 虽然不使用子网了，但仍然使用“<strong>掩码</strong>”这一名词（但不叫子网掩码）。</li>
+<li>对于 /20  地址块，它的掩码是 20 个连续的 1。 斜线记法中的数字就是掩码中1的个数。</li>
+</ul>
+<h3 id="cidr-记法的其他形式"><a class="markdownIt-Anchor" href="#cidr-记法的其他形式"></a> CIDR 记法的其他形式</h3>
+<ul>
+<li>10.0.0.0/10 可简写为 10/10，也就是把点分十进制中低位连续的 0 省略。</li>
+<li>10.0.0.0/10 隐含地指出 IP 地址 10.0.0.0 的<strong>掩码</strong>是 255.192.0.0。此掩码可表示为<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200520234340.png" alt="" /></li>
+<li>10.0.0.0/10 可简写为 10/10，也就是将点分十进制中低位连续的 0 省略。</li>
+<li>10.0.0.0/10 相当于指出 IP 地址 10.0.0.0 的掩码是 255.192.0.0，即
+<ul>
+<li>11111111 11000000 00000000 00000000</li>
+</ul>
+</li>
+<li>网络前缀的后面加一个星号 * 的表示方法
+<ul>
+<li>如 00001010 00*，在星号 * 之前是网络前缀，而星号 * 表示 IP 地址中的主机号，可以是任意值。</li>
+</ul>
+</li>
+</ul>
+<h3 id="构成超网"><a class="markdownIt-Anchor" href="#构成超网"></a> 构成超网</h3>
+<ul>
+<li>前缀长度不超过 23 位的 CIDR 地址块都包含了多个 C 类地址。</li>
+<li>这些 C 类地址合起来就构成了超网。</li>
+<li>CIDR 地址块中的地址数一定是 2 的整数次幂。</li>
+<li>网络前缀越短，其地址块所包含的地址数就越多。而在三级结构的IP地址中，划分子网是使网络前缀变长。</li>
+</ul>
+<h3 id="cidr-地址块划分举例"><a class="markdownIt-Anchor" href="#cidr-地址块划分举例"></a> CIDR 地址块划分举例</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200520234448.png" alt="" /><br />
+这个 ISP 共有 64 个 C 类网络。如果不采用 CIDR 技术，则在与该 ISP 的路由器交换路由信息的每一个路由器的路由表中，就需要有 64 个项目。但采用地址聚合后，只需用路由聚合后的 1 个项目 206.0.64.0/18 就能找到该 ISP。</p>
+<h3 id="最长前缀匹配"><a class="markdownIt-Anchor" href="#最长前缀匹配"></a> 最长前缀匹配</h3>
+<ul>
+<li>使用 CIDR 时，路由表中的每个项目由“网络前缀”和“下一跳地址”组成。在查找路由表时可能会得到不止一个匹配结果。</li>
+<li>应当从匹配结果中选择具有最长网络前缀的路由：<strong>最长前缀匹配</strong>(longest-prefix matching)。</li>
+<li>网络前缀越长，其地址块就越小，因而路由就越具体(more specific) 。</li>
+<li>最长前缀匹配又称为<strong>最长匹配或最佳匹配</strong>。</li>
+</ul>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200520234607.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200520234629.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200520234643.png" alt="" /></p>
+<ul>
+<li>D AND (11111111 11111111 11111100 00000000) = 206.0.68.0/22             <strong>匹配</strong></li>
+<li>D AND (11111111 11111111 11111111 10000000) = 206.0.71.128/25         <strong>匹配</strong></li>
+<li>选择两个匹配的地址中更具体的一个，即选择最长前缀的地址。</li>
+</ul>
+<h3 id="使用二叉线索查找路由表"><a class="markdownIt-Anchor" href="#使用二叉线索查找路由表"></a> 使用二叉线索查找路由表</h3>
+<ul>
+<li>当路由表的项目数很大时，怎样设法减小路由表的查找时间就成为一个非常重要的问题。</li>
+<li>为了进行更加有效的查找，通常是将无分类编址的路由表存放在一种层次的数据结构中，然后自上而下地按层次进行查找。这里最常用的就是<strong>二叉线索</strong>(binary trie)。</li>
+<li>IP 地址中从左到右的比特值决定了从根结点逐层向下层延伸的路径，而二叉线索中的各个路径就代表路由表中存放的各个地址。</li>
+<li>为了提高二叉线索的查找速度，广泛使用了各种压缩技术。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200520235029.png" alt="" /></li>
+</ul>
+<h1 id="网际控制报文协议-icmp"><a class="markdownIt-Anchor" href="#网际控制报文协议-icmp"></a> 网际控制报文协议 ICMP</h1>
+<ul>
+<li>为了提高 IP 数据报交付成功的机会，在网际层使用了网际控制报文协议 ICMP (Internet Control Message Protocol)。</li>
+<li>ICMP 允许主机或路由器报告差错情况和提供有关异常情况的报告。</li>
+<li>ICMP 不是高层协议，而是 IP 层的协议。</li>
+<li>ICMP 报文作为 IP 层数据报的数据，加上数据报的首部，组成 IP 数据报发送出去。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200520235109.png" alt="" /></li>
+</ul>
+<h2 id="icmp-报文的种类"><a class="markdownIt-Anchor" href="#icmp-报文的种类"></a> ICMP 报文的种类</h2>
+<ul>
+<li>ICMP 报文的种类有两种，即 ICMP <strong>差错报告报文</strong>和 ICMP <strong>询问报文</strong>。</li>
+<li>ICMP 报文的前 4 个字节是统一的格式，共有三个字段：即<strong>类型、代码和检验和</strong>。接着的 4 个字节的内容与 ICMP 的类型有关。</li>
+</ul>
+<h2 id="icmp-差错报告报文共有-5-种"><a class="markdownIt-Anchor" href="#icmp-差错报告报文共有-5-种"></a> ICMP 差错报告报文共有 5 种</h2>
+<ul>
+<li>终点不可达</li>
+<li>源点抑制(Source quench)</li>
+<li>时间超过</li>
+<li>参数问题</li>
+<li>改变路由（重定向）(Redirect)<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200520235343.png" alt="" /></li>
+</ul>
+<h3 id="不应发送-icmp-差错报告报文的几种情况"><a class="markdownIt-Anchor" href="#不应发送-icmp-差错报告报文的几种情况"></a> 不应发送 ICMP 差错报告报文的几种情况</h3>
+<ul>
+<li>对 ICMP 差错报告报文不再发送 ICMP 差错报告报文。</li>
+<li>对第一个分片的数据报片的所有后续数据报片都不发送 ICMP 差错报告报文。</li>
+<li>对具有多播地址的数据报都不发送 ICMP 差错报告报文。</li>
+<li>对具有特殊地址（如127.0.0.0 或 0.0.0.0）的数据报不发送 ICMP 差错报告报文。</li>
+</ul>
+<h3 id="icmp-询问报文有两种"><a class="markdownIt-Anchor" href="#icmp-询问报文有两种"></a> ICMP 询问报文有两种</h3>
+<ul>
+<li>回送请求和回答报文</li>
+<li>时间戳请求和回答报文</li>
+<li>下面的几种 ICMP 报文不再使用
+<ul>
+<li>信息请求与回答报文</li>
+<li>掩码地址请求和回答报文</li>
+<li>路由器询问和通告报文</li>
+</ul>
+</li>
+</ul>
+<h2 id="icmp-的应用举例"><a class="markdownIt-Anchor" href="#icmp-的应用举例"></a> ICMP 的应用举例</h2>
+<h3 id="ping"><a class="markdownIt-Anchor" href="#ping"></a> PING</h3>
+<p>PING 用来测试两个主机之间的连通性。<br />
+PING 使用了 ICMP 回送请求与回送回答报文。<br />
+PING 是应用层直接使用网络层 ICMP 的例子，它没有通过运输层的 TCP 或UDP。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200520235522.png" alt="" /></p>
+<h3 id="traceroute"><a class="markdownIt-Anchor" href="#traceroute"></a> Traceroute</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200520235542.png" alt="" /></p>
+<h1 id="因特网的路由选择协议"><a class="markdownIt-Anchor" href="#因特网的路由选择协议"></a> 因特网的路由选择协议</h1>
+<h2 id="有关路由选择协议的几个基本概念"><a class="markdownIt-Anchor" href="#有关路由选择协议的几个基本概念"></a> 有关路由选择协议的几个基本概念</h2>
+<ul>
+<li>理想的路由算法
+<ul>
+<li>算法必须是正确的和完整的。</li>
+<li>算法在计算上应简单。</li>
+<li>算法应能适应通信量和网络拓扑的变化，这就是说，要有自适应性。</li>
+<li>算法应具有稳定性。</li>
+<li>算法应是公平的。</li>
+<li>算法应是最佳的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="关于最佳路由"><a class="markdownIt-Anchor" href="#关于最佳路由"></a> 关于“最佳路由”</h3>
+<ul>
+<li>不存在一种绝对的最佳路由算法。</li>
+<li>所谓“最佳”只能是相对于某一种特定要求下得出的较为合理的选择而已。</li>
+<li>实际的路由选择算法，应尽可能接近于理想的算法。</li>
+<li>路由选择是个非常复杂的问题
+<ul>
+<li>它是网络中的所有结点共同协调工作的结果。</li>
+<li>路由选择的环境往往是不断变化的，而这种变化有时无法事先知道。</li>
+</ul>
+</li>
+</ul>
+<h3 id="从路由算法的自适应性考虑"><a class="markdownIt-Anchor" href="#从路由算法的自适应性考虑"></a> 从路由算法的自适应性考虑</h3>
+<ul>
+<li><strong>静态</strong>路由选择策略——即非自适应路由选择，其特点是简单和开销较小，但不能及时适应网络状态的变化。</li>
+<li><strong>动态</strong>路由选择策略——即自适应路由选择，其特点是能较好地适应网络状态的变化，但实现起来较为复杂，开销也比较大。</li>
+</ul>
+<h3 id="分层次的路由选择协议"><a class="markdownIt-Anchor" href="#分层次的路由选择协议"></a> 分层次的路由选择协议</h3>
+<ul>
+<li>因特网采用分层次的路由选择协议。</li>
+<li>因特网的规模非常大。如果让所有的路由器知道所有的网络应怎样到达，则这种路由表将非常大，处理起来也太花时间。而所有这些路由器之间交换路由信息所需的带宽就会使因特网的通信链路饱和。</li>
+<li>许多单位不愿意外界了解自己单位网络的布局细节和本部门所采用的路由选择协议（这属于本部门内部的事情），但同时还希望连接到因特网上。</li>
+</ul>
+<h3 id="自治系统-as"><a class="markdownIt-Anchor" href="#自治系统-as"></a> 自治系统 AS</h3>
+<ul>
+<li>在单一的技术管理下的一组路由器，而这些路由器使用一种 AS 内部的路由选择协议和共同的度量以确定分组在该 AS 内的路由，同时还使用一种 AS 之间的路由选择协议用以确定分组在 AS之间的路由。</li>
+<li>现在对自治系统 AS 的定义是强调下面的事实：尽管一个 AS 使用了多种内部路由选择协议和度量，但重要的是一个 AS 对其他 AS 表现出的是一个<strong>单一的和一致的路由选择策略</strong>。</li>
+</ul>
+<h4 id="因特网有两大类路由选择协议"><a class="markdownIt-Anchor" href="#因特网有两大类路由选择协议"></a> 因特网有两大类路由选择协议</h4>
+<ul>
+<li>内部网关协议 IGP (Interior Gateway Protocol)    即在一个自治系统内部使用的路由选择协议。目前这类路由选择协议使用得最多，如 RIP 和 OSPF 协议。</li>
+<li>外部网关协议EGP (External Gateway Protocol)    若源站和目的站处在不同的自治系统中，当数据报传到一个自治系统的边界时，就需要使用一种协议将路由选择信息传递到另一个自治系统中。这样的协议就是外部网关协议 EGP。在外部网关协议中目前使用最多的是 BGP-4。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521000034.png" alt="" /></li>
+</ul>
+<hr />
+<ul>
+<li>因特网的早期 RFC 文档中未使用“路由器”而是使用“网关”这一名词。但是在新的 RFC 文档中又使用了“路由器”这一名词。应当把这两个属于当作同义词。</li>
+<li>IGP 和 EGP 是协议类别的名称。但 RFC 在使用 EGP 这个名词时出现了一点混乱，因为最早的一个外部网关协议的协议名字正好也是 EGP。因此 遇到名词 EGP 时，应弄清它是指旧的协议 EGP 还是指外部网关协议 EGP 这个类别。</li>
+</ul>
+<h3 id="因特网的路由选择协议-2"><a class="markdownIt-Anchor" href="#因特网的路由选择协议-2"></a> 因特网的路由选择协议</h3>
+<ul>
+<li>内部网关协议 IGP：具体的协议有多种，如 RIP 和 OSPF 等。</li>
+<li>外部网关协议 EGP：目前使用的协议就是 BGP。</li>
+</ul>
+<h2 id="内部网关协议-rip"><a class="markdownIt-Anchor" href="#内部网关协议-rip"></a> 内部网关协议 RIP</h2>
+<h3 id="工作原理"><a class="markdownIt-Anchor" href="#工作原理"></a> 工作原理</h3>
+<ul>
+<li>路由信息协议 RIP 是内部网关协议 IGP中最先得到广泛使用的协议。</li>
+<li>RIP 是一种分布式的基于<strong>距离向量</strong>的路由选择协议。</li>
+<li>RIP 协议要求网络中的每一个路由器都要维护从它自己到其他每一个目的网络的距离记录。</li>
+</ul>
+<h4 id="距离"><a class="markdownIt-Anchor" href="#距离"></a> 距离</h4>
+<ul>
+<li>从一路由器到直接连接的网络的距离定义为 1。</li>
+<li>从一个路由器到非直接连接的网络的距离定义为所经过的路由器数加 1。</li>
+<li>RIP 协议中的“距离”也称为“跳数”(hop count)，因为每经过一个路由器，跳数就加 1。</li>
+<li>这里的“距离”实际上指的是“最短距离”。</li>
+<li>RIP 认为一个好的路由就是它通过的路由器的数目少，即“距离短”。</li>
+<li>RIP 允许一条路径最多只能包含 15 个路由器。</li>
+<li>“距离”的最大值为16 时即相当于不可达。可见 RIP 只适用于小型互联网。</li>
+<li>RIP 不能在两个网络之间同时使用多条路由。RIP 选择一个具有最少路由器的路由（即最短路由），哪怕还存在另一条高速(低时延)但路由器较多的路由。</li>
+</ul>
+<h3 id="rip-协议的三个要点"><a class="markdownIt-Anchor" href="#rip-协议的三个要点"></a> RIP 协议的三个要点</h3>
+<ul>
+<li>仅和相邻路由器交换信息。</li>
+<li>交换的信息是当前本路由器所知道的全部信息，即自己的路由表。</li>
+<li>按固定的时间间隔交换路由信息，例如，每隔 30 秒。</li>
+</ul>
+<h3 id="路由表的建立"><a class="markdownIt-Anchor" href="#路由表的建立"></a> 路由表的建立</h3>
+<ul>
+<li>路由器在刚刚开始工作时，只知道到直接连接的网络的距离（此距离定义为1）。</li>
+<li>以后，每一个路由器也只和数目非常有限的相邻路由器交换并更新路由信息。</li>
+<li>经过若干次更新后，所有的路由器最终都会知道到达本自治系统中任何一个网络的最短距离和下一跳路由器的地址。</li>
+<li>RIP 协议的<strong>收敛</strong>(convergence)过程较快，即在自治系统中所有的结点都得到正确的路由选择信息的过程。</li>
+</ul>
+<h4 id="距离向量算法"><a class="markdownIt-Anchor" href="#距离向量算法"></a> 距离向量算法</h4>
+<ul>
+<li>收到相邻路由器（其地址为 X）的一个 RIP 报文：
+<ol>
+<li>先修改此 RIP 报文中的所有项目：把“下一跳”字段中的地址都改为 X，并把所有的“距离”字段的值加 1。</li>
+<li>对修改后的 RIP 报文中的每一个项目，重复以下步骤：
+<ul>
+<li>若项目中的目的网络不在路由表中，则把该项目加到路由表中。</li>
+<li>否则
+<ul>
+<li>若下一跳字段给出的路由器地址是同样的，则把收到的项目替换原路由表中的项目。</li>
+</ul>
+</li>
+<li>否则
+<ul>
+<li>若收到项目中的距离小于路由表中的距离，则进行更新，</li>
+</ul>
+</li>
+<li>否则，什么也不做。</li>
+</ul>
+</li>
+<li>若 3 分钟还没有收到相邻路由器的更新路由表，则把此相邻路由器记为不可达路由器，即将距离置为16（距离为16表示不可达）。</li>
+<li>返回。</li>
+</ol>
+</li>
+</ul>
+<h4 id="路由器之间交换信息"><a class="markdownIt-Anchor" href="#路由器之间交换信息"></a> 路由器之间交换信息</h4>
+<ul>
+<li>RIP协议让互联网中的所有路由器都和自己的相邻路由器不断交换路由信息，并不断更新其路由表，使得从每一个路由器到每一个目的网络的路由都是最短的（即跳数最少）。</li>
+<li>虽然所有的路由器最终都拥有了整个自治系统的全局路由信息，但由于每一个路由器的位置不同，它们的路由表当然也应当是不同的。</li>
+</ul>
+<h3 id="rip2-协议的报文格式"><a class="markdownIt-Anchor" href="#rip2-协议的报文格式"></a> RIP2 协议的报文格式</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521151211.png" alt="" /></p>
+<h4 id="rip2-的报文由首部和路由部分组成"><a class="markdownIt-Anchor" href="#rip2-的报文由首部和路由部分组成"></a> RIP2 的报文由首部和路由部分组成</h4>
+<ul>
+<li>RIP2 报文中的路由部分由若干个路由信息组成。每个路由信息需要用 20 个字节。地址族标识符（又称为地址类别）字段用来标志所使用的地址协议。</li>
+<li>路由标记填入自治系统的号码，这是考虑使RIP 有可能收到本自治系统以外的路由选择信息。再后面指出某个网络地址、该网络的子网掩码、下一跳路由器地址以及到此网络的距离。</li>
+</ul>
+<h4 id="rip-协议的优缺点"><a class="markdownIt-Anchor" href="#rip-协议的优缺点"></a> RIP 协议的优缺点</h4>
+<ul>
+<li>RIP 存在的一个问题是当网络出现故障时，要经过比较长的时间才能将此信息传送到所有的路由器。</li>
+<li>RIP 协议最大的优点就是实现简单，开销较小。</li>
+<li>RIP 限制了网络的规模，它能使用的最大距离为 15（16 表示不可达）。</li>
+<li>路由器之间交换的路由信息是路由器中的完整路由表，因而随着网络规模的扩大，开销也就增加。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521152340.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521152505.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521152706.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521152716.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521152726.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521152737.png" alt="" /></li>
+</ul>
+<h2 id="内部网关协议-ospf"><a class="markdownIt-Anchor" href="#内部网关协议-ospf"></a> 内部网关协议 OSPF</h2>
+<h3 id="ospf-协议的基本特点"><a class="markdownIt-Anchor" href="#ospf-协议的基本特点"></a> OSPF 协议的基本特点</h3>
+<ul>
+<li>“开放”表明 OSPF 协议不是受某一家厂商控制，而是公开发表的。</li>
+<li>“最短路径优先”是因为使用了 Dijkstra 提出的最短路径算法SPF</li>
+<li>OSPF 只是一个协议的名字，它并不表示其他的路由选择协议不是“最短路径优先”。</li>
+<li>是分布式的<strong>链路状态协议</strong>。</li>
+</ul>
+<h3 id="三个要点"><a class="markdownIt-Anchor" href="#三个要点"></a> 三个要点</h3>
+<ul>
+<li><strong>向本自治系统中所有路由器发送信息</strong>，这里使用的方法是洪泛法。</li>
+<li>发送的信息就是与本路由器<strong>相邻</strong>的所有路由器的链路状态，但这只是路由器所知道的<strong>部分信息</strong>。
+<ul>
+<li>“链路状态”就是说明本路由器都和哪些路由器相邻，以及该链路的“<strong>度量</strong>”(metric)。</li>
+</ul>
+</li>
+<li>只有当链路状态<strong>发生变化</strong>时，路由器才用洪泛法向所有路由器发送此信息。</li>
+</ul>
+<h3 id="链路状态数据库"><a class="markdownIt-Anchor" href="#链路状态数据库"></a> 链路状态数据库</h3>
+<ul>
+<li>由于各路由器之间频繁地交换链路状态信息，因此所有的路由器最终都能建立一个链路状态数据库。</li>
+<li>这个数据库实际上就是<strong>全网的拓扑结构图</strong>，它在全网范围内是一致的（这称为链路状态数据库的同步）。</li>
+<li>OSPF 的链路状态数据库能较快地进行更新，使各个路由器能及时更新其路由表。OSPF 的更新过程收敛得快是其重要优点。</li>
+</ul>
+<h4 id="ospf-的区域area"><a class="markdownIt-Anchor" href="#ospf-的区域area"></a> OSPF 的区域(area)</h4>
+<ul>
+<li>为了使 OSPF 能够用于规模很大的网络，OSPF 将一个自治系统再划分为若干个更小的范围，叫作<strong>区域</strong>。</li>
+<li>每一个区域都有一个 32 位的区域标识符（用点分十进制表示）。</li>
+<li>区域也不能太大，在一个区域内的路由器最好不超过 200 个。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521153011.png" alt="" /></li>
+</ul>
+<h4 id="划分区域"><a class="markdownIt-Anchor" href="#划分区域"></a> 划分区域</h4>
+<ul>
+<li>划分区域的好处就是将利用洪泛法交换链路状态信息的范围局限于每一个区域而不是整个的自治系统，这就减少了整个网络上的通信量。</li>
+<li>在一个区域内部的路由器只知道本区域的完整网络拓扑，而不知道其他区域的网络拓扑的情况。</li>
+<li>OSPF 使用层次结构的区域划分。在上层的区域叫作<strong>主干区域</strong>(backbone area)。主干区域的标识符规定为0.0.0.0。主干区域的作用是用来连通其他在下层的区域。</li>
+</ul>
+<h3 id="ospf-直接用-ip-数据报传送"><a class="markdownIt-Anchor" href="#ospf-直接用-ip-数据报传送"></a> OSPF 直接用 IP 数据报传送</h3>
+<ul>
+<li>OSPF 不用 UDP 而是直接用 IP 数据报传送。</li>
+<li>OSPF 构成的数据报很短。这样做可减少路由信息的通信量。</li>
+<li>数据报很短的另一好处是可以不必将长的数据报分片传送。分片传送的数据报只要丢失一个，就无法组装成原来的数据报，而整个数据报就必须重传。</li>
+</ul>
+<h3 id="ospf-的其他特点"><a class="markdownIt-Anchor" href="#ospf-的其他特点"></a> OSPF 的其他特点</h3>
+<ul>
+<li>OSPF 对不同的链路可根据 IP 分组的不同服务类型 TOS 而设置成不同的代价。因此，OSPF 对于不同类型的业务可计算出不同的路由。</li>
+<li>如果到同一个目的网络有多条相同代价的路径，那么可以将通信量分配给这几条路径。这叫作多路径间的负载平衡。</li>
+<li>所有在 OSPF 路由器之间交换的分组都具有鉴别的功能。</li>
+<li>支持可变长度的子网划分和无分类编址 CIDR。<br />
++每一个链路状态都带上一个 32 位的序号，序号越大状态就越新。</li>
+</ul>
+<h3 id="ospf-的五种分组类型"><a class="markdownIt-Anchor" href="#ospf-的五种分组类型"></a> OSPF 的五种分组类型</h3>
+<ul>
+<li>类型1，问候(Hello)分组。</li>
+<li>类型2，数据库描述(Database Description)分组。</li>
+<li>类型3，链路状态请求(Link State Request)分组。</li>
+<li>类型4，链路状态更新(Link State Update)分组，用洪泛法对全网更新链路状态。</li>
+<li>类型5，链路状态确认(Link State Acknowledgment)分组。</li>
+</ul>
+<h3 id="ospf的基本操作"><a class="markdownIt-Anchor" href="#ospf的基本操作"></a> OSPF的基本操作</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521153920.png" alt="" /></p>
+<h3 id="ospf-使用的是可靠的洪泛法"><a class="markdownIt-Anchor" href="#ospf-使用的是可靠的洪泛法"></a> OSPF 使用的是可靠的洪泛法</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521154002.png" alt="" /></p>
+<h3 id="ospf-的其他特点-2"><a class="markdownIt-Anchor" href="#ospf-的其他特点-2"></a> OSPF 的其他特点</h3>
+<ul>
+<li>OSPF 还规定每隔一段时间，如 30 分钟，要刷新一次数据库中的链路状态。</li>
+<li>由于一个路由器的链路状态只涉及到与相邻路由器的连通状态，因而与整个互联网的规模并无直接关系。因此当互联网规模很大时，OSPF 协议要比距离向量协议 RIP 好得多。</li>
+<li>OSPF 没有“坏消息传播得慢”的问题，据统计，其响应网络变化的时间小于 100 ms。</li>
+</ul>
+<h3 id="指定的路由器designated-router"><a class="markdownIt-Anchor" href="#指定的路由器designated-router"></a> 指定的路由器(designated router)</h3>
+<ul>
+<li>多点接入的局域网采用了指定的路由器的方法，使广播的信息量大大减少。</li>
+<li>指定的路由器代表该局域网上所有的链路向连接到该网络上的各路由器发送状态信息。</li>
+</ul>
+<h2 id="外部网关协议-bgp"><a class="markdownIt-Anchor" href="#外部网关协议-bgp"></a> 外部网关协议 BGP</h2>
+<ul>
+<li>BGP 是不同自治系统的路由器之间交换路由信息的协议。</li>
+<li>BGP 较新版本是 2006 年 1 月发表的 BGP-4（BGP 第 4 个版本），即 RFC 4271 ~ 4278。</li>
+<li>可以将 BGP-4 简写为 BGP。</li>
+</ul>
+<h3 id="bgp-使用的环境却不同"><a class="markdownIt-Anchor" href="#bgp-使用的环境却不同"></a> BGP 使用的环境却不同</h3>
+<ul>
+<li>因特网的规模太大，使得自治系统之间路由选择非常困难。对于自治系统之间的路由选择，要寻找最佳路由是很不现实的。
+<ul>
+<li>当一条路径通过几个不同 AS 时，要想对这样的路径计算出有意义的代价是不太可能的。</li>
+<li>比较合理的做法是在 AS 之间交换“可达性”信息。</li>
+</ul>
+</li>
+<li>自治系统之间的路由选择必须考虑有关策略。</li>
+<li>因此，边界网关协议 BGP 只能是力求寻找一条能够到达目的网络且<strong>比较好的路由</strong>（不能兜圈子），而<strong>并非要寻找一条最佳路由</strong>。</li>
+</ul>
+<h3 id="bgp-发言人"><a class="markdownIt-Anchor" href="#bgp-发言人"></a> BGP 发言人</h3>
+<ul>
+<li>每一个自治系统的管理员要选择至少一个路由器作为该自治系统的“ <strong>BGP 发言人</strong>” 。</li>
+<li>一般说来，两个 BGP 发言人都是通过一个共享网络连接在一起的，而 BGP 发言人往往就是 BGP 边界路由器，但也可以不是 BGP 边界路由器。</li>
+</ul>
+<h3 id="bgp-交换路由信息"><a class="markdownIt-Anchor" href="#bgp-交换路由信息"></a> BGP 交换路由信息</h3>
+<ul>
+<li>一个 BGP 发言人与其他自治系统中的 BGP 发言人要交换路由信息，就要先建立 TCP 连接，然后在此连接上交换 BGP 报文以建立 BGP <strong>会话</strong>(session)，利用 BGP 会话交换路由信息。</li>
+<li>使用 TCP 连接能提供可靠的服务，也简化了路由选择协议。</li>
+<li>使用 TCP 连接交换路由信息的两个 BGP 发言人，彼此成为对方的邻站或对等站。</li>
+</ul>
+<h3 id="bgp-发言人和自治系统-as-的关系"><a class="markdownIt-Anchor" href="#bgp-发言人和自治系统-as-的关系"></a> BGP 发言人和自治系统 AS 的关系</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521154300.png" alt="" /></p>
+<h4 id="as-的连通图举例"><a class="markdownIt-Anchor" href="#as-的连通图举例"></a> AS 的连通图举例</h4>
+<p>BGP 所交换的网络可达性的信息就是要到达某个网络所要经过的一系列 AS。<br />
+当 BGP 发言人互相交换了网络可达性的信息后，各 BGP 发言人就根据所采用的策略从收到的路由信息中找出到达各 AS 的较好路由。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521154334.png" alt="" /></p>
+<h4 id="bgp-发言人交换路径向量"><a class="markdownIt-Anchor" href="#bgp-发言人交换路径向量"></a> BGP 发言人交换路径向量</h4>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="_v_images/20200521155322726_12178.png" alt="20200521154704" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="_v_images/20200521155335430_10835.png" alt="20200521154723" /></p>
+<h3 id="bgp-协议的特点"><a class="markdownIt-Anchor" href="#bgp-协议的特点"></a> BGP 协议的特点</h3>
+<ul>
+<li>BGP 协议交换路由信息的结点数量级是<strong>自治系统数的量级</strong>，这要比这些自治系统中的网络数少很多。</li>
+<li>每一个自治系统中 BGP 发言人（或边界路由器）的数目是很少的。这样就使得自治系统之间的路由选择不致过分复杂。</li>
+<li><strong>BGP 支持 CIDR</strong>，因此 BGP 的路由表也就应当包括目的网络前缀、下一跳路由器，以及到达该目的网络所要经过的各个自治系统序列。</li>
+<li>在BGP 刚刚运行时，BGP 的邻站是交换整个的 BGP 路由表。但以后只需要在发生变化时<strong>更新有变化的部分</strong>。这样做对节省网络带宽和减少路由器的处理开销方面都有好处。</li>
+</ul>
+<h3 id="bgp-4-共使用四种报文"><a class="markdownIt-Anchor" href="#bgp-4-共使用四种报文"></a> BGP-4 共使用四种报文</h3>
+<ol>
+<li>打开(OPEN)报文，用来与相邻的另一个BGP发言人建立关系。</li>
+<li>更新(UPDATE)报文，用来发送某一路由的信息，以及列出要撤消的多条路由。</li>
+<li>保活(KEEPALIVE)报文，用来确认打开报文和周期性地证实邻站关系。</li>
+<li>通知(NOTIFICATION)报文，用来发送检测到的差错。<br />
+在 RFC 2918 中增加了 ROUTE-REFRESH 报文，用来请求对等端重新通告。</li>
+</ol>
+<h3 id="bgp-报文具有通用的首部"><a class="markdownIt-Anchor" href="#bgp-报文具有通用的首部"></a> BGP 报文具有通用的首部</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521155512.png" alt="" /></p>
+<h2 id="路由器的构成"><a class="markdownIt-Anchor" href="#路由器的构成"></a> 路由器的构成</h2>
+<ul>
+<li>路由器是一种具有多个输入端口和多个输出端口的专用计算机，其任务是转发分组。也就是说，将路由器某个输入端口收到的分组，按照分组要去的目的地（即目的网络），把该分组从路由器的某个合适的输出端口转发给下一跳路由器。</li>
+<li>下一跳路由器也按照这种方法处理分组，直到该分组到达终点为止。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521155648.png" alt="" /></li>
+</ul>
+<h3 id="转发和路由选择的区别"><a class="markdownIt-Anchor" href="#转发和路由选择的区别"></a> “转发”和“路由选择”的区别</h3>
+<ul>
+<li>“转发”(forwarding)就是路由器根据转发表将用户的 IP 数据报从合适的端口转发出去。</li>
+<li>“路由选择”(routing)则是按照分布式算法，根据从各相邻路由器得到的关于网络拓扑的变化情况，动态地改变所选择的路由。</li>
+<li>路由表是根据路由选择算法得出的。而转发表是从路由表得出的。</li>
+<li>在讨论路由选择的原理时，往往不去区分转发表和路由表的区别。</li>
+</ul>
+<h3 id="输入端口对线路上收到的分组的处理"><a class="markdownIt-Anchor" href="#输入端口对线路上收到的分组的处理"></a> 输入端口对线路上收到的分组的处理</h3>
+<p>数据链路层剥去帧首部和尾部后，将分组送到网络层的队列中排队等待处理。这会产生一定的时延。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521155820.png" alt="" /></p>
+<h3 id="输出端口将交换结构传送来的分组发送到线路"><a class="markdownIt-Anchor" href="#输出端口将交换结构传送来的分组发送到线路"></a> 输出端口将交换结构传送来的分组发送到线路</h3>
+<p>当交换结构传送过来的分组先进行缓存。数据链路层处理模块将分组加上链路层的首部和尾部，交给物理层后发送到外部线路。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521155901.png" alt="" /></p>
+<h3 id="分组丢弃"><a class="markdownIt-Anchor" href="#分组丢弃"></a> 分组丢弃</h3>
+<ul>
+<li>若路由器处理分组的速率赶不上分组进入队列的速率，则队列的存储空间最终必定减少到零，这就使后面再进入队列的分组由于没有存储空间而只能被丢弃。</li>
+<li>路由器中的输入或输出队列产生溢出是造成分组丢失的重要原因。</li>
+</ul>
+<h3 id="交换结构"><a class="markdownIt-Anchor" href="#交换结构"></a> 交换结构</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521160021.png" alt="" /></p>
+<h1 id="ip-多播"><a class="markdownIt-Anchor" href="#ip-多播"></a> IP 多播</h1>
+<h2 id="ip-多播的基本概念"><a class="markdownIt-Anchor" href="#ip-多播的基本概念"></a> IP 多播的基本概念</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521160300.png" alt="" /></p>
+<h3 id="多播可明显地减少网络中资源的消耗"><a class="markdownIt-Anchor" href="#多播可明显地减少网络中资源的消耗"></a> 多播可明显地减少网络中资源的消耗</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521160335.png" alt="" /></p>
+<h3 id="ip-多播的一些特点"><a class="markdownIt-Anchor" href="#ip-多播的一些特点"></a> IP 多播的一些特点</h3>
+<ol>
+<li>多播使用组地址—— IP 使用 D 类地址支持多播。多播地址只能用于目的地址，而不能用于源地址。</li>
+<li>永久组地址——由因特网号码指派管理局 IANA 负责指派。</li>
+<li>动态的组成员</li>
+<li>使用硬件进行多播</li>
+</ol>
+<h2 id="在局域网上进行硬件多播"><a class="markdownIt-Anchor" href="#在局域网上进行硬件多播"></a> 在局域网上进行硬件多播</h2>
+<ul>
+<li>因特网号码指派管理局 IANA 拥有的以太网地址块的高 24 位为 00-00-5E。</li>
+<li>因此 TCP/IP 协议使用的以太网多播地址块的范围是：从 00-00-5E-00-00-00 到 00-00-5E-FF-FF-FF</li>
+<li>D 类 IP 地址可供分配的有 28 位，在这 28 位中的前 5 位不能用来构成以太网硬件地址。</li>
+</ul>
+<h3 id="d-类-ip-地址与以太网多播地址的映射关系"><a class="markdownIt-Anchor" href="#d-类-ip-地址与以太网多播地址的映射关系"></a> D 类 IP 地址与以太网多播地址的映射关系</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521160436.png" alt="" /></p>
+<h2 id="因特网组管理协议-igmp-和多播路由选择协议"><a class="markdownIt-Anchor" href="#因特网组管理协议-igmp-和多播路由选择协议"></a> 因特网组管理协议 IGMP 和多播路由选择协议</h2>
+<h3 id="ip多播需要两种协议"><a class="markdownIt-Anchor" href="#ip多播需要两种协议"></a> IP多播需要两种协议</h3>
+<ul>
+<li>为了使路由器知道多播组成员的信息，<strong>需要利用网际组管理协议 IGMP</strong> (Internet Group Management Protocol)。</li>
+<li>连接在局域网上的多播路由器还必须和因特网上的其他多播路由器协同工作，以便把多播数据报用最小代价传送给所有的组成员。这就需要使用<strong>多播路由选择协议</strong>。</li>
+</ul>
+<h3 id="igmp-使多播路由器知道多播组成员信息"><a class="markdownIt-Anchor" href="#igmp-使多播路由器知道多播组成员信息"></a> IGMP 使多播路由器知道多播组成员信息</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521160528.png" alt="" /></p>
+<h3 id="igmp-的本地使用范围"><a class="markdownIt-Anchor" href="#igmp-的本地使用范围"></a> IGMP 的本地使用范围</h3>
+<ul>
+<li>IGMP <strong>并非</strong>在因特网范围内对所有多播组成员进行管理的协议。</li>
+<li>IGMP <strong>不知道</strong> IP 多播组包含的成员数，<strong>也不知道</strong>这些成员都分布在哪些网络上。</li>
+<li>IGMP 协议是让连接在<strong>本地局域网</strong>上的多播路由器知道本局域网上是否有主机（严格讲，是主机上的某个进程）参加或退出了某个多播组。</li>
+</ul>
+<h3 id="多播路由选择协议比单播路由选择协议复杂得多"><a class="markdownIt-Anchor" href="#多播路由选择协议比单播路由选择协议复杂得多"></a> 多播路由选择协议比单播路由选择协议复杂得多</h3>
+<ul>
+<li>多播转发必须<strong>动态地</strong>适应多播组成员的变化（这时网络拓扑并未发生变化）。请注意，单播路由选择通常是在网络拓扑发生变化时才需要更新路由。</li>
+<li>多播路由器在转发多播数据报时，不能仅仅根据多播数据报中的目的地址，而是还要考虑这个多播数据报从什么地方来和要到什么地方去。</li>
+<li>多播数据报可以由没有加入多播组的主机发出，也可以通过没有组成员接入的网络。</li>
+</ul>
+<h3 id="网际组管理协议-igmp"><a class="markdownIt-Anchor" href="#网际组管理协议-igmp"></a> 网际组管理协议 IGMP</h3>
+<ul>
+<li>1989 年公布的 RFC 1112（IGMPv1）早已成为了因特网的标准协议。</li>
+<li>1997 年公布的 RFC 2236（IGMPv2，建议标准）对 IGMPv1 进行了更新。</li>
+<li>2002 年 10 月公布了 RFC 3376（IGMPv3，建议标准），宣布 RFC 2236（IGMPv2）是陈旧的。</li>
+</ul>
+<h4 id="igmp-是整个网际协议-ip-的一个组成部分"><a class="markdownIt-Anchor" href="#igmp-是整个网际协议-ip-的一个组成部分"></a> IGMP 是整个网际协议 IP 的一个组成部分</h4>
+<ul>
+<li>和 ICMP 相似，IGMP 使用 IP 数据报传递其报文（即 IGMP 报文加上 IP 首部构成 IP 数据报），但它也向 IP 提供服务。</li>
+<li>因此，我们不把 IGMP 看成是一个单独的协议，而是属于整个网际协议 IP 的一个组成部分。</li>
+</ul>
+<h4 id="igmp-可分为两个阶段"><a class="markdownIt-Anchor" href="#igmp-可分为两个阶段"></a> IGMP 可分为两个阶段</h4>
+<ul>
+<li>第一阶段：当某个主机加入新的多播组时，该主机应向多播组的多播地址发送IGMP 报文，声明自己要成为该组的成员。本地的多播路由器收到 IGMP 报文后，将组成员关系转发给因特网上的其他多播路由器。</li>
+<li>第二阶段：因为组成员关系是<strong>动态</strong>的，因此本地多播路由器要<strong>周期性地探询</strong>本地局域网上的主机，以便知道这些主机是否还继续是组的成员。</li>
+<li>只要对某个组有一个主机响应，那么多播路由器就认为这个组是活跃的。</li>
+<li>但一个组在经过几次的探询后仍然没有一个主机响应，则不再将该组的成员关系转发给其他的多播路由器。</li>
+</ul>
+<h4 id="igmp-采用的一些具体措施"><a class="markdownIt-Anchor" href="#igmp-采用的一些具体措施"></a> IGMP 采用的一些具体措施</h4>
+<ul>
+<li>在主机和多播路由器之间的所有通信都是使用 IP 多播。</li>
+<li>多播路由器在探询组成员关系时，只需要对所有的组发送一个请求信息的询问报文，而不需要对每一个组发送一个询问报文。默认的询问速率是每 125 秒发送一次。</li>
+<li>当同一个网络上连接有几个多播路由器时，它们能够迅速和有效地选择其中的一个来探询主机的成员关系。</li>
+<li>在 IGMP 的询问报文中有一个数值 N，它指明一个最长响应时间（默认值为 10秒）。当收到询问时，主机在 0 到 N 之间随机选择发送响应所需经过的时延。对应于最小时延的响应最先发送。</li>
+<li>同一个组内的每一个主机都要监听响应，只要有本组的其他主机先发送了响应，自己就可以不再发送响应了。</li>
+</ul>
+<h3 id="多播路由选择"><a class="markdownIt-Anchor" href="#多播路由选择"></a> 多播路由选择</h3>
+<ul>
+<li>多播路由选择协议尚未标准化。</li>
+<li>一个多播组中的成员是动态变化的，随时会有主机加入或离开这个多播组。</li>
+<li>多播路由选择实际上就是要找出以源主机为根结点的多播转发树。</li>
+<li>在多播转发树上的路由器不会收到重复的多播数据报。</li>
+<li>对不同的多播组对应于不同的多播转发树。同一个多播组，对不同的源点也会有不同的多播转发树。</li>
+</ul>
+<h3 id="转发多播数据报使用的方法"><a class="markdownIt-Anchor" href="#转发多播数据报使用的方法"></a> 转发多播数据报使用的方法</h3>
+<h4 id="洪泛与剪除"><a class="markdownIt-Anchor" href="#洪泛与剪除"></a> 洪泛与剪除</h4>
+<ul>
+<li>这种方法适合于较小的多播组，而所有的组成员接入的局域网也是相邻接的。</li>
+<li>一开始，路由器转发多播数据报使用洪泛的方法（这就是广播）。为了避免兜圈子，采用了叫做<strong>反向路径广播</strong> RPB (Reverse Path Broadcasting)的策略。</li>
+</ul>
+<h5 id="rpb-的要点"><a class="markdownIt-Anchor" href="#rpb-的要点"></a> RPB 的要点</h5>
+<ul>
+<li>路由器收到多播数据报时，先检查是否从源点经最短路径传送来的。</li>
+<li>若是，就向所有其他方向转发刚才收到的多播数据报（但进入的方向除外），否则就丢弃而不转发。</li>
+<li>如果存在几条同样长度的最短路径），那么只能选择一条最短路径，选择的准则就是看这几条最短路径中的相邻路由器谁的 IP 地址最小。</li>
+</ul>
+<h4 id="反向路径广播-rpb-和剪除"><a class="markdownIt-Anchor" href="#反向路径广播-rpb-和剪除"></a> 反向路径广播 RPB 和剪除</h4>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521160952.png" alt="" /></p>
+<h4 id="隧道技术"><a class="markdownIt-Anchor" href="#隧道技术"></a> 隧道技术</h4>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521161029.png" alt="" /></p>
+<h4 id="基于核心的发现技术"><a class="markdownIt-Anchor" href="#基于核心的发现技术"></a> 基于核心的发现技术</h4>
+<ul>
+<li>这种方法对于多播组的大小在较大范围内变化时都适合。</li>
+<li>这种方法是对每一个多播组 G 指定一个<strong>核心</strong>(core)路由器，给出它的 IP 单播地址。</li>
+<li>核心路由器按照前面讲过的方法创建出对应于多播组 G 的转发树。</li>
+</ul>
+<h3 id="几种多播路由选择协议"><a class="markdownIt-Anchor" href="#几种多播路由选择协议"></a> 几种多播路由选择协议</h3>
+<ul>
+<li>距离向量多播路由选择协议 DVMRP (Distance Vector Multicast Routing Protocol)</li>
+<li>基于核心的转发树 CBT (Core Based Tree)</li>
+<li>开放最短通路优先的多播扩展 MOSPF (Multicast Extensions to OSPF)</li>
+<li>协议无关多播-稀疏方式 PIM-SM (Protocol Independent Multicast-Sparse Mode)</li>
+<li>协议无关多播-密集方式 PIM-DM (Protocol Independent Multicast-Dense Mode)</li>
+</ul>
+<h1 id="虚拟专用网-vpn-和网络地址转换-nat"><a class="markdownIt-Anchor" href="#虚拟专用网-vpn-和网络地址转换-nat"></a> 虚拟专用网 VPN 和网络地址转换 NAT</h1>
+<h2 id="虚拟专用网-vpn"><a class="markdownIt-Anchor" href="#虚拟专用网-vpn"></a> 虚拟专用网 VPN</h2>
+<ul>
+<li>本地地址——仅在机构内部使用的 IP 地址，可以由本机构自行分配，而不需要向因特网的管理机构申请。</li>
+<li>全球地址——全球唯一的IP地址，必须向因特网的管理机构申请。</li>
+</ul>
+<h3 id="rfc-1918-指明的专用地址private-address"><a class="markdownIt-Anchor" href="#rfc-1918-指明的专用地址private-address"></a> RFC 1918 指明的专用地址(private address)</h3>
+<ul>
+<li>10.0.0.0 到 10.255.255.255</li>
+<li>172.16.0.0 到 172.31.255.255</li>
+<li>192.168.0.0 到 192.168.255.255</li>
+<li>这些地址只能用于一个机构的内部通信，而不能用于和因特网上的主机通信。</li>
+<li>专用地址只能用作本地地址而不能用作全球地址。在因特网中的所有路由器对目的地址是专用地址的数据报一律不进行转发。</li>
+</ul>
+<h3 id="用隧道技术实现虚拟专用网"><a class="markdownIt-Anchor" href="#用隧道技术实现虚拟专用网"></a> 用隧道技术实现虚拟专用网</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521161756.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200521161814.png" alt="" /></p>
+<h4 id="内联网-intranet-和外联网-extranet都是基于-tcpip-协议"><a class="markdownIt-Anchor" href="#内联网-intranet-和外联网-extranet都是基于-tcpip-协议"></a> 内联网 intranet 和外联网 extranet（都是基于 TCP/IP 协议）</h4>
+<ul>
+<li>由部门 A 和 B 的内部网络所构成的虚拟专用网 VPN 又称为<strong>内联网</strong>(intranet)，表示部门 A 和 B 都是<strong>在同一个机构</strong>的内部。</li>
+<li>一个机构和某些<strong>外部机构</strong>共同建立的虚拟专用网 VPN 又称为<strong>外联网</strong>(extranet)。</li>
+</ul>
+<h4 id="远程接入vpn"><a class="markdownIt-Anchor" href="#远程接入vpn"></a> 远程接入VPN</h4>
+<ul>
+<li>有的公司可能没有分布在不同场所的部门，但有很多流动员工在外地工作。公司需要和他们保持联系，远程接入 VPN 可满足这种需求。</li>
+<li>在外地工作的员工拨号接入因特网，而驻留在员工 PC 机中的 VPN 软件可在员工的 PC 机和公司的主机之间建立 VPN 隧道，因而外地员工与公司通信的内容是保密的，员工们感到好像就是使用公司内部的本地网络。</li>
+</ul>
+<h2 id="网络地址转换-nat"><a class="markdownIt-Anchor" href="#网络地址转换-nat"></a> 网络地址转换 NAT</h2>
+<p>网络地址转换 NAT  方法于1994年提出。<br />
+需要在专用网连接到因特网的路由器上安装 NAT 软件。装有 NAT 软件的路由器叫做 NAT路由器，它至少有一个有效的外部全球地址 IPG。<br />
+所有使用本地地址的主机在和外界通信时都要在 NAT 路由器上将其本地地址转换成 IPG 才能和因特网连接。</p>
+<h3 id="网络地址转换的过程"><a class="markdownIt-Anchor" href="#网络地址转换的过程"></a> 网络地址转换的过程</h3>
+<ul>
+<li>内部主机 X 用本地地址 IPX 和因特网上主机 Y 通信所发送的数据报必须经过 NAT 路由器。</li>
+<li>NAT 路由器将数据报的源地址 IPX 转换成全球地址 IPG，但目的地址 IPY 保持不变，然后发送到因特网。</li>
+<li>NAT 路由器收到主机 Y 发回的数据报时，知道数据报中的源地址是 IPY 而目的地址是 IPG。</li>
+<li>根据 NAT 转换表，NAT 路由器将目的地址 IPG 转换为 IPX，转发给最终的内部主机 X。</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css"></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Zorua</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zoruasama.gitee.io/2020/05/21/network_3/">https://zoruasama.gitee.io/2020/05/21/network_3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zoruasama.gitee.io" target="_blank">Zorua's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a><a class="post-meta__tags" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/">互联网</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/%E5%BE%AE%E4%BF%A1.png" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.png" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/07/20/training_0/"><img class="prev_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">实训日记 | Day 01. Hello Python.</div></div></a></div><div class="next-post pull_right"><a href="/2020/05/13/database_5/"><img class="next_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">数据库原理 | 6. 关系查询处理和查询优化</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/04/19/network_0/" title="计算机网络 | 1. 计算机网络概述"><img class="relatedPosts_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-04-19</div><div class="relatedPosts_title">计算机网络 | 1. 计算机网络概述</div></div></a></div><div class="relatedPosts_item"><a href="/2020/04/20/network_1/" title="计算机网络 | 2. 物理层"><img class="relatedPosts_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-04-20</div><div class="relatedPosts_title">计算机网络 | 2. 物理层</div></div></a></div><div class="relatedPosts_item"><a href="/2020/05/02/network_2/" title="计算机网络 | 3. 数据链路层"><img class="relatedPosts_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-02</div><div class="relatedPosts_title">计算机网络 | 3. 数据链路层</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var requestSetting = function (from,set) {
+  var from = from
+  var setting = set.split(',').filter(function(item){
+  return from.indexOf(item) > -1
+  });
+  setting = setting.length == 0 ? from :setting;
+  return setting
+}
+
+var guestInfo = requestSetting(['nick','mail','link'],'nick,mail')
+var requiredFields = requestSetting(['nick','mail','link'],'nick,mail')
+
+window.valine = new Valine({
+  el:'#vcomment',
+  appId: 'YVFPT1pFRjpG5oM88rpDgyj7-MdYXbMMI',
+  appKey: 'pry5uB2QzPFBPeMcz9MzkeIz',
+  notify: true,
+  verify: true,
+  placeholder: '回复时留下邮箱便于收到回复提醒~~~\n在昵称中填入QQ号，会自动获取昵称和QQ头像哦。\n截图并粘贴，可以生成对应MD语句以上传图片。',
+  avatar: 'monsterid',
+  meta: guestInfo,
+  pageSize: '10',
+  lang: 'zh-cn',
+  recordIP: false,
+  serverURLs: '',
+  emojiCDN: 'https://valinecdn.bili33.top/',
+  emojiMaps: {
+      "bilibiliHotKey1": "bilibiliHotKey/1.jpg",
+      "bilibiliHotKey2": "bilibiliHotKey/10.jpg",
+      "bilibiliHotKey3": "bilibiliHotKey/11.jpg",
+      "bilibiliHotKey4": "bilibiliHotKey/12.jpg",
+      "bilibiliHotKey5": "bilibiliHotKey/13.jpg",
+      "bilibiliHotKey6": "bilibiliHotKey/14.jpg",
+      "bilibiliHotKey7": "bilibiliHotKey/15.jpg",
+      "bilibiliHotKey8": "bilibiliHotKey/16.jpg",
+      "bilibiliHotKey9": "bilibiliHotKey/17.jpg",
+      "bilibiliHotKey10": "bilibiliHotKey/18.jpg",
+      "bilibiliHotKey11": "bilibiliHotKey/19.jpg",
+      "bilibiliHotKey12": "bilibiliHotKey/2.jpg",
+      "bilibiliHotKey13": "bilibiliHotKey/20.jpg",
+      "bilibiliHotKey14": "bilibiliHotKey/21.jpg",
+      "bilibiliHotKey15": "bilibiliHotKey/22.jpg",
+      "bilibiliHotKey16": "bilibiliHotKey/23.jpg",
+      "bilibiliHotKey17": "bilibiliHotKey/24.jpg",
+      "bilibiliHotKey18": "bilibiliHotKey/25.jpg",
+      "bilibiliHotKey19": "bilibiliHotKey/26.jpg",
+      "bilibiliHotKey20": "bilibiliHotKey/27.jpg",
+      "bilibiliHotKey21": "bilibiliHotKey/28.jpg",
+      "bilibiliHotKey22": "bilibiliHotKey/29.jpg",
+      "bilibiliHotKey23": "bilibiliHotKey/3.jpg",
+      "bilibiliHotKey24": "bilibiliHotKey/30.jpg",
+      "bilibiliHotKey25": "bilibiliHotKey/31.jpg",
+      "bilibiliHotKey26": "bilibiliHotKey/32.jpg",
+      "bilibiliHotKey27": "bilibiliHotKey/4.jpg",
+      "bilibiliHotKey28": "bilibiliHotKey/5.jpg",
+      "bilibiliHotKey29": "bilibiliHotKey/6.jpg",
+      "bilibiliHotKey30": "bilibiliHotKey/7.jpg",
+      "bilibiliHotKey31": "bilibiliHotKey/8.jpg",
+      "bilibiliHotKey32": "bilibiliHotKey/9.jpg",
+      "alu2": "alu/不出所料.png",
+      "alu3": "alu/不说话.png",
+      "alu4": "alu/不高兴.png",
+      "alu5": "alu/中刀.png",
+      "alu6": "alu/中指.png",
+      "alu7": "alu/中枪.png",
+      "alu8": "alu/亲亲.png",
+      "alu9": "alu/便便.png",
+      "alu10": "alu/内伤.png",
+      "alu11": "alu/击掌.png",
+      "alu12": "alu/口水.png",
+      "alu13": "alu/吐.png",
+      "alu14": "alu/吐舌.png",
+      "alu15": "alu/吐血倒地.png",
+      "alu16": "alu/呲牙.png",
+      "alu17": "alu/咽气.png",
+      "alu18": "alu/哭泣.png",
+      "alu19": "alu/喜极而泣.png",
+      "alu20": "alu/喷水.png",
+      "alu21": "alu/喷血.png",
+      "alu22": "alu/坐等.png",
+      "alu23": "alu/害羞.png",
+      "alu24": "alu/小眼睛.png",
+      "alu25": "alu/尴尬.png",
+      "alu26": "alu/得意.png",
+      "alu27": "alu/惊喜.png",
+      "alu28": "alu/想一想.png",
+      "alu29": "alu/愤怒.png",
+      "alu30": "alu/扇耳光.png",
+      "alu31": "alu/投降.png",
+      "alu32": "alu/抠鼻.png",
+      "alu33": "alu/抽烟.png",
+      "alu34": "alu/无奈.png",
+      "alu35": "alu/无所谓.png",
+      "alu36": "alu/无语.png",
+      "alu37": "alu/暗地观察.png",
+      "alu38": "alu/期待.png",
+      "alu39": "alu/欢呼.png",
+      "alu40": "alu/汗.png",
+      "alu41": "alu/深思.png",
+      "alu42": "alu/狂汗.png",
+      "alu43": "alu/献花.png",
+      "alu44": "alu/献黄瓜.png",
+      "alu45": "alu/皱眉.png",
+      "alu46": "alu/看不见.png",
+      "alu47": "alu/看热闹.png",
+      "alu48": "alu/瞅你.png",
+      "alu49": "alu/肿包.png",
+      "alu50": "alu/脸红.png",
+      "alu51": "alu/蜡烛.png",
+      "alu52": "alu/装大款.png",
+      "alu53": "alu/观察.png",
+      "alu54": "alu/赞一个.png",
+      "alu55": "alu/邪恶.png",
+      "alu56": "alu/锁眉.png",
+      "alu57": "alu/长草.png",
+      "alu58": "alu/阴暗.png",
+      "alu59": "alu/高兴.png",
+      "alu60": "alu/黑线.png",
+      "alu61": "alu/鼓掌.png",
+      "bilibilitv2": "bilibilitv/[tv_doge].png",
+      "bilibilitv3": "bilibilitv/[tv_亲亲].png",
+      "bilibilitv4": "bilibilitv/[tv_偷笑].png",
+      "bilibilitv5": "bilibilitv/[tv_再见].png",
+      "bilibilitv6": "bilibilitv/[tv_冷漠].png",
+      "bilibilitv7": "bilibilitv/[tv_发怒].png",
+      "bilibilitv8": "bilibilitv/[tv_发财].png",
+      "bilibilitv9": "bilibilitv/[tv_可爱].png",
+      "bilibilitv10": "bilibilitv/[tv_吐血].png",
+      "bilibilitv11": "bilibilitv/[tv_呆].png",
+      "bilibilitv12": "bilibilitv/[tv_呕吐].png",
+      "bilibilitv13": "bilibilitv/[tv_困].png",
+      "bilibilitv14": "bilibilitv/[tv_坏笑].png",
+      "bilibilitv15": "bilibilitv/[tv_大佬].png",
+      "bilibilitv16": "bilibilitv/[tv_大哭].png",
+      "bilibilitv17": "bilibilitv/[tv_委屈].png",
+      "bilibilitv18": "bilibilitv/[tv_害羞].png",
+      "bilibilitv19": "bilibilitv/[tv_尴尬].png",
+      "bilibilitv20": "bilibilitv/[tv_微笑].png",
+      "bilibilitv21": "bilibilitv/[tv_思考].png",
+      "bilibilitv22": "bilibilitv/[tv_惊吓].png",
+      "bilibilitv23": "bilibilitv/[tv_打脸].png",
+      "bilibilitv24": "bilibilitv/[tv_抓狂].png",
+      "bilibilitv25": "bilibilitv/[tv_抠鼻].png",
+      "bilibilitv26": "bilibilitv/[tv_斜眼笑].png",
+      "bilibilitv27": "bilibilitv/[tv_无奈].png",
+      "bilibilitv28": "bilibilitv/[tv_晕].png",
+      "bilibilitv29": "bilibilitv/[tv_流汗].png",
+      "bilibilitv30": "bilibilitv/[tv_流泪].png",
+      "bilibilitv31": "bilibilitv/[tv_流鼻血].png",
+      "bilibilitv32": "bilibilitv/[tv_点赞].png",
+      "bilibilitv33": "bilibilitv/[tv_生气].png",
+      "bilibilitv34": "bilibilitv/[tv_生病].png",
+      "bilibilitv35": "bilibilitv/[tv_疑问].png",
+      "bilibilitv36": "bilibilitv/[tv_白眼].png",
+      "bilibilitv37": "bilibilitv/[tv_皱眉].png",
+      "bilibilitv38": "bilibilitv/[tv_目瞪口呆].png",
+      "bilibilitv39": "bilibilitv/[tv_睡着].png",
+      "bilibilitv40": "bilibilitv/[tv_笑哭].png",
+      "bilibilitv41": "bilibilitv/[tv_腼腆].png",
+      "bilibilitv42": "bilibilitv/[tv_色].png",
+      "bilibilitv43": "bilibilitv/[tv_调侃].png",
+      "bilibilitv44": "bilibilitv/[tv_调皮].png",
+      "bilibilitv45": "bilibilitv/[tv_鄙视].png",
+      "bilibilitv46": "bilibilitv/[tv_闭嘴].png",
+      "bilibilitv47": "bilibilitv/[tv_难过].png",
+      "bilibilitv48": "bilibilitv/[tv_馋].png",
+      "bilibilitv49": "bilibilitv/[tv_鬼脸].png",
+      "bilibilitv50": "bilibilitv/[tv_黑人问号].png",
+      "bilibilitv51": "bilibilitv/[tv_鼓掌].png",
+      "bilibili22332": "bilibili2233/[2233娘_卖萌].png",
+      "bilibili22333": "bilibili2233/[2233娘_吃惊].png",
+      "bilibili22334": "bilibili2233/[2233娘_吐魂].png",
+      "bilibili22335": "bilibili2233/[2233娘_喝水].png",
+      "bilibili22336": "bilibili2233/[2233娘_困惑].png",
+      "bilibili22337": "bilibili2233/[2233娘_大哭].png",
+      "bilibili22338": "bilibili2233/[2233娘_大笑].png",
+      "bilibili22339": "bilibili2233/[2233娘_委屈].png",
+      "bilibili223310": "bilibili2233/[2233娘_怒].png",
+      "bilibili223311": "bilibili2233/[2233娘_无言].png",
+      "bilibili223312": "bilibili2233/[2233娘_汗].png",
+      "bilibili223313": "bilibili2233/[2233娘_疑问].png",
+      "bilibili223314": "bilibili2233/[2233娘_第一].png",
+      "bilibili223315": "bilibili2233/[2233娘_耶].png",
+      "bilibili223316": "bilibili2233/[2233娘_郁闷].png",
+      "weibo2": "weibo/d_aoteman.png",
+      "weibo3": "weibo/d_baibai.png",
+      "weibo4": "weibo/d_baobao.png",
+      "weibo5": "weibo/d_beishang.png",
+      "weibo6": "weibo/d_bingbujiandan.png",
+      "weibo7": "weibo/d_bishi.png",
+      "weibo8": "weibo/d_bizui.png",
+      "weibo9": "weibo/d_chanzui.png",
+      "weibo10": "weibo/d_chigua.png",
+      "weibo11": "weibo/d_chijing.png",
+      "weibo12": "weibo/d_dahaqi.png",
+      "weibo13": "weibo/d_dalian.png",
+      "weibo14": "weibo/d_ding.png",
+      "weibo15": "weibo/d_doge.png",
+      "weibo16": "weibo/d_erha.png",
+      "weibo17": "weibo/d_feijie.png",
+      "weibo18": "weibo/d_feizao.png",
+      "weibo19": "weibo/d_ganmao.png",
+      "weibo20": "weibo/d_guile.png",
+      "weibo21": "weibo/d_guzhang.png",
+      "weibo22": "weibo/d_haha.png",
+      "weibo23": "weibo/d_haixiu.png",
+      "weibo24": "weibo/d_han.png",
+      "weibo25": "weibo/d_hehe.png",
+      "weibo26": "weibo/d_heiheihei.png",
+      "weibo27": "weibo/d_heixian.png",
+      "weibo28": "weibo/d_heng.png",
+      "weibo29": "weibo/d_huaixiao.png",
+      "weibo30": "weibo/d_huaxin.png",
+      "weibo31": "weibo/d_jiyan.png",
+      "weibo32": "weibo/d_keai.png",
+      "weibo33": "weibo/d_kelian.png",
+      "weibo34": "weibo/d_ku.png",
+      "weibo35": "weibo/d_kulou.png",
+      "weibo36": "weibo/d_kun.png",
+      "weibo37": "weibo/d_landelini.png",
+      "weibo38": "weibo/d_lang.png",
+      "weibo39": "weibo/d_lei.png",
+      "weibo40": "weibo/d_miao.png",
+      "weibo41": "weibo/d_nanhaier.png",
+      "weibo42": "weibo/d_nu.png",
+      "weibo43": "weibo/d_numa.png",
+      "weibo44": "weibo/d_nvhaier.png",
+      "weibo45": "weibo/d_qian.png",
+      "weibo46": "weibo/d_qinqin.png",
+      "weibo47": "weibo/d_shayan.png",
+      "weibo48": "weibo/d_shengbing.png",
+      "weibo49": "weibo/d_shenshou.png",
+      "weibo50": "weibo/d_shiwang.png",
+      "weibo51": "weibo/d_shuai.png",
+      "weibo52": "weibo/d_shuijiao.png",
+      "weibo53": "weibo/d_sikao.png",
+      "weibo54": "weibo/d_taikaixin.png",
+      "weibo55": "weibo/d_tanshou.png",
+      "weibo56": "weibo/d_tian.png",
+      "weibo57": "weibo/d_touxiao.png",
+      "weibo58": "weibo/d_tu.png",
+      "weibo59": "weibo/d_tuzi.png",
+      "weibo60": "weibo/d_wabishi.png",
+      "weibo61": "weibo/d_weiqu.png",
+      "weibo62": "weibo/d_wu.png",
+      "weibo63": "weibo/d_xiaoku.png",
+      "weibo64": "weibo/d_xingxingyan.png",
+      "weibo65": "weibo/d_xiongmao.png",
+      "weibo66": "weibo/d_xixi.png",
+      "weibo67": "weibo/d_xu.png",
+      "weibo68": "weibo/d_yinxian.png",
+      "weibo69": "weibo/d_yiwen.png",
+      "weibo70": "weibo/d_youhengheng.png",
+      "weibo71": "weibo/d_yun.png",
+      "weibo72": "weibo/d_yunbei.png",
+      "weibo73": "weibo/d_zhuakuang.png",
+      "weibo74": "weibo/d_zhutou.png",
+      "weibo75": "weibo/d_zuiyou.png",
+      "weibo76": "weibo/emoji_0x1f31f.png",
+      "weibo77": "weibo/emoji_0x1f349.png",
+      "weibo78": "weibo/emoji_0x1f357.png",
+      "weibo79": "weibo/emoji_0x1f384.png",
+      "weibo80": "weibo/emoji_0x1f44f.png",
+      "weibo81": "weibo/emoji_0x1f47b.png",
+      "weibo82": "weibo/emoji_0x1f47f.png",
+      "weibo83": "weibo/emoji_0x1f48a.png",
+      "weibo84": "weibo/emoji_0x1f4a3.png",
+      "weibo85": "weibo/emoji_0x1f4a9.png",
+      "weibo86": "weibo/emoji_0x1f631.png",
+      "weibo87": "weibo/emoji_0x1f643.png",
+      "weibo88": "weibo/emoji_0x1f645.png",
+      "weibo89": "weibo/emoji_0x1f648.png",
+      "weibo90": "weibo/emoji_0x1f649.png",
+      "weibo91": "weibo/emoji_0x1f64a.png",
+      "weibo92": "weibo/emoji_0x1f64b.png",
+      "weibo93": "weibo/emoji_0x1f64f.png",
+      "weibo94": "weibo/emoji_0x1f913.png",
+      "weibo95": "weibo/emoji_0x1f917.png",
+      "weibo96": "weibo/emoji_0x26a1.png",
+      "weibo97": "weibo/h_buyao.png",
+      "weibo98": "weibo/h_good.png",
+      "weibo99": "weibo/h_haha.png",
+      "weibo100": "weibo/h_jiayou.png",
+      "weibo101": "weibo/h_lai.png",
+      "weibo102": "weibo/h_ok.png",
+      "weibo103": "weibo/h_quantou.png",
+      "weibo104": "weibo/h_ruo.png",
+      "weibo105": "weibo/h_woshou.png",
+      "weibo106": "weibo/h_ye.png",
+      "weibo107": "weibo/h_zan.png",
+      "weibo108": "weibo/h_zuoyi.png",
+      "Little-Bad2": "Little-Bad/一群坏坏.jpg",
+      "Little-Bad3": "Little-Bad/中坏坏.jpg",
+      "Little-Bad4": "Little-Bad/发火的坏坏.jpg",
+      "Little-Bad5": "Little-Bad/坏坏坏.jpg",
+      "Little-Bad6": "Little-Bad/大坏坏.jpg",
+      "Little-Bad7": "Little-Bad/天使一般的坏坏.jpg",
+      "Little-Bad8": "Little-Bad/害羞坏.jpg",
+      "Little-Bad9": "Little-Bad/小坏蛋.jpg",
+      "Little-Bad10": "Little-Bad/我们一起做坏坏的事.jpg",
+      "Little-Bad11": "Little-Bad/敲板子的坏坏.gif",
+      "Little-Bad12": "Little-Bad/比地球还大的坏坏.jpg",
+      "Little-Bad13": "Little-Bad/流泪的坏坏.jpg",
+      "Little-Bad14": "Little-Bad/热炸的坏坏.jpg"
+  },
+  enableQQ: true,
+  requiredFields: requiredFields
+});</script></div></article></main><footer id="footer" style="background-image: url(https://gitee.com/zoruasama/Zorua-Pic/raw/master/spots.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Zorua</div><div class="framework-info"><span>Powered BY </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">这是我的底线。</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode far fa-moon" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@v3.0.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/search/local-search.js"></script><script>if (document.getElementsByClassName('mermaid').length) {
+  loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js',function () {
+    mermaid.initialize({
+      theme: 'default',
+  })
+})
+}</script><script src="/js/zorua.js"></script><script src="/js/hideCategory.js"></script></body></html>

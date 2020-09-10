@@ -1,0 +1,951 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>数据库原理 | 1. 概述 | Zorua's Blog</title><meta name="description" content="思维导图  概述  数据库概述  数据库的重要性 数据库是什么  数据 数据库 数据库管理系统 数据库系统   数据库的来历 数据库系统的特点   数据模型  信息世界的概念模型  基本概念 概念模型   机器世界的数据模型  数据模型 数据模型的三要素 类别 层次模型 网状模型 关系模型  关系模型的基本概念       数据库系统结构  数据库系统模式的概念 数据库系统的三级模式结构  模式"><meta name="keywords" content="数据库,数据库原理,数据,数据库管理系统,数据库系统"><meta name="author" content="Zorua"><meta name="copyright" content="Zorua"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://hm.baidu.com"/><link rel="dns-prefetch" href="https://hm.baidu.com"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="数据库原理 | 1. 概述"><meta name="twitter:description" content="思维导图  概述  数据库概述  数据库的重要性 数据库是什么  数据 数据库 数据库管理系统 数据库系统   数据库的来历 数据库系统的特点   数据模型  信息世界的概念模型  基本概念 概念模型   机器世界的数据模型  数据模型 数据模型的三要素 类别 层次模型 网状模型 关系模型  关系模型的基本概念       数据库系统结构  数据库系统模式的概念 数据库系统的三级模式结构  模式"><meta name="twitter:image" content="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png"><meta property="og:type" content="article"><meta property="og:title" content="数据库原理 | 1. 概述"><meta property="og:url" content="https://zoruasama.gitee.io/2020/04/13/database_0/"><meta property="og:site_name" content="Zorua's Blog"><meta property="og:description" content="思维导图  概述  数据库概述  数据库的重要性 数据库是什么  数据 数据库 数据库管理系统 数据库系统   数据库的来历 数据库系统的特点   数据模型  信息世界的概念模型  基本概念 概念模型   机器世界的数据模型  数据模型 数据模型的三要素 类别 层次模型 网状模型 关系模型  关系模型的基本概念       数据库系统结构  数据库系统模式的概念 数据库系统的三级模式结构  模式"><meta property="og:image" content="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png"><meta property="article:published_time" content="2020-04-13T15:20:00.000Z"><meta property="article:modified_time" content="2020-05-18T12:17:09.635Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = 'false'
+var t = Cookies.get("theme")
+if (autoChangeMode == '1'){
+  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined){
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport){
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour < 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+  }
+  } else if (t == 'light') activateLightMode()
+  else activateDarkMode()
+
+} else if (autoChangeMode == '2'){
+  now = new Date();
+  hour = now.getHours();
+  isNight = hour < 6 || hour >= 18
+  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode() 
+} else {
+  if ( t == 'dark' ) activateDarkMode()
+  else if ( t == 'light') activateLightMode()
+}
+
+function activateDarkMode(){
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
+  }
+}
+function activateLightMode(){
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null){
+  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
+  }
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="https://zoruasama.gitee.io/2020/04/13/database_0/"><link rel="prev" title="Linux入门 | 2. 终端介绍" href="https://zoruasama.gitee.io/2020/04/14/Linux_1/"><link rel="next" title="LaTeX | LaTeX基础" href="https://zoruasama.gitee.io/2020/03/30/LaTeX_0/"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?46932657b6919c7a90436ce852f93565";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://zoruasama.gitee/io/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#777777","bgDark":"#2d3035","position":"bottom-left"},
+  baiduPush: true,
+  highlightCopy: true,
+  highlightLang: true,
+  highlightShrink: 'false',
+  isFontAwesomeV5: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+  
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isSidebar: true  
+  }</script><noscript><style>
+#page-header {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/note.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/iconfont.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/hideCategory.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/buttons.min.css"><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Zorua's Blog" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/zorua.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">34</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">17</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">7</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></div></div><i class="fa fa-arrow-right on" id="toggle-sidebar" aria-hidden="true">     </i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#思维导图"><span class="toc-number">1.</span> <span class="toc-text"> 思维导图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库概述"><span class="toc-number">2.</span> <span class="toc-text"> 数据库概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的重要性"><span class="toc-number">2.1.</span> <span class="toc-text"> 数据库的重要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库是什么"><span class="toc-number">2.2.</span> <span class="toc-text"> 数据库是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据"><span class="toc-number">2.2.1.</span> <span class="toc-text"> 数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库"><span class="toc-number">2.2.2.</span> <span class="toc-text"> 数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库管理系统"><span class="toc-number">2.2.3.</span> <span class="toc-text"> 数据库管理系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库系统"><span class="toc-number">2.2.4.</span> <span class="toc-text"> 数据库系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的来历"><span class="toc-number">2.3.</span> <span class="toc-text"> 数据库的来历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库系统的特点"><span class="toc-number">2.4.</span> <span class="toc-text"> 数据库系统的特点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据模型"><span class="toc-number">3.</span> <span class="toc-text"> 数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#信息世界的概念模型"><span class="toc-number">3.1.</span> <span class="toc-text"> 信息世界的概念模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念"><span class="toc-number">3.1.1.</span> <span class="toc-text"> 基本概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概念模型"><span class="toc-number">3.1.2.</span> <span class="toc-text"> 概念模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#机器世界的数据模型"><span class="toc-number">3.2.</span> <span class="toc-text"> 机器世界的数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据模型-2"><span class="toc-number">3.2.1.</span> <span class="toc-text"> 数据模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据模型的三要素"><span class="toc-number">3.2.2.</span> <span class="toc-text"> 数据模型的三要素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类别"><span class="toc-number">3.2.3.</span> <span class="toc-text"> 类别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#层次模型"><span class="toc-number">3.2.4.</span> <span class="toc-text"> 层次模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网状模型"><span class="toc-number">3.2.5.</span> <span class="toc-text"> 网状模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关系模型"><span class="toc-number">3.2.6.</span> <span class="toc-text"> 关系模型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关系模型的基本概念"><span class="toc-number">3.2.6.1.</span> <span class="toc-text"> 关系模型的基本概念</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库系统结构"><span class="toc-number">4.</span> <span class="toc-text"> 数据库系统结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库系统模式的概念"><span class="toc-number">4.1.</span> <span class="toc-text"> 数据库系统模式的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库系统的三级模式结构"><span class="toc-number">4.2.</span> <span class="toc-text"> 数据库系统的三级模式结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#模式"><span class="toc-number">4.2.1.</span> <span class="toc-text"> 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外模式"><span class="toc-number">4.2.2.</span> <span class="toc-text"> 外模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内模式"><span class="toc-number">4.2.3.</span> <span class="toc-text"> 内模式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库的二级映像功能与数据独立性"><span class="toc-number">4.3.</span> <span class="toc-text"> 数据库的二级映像功能与数据独立性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三级模式与二级映像"><span class="toc-number">4.3.1.</span> <span class="toc-text"> 三级模式与二级映像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#外模式模式映像"><span class="toc-number">4.3.2.</span> <span class="toc-text"> 外模式&#x2F;模式映像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模式内模式映像"><span class="toc-number">4.3.3.</span> <span class="toc-text"> 模式&#x2F;内模式映像</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#练习题"><span class="toc-number">5.</span> <span class="toc-text"> 练习题</span></a></li></ol></div></div></div><div id="body-wrap"><div class="post-bg" id="nav" style="background-image: url(https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/img/shujuku/top.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Zorua's Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="post-info"><div id="post-title"><div class="posttitle">数据库原理 | 1. 概述</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-13 23:20:00"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2020-04-13</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-18 20:17:09"><i class="fa fa-history" aria-hidden="true"></i> 更新于 2020-05-18</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></span></div><div class="meta-secondline"> <span class="post-meta-wordcount"><i class="post-meta__icon far fa-file-word" aria-hidden="true"></i><span>字数总计:</span><span class="word-count">3.8k</span><span class="post-meta__separator">|</span><i class="post-meta__icon far fa-clock" aria-hidden="true"></i><span>阅读时长: 11 分钟</span></span></div><div class="meta-thirdline"><span class="post-meta-pv-cv"><span class="post-meta__separator">|</span><i class="fa fa-eye post-meta__icon" aria-hidden="true"> </i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"><span class="post-meta__separator">|</span><i class="post-meta__icon far fa-comments" aria-hidden="true"></i><span>评论数:</span><a href="/2020/04/13/database_0/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/2020/04/13/database_0/" itemprop="commentCount"></span></a></span></div></div></div></div><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
+<blockquote class="pullquote mindmap mindmap-md"><ul>
+<li>概述
+<ul>
+<li>数据库概述
+<ul>
+<li>数据库的重要性</li>
+<li>数据库是什么
+<ul>
+<li>数据</li>
+<li>数据库</li>
+<li>数据库管理系统</li>
+<li>数据库系统</li>
+</ul>
+</li>
+<li>数据库的来历</li>
+<li>数据库系统的特点</li>
+</ul>
+</li>
+<li>数据模型
+<ul>
+<li>信息世界的概念模型
+<ul>
+<li>基本概念</li>
+<li>概念模型</li>
+</ul>
+</li>
+<li>机器世界的数据模型
+<ul>
+<li>数据模型</li>
+<li>数据模型的三要素</li>
+<li>类别</li>
+<li>层次模型</li>
+<li>网状模型</li>
+<li>关系模型
+<ul>
+<li>关系模型的基本概念</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据库系统结构
+<ul>
+<li>数据库系统模式的概念</li>
+<li>数据库系统的三级模式结构
+<ul>
+<li>模式</li>
+<li>外模式</li>
+<li>内模式</li>
+</ul>
+</li>
+<li>数据库的二级映像功能与数据独立性
+<ul>
+<li>三级模式与二级映像</li>
+<li>外模式/模式映像</li>
+<li>模式/内模式映像</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h1 id="数据库概述"><a class="markdownIt-Anchor" href="#数据库概述"></a> 数据库概述</h1>
+<h2 id="数据库的重要性"><a class="markdownIt-Anchor" href="#数据库的重要性"></a> 数据库的重要性</h2>
+<p>如果把计算机分为如下几个层次：</p>
+<ul>
+<li>软件产品</li>
+<li>应用软件平台——协同软件、办公软件……</li>
+<li>软件基础构架平台——中间件、应用基础服务器……</li>
+<li>基础软件平台——数据库系统、操作系统……</li>
+<li>硬件平台</li>
+</ul>
+<p>因此数据库系统的地位与操作系统相当。</p>
+<ul>
+<li>数据库技术产生于六十年代末，是数据管理的有效技术，是计算机科学的重要分支</li>
+<li>数据库技术是信息系统的核心和基础，它的出现极大地促进了计算机应用向各行各业的渗透</li>
+<li>数据库的建设规模、数据库信息量的大小和使用频度已成为衡量<strong>一个国家信息化程度</strong>的重要标志</li>
+</ul>
+<h2 id="数据库是什么"><a class="markdownIt-Anchor" href="#数据库是什么"></a> 数据库是什么</h2>
+<p>引入下列四个名词：</p>
+<ul>
+<li>数据 Data</li>
+<li>数据库 DataBase</li>
+<li>数据库管理系统 DBMS</li>
+<li>数据库系统 DBS</li>
+</ul>
+<h3 id="数据"><a class="markdownIt-Anchor" href="#数据"></a> 数据</h3>
+<p><strong>数据（Data）</strong> 是数据库中存储的基本对象。</p>
+<ul>
+<li>定义：描述事物的符号记录</li>
+<li>种类：数字、文字、图形、图像、声音</li>
+<li>特点：<strong>与其语义是不可分的</strong></li>
+</ul>
+<p>对于其特点，举一个例子:</p>
+<blockquote>
+<p>学生档案中有一个学生记录record<br />
+（李明，男，199605，浙江省杭州市，计算机科学与技术专业，2014）</p>
+</blockquote>
+<p><strong>数据的形式不能完全表达其内容。</strong><br />
+例如其中的浙江省杭州市，可以理解为现居住地，也可以理解为籍贯，凭主观直接理解，可能会产生歧义。<br />
+如果引入<strong>语义</strong>：</p>
+<ul>
+<li>语义：学生姓名、性别、出生年月、籍贯、所在系别、入学时间</li>
+<li>解释：李明是个大学生，1996年出生，杭州人，2014年考入计算机科学与技术专业</li>
+</ul>
+<h3 id="数据库"><a class="markdownIt-Anchor" href="#数据库"></a> 数据库</h3>
+<p>人们收集并抽取一个应用所需要的大量数据之后，应将其保存起来以供进一步加工处理，进一步抽取有用信息。</p>
+<ul>
+<li>定义：数据库（Database，简称DB）是<strong>长期</strong>储存在计算机内、<strong>有组织的</strong>、<strong>可共享</strong>的<strong>大量</strong>数据集合。</li>
+</ul>
+<h3 id="数据库管理系统"><a class="markdownIt-Anchor" href="#数据库管理系统"></a> 数据库管理系统</h3>
+<p>数据管理系统（DataBase Management System，简称DBMS）是位于用户与操作系统之间的一层数据管理软件。</p>
+<ul>
+<li>用途：科学地<strong>组织</strong>和<strong>存储</strong>数据、高效地<strong>获取</strong>和<strong>维护</strong>数据。</li>
+<li>主要功能：
+<ul>
+<li>数据定义功能</li>
+<li>数据操纵功能</li>
+<li>数据库的运行管理</li>
+<li>数据库的建立和维护</li>
+</ul>
+</li>
+</ul>
+<h3 id="数据库系统"><a class="markdownIt-Anchor" href="#数据库系统"></a> 数据库系统</h3>
+<ul>
+<li>数据库系统(DatabaseSystem，简称DBS)是指在计算机系统中引入数据库后的系统构成。</li>
+<li>在不引起混淆的情况下常常把数据库系统简称为数据库。<br />
+数据库系统由<strong>数据库、数据库管理系统(及其开发工具)、应用系统、数据库管理员(和用户)构成</strong>。</li>
+</ul>
+<h2 id="数据库的来历"><a class="markdownIt-Anchor" href="#数据库的来历"></a> 数据库的来历</h2>
+<p>数据库技术是数据管理的一个发展阶段，是最有效的<strong>数据管理</strong>方式。<br />
+数据管理：对数据进行分类、组织、编码、存储、检索和维护，是数据处理的中心问题。<br />
+数据管理技术的发展：</p>
+<ul>
+<li>人工管理阶段（40年代中——50年代中）</li>
+<li>文件系统阶段（50年代末——60年代中）</li>
+<li>数据库系统阶段（60年代末——现在）</li>
+</ul>
+<h2 id="数据库系统的特点"><a class="markdownIt-Anchor" href="#数据库系统的特点"></a> 数据库系统的特点</h2>
+<ul>
+<li>数据结构化
+<ul>
+<li>数据模型</li>
+</ul>
+</li>
+<li>数据独立性
+<ul>
+<li>逻辑独立性</li>
+<li>物理独立性</li>
+</ul>
+</li>
+<li>数据共享性
+<ul>
+<li>共享性高</li>
+<li>冗余度低</li>
+<li>易扩充</li>
+</ul>
+</li>
+<li>数据的统一管理和控制
+<ul>
+<li>通过DBMS</li>
+</ul>
+</li>
+</ul>
+<h1 id="数据模型"><a class="markdownIt-Anchor" href="#数据模型"></a> 数据模型</h1>
+<p>信息循环经历了三个领域：</p>
+<ul>
+<li>现实世界</li>
+<li>信息世界（概念模型）</li>
+<li>计算机世界（逻辑模型和物理模型）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>现实世界</th>
+<th>信息世界</th>
+<th>计算机世界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>个体</td>
+<td>实体</td>
+<td>记录</td>
+</tr>
+<tr>
+<td>特征</td>
+<td>属性</td>
+<td>数据项</td>
+</tr>
+<tr>
+<td>总体</td>
+<td>实体集</td>
+<td>文件</td>
+</tr>
+<tr>
+<td>事物及其联系</td>
+<td>实体模型</td>
+<td>数据模型</td>
+</tr>
+</tbody>
+</table>
+<p>在数据库中用数据模型这个工具来<strong>抽象、表示和处理</strong>现实世界中的数据和信息。通俗地讲<strong>数据模型</strong>就是现实世界的模拟。</p>
+<p>数据模型分成两个不同的层次</p>
+<ol>
+<li>概念模型（信息模型）<br />
+是按用户的观点来对数据和信息建模。</li>
+<li>数据模型（逻辑模型）<br />
+主要包括网状模型、层次模型、关系模型等，它是按计算机系统的观点对数据建模。</li>
+</ol>
+<h2 id="信息世界的概念模型"><a class="markdownIt-Anchor" href="#信息世界的概念模型"></a> 信息世界的概念模型</h2>
+<h3 id="基本概念"><a class="markdownIt-Anchor" href="#基本概念"></a> 基本概念</h3>
+<ul>
+<li>实体（Entity）<br />
+客观存在并可相互区别的事物称为实体。可以是具体的人、事、物或抽象的概念。</li>
+<li>属性（Attribute）<br />
+实体所具有的某一特性称为属性。一个实体可以由若干个属性来刻画。</li>
+<li>码（Key）<br />
+唯一标识实体的属性称为码。</li>
+<li>域（Domain）<br />
+属性的取值范围称为该属性的域。</li>
+<li>实体型（Entity Type）<br />
+用实体名及其属性名集合来抽象和刻画同类实体称为实体型。</li>
+<li>实体集（Entity Set）<br />
+同型实体的集合称为实体集。</li>
+</ul>
+<h3 id="概念模型"><a class="markdownIt-Anchor" href="#概念模型"></a> 概念模型</h3>
+<ul>
+<li>用户的观点表达世界。</li>
+<li>较强的语义表达能力，能够方便、直接地表达应用中的各种语义知识。</li>
+<li>简单、清晰、易于用户理解</li>
+<li>主要用于数据库设计。</li>
+</ul>
+<p>概念模型的表示方法：实体—联系方法（E-R方法）</p>
+<p>E-R模型的图形要素：</p>
+<ul>
+<li>实体型——矩形框</li>
+<li>属性——椭圆形框</li>
+<li>联系——菱形框</li>
+</ul>
+<h2 id="机器世界的数据模型"><a class="markdownIt-Anchor" href="#机器世界的数据模型"></a> 机器世界的数据模型</h2>
+<h3 id="数据模型-2"><a class="markdownIt-Anchor" href="#数据模型-2"></a> 数据模型</h3>
+<ul>
+<li>数据库系统的核心与基础。DBMS都是基于某种数据模型的或是支持某种数据模型的。</li>
+<li>用计算机的观点描述现实世界。</li>
+<li>主要用于数据库管理系统的实现。</li>
+<li>可以细分为逻辑模型和物理模型。</li>
+</ul>
+<h3 id="数据模型的三要素"><a class="markdownIt-Anchor" href="#数据模型的三要素"></a> 数据模型的三要素</h3>
+<ul>
+<li>数据结构<br />
+描述数据库的组成对象以及对象之间的联系。</li>
+<li>数据操纵<br />
+数据库中各种对象的实例允许执行的操作的集合(操作及规则)。</li>
+<li>数据完整性约束<br />
+给定的数据模型中数据及其联系所具有的制约和依存规则。</li>
+</ul>
+<h3 id="类别"><a class="markdownIt-Anchor" href="#类别"></a> 类别</h3>
+<ul>
+<li><strong>层次模型</strong></li>
+<li><strong>网状模型</strong></li>
+<li><strong>关系模型</strong></li>
+<li>面向对象数据模型</li>
+<li>对象关系数据模型</li>
+<li>半结构化数据模型</li>
+<li>……</li>
+</ul>
+<p>下文对前三个模型进行展开详述。</p>
+<h3 id="层次模型"><a class="markdownIt-Anchor" href="#层次模型"></a> 层次模型</h3>
+<ul>
+<li>
+<p>数据结构</p>
+<ul>
+<li>有且只有一个结点没有双亲节点，即为根节点。</li>
+<li>根以外的其他结点有且只有一个双亲结点</li>
+</ul>
+</li>
+<li>
+<p>数据操纵</p>
+<ul>
+<li>支持查询、插入、删除、修改操作</li>
+<li>任何一个给定的记录值只能按其层次路径查看</li>
+</ul>
+</li>
+<li>
+<p>数据完整性约束</p>
+<ul>
+<li>增删改查操作时要满足层次模型的完整性约束条件</li>
+<li>双亲结点值与子女结点值的操作会产生关联和影响</li>
+</ul>
+</li>
+<li>
+<p>优点</p>
+<ul>
+<li>数据结构简单清晰</li>
+<li>层次数据库查询效率高，效率优于关系模型</li>
+<li>提供了良好的完整性支持</li>
+</ul>
+</li>
+<li>
+<p>缺点</p>
+<ul>
+<li>对现实世界的非层次性联系(如多对多联系)不适合</li>
+<li>查询子女结点必须通过双亲结点</li>
+<li>结构严密，因此命令趋于程序化</li>
+</ul>
+</li>
+</ul>
+<h3 id="网状模型"><a class="markdownIt-Anchor" href="#网状模型"></a> 网状模型</h3>
+<ul>
+<li>数据结构
+<ul>
+<li>允许一个以上的节点无双亲</li>
+<li>一个结点可以有多于一个的双亲</li>
+</ul>
+</li>
+<li>数据操作
+<ul>
+<li>支持增删改查操作</li>
+<li>访问数据时必须选择适当的存取路径</li>
+</ul>
+</li>
+<li>数据完整性约束
+<ul>
+<li>支持记录码的概念</li>
+<li>保证一个联系中双亲记录和子女记录之间是一对多的联系</li>
+<li>支持双亲记录和子女记录之间的约束条件</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>优点
+<ul>
+<li>更为直接地描述现实世界</li>
+<li>具有良好的性能，存取效率高</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>结构复杂，随着应用环境扩大，数据库结构会更加复杂，不易于掌握</li>
+<li>DDL、DML复杂，用户不易掌握、不易使用</li>
+<li>记录间联系通过存取路径实现，用户需了解系统结构细节，编程负担重</li>
+</ul>
+</li>
+</ul>
+<h3 id="关系模型"><a class="markdownIt-Anchor" href="#关系模型"></a> 关系模型</h3>
+<ul>
+<li>数据结构
+<ul>
+<li>表(二维表)</li>
+<li>建立在严格的数据概念基础上</li>
+</ul>
+</li>
+<li>数据操作
+<ul>
+<li>支持增删改查操作</li>
+<li>面向集合的操作，操作对象和结果都是关系</li>
+<li>存取路径向用户隐蔽</li>
+</ul>
+</li>
+<li>数据完整性约束
+<ul>
+<li>实体完整性</li>
+<li>参照完整性</li>
+<li>用户定义的完整性</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>优点
+<ul>
+<li>关系模型建立在严格的数据概念基础上</li>
+<li>关系模型概念单-一，既可以表示实体也可以表示联系</li>
+<li>存取路径对用户透明，数据独立性更高、安全保密性更好，程序员工作简化</li>
+</ul>
+</li>
+<li>缺点
+<ul>
+<li>查询效率上不如格式化数据模型——DBMS查询优化</li>
+</ul>
+</li>
+</ul>
+<h4 id="关系模型的基本概念"><a class="markdownIt-Anchor" href="#关系模型的基本概念"></a> 关系模型的基本概念</h4>
+<ul>
+<li>关系（Relation）<br />
+一个关系对应通常说的一张表。</li>
+<li>元组（Tuple）<br />
+表中的一行即为-一个元组。</li>
+<li>属性（Attribute）<br />
+表中的一列即为一个属性，给每一个属性起一个名称即属性名。</li>
+<li>码(Key) (等同于候选码)<br />
+表中的某个属性组，它可以唯一确定一个元组。</li>
+<li>域(Domain )<br />
+属性的取值范围。</li>
+<li>分量<br />
+元组中的一个属性值。</li>
+<li>关系模式<br />
+对关系的描述<br />
+关系名(属性1，属性2,……,属性n)<br />
+学生(学号，姓名，年龄，性别，系，年级)</li>
+</ul>
+<h1 id="数据库系统结构"><a class="markdownIt-Anchor" href="#数据库系统结构"></a> 数据库系统结构</h1>
+<p>之前提过数据库系统具备数据独立性。是什么引起其数据独立性呢？这需要从数据库系统结构谈起。</p>
+<ul>
+<li>数据库系统内部的模式结构<br />
+从数据库管理系统角度看<br />
+分为<strong>外模式、模式、内模式</strong>。</li>
+<li>数据库系统外部的模式结构<br />
+从数据库最终用户角度看<br />
+单用户、主从式、分布式、客户/服务器、浏览器/应用服务器/数据库服务器……</li>
+</ul>
+<h2 id="数据库系统模式的概念"><a class="markdownIt-Anchor" href="#数据库系统模式的概念"></a> 数据库系统模式的概念</h2>
+<ul>
+<li><strong>型</strong>和<strong>值</strong>的概念</li>
+</ul>
+<ul>
+<li>型（Type）<br />
+对某一类数据的结构和属性的说明</li>
+<li>值（Value)<br />
+是型的一个具体赋值</li>
+</ul>
+<p>例如：学生记录</p>
+<ul>
+<li>
+<p>记录型：<br />
+(学号，姓名，性别，系别，年龄，籍贯)</p>
+</li>
+<li>
+<p>该记录型的一个记录值：<br />
+( 2017061161，李明，男，计算机，22， 江苏)</p>
+</li>
+<li>
+<p>模式(Schema)</p>
+<ul>
+<li>数据库逻辑结构和特征的描述</li>
+<li>是型的描述</li>
+<li>反映的是数据的结构及其联系</li>
+<li>模式是相对稳定的</li>
+</ul>
+</li>
+<li>
+<p>模式的一个实例（Instance）</p>
+<ul>
+<li>模式的一个具体值</li>
+<li>反映数据库某一时刻的状态</li>
+<li>同一个模式可以有很多实例</li>
+<li>实例随数据库中的数据的更新而变动</li>
+</ul>
+</li>
+</ul>
+<h2 id="数据库系统的三级模式结构"><a class="markdownIt-Anchor" href="#数据库系统的三级模式结构"></a> 数据库系统的三级模式结构</h2>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/img/shujuku/%E6%A8%A1%E5%BC%8F.png" alt="" /></p>
+<h3 id="模式"><a class="markdownIt-Anchor" href="#模式"></a> 模式</h3>
+<ul>
+<li>模式（也称逻辑模式）
+<ul>
+<li>数据库中全体数据的逻辑结构和特征的描述</li>
+<li>所有用户的公共数据视图，综合了所有用户的需求</li>
+</ul>
+</li>
+<li>模式的地位：是数据库系统模式结构的中间层
+<ul>
+<li>与数据的物理存储细节和硬件环境无关</li>
+</ul>
+</li>
+</ul>
+<p>一个数据库只有一个模式。</p>
+<h3 id="外模式"><a class="markdownIt-Anchor" href="#外模式"></a> 外模式</h3>
+<p>外模式（也称子模式或用户模式）</p>
+<ul>
+<li>数据库用户(包括应用程序员和最终用户)使用的<strong>局部</strong>数据的逻辑结构和特征的描述</li>
+<li>数据库用户的数据视图，是与某一应用有关的数据的逻辑表示</li>
+</ul>
+<h3 id="内模式"><a class="markdownIt-Anchor" href="#内模式"></a> 内模式</h3>
+<ul>
+<li>内模式(也称存储模式)
+<ul>
+<li>是数据物理结构和存储方式的描述</li>
+<li>是数据在数据库内部的表示方式
+<ul>
+<li>记录的存储方式(顺序存储，按照B树结构存储，按hash方法存储)</li>
+<li>索引的组织方式</li>
+<li>数据是否压缩存储</li>
+<li>数据是否加密</li>
+<li>数据存储记录结构的规定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>一个数据库只有一个内模式。</p>
+<h2 id="数据库的二级映像功能与数据独立性"><a class="markdownIt-Anchor" href="#数据库的二级映像功能与数据独立性"></a> 数据库的二级映像功能与数据独立性</h2>
+<h3 id="三级模式与二级映像"><a class="markdownIt-Anchor" href="#三级模式与二级映像"></a> 三级模式与二级映像</h3>
+<ul>
+<li>
+<p>三级模式是对数据的三个抽象级别</p>
+</li>
+<li>
+<p>二级映象在DBMS内部实现这三个抽象层次的联系和转换</p>
+</li>
+<li>
+<p>外模式/模式映像</p>
+</li>
+<li>
+<p>模式/内模式映像</p>
+</li>
+</ul>
+<h3 id="外模式模式映像"><a class="markdownIt-Anchor" href="#外模式模式映像"></a> 外模式/模式映像</h3>
+<ul>
+<li>定义外模式与模式之间的对应关系</li>
+<li>每一个外模式都对应一个外模式/模式映象</li>
+<li>映象定义通常包含在各自外模式的描述中</li>
+</ul>
+<p>外模式/模式映像能够保证数据的<strong>逻辑独立性</strong>：</p>
+<ul>
+<li>当模式改变时，数据库管理员修改有关的外模式/模式映象，使<br />
+外模式保持不变</li>
+<li>应用程序是依据数据的外模式编写的，从而应用程序不必修改，保证了数据与程序的逻辑独立性，简称数据的逻辑独立性。</li>
+</ul>
+<h3 id="模式内模式映像"><a class="markdownIt-Anchor" href="#模式内模式映像"></a> 模式/内模式映像</h3>
+<ul>
+<li>模式/内模式映象定义了数据全局逻辑结构与存储结构之间的对应关系。<br />
+例如，说明逻辑记录和字段在内部是如何表示的</li>
+<li>数据库中模式/内模式映象是唯一的</li>
+<li>该映象定义通常包含在模式描述中</li>
+</ul>
+<p>模式/内模式映像能够保证数据的<strong>物理独立性</strong>：</p>
+<ul>
+<li>当数据库的存储结构改变了（例如选用了另一种存储结构），数据库管理员修改模式/内模式映象，使模式保持不变</li>
+<li>应用程序不受影响。保证了数据与程序的物理独立性，简称数据的物理独立性。</li>
+</ul>
+<h1 id="练习题"><a class="markdownIt-Anchor" href="#练习题"></a> 练习题</h1>
+<div class="note success">
+            <ul><li><p>信息世界下的数据模型是（   <span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">C</span></span>  ）<br />A. 网状模型<br />B. 层次模型<br />C. 概念模型<br />D. 逻辑模型</p></li><li><p>在数据库管理技术发展的三阶段中，没有专门的软件对数据进行管理的是（<span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">D</span></span> ）</p><ol><li>人工管理阶段</li><li>文件系统阶段</li><li>数据库阶段</li></ol><p>A. 1和2<br />B. 只有2<br />C. 2和3<br />D. 只有1</p></li><li><p>DB、DBS、DBMS之间的关系是（<span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">A</span></span> ）<br />A. DBS包括DB和DBMS<br />B. DBMS包括DBIDBS<br />C. DB包括DBS和DBMNS<br />D. DBS就是DB，也就是DBMS</p></li><li><p>在E-R图中，用来表示属性的图形是（  <span class="hide-inline"><a class="hide-button button--primary button--animated" style="background-color: #FF7242;color: #fff">查看答案<br /></a><span class="hide-content">B</span></span>）<br />A. 矩形<br />B. 椭圆形<br />C. 菱形<br />D. 平行四边形</p></li></ul>
+          </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css"></div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Zorua</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zoruasama.gitee.io/2020/04/13/database_0/">https://zoruasama.gitee.io/2020/04/13/database_0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zoruasama.gitee.io" target="_blank">Zorua's Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" data-sites="wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"/><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button button--primary button--animated"> <i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="post-qr-code__img" src="/img/%E5%BE%AE%E4%BF%A1.png" alt="微信"/><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="post-qr-code__img" src="/img/%E6%94%AF%E4%BB%98%E5%AE%9D.png" alt="支付寶"/><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull_left"><a href="/2020/04/14/Linux_1/"><img class="prev_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/linux.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Linux入门 | 2. 终端介绍</div></div></a></div><div class="next-post pull_right"><a href="/2020/03/30/LaTeX_0/"><img class="next_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/latex.png" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">LaTeX | LaTeX基础</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-fw fa-thumbs-up" aria-hidden="true"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2020/04/18/database_1/" title="数据库原理 | 2. 关系数据库"><img class="relatedPosts_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-04-18</div><div class="relatedPosts_title">数据库原理 | 2. 关系数据库</div></div></a></div><div class="relatedPosts_item"><a href="/2020/05/13/database_4/" title="数据库原理 | 5. 数据库完整性"><img class="relatedPosts_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-13</div><div class="relatedPosts_title">数据库原理 | 5. 数据库完整性</div></div></a></div><div class="relatedPosts_item"><a href="/2020/05/12/database_2/" title="数据库原理 | 3. 关系数据库标准语言SQL"><img class="relatedPosts_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-12</div><div class="relatedPosts_title">数据库原理 | 3. 关系数据库标准语言SQL</div></div></a></div><div class="relatedPosts_item"><a href="/2020/05/13/database_3/" title="数据库原理 | 4. 数据库安全性"><img class="relatedPosts_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-13</div><div class="relatedPosts_title">数据库原理 | 4. 数据库安全性</div></div></a></div><div class="relatedPosts_item"><a href="/2020/05/13/database_5/" title="数据库原理 | 6. 关系查询处理和查询优化"><img class="relatedPosts_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-05-13</div><div class="relatedPosts_title">数据库原理 | 6. 关系查询处理和查询优化</div></div></a></div><div class="relatedPosts_item"><a href="/2020/09/07/database_6/" title="数据库原理 | 7. 关系数据理论"><img class="relatedPosts_cover" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="fa fa-calendar fa-fw" aria-hidden="true"></i> 2020-09-07</div><div class="relatedPosts_title">数据库原理 | 7. 关系数据理论</div></div></a></div></div><div class="clear_both"></div></div><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> 评论</span></div><div class="vcomment" id="vcomment"></div><script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script><script>var requestSetting = function (from,set) {
+  var from = from
+  var setting = set.split(',').filter(function(item){
+  return from.indexOf(item) > -1
+  });
+  setting = setting.length == 0 ? from :setting;
+  return setting
+}
+
+var guestInfo = requestSetting(['nick','mail','link'],'nick,mail')
+var requiredFields = requestSetting(['nick','mail','link'],'nick,mail')
+
+window.valine = new Valine({
+  el:'#vcomment',
+  appId: 'YVFPT1pFRjpG5oM88rpDgyj7-MdYXbMMI',
+  appKey: 'pry5uB2QzPFBPeMcz9MzkeIz',
+  notify: true,
+  verify: true,
+  placeholder: '回复时留下邮箱便于收到回复提醒~~~\n在昵称中填入QQ号，会自动获取昵称和QQ头像哦。\n截图并粘贴，可以生成对应MD语句以上传图片。',
+  avatar: 'monsterid',
+  meta: guestInfo,
+  pageSize: '10',
+  lang: 'zh-cn',
+  recordIP: false,
+  serverURLs: '',
+  emojiCDN: 'https://valinecdn.bili33.top/',
+  emojiMaps: {
+      "bilibiliHotKey1": "bilibiliHotKey/1.jpg",
+      "bilibiliHotKey2": "bilibiliHotKey/10.jpg",
+      "bilibiliHotKey3": "bilibiliHotKey/11.jpg",
+      "bilibiliHotKey4": "bilibiliHotKey/12.jpg",
+      "bilibiliHotKey5": "bilibiliHotKey/13.jpg",
+      "bilibiliHotKey6": "bilibiliHotKey/14.jpg",
+      "bilibiliHotKey7": "bilibiliHotKey/15.jpg",
+      "bilibiliHotKey8": "bilibiliHotKey/16.jpg",
+      "bilibiliHotKey9": "bilibiliHotKey/17.jpg",
+      "bilibiliHotKey10": "bilibiliHotKey/18.jpg",
+      "bilibiliHotKey11": "bilibiliHotKey/19.jpg",
+      "bilibiliHotKey12": "bilibiliHotKey/2.jpg",
+      "bilibiliHotKey13": "bilibiliHotKey/20.jpg",
+      "bilibiliHotKey14": "bilibiliHotKey/21.jpg",
+      "bilibiliHotKey15": "bilibiliHotKey/22.jpg",
+      "bilibiliHotKey16": "bilibiliHotKey/23.jpg",
+      "bilibiliHotKey17": "bilibiliHotKey/24.jpg",
+      "bilibiliHotKey18": "bilibiliHotKey/25.jpg",
+      "bilibiliHotKey19": "bilibiliHotKey/26.jpg",
+      "bilibiliHotKey20": "bilibiliHotKey/27.jpg",
+      "bilibiliHotKey21": "bilibiliHotKey/28.jpg",
+      "bilibiliHotKey22": "bilibiliHotKey/29.jpg",
+      "bilibiliHotKey23": "bilibiliHotKey/3.jpg",
+      "bilibiliHotKey24": "bilibiliHotKey/30.jpg",
+      "bilibiliHotKey25": "bilibiliHotKey/31.jpg",
+      "bilibiliHotKey26": "bilibiliHotKey/32.jpg",
+      "bilibiliHotKey27": "bilibiliHotKey/4.jpg",
+      "bilibiliHotKey28": "bilibiliHotKey/5.jpg",
+      "bilibiliHotKey29": "bilibiliHotKey/6.jpg",
+      "bilibiliHotKey30": "bilibiliHotKey/7.jpg",
+      "bilibiliHotKey31": "bilibiliHotKey/8.jpg",
+      "bilibiliHotKey32": "bilibiliHotKey/9.jpg",
+      "alu2": "alu/不出所料.png",
+      "alu3": "alu/不说话.png",
+      "alu4": "alu/不高兴.png",
+      "alu5": "alu/中刀.png",
+      "alu6": "alu/中指.png",
+      "alu7": "alu/中枪.png",
+      "alu8": "alu/亲亲.png",
+      "alu9": "alu/便便.png",
+      "alu10": "alu/内伤.png",
+      "alu11": "alu/击掌.png",
+      "alu12": "alu/口水.png",
+      "alu13": "alu/吐.png",
+      "alu14": "alu/吐舌.png",
+      "alu15": "alu/吐血倒地.png",
+      "alu16": "alu/呲牙.png",
+      "alu17": "alu/咽气.png",
+      "alu18": "alu/哭泣.png",
+      "alu19": "alu/喜极而泣.png",
+      "alu20": "alu/喷水.png",
+      "alu21": "alu/喷血.png",
+      "alu22": "alu/坐等.png",
+      "alu23": "alu/害羞.png",
+      "alu24": "alu/小眼睛.png",
+      "alu25": "alu/尴尬.png",
+      "alu26": "alu/得意.png",
+      "alu27": "alu/惊喜.png",
+      "alu28": "alu/想一想.png",
+      "alu29": "alu/愤怒.png",
+      "alu30": "alu/扇耳光.png",
+      "alu31": "alu/投降.png",
+      "alu32": "alu/抠鼻.png",
+      "alu33": "alu/抽烟.png",
+      "alu34": "alu/无奈.png",
+      "alu35": "alu/无所谓.png",
+      "alu36": "alu/无语.png",
+      "alu37": "alu/暗地观察.png",
+      "alu38": "alu/期待.png",
+      "alu39": "alu/欢呼.png",
+      "alu40": "alu/汗.png",
+      "alu41": "alu/深思.png",
+      "alu42": "alu/狂汗.png",
+      "alu43": "alu/献花.png",
+      "alu44": "alu/献黄瓜.png",
+      "alu45": "alu/皱眉.png",
+      "alu46": "alu/看不见.png",
+      "alu47": "alu/看热闹.png",
+      "alu48": "alu/瞅你.png",
+      "alu49": "alu/肿包.png",
+      "alu50": "alu/脸红.png",
+      "alu51": "alu/蜡烛.png",
+      "alu52": "alu/装大款.png",
+      "alu53": "alu/观察.png",
+      "alu54": "alu/赞一个.png",
+      "alu55": "alu/邪恶.png",
+      "alu56": "alu/锁眉.png",
+      "alu57": "alu/长草.png",
+      "alu58": "alu/阴暗.png",
+      "alu59": "alu/高兴.png",
+      "alu60": "alu/黑线.png",
+      "alu61": "alu/鼓掌.png",
+      "bilibilitv2": "bilibilitv/[tv_doge].png",
+      "bilibilitv3": "bilibilitv/[tv_亲亲].png",
+      "bilibilitv4": "bilibilitv/[tv_偷笑].png",
+      "bilibilitv5": "bilibilitv/[tv_再见].png",
+      "bilibilitv6": "bilibilitv/[tv_冷漠].png",
+      "bilibilitv7": "bilibilitv/[tv_发怒].png",
+      "bilibilitv8": "bilibilitv/[tv_发财].png",
+      "bilibilitv9": "bilibilitv/[tv_可爱].png",
+      "bilibilitv10": "bilibilitv/[tv_吐血].png",
+      "bilibilitv11": "bilibilitv/[tv_呆].png",
+      "bilibilitv12": "bilibilitv/[tv_呕吐].png",
+      "bilibilitv13": "bilibilitv/[tv_困].png",
+      "bilibilitv14": "bilibilitv/[tv_坏笑].png",
+      "bilibilitv15": "bilibilitv/[tv_大佬].png",
+      "bilibilitv16": "bilibilitv/[tv_大哭].png",
+      "bilibilitv17": "bilibilitv/[tv_委屈].png",
+      "bilibilitv18": "bilibilitv/[tv_害羞].png",
+      "bilibilitv19": "bilibilitv/[tv_尴尬].png",
+      "bilibilitv20": "bilibilitv/[tv_微笑].png",
+      "bilibilitv21": "bilibilitv/[tv_思考].png",
+      "bilibilitv22": "bilibilitv/[tv_惊吓].png",
+      "bilibilitv23": "bilibilitv/[tv_打脸].png",
+      "bilibilitv24": "bilibilitv/[tv_抓狂].png",
+      "bilibilitv25": "bilibilitv/[tv_抠鼻].png",
+      "bilibilitv26": "bilibilitv/[tv_斜眼笑].png",
+      "bilibilitv27": "bilibilitv/[tv_无奈].png",
+      "bilibilitv28": "bilibilitv/[tv_晕].png",
+      "bilibilitv29": "bilibilitv/[tv_流汗].png",
+      "bilibilitv30": "bilibilitv/[tv_流泪].png",
+      "bilibilitv31": "bilibilitv/[tv_流鼻血].png",
+      "bilibilitv32": "bilibilitv/[tv_点赞].png",
+      "bilibilitv33": "bilibilitv/[tv_生气].png",
+      "bilibilitv34": "bilibilitv/[tv_生病].png",
+      "bilibilitv35": "bilibilitv/[tv_疑问].png",
+      "bilibilitv36": "bilibilitv/[tv_白眼].png",
+      "bilibilitv37": "bilibilitv/[tv_皱眉].png",
+      "bilibilitv38": "bilibilitv/[tv_目瞪口呆].png",
+      "bilibilitv39": "bilibilitv/[tv_睡着].png",
+      "bilibilitv40": "bilibilitv/[tv_笑哭].png",
+      "bilibilitv41": "bilibilitv/[tv_腼腆].png",
+      "bilibilitv42": "bilibilitv/[tv_色].png",
+      "bilibilitv43": "bilibilitv/[tv_调侃].png",
+      "bilibilitv44": "bilibilitv/[tv_调皮].png",
+      "bilibilitv45": "bilibilitv/[tv_鄙视].png",
+      "bilibilitv46": "bilibilitv/[tv_闭嘴].png",
+      "bilibilitv47": "bilibilitv/[tv_难过].png",
+      "bilibilitv48": "bilibilitv/[tv_馋].png",
+      "bilibilitv49": "bilibilitv/[tv_鬼脸].png",
+      "bilibilitv50": "bilibilitv/[tv_黑人问号].png",
+      "bilibilitv51": "bilibilitv/[tv_鼓掌].png",
+      "bilibili22332": "bilibili2233/[2233娘_卖萌].png",
+      "bilibili22333": "bilibili2233/[2233娘_吃惊].png",
+      "bilibili22334": "bilibili2233/[2233娘_吐魂].png",
+      "bilibili22335": "bilibili2233/[2233娘_喝水].png",
+      "bilibili22336": "bilibili2233/[2233娘_困惑].png",
+      "bilibili22337": "bilibili2233/[2233娘_大哭].png",
+      "bilibili22338": "bilibili2233/[2233娘_大笑].png",
+      "bilibili22339": "bilibili2233/[2233娘_委屈].png",
+      "bilibili223310": "bilibili2233/[2233娘_怒].png",
+      "bilibili223311": "bilibili2233/[2233娘_无言].png",
+      "bilibili223312": "bilibili2233/[2233娘_汗].png",
+      "bilibili223313": "bilibili2233/[2233娘_疑问].png",
+      "bilibili223314": "bilibili2233/[2233娘_第一].png",
+      "bilibili223315": "bilibili2233/[2233娘_耶].png",
+      "bilibili223316": "bilibili2233/[2233娘_郁闷].png",
+      "weibo2": "weibo/d_aoteman.png",
+      "weibo3": "weibo/d_baibai.png",
+      "weibo4": "weibo/d_baobao.png",
+      "weibo5": "weibo/d_beishang.png",
+      "weibo6": "weibo/d_bingbujiandan.png",
+      "weibo7": "weibo/d_bishi.png",
+      "weibo8": "weibo/d_bizui.png",
+      "weibo9": "weibo/d_chanzui.png",
+      "weibo10": "weibo/d_chigua.png",
+      "weibo11": "weibo/d_chijing.png",
+      "weibo12": "weibo/d_dahaqi.png",
+      "weibo13": "weibo/d_dalian.png",
+      "weibo14": "weibo/d_ding.png",
+      "weibo15": "weibo/d_doge.png",
+      "weibo16": "weibo/d_erha.png",
+      "weibo17": "weibo/d_feijie.png",
+      "weibo18": "weibo/d_feizao.png",
+      "weibo19": "weibo/d_ganmao.png",
+      "weibo20": "weibo/d_guile.png",
+      "weibo21": "weibo/d_guzhang.png",
+      "weibo22": "weibo/d_haha.png",
+      "weibo23": "weibo/d_haixiu.png",
+      "weibo24": "weibo/d_han.png",
+      "weibo25": "weibo/d_hehe.png",
+      "weibo26": "weibo/d_heiheihei.png",
+      "weibo27": "weibo/d_heixian.png",
+      "weibo28": "weibo/d_heng.png",
+      "weibo29": "weibo/d_huaixiao.png",
+      "weibo30": "weibo/d_huaxin.png",
+      "weibo31": "weibo/d_jiyan.png",
+      "weibo32": "weibo/d_keai.png",
+      "weibo33": "weibo/d_kelian.png",
+      "weibo34": "weibo/d_ku.png",
+      "weibo35": "weibo/d_kulou.png",
+      "weibo36": "weibo/d_kun.png",
+      "weibo37": "weibo/d_landelini.png",
+      "weibo38": "weibo/d_lang.png",
+      "weibo39": "weibo/d_lei.png",
+      "weibo40": "weibo/d_miao.png",
+      "weibo41": "weibo/d_nanhaier.png",
+      "weibo42": "weibo/d_nu.png",
+      "weibo43": "weibo/d_numa.png",
+      "weibo44": "weibo/d_nvhaier.png",
+      "weibo45": "weibo/d_qian.png",
+      "weibo46": "weibo/d_qinqin.png",
+      "weibo47": "weibo/d_shayan.png",
+      "weibo48": "weibo/d_shengbing.png",
+      "weibo49": "weibo/d_shenshou.png",
+      "weibo50": "weibo/d_shiwang.png",
+      "weibo51": "weibo/d_shuai.png",
+      "weibo52": "weibo/d_shuijiao.png",
+      "weibo53": "weibo/d_sikao.png",
+      "weibo54": "weibo/d_taikaixin.png",
+      "weibo55": "weibo/d_tanshou.png",
+      "weibo56": "weibo/d_tian.png",
+      "weibo57": "weibo/d_touxiao.png",
+      "weibo58": "weibo/d_tu.png",
+      "weibo59": "weibo/d_tuzi.png",
+      "weibo60": "weibo/d_wabishi.png",
+      "weibo61": "weibo/d_weiqu.png",
+      "weibo62": "weibo/d_wu.png",
+      "weibo63": "weibo/d_xiaoku.png",
+      "weibo64": "weibo/d_xingxingyan.png",
+      "weibo65": "weibo/d_xiongmao.png",
+      "weibo66": "weibo/d_xixi.png",
+      "weibo67": "weibo/d_xu.png",
+      "weibo68": "weibo/d_yinxian.png",
+      "weibo69": "weibo/d_yiwen.png",
+      "weibo70": "weibo/d_youhengheng.png",
+      "weibo71": "weibo/d_yun.png",
+      "weibo72": "weibo/d_yunbei.png",
+      "weibo73": "weibo/d_zhuakuang.png",
+      "weibo74": "weibo/d_zhutou.png",
+      "weibo75": "weibo/d_zuiyou.png",
+      "weibo76": "weibo/emoji_0x1f31f.png",
+      "weibo77": "weibo/emoji_0x1f349.png",
+      "weibo78": "weibo/emoji_0x1f357.png",
+      "weibo79": "weibo/emoji_0x1f384.png",
+      "weibo80": "weibo/emoji_0x1f44f.png",
+      "weibo81": "weibo/emoji_0x1f47b.png",
+      "weibo82": "weibo/emoji_0x1f47f.png",
+      "weibo83": "weibo/emoji_0x1f48a.png",
+      "weibo84": "weibo/emoji_0x1f4a3.png",
+      "weibo85": "weibo/emoji_0x1f4a9.png",
+      "weibo86": "weibo/emoji_0x1f631.png",
+      "weibo87": "weibo/emoji_0x1f643.png",
+      "weibo88": "weibo/emoji_0x1f645.png",
+      "weibo89": "weibo/emoji_0x1f648.png",
+      "weibo90": "weibo/emoji_0x1f649.png",
+      "weibo91": "weibo/emoji_0x1f64a.png",
+      "weibo92": "weibo/emoji_0x1f64b.png",
+      "weibo93": "weibo/emoji_0x1f64f.png",
+      "weibo94": "weibo/emoji_0x1f913.png",
+      "weibo95": "weibo/emoji_0x1f917.png",
+      "weibo96": "weibo/emoji_0x26a1.png",
+      "weibo97": "weibo/h_buyao.png",
+      "weibo98": "weibo/h_good.png",
+      "weibo99": "weibo/h_haha.png",
+      "weibo100": "weibo/h_jiayou.png",
+      "weibo101": "weibo/h_lai.png",
+      "weibo102": "weibo/h_ok.png",
+      "weibo103": "weibo/h_quantou.png",
+      "weibo104": "weibo/h_ruo.png",
+      "weibo105": "weibo/h_woshou.png",
+      "weibo106": "weibo/h_ye.png",
+      "weibo107": "weibo/h_zan.png",
+      "weibo108": "weibo/h_zuoyi.png",
+      "Little-Bad2": "Little-Bad/一群坏坏.jpg",
+      "Little-Bad3": "Little-Bad/中坏坏.jpg",
+      "Little-Bad4": "Little-Bad/发火的坏坏.jpg",
+      "Little-Bad5": "Little-Bad/坏坏坏.jpg",
+      "Little-Bad6": "Little-Bad/大坏坏.jpg",
+      "Little-Bad7": "Little-Bad/天使一般的坏坏.jpg",
+      "Little-Bad8": "Little-Bad/害羞坏.jpg",
+      "Little-Bad9": "Little-Bad/小坏蛋.jpg",
+      "Little-Bad10": "Little-Bad/我们一起做坏坏的事.jpg",
+      "Little-Bad11": "Little-Bad/敲板子的坏坏.gif",
+      "Little-Bad12": "Little-Bad/比地球还大的坏坏.jpg",
+      "Little-Bad13": "Little-Bad/流泪的坏坏.jpg",
+      "Little-Bad14": "Little-Bad/热炸的坏坏.jpg"
+  },
+  enableQQ: true,
+  requiredFields: requiredFields
+});</script></div></article></main><footer id="footer" style="background-image: url(https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/img/shujuku/top.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 By Zorua</div><div class="framework-info"><span>Powered BY </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">这是我的底线。</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode far fa-moon" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css"><script>$(function () {
+  $('span.katex-display').wrap('<div class="katex-wrap"></div>')
+})</script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@v3.0.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/search/local-search.js"></script><script>if (document.getElementsByClassName('mermaid').length) {
+  loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js',function () {
+    mermaid.initialize({
+      theme: 'default',
+  })
+})
+}</script><script src="/js/zorua.js"></script><script src="/js/hideCategory.js"></script></body></html>
