@@ -1,6 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数据库原理 | 一些填空题的摘录</title>
+    <url>/2020/09/11/database_x/</url>
+    <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<h1 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h1>
+<p>本文档由Zorua自行整理，如果有错误请在评论区反馈，或投递邮件至zoruasama@qq.com。<br />
+文档采用<strong>CC BY-NC-ND 4.0许可协议</strong>。转载本文档请保留本文档地址。<br />
+(?)如果您对此留有任何疑问，可以访问<a href="https://zh.wikipedia.org/wiki/%E5%89%B5%E4%BD%9C%E5%85%B1%E7%94%A8%E6%8E%88%E6%AC%8A%E6%A2%9D%E6%AC%BE" target="_blank" rel="noopener">知识共享许可协议</a>以获取帮助。</p>
+<h1 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h1>
+<ul>
+<li>数据管理技术经历了<strong>人工管理、文件系统、数据库管理</strong>三个阶段。</li>
+<li>数据库系统中常用的三种模型有<strong>层次模型、网状模型、关系模型</strong>。</li>
+<li>数据模型的三要素包括<strong>数据结构、数据操纵或操作、数据的完整性约束</strong>。</li>
+<li>实体之间的联系可抽象为三类，它们是<strong>一对一、一对多、多对多</strong>。</li>
+<li>在数据库设计中，<strong>数据字典</strong>是系统中各类数据描述的集合，是进行详细的数据收集和数据分析所获得的主要成果。</li>
+<li>数据库系统一般由<strong>数据库、数据库应用系统、数据库管理系统、数据库管理员</strong>和用户构成。</li>
+<li>数据库系统在运行过程中，可能会发生故障。故障主要有<strong>事务故障、系统故障、介质故障和计算机病毒</strong>四类。</li>
+<li>并发控制的主要方法是采用<strong>封锁</strong>机制，其类型有<strong>共享锁</strong>和<strong>排它锁</strong>两种。</li>
+<li>数据库的完整性是指数据的<strong>正确性</strong>和<strong>相容性</strong>。</li>
+<li>在SQL语言中，为了数据库的安全性，设置了对数据的存取进行控制的语句，对用户授权使用<strong>GRANT</strong>语句，收回所授的权限使用<strong>REVOKE</strong>语句。</li>
+<li><strong>数据库</strong>是长期存储在计算机内的、有组织、可共享的数据集合。</li>
+<li>数据库系统的三级模式结构是指数据库系统是由<strong>模式</strong>、<strong>外模式</strong>、<strong>内模式</strong>三级构成的。</li>
+<li>E-R图一般在数据库设计的<strong>概念结构设计</strong>阶段使用。</li>
+<li><strong>事务</strong>是用户定义的一个数据库操作序列，是一个不可分割的工作单位，它具有<strong>原子性</strong>、<strong>一致性</strong>、<strong>隔离性</strong>、<strong>持续性</strong>四个特性。</li>
+<li>数据库系统中，系统故障通常称为<strong>软故障</strong>，介质故障称为<strong>硬故障</strong>。</li>
+<li>关系操作的特点是<strong>集合</strong>操作。</li>
+<li>若事务T对数据对象A加了S锁，则其他事务只能对数据A再加<strong>S</strong>锁，不能加<strong>X</strong>锁，直到事务T释放A上的锁。</li>
+<li>现实世界进行第一层抽象的模型，称为<strong>概念</strong>模型；对现实世界进行第二层抽象的模型，称为<strong>数据</strong>模型。</li>
+<li>在数据库技术中，编写应用程序的语言仍然是C—类高级语言，这些语言被称为<strong>宿主语言或主语言</strong>。</li>
+<li>层次、网状的DML属于<strong>过程性</strong>语言，而关系型DML属于<strong>非过程性</strong>语言。</li>
+<li>关系模式的操作异常问题往往是由<strong>数据冗余</strong>引起的。</li>
+<li>恢复的基本原则是<strong>冗余</strong>。要使数据库具有可恢复性，在平时要做好两件事：<strong>转储</strong>备份和<strong>记“日志”</strong>。</li>
+<li>如果对数据库的并发操作不加以控制，则会带来的问题：<strong>丢失更新</strong>、<strong>读“脏数据”<strong>和</strong>不可重复读</strong>。</li>
+<li>事务的执行次序称为<strong>调度</strong>。</li>
+<li>判断一个并发调度是否正确，可以用<strong>可串行化</strong>概念来解决。</li>
+<li>封锁能避免错误的发生，但会引起<strong>活锁和死锁</strong>问题。</li>
+<li>S封锁增加了并发度，但缺点是<strong>容易发生死锁</strong>。</li>
+<li>两段式封锁是可串行化的<strong>充分</strong>条件。</li>
+<li>SQL中的安全性机制，主要有两个：<strong>视图</strong>和<strong>授权</strong>。</li>
+<li>数据库的基本特点是<strong>数据可以共享</strong>或数据结构化**、数据独立性、数据冗余度小，易扩充、统一管理和控制**。</li>
+<li>数据库技术中采取分级方法将数据库的结构划分成多个层次，是为了提高数据库的<strong>逻辑独立性</strong>和<strong>物理独立性</strong>。</li>
+<li>数据库是长期存储在计算机内，有<strong>组织</strong>的，可<strong>共享</strong>的数据集合</li>
+<li>现实世界的事物反映到人的头脑中经过思维加工是数据，这一过程要经历三个领域，依次是<strong>现实世界</strong>，<strong>信息世界</strong>和<strong>计算机世界</strong>。</li>
+<li>关系数据库规范化是为解决关系数据库中<strong>插入、删除和数据冗余</strong>问题而引入的。</li>
+<li>关系规范中的删除操作异常是指<strong>不该删除的数据被删除</strong>，插入操作异常是指<strong>应该插入的数据未被插入</strong>。</li>
+<li>设计性能较优的关系模式称为规范化，规范化主要的理论依据是<strong>关系规范化理论</strong>。</li>
+<li>规范化理论是关系数据库进行逻辑设计的理论依据。根据这个理论，关系数据库中的关系必须满足：其每一属性都是<strong>不可分解的</strong>。</li>
+<li>关系模型是把实体之间的联系用<strong>二维表格</strong>表示。</li>
+<li>在关系数据库中，当关系的类型改变时，用户程序也可以不变，这是<strong>数据的逻辑独立性</strong>。</li>
+<li>当数据库的存储结构改变时，可相应修改<strong>模式/内模式映像</strong>，从而保持模式不变。</li>
+<li>在数据库系统的三级模式体系结构中，描述数据在数据库中的物理结构或存储方式的是<strong>内模式</strong>。</li>
+<li>在数据库系统的三级组织结构中，DBA视图是<strong>概念模式</strong>，系统程序员视图是<strong>内模式</strong>，用户视图是<strong>外模式</strong>。</li>
+<li>在数据库的三级模式体系结构中，模式与内模式之间的映象<strong>模式/内模式</strong>，实现了数据库的<strong>物理</strong>独立性。</li>
+<li>描述概念模型常用的方法是<strong>实体–联系方法</strong>。</li>
+<li>在数据库设计中，将E-R图转换成关系数据模型的过程属于<strong>逻辑设计阶段</strong>。</li>
+<li>在数据库设计的4个阶段中，每个阶段都有自己的设计内容。“在哪些表、在哪些属性上、建什么样的索引”，这一内容应该属于<strong>物理</strong>设计阶段。</li>
+<li>在登录日志文件时，应该先<strong>登录日志文件</strong>，后<strong>更新数据库</strong>。</li>
+<li>对数据对象施加封锁，可能会引起活锁和死锁问题。预防死锁通常有<strong>一次封锁法</strong>和<strong>顺序封锁法</strong>两种方法。</li>
+<li>数据库管理系统通常提供授权功能来控制不同用户访问数据的权限，这主要是为了实现数据库的<strong>安全性</strong>。</li>
+</ul>
+<h1 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h1>
+<p><button>隐藏答案</button></p>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$('button').on('click',function(){
+        console.log("By Zorua");
+         $('strong').css('color',"white");
+     })
+</script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>数据库原理</category>
+      </categories>
+      <tags>
+        <tag>数据库原理</tag>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库原理 | 7. 关系数据理论</title>
     <url>/2020/09/07/database_6/</url>
     <content><![CDATA[<h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
