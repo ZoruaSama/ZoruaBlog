@@ -6,10 +6,10 @@
     <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 <h1 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h1>
 <p>本文档由Zorua自行整理，如果有错误请在评论区反馈，或投递邮件至zoruasama@qq.com。<br />
-文档采用<strong>CC BY-NC-ND 4.0许可协议</strong>。转载本文档请保留本文档地址。<br />
+文档采用<code>CC BY-NC-ND 4.0许可协议</code>。转载本文档请保留本文档地址。<br />
 (?)如果您对此留有任何疑问，可以访问<a href="https://zh.wikipedia.org/wiki/%E5%89%B5%E4%BD%9C%E5%85%B1%E7%94%A8%E6%8E%88%E6%AC%8A%E6%A2%9D%E6%AC%BE" target="_blank" rel="noopener">知识共享许可协议</a>以获取帮助。</p>
 <h1 id="正文"><a class="markdownIt-Anchor" href="#正文"></a> 正文</h1>
-<ul>
+<ol>
 <li>数据管理技术经历了<strong>人工管理、文件系统、数据库管理</strong>三个阶段。</li>
 <li>数据库系统中常用的三种模型有<strong>层次模型、网状模型、关系模型</strong>。</li>
 <li>数据模型的三要素包括<strong>数据结构、数据操纵或操作、数据的完整性约束</strong>。</li>
@@ -39,7 +39,7 @@
 <li>S封锁增加了并发度，但缺点是<strong>容易发生死锁</strong>。</li>
 <li>两段式封锁是可串行化的<strong>充分</strong>条件。</li>
 <li>SQL中的安全性机制，主要有两个：<strong>视图</strong>和<strong>授权</strong>。</li>
-<li>数据库的基本特点是<strong>数据可以共享</strong>或数据结构化**、数据独立性、数据冗余度小，易扩充、统一管理和控制**。</li>
+<li>数据库的基本特点是<strong>数据可以共享</strong>或<strong>数据结构化、数据独立性、数据冗余度小，易扩充、统一管理和控制</strong>。</li>
 <li>数据库技术中采取分级方法将数据库的结构划分成多个层次，是为了提高数据库的<strong>逻辑独立性</strong>和<strong>物理独立性</strong>。</li>
 <li>数据库是长期存储在计算机内，有<strong>组织</strong>的，可<strong>共享</strong>的数据集合</li>
 <li>现实世界的事物反映到人的头脑中经过思维加工是数据，这一过程要经历三个领域，依次是<strong>现实世界</strong>，<strong>信息世界</strong>和<strong>计算机世界</strong>。</li>
@@ -59,7 +59,7 @@
 <li>在登录日志文件时，应该先<strong>登录日志文件</strong>，后<strong>更新数据库</strong>。</li>
 <li>对数据对象施加封锁，可能会引起活锁和死锁问题。预防死锁通常有<strong>一次封锁法</strong>和<strong>顺序封锁法</strong>两种方法。</li>
 <li>数据库管理系统通常提供授权功能来控制不同用户访问数据的权限，这主要是为了实现数据库的<strong>安全性</strong>。</li>
-</ul>
+</ol>
 <h1 id="测试"><a class="markdownIt-Anchor" href="#测试"></a> 测试</h1>
 <p><button>隐藏答案</button></p>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
