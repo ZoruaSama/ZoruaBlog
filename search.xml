@@ -78,6 +78,115 @@ $('button').on('click',function(){
       </tags>
   </entry>
   <entry>
+    <title>正则表达式 | 初入茅庐[0-9]+</title>
+    <url>/2020/09/11/regexp_0/</url>
+    <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p>正则表达式描述了一种字符串匹配的模式是怎么回事呢？正则表达式相信大家都很熟悉，但是正则表达式描述了一种字符串匹配的模式是怎么回事呢，下面就让小编带大家一起了解吧。</p>
+<p>正则表达式描述了一种字符串匹配的模式，其实就是正则表达式可以用来匹配字符串，大家可能会很惊讶正则表达式怎么会描述了一种字符串匹配的模式呢？但事实就是这样，小编也感到非常惊讶。</p>
+<p>这就是关于正则表达式描述了一种字符串匹配的模式的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！【大雾】</p>
+<h1 id="是什么"><a class="markdownIt-Anchor" href="#是什么"></a> 是什么</h1>
+<p>在阐述我自己的理解前，先搬出<a href="https://baike.baidu.com/item/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/1700215?fr=aladdin" target="_blank" rel="noopener">百度百科</a>的内容撑撑场面。</p>
+<div class="snote quote"><p class="p subtitle">度娘百科</p><p><b>正则表达式</b>，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。</p></div>
+<blockquote>
+<p>正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。</p>
+</blockquote>
+<blockquote>
+<p>正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符（称为“元字符”））操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。正则表达式是一种文本模式，该模式描述在搜索文本时要匹配的一个或多个字符串。</p>
+</blockquote>
+<blockquote>
+<p>给定一个正则表达式和另一个字符串，我们可以达到如下的目的：</p>
+<ol>
+<li>给定的字符串是否符合正则表达式的过滤逻辑（称作“匹配”）</li>
+<li>可以通过正则表达式，从字符串中获取我们想要的特定部分。</li>
+</ol>
+</blockquote>
+<p>从上面三段内容可以看到，关键词<strong>检索、过滤、匹配</strong>。而这些工作让我想到了 <code>?</code> <code>*</code>。<br />
+我相信大多数人对 <code>?</code> <code>*</code>的作用应该不陌生。在Word文档中，<code>?</code>用于匹配单一字符，<code>*</code>用于匹配多个字符。</p>
+<p>例如下面这个例子。我在编辑这篇文章时，发现我居然蠢到把每一个<strong>正则表达式</strong>都打错了。只有<strong>第一个字</strong>和<strong>最后一个字</strong>是正确的。</p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423223525.png" alt="" /></p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423223654.png" alt="" /></p>
+<p>于是我果断地按下了 <code>Ctrl</code> <code>H</code>，勾选了使用通配符。由于<strong>第一个字</strong>和<strong>最后一个字</strong>是正确的，因此查找的内容只需为<code>正*式</code>即可检索到所有错误的<strong>正则表达式</strong>文本。然后点击<strong>全部替换</strong>。便轻松愉快地全部修正了。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423223902.png" alt="" /></p>
+<p>或许这时候你要问了。就这？就这？就这？<s>怎么可能会有sabi犯这种错误啊</s>这玩意儿有什么用？<br />
+嗐。您可别着急。如果说<strong>正则表达式</strong>并不是这种简单的<code>?</code>和<code>*</code>呢？</p>
+<hr />
+<h1 id="快速上手"><a class="markdownIt-Anchor" href="#快速上手"></a> 快速上手</h1>
+<h2 id="最简单的匹配情况"><a class="markdownIt-Anchor" href="#最简单的匹配情况"></a> 最简单的匹配情况</h2>
+<p>最简单的匹配情况相当容易想到，即表达式本身等同于要匹配的表达式。例如使用<code>China</code>匹配下面的文本。就会匹配到下面两个<code>China</code>子字符串。</p>
+<p>I love <span class="inline-tag red">China</span>. Long live <span class="inline-tag red">China</span>!</p>
+<h2 id="简单的几个符号"><a class="markdownIt-Anchor" href="#简单的几个符号"></a> 简单的几个符号</h2>
+<p>再来介绍几个简单的符号，引用我本学期的「编译原理」课程PPT中的一张图片。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200923230150.png" alt="" /></p>
+<h3 id="选项-choice-among-alternatives"><a class="markdownIt-Anchor" href="#选项-choice-among-alternatives"></a> 选项 Choice among alternatives</h3>
+<p>令<code>r</code>和<code>s</code>是两个正则表达式，那么<code>r|s</code>既可以匹配<code>r</code>能匹配的字符串，也能匹配<code>s</code>能匹配的字符串。<br />
+例如使用正则表达式<code>China|Long</code>就能匹配到三个子字符串了。</p>
+<p>I love <span class="inline-tag red">China</span>. <span class="inline-tag red">Long</span> live <span class="inline-tag red">China</span>!<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926211645.png" alt="" /></p>
+<h3 id="连接-concatenation"><a class="markdownIt-Anchor" href="#连接-concatenation"></a> 连接 Concatenation</h3>
+<p>连接<strong>没有符号</strong>，直接把一个正则表达式与另一个正则表达式相连即可。<br />
+例如之前举过的例子<code>China</code>能够匹配字符串中的<code>China</code>子串。这里是五个字符直接相连的正则表达式。<br />
+又例如，<code>(a|b)c</code>，能够匹配字符串 <code>ac</code>或<code>bc</code>。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926211619.png" alt="" /></p>
+<h3 id="重复-repetition"><a class="markdownIt-Anchor" href="#重复-repetition"></a> 重复 Repetition</h3>
+<p>重复也被称作是<strong>闭包(closure)</strong>，用符号<code>*</code>表示，其内涵是<strong>可以把<code>*</code>所作用的表达式重复0次或多次</strong>。<br />
+注意，作用的表达式是<code>*</code>前的字符串，如果没有打括号的话，就只有一个字符。<br />
+例如<code>a*</code>能够匹配<strong>空字符串</strong>、<code>a</code>、<code>aa</code>、<code>aaa</code>等等。<br />
+再例如对于正则表达式<code>(a|bb)*</code>，能够匹配<strong>空字符串</strong>，<code>a</code>，<code>bb</code>，<code>aa</code>，<code>abb</code>，<code>bba</code>，<code>bbbb</code>，<code>aaa</code>，<code>aabbbba</code>，<code>abbabbabbbba</code>等等。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926211425.png" alt="" /></p>
+<h2 id="更多符号"><a class="markdownIt-Anchor" href="#更多符号"></a> 更多符号</h2>
+<h3 id="熟悉的老朋友通配符"><a class="markdownIt-Anchor" href="#熟悉的老朋友通配符"></a> 熟悉的老朋友通配符 .</h3>
+<p>这里的<code>.</code>的作用等同于我在<strong>是什么</strong>那一节中举例的Word软件中的<code>?</code>。<br />
+它可以匹配一个除了换行符以外的字符。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926211912.png" alt="" /></p>
+<h3 id="加号"><a class="markdownIt-Anchor" href="#加号"></a> 加号 +</h3>
+<p>和重复<code>*</code>类似，不过加号是匹配子表达式<strong>一次或多次</strong>。<br />
+<code>zo(rua)+</code>能够匹配<code>zorua</code>，<code>zoruarua</code>，<code>zoruaruarua</code>等等。但是不能匹配<code>zo</code>。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926211347.png" alt="" /></p>
+<h3 id="问号"><a class="markdownIt-Anchor" href="#问号"></a> 问号 ?</h3>
+<p>还是和重复<code>*</code>类似，不过问号是匹配子表达式<strong>0次或一次</strong>。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926212040.png" alt="" /></p>
+<h3 id="字符集合"><a class="markdownIt-Anchor" href="#字符集合"></a> 字符集合 [  ]</h3>
+<p>匹配所包含的任意一个字符。例如，<code>[abc]</code> 可以匹配<code>plain</code>中的<code>a</code>。<code>[a-z]</code>表示一个范围，可以匹配二十六个字母。<br />
+<code>[a-cf-l]</code>表示字母的<code>a</code>到<code>c</code>，然后<code>f</code>到<code>l</code>。也可以使用数字<code>[0-9]</code><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926231016.png" alt="" /></p>
+<h4 id="否定符号"><a class="markdownIt-Anchor" href="#否定符号"></a> 否定符号 ^</h4>
+<p><code>[^xyz]</code>是对<code>[xyz]</code>的否定，即匹配除去<code>xyz</code>三个字母后的其他字符。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926231300.png" alt="" /></p>
+<h3 id="匹配次数大括号"><a class="markdownIt-Anchor" href="#匹配次数大括号"></a> 匹配次数大括号 {  }</h3>
+<p>大括号内填写一个非负整数。<br />
+代表前面的表达式应该被匹配的次数。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926231822.png" alt="" /></p>
+<h4 id="限制下限"><a class="markdownIt-Anchor" href="#限制下限"></a> 限制下限</h4>
+<p>如果填写为<code>{n,}</code>的形式，则可以匹配<code>n</code>次以上。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926231914.png" alt="" /></p>
+<h4 id="限制下限上限"><a class="markdownIt-Anchor" href="#限制下限上限"></a> 限制下限上限</h4>
+<p>如果填写为<code>{n,m}</code>的形式，则可以匹配<code>n</code>次以上，最多<code>m</code>次。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926232001.png" alt="" /></p>
+<h2 id="转义符号"><a class="markdownIt-Anchor" href="#转义符号"></a> 转义符号</h2>
+<p><code>\</code>将下一个字符标记为一个<strong>特殊字符</strong>、或一个<strong>原义字符</strong>、或一个 <strong>向后引用</strong>、或一个<strong>八进制转义符</strong>。例如，‘n’ 匹配字符 “n”。’\n’ 匹配一个换行符。序列 <code>\\</code> 匹配 <code>\</code> 而 <code>\(</code> 则匹配 <code>(</code>。</p>
+<p>转义符号的设计使得一些难以输入的字符可以被匹配，或已被使用的字符(例如问号<code>?</code>被在正则表达式里被认为是0,1次匹配。)<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926231557.png" alt="" /></p>
+<h1 id="在线测试正则表达式"><a class="markdownIt-Anchor" href="#在线测试正则表达式"></a> 在线测试正则表达式</h1>
+<p>除了可以在程序内调试正则表达式外，也可以使用在线的一些工具测试正则表达式。例如下面的几个网站。</p>
+<ul>
+<li><a href="https://c.runoob.com/front-end/854" target="_blank" rel="noopener">菜鸟工具 - 正则表达式在线测试</a></li>
+<li><a href="http://tool.chinaz.com/regex/" target="_blank" rel="noopener">站长工具 - 正则表达式在线测试</a></li>
+<li><a href="https://www.w3cschool.cn/tools/index?name=reg" target="_blank" rel="noopener">w3school 在线正则表达式测试</a></li>
+</ul>
+<h1 id="写在最后"><a class="markdownIt-Anchor" href="#写在最后"></a> 写在最后</h1>
+<p>关于正则表达式的内容还有很多，一篇文章难以详尽。日后如果有时间，我会再次学习。<br />
+在本篇文章中，多处参考了我的朋友Kooer的博文，在此表示对他衷心感谢。<br />
+您可以在<a href="https://dooerlly.github.io/2020/09/22/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_blank" rel="noopener">这个链接</a>看到他的博文。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>正则表达式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据库原理 | 7. 关系数据理论</title>
     <url>/2020/09/07/database_6/</url>
     <content><![CDATA[<h1 id="思维导图"><a class="markdownIt-Anchor" href="#思维导图"></a> 思维导图</h1>
