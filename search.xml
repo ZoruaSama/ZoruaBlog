@@ -1797,6 +1797,269 @@ See Deploying static files for proper strategies to serve static files in produc
       </tags>
   </entry>
   <entry>
+    <title>实训日记 | Day 04. 简单的爬虫</title>
+    <url>/2020/07/23/training_3/</url>
+    <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>2020年7月22日。今天主要讲的内容有：</p>
+<ul>
+<li>使用Requests包和BeautifulSoup4进行简单的网页爬虫</li>
+</ul>
+<h1 id="爬虫"><a class="markdownIt-Anchor" href="#爬虫"></a> 爬虫</h1>
+<p>网络爬虫（又称为网页蜘蛛，网络机器人，在FOAF社区中间，更经常的称为网页追逐者），是一种按照一定的规则，自动地抓取万维网信息的程序或者脚本。另外一些不常使用的名字还有蚂蚁、自动索引、模拟程序或者蠕虫。</p>
+<p>我们知道，在WWW上我们访问的网页基本上都是用HTML文档来进行描述的。在浏览器按下<code>F12</code>键，可以打开开发者工具，选择<code>Elements</code>页签，即可查看HTML的文档内容。如图所示：</p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930202616.png" alt="" /></p>
+<p>我们就可以从HTML中获取想要的数据/信息。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930203042.png" alt="" /></p>
+<p>如果我们要进行对某个网页的爬虫，需要解决的问题有两个：</p>
+<ul>
+<li>获取HTML文档的内容</li>
+<li>解析这个HTML文档，按照一定规则获取其中的信息/数据</li>
+</ul>
+<p>对于上面两个问题，进行针对性的解决：</p>
+<ul>
+<li>用Requests包来获取HTML文档</li>
+<li>用BeautifulSoup4来解析HTML文档</li>
+</ul>
+<h1 id="requests"><a class="markdownIt-Anchor" href="#requests"></a> Requests</h1>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://requests.readthedocs.io/zh_CN/latest/_static/requests-sidebar.png" alt="" /><br />
+<a href="https://requests.readthedocs.io/zh_CN/latest/user/quickstart.html" target="_blank" rel="noopener">在线文档</a></p>
+<h2 id="简单介绍"><a class="markdownIt-Anchor" href="#简单介绍"></a> 简单介绍</h2>
+<p>引用以下来自官方文档的内容：</p>
+<blockquote>
+<p>Requests 唯一的一个非转基因的 Python HTTP 库，人类可以安全享用。<br />
+警告：非专业使用其他 HTTP 库会导致危险的副作用，包括：安全缺陷症、冗余代码症、重新发明轮子症、啃文档症、抑郁、头疼、甚至死亡。<br />
+Requests 允许你发送纯天然，植物饲养的 HTTP/1.1 请求，无需手工劳动。你不需要手动为 URL 添加查询字串，也不需要对 POST 数据进行表单编码。Keep-alive 和 HTTP 连接池的功能是 100% 自动化的，一切动力都来自于根植在 Requests 内部的 urllib3。</p>
+</blockquote>
+<h2 id="简单使用"><a class="markdownIt-Anchor" href="#简单使用"></a> 简单使用</h2>
+<p>如果你还没有安装Requests包，可以在命令行使用如下命令进行安装。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+<p>安装完毕后，键入如下代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">response = requests.get(<span class="string">'https://www.baidu.com'</span>)</span><br><span class="line">print(response.status_code) <span class="comment">#HTTP状态码</span></span><br></pre></td></tr></table></figure>
+<p>这是以<code>GET</code>请求方式来访问<code>https://www.baidu.com</code>，然后返回一个HTTP状态码。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930205853.png" alt="" /></p>
+<div class="snote guide"><p>复习一下一些常见的HTTP状态码</p>
+<p>200 请求成功</p>
+<p>301/302 重定向</p>
+<p>403 禁止访问  404 找不到资源 405 Method not allow</p>
+<p>500 服务器问题  502 Bad Gateway 网关错误</p></div>
+<p>上图返回的代码是200，即请求成功了。<br />
+请求成功后，可以获取一些其他信息。读者可以自行尝试输出查看内容。<br />
+这里主要说明<code>response.text</code>和<code>response.content</code>。<br />
+前者这个属性，获取了HTML文档，就解决了我们在前文提出的爬虫的第一个问题。<br />
+后者主要被用于存储图片和文件，例如访问的URL为<code>https://zoruasama.gitee.io/img/zorua.png</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(response.text) <span class="comment">#获取HTML文档</span></span><br><span class="line">print(response.url)  <span class="comment">#获取请求的URL</span></span><br><span class="line">print(response.headers)  <span class="comment">#获取请求头</span></span><br><span class="line">print(response.cookies)  <span class="comment">#获取cookies # cookies和session的概念</span></span><br><span class="line">print(response.content)  <span class="comment">#以字节流返回数据 存图片或文件用</span></span><br></pre></td></tr></table></figure>
+<p>如图所示是<code>response.text</code>返回的字符串内容。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930210531.png" alt="" /></p>
+<p>接下来说明如何使用BeautifulSoup4来获取HTML文档中的信息。</p>
+<h1 id="beautifulsoup4"><a class="markdownIt-Anchor" href="#beautifulsoup4"></a> BeautifulSoup4</h1>
+<h2 id="简单介绍-2"><a class="markdownIt-Anchor" href="#简单介绍-2"></a> 简单介绍</h2>
+<p><a href="https://beautifulsoup.readthedocs.io/zh_CN/v4.4.0/" target="_blank" rel="noopener">在线文档</a><br />
+Beautiful Soup 是一个可以从HTML或XML文件中提取数据的Python库。它能够通过你喜欢的转换器实现惯用的文档导航，查找，修改文档的方式。Beautiful Soup会帮你节省数小时甚至数天的工作时间。<br />
+HTML 文档本身是<strong>结构化的文本</strong>，有<strong>一定的规则</strong>，通过它的结构可以简化信息提取。于是，就有了lxml、pyquery、BeautifulSoup等网页信息提取库。一般我们会用这些库来提取网页信息。<br />
+在下文中BeautifulSoup4将被简称为BS4。</p>
+<h2 id="简单使用-2"><a class="markdownIt-Anchor" href="#简单使用-2"></a> 简单使用</h2>
+<p>我们引用官方的例子来介绍如何使用BS4来进行工作。<br />
+先安装BS4，在命令行键入如下语句：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install beautifulsoup4</span><br></pre></td></tr></table></figure>
+<p>假如我们已经使用某种方式获取到了某个网页的HTML文档（例如上文介绍的Requests），然后将这个文档字符串存储在<code>html_doc</code>这个变量中。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">html_doc = <span class="string">"""</span></span><br><span class="line"><span class="string">&lt;html&gt;&lt;head&gt;&lt;title&gt;The Dormouse's story&lt;/title&gt;&lt;/head&gt;</span></span><br><span class="line"><span class="string">&lt;body&gt;</span></span><br><span class="line"><span class="string">&lt;p class="title"&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;Once upon a time there were three little sisters; and their names were</span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/elsie" class="sister" id="link1"&gt;Elsie&lt;/a&gt;,</span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/lacie" class="sister" id="link2"&gt;Lacie&lt;/a&gt; and</span></span><br><span class="line"><span class="string">&lt;a href="http://example.com/tillie" class="sister" id="link3"&gt;Tillie&lt;/a&gt;;</span></span><br><span class="line"><span class="string">and they lived at the bottom of a well.&lt;/p&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;p class="story"&gt;...&lt;/p&gt;</span></span><br><span class="line"><span class="string">"""</span></span><br></pre></td></tr></table></figure>
+<p>而后从bs4中引入BeautifulSoup，解析上面的文档，就能得到一个BeautifulSoup对象，并将之赋值给soup变量。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html_doc, <span class="string">'html.parser'</span>) <span class="comment">#参数1是解析的文档内容, 参数2是选择的解析器</span></span><br></pre></td></tr></table></figure>
+<p>使用对象的<code>prettify()</code>方法可以以标准缩进的形式呈现soup的HTML文档内容。<br />
+以下的内容需要一定的<strong>HTML基础</strong>。需要知道什么是<code>标签</code>，<code>ID</code>，<code>Class</code>等知识。<br />
+由于这不是本文主要内容，因此不再这里赘述，只会在下文简要说明。</p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930212424.png" alt="" /></p>
+<p>我们再来看看关于<code>BeautifulSoup</code>对象的其他方法：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(soup.title)        <span class="comment">#获取标题标签</span></span><br><span class="line">print(soup.title.text)   <span class="comment">#获取内容</span></span><br><span class="line">print(soup.title.attrs)   <span class="comment">#获取属性</span></span><br><span class="line">print(soup.title.get(<span class="string">'class'</span>))  <span class="comment">#获取属性的值</span></span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930213035.png" alt="" /></p>
+<p>接下来来解释一下上面这些名词。</p>
+<h3 id="souptitle"><a class="markdownIt-Anchor" href="#souptitle"></a> soup.title</h3>
+<p>我们可以观察一下被解析的这个HTML文档，里面有一行：<code>&lt;title&gt;The Dormouse's story&lt;/title&gt;</code>，两边用<code>title</code>标签裹着的。<br />
+因此<code>soup.title</code>就是在<strong>原先的整个文档中截取了这一部分</strong>。<br />
+同理，如果选择<code>soup.body</code>，那么就是输出<code>body</code>标签裹着的内容。</p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930213316.png" alt="" /></p>
+<p>进一步再选择<code>soup.body.p</code>，这会输出<code>body</code>标签下的<code>p</code>标签，而<code>p</code>标签有多个，所以只会选择<strong>第一个</strong>并输出。</p>
+<h3 id="souptitletext"><a class="markdownIt-Anchor" href="#souptitletext"></a> soup.title.text</h3>
+<p>虽然本节的标题是<code>soup.title.text</code>，但是<code>text</code>属性<strong>并不是</strong><code>title</code><strong>独有的</strong>，这一点在接下来的属性或方法介绍也是如此。只要是<code>BeautifulSoup</code>对象，<strong>都有这些方法</strong>。</p>
+<p><code>.text</code>属性是用于获取标签内部的“<strong>正文</strong>”，如下图的<strong>橙色部分</strong>。<br />
+它没有在<code>&lt; &gt;</code>这对括号内，所以把它视为“正文”。</p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930214353.png" alt="" /></p>
+<p>上面这段字符串，实际是通过<code>soup.body.a</code>来获取的。<br />
+接下来获取其中的“正文”。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930214713.png" alt="" /></p>
+<h3 id="souptitleattrs"><a class="markdownIt-Anchor" href="#souptitleattrs"></a> soup.title.attrs</h3>
+<p>在上文演示这个方法时，输出的是一个空字典。<br />
+这是因为<code>soup.title</code>并不具备属性。在本节我们拿上一节的<code>soup.body.a</code>作演示。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930214843.png" alt="" /></p>
+<p>可以看到，在<code>&lt; &gt;</code>这对括号里的内容，以字典的形式被返回了。如果读者还没有遗忘如何从字典从取值的方法的话，很容易可以联想到：<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930215000.png" alt="" /></p>
+<p>可以这样做，但是事实上，BS4还提供了一个优雅的做法：<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930215116.png" alt="" /></p>
+<h3 id="souptitlegetclass"><a class="markdownIt-Anchor" href="#souptitlegetclass"></a> soup.title.get(‘class’)</h3>
+<p>接续上节，获取<code>&lt; &gt;</code>内的内容，还可以使用本节标题的形式。<br />
+例如：<code>soup.body.a.get('href')</code><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200930215334.png" alt="" /></p>
+<h2 id="查找标签"><a class="markdownIt-Anchor" href="#查找标签"></a> 查找标签</h2>
+<p>大多数情况下，上述的简单使用总是只能获取到<strong>第一个匹配项</strong>，显得有些鸡肋、不够用。<br />
+而且对于标签的选择总是不够精准。<br />
+因此我们在这里介绍<strong>查找标签</strong>的方法。查找标签的方法主要有两个：<code>.find()</code>和<code>.findall()</code>。<br />
+前者也是查找<strong>第一个满足条件</strong>的标签并以字符串的形式返回，后者是查找<strong>所有满足条件</strong>的标签并以列表的形式返回。<br />
+除此以外，这两个方法在参数上大同小异。</p>
+<ul>
+<li><code>name</code>，标签的名字，例如<code>p</code>,<code>a</code>,<code>title</code>等。</li>
+<li><code>**kwargs</code>，利用属性键值对来进行过滤。如<code>id</code>和<code>class_</code>等。</li>
+<li>其他的参数不再作解释。读者若感兴趣可以自行查阅文档。</li>
+</ul>
+<h3 id="查找指定id的标签"><a class="markdownIt-Anchor" href="#查找指定id的标签"></a> 查找指定id的标签</h3>
+<p>我们再次使用上面的HTML文档为例进行演示。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004133730.png" alt="" /><br />
+为了获取其中标为橙色的内容，我们可以<code>soup.find('a',id=&quot;link2&quot;)</code>。</p>
+<h3 id="查找指定class的标签"><a class="markdownIt-Anchor" href="#查找指定class的标签"></a> 查找指定class的标签</h3>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004133909.png" alt="" /></p>
+<p>为了获取其中所有绿色的内容，我们可以<code>soup.find_all('a',class_='sister')</code><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004134113.png" alt="" /><br />
+返回的内容是<strong>一个含有三个元素的列表</strong>。</p>
+<h2 id="css选择器"><a class="markdownIt-Anchor" href="#css选择器"></a> CSS选择器</h2>
+<p>如果您对CSS有了解的话，您肯定对 id 和 class 选择器不陌生。<br />
+使用<code>soup.select()</code>方法就可以像CSS的规则一样进行选择。<br />
+此处不再赘述。<br />
+例如</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">print(soup.select(<span class="string">'a'</span>))</span><br><span class="line">print(soup.select(<span class="string">'.sister'</span>))  <span class="comment"># class是用 . 号</span></span><br><span class="line">print(soup.select(<span class="string">'#link1'</span>))   <span class="comment"># id是用 # 号</span></span><br></pre></td></tr></table></figure>
+<h1 id="实战演练"><a class="markdownIt-Anchor" href="#实战演练"></a> 实战演练</h1>
+<h2 id="爬取百度贴吧帖子中的图片并下载"><a class="markdownIt-Anchor" href="#爬取百度贴吧帖子中的图片并下载"></a> 爬取百度贴吧帖子中的图片并下载</h2>
+<p>首先，我们先找一个<strong>百度贴吧帖子</strong>作为目标。<br />
+笔者选择了<strong>火影忍者</strong>吧的这一帖子作为目标 <a href="https://tieba.baidu.com/p/6970148254" target="_blank" rel="noopener">链接</a>。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004135044.png" alt="" /></p>
+<h3 id="获取html文档"><a class="markdownIt-Anchor" href="#获取html文档"></a> 获取HTML文档</h3>
+<p>先使用<code>requests</code>获取文档。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">html = requests.get(<span class="string">'https://tieba.baidu.com/p/6970148254'</span>)</span><br><span class="line">print(html.status_code) <span class="comment"># 返回200即为请求成功</span></span><br><span class="line">print(html.text)  <span class="comment"># html.text 即为我们想要的HTML文档</span></span><br></pre></td></tr></table></figure>
+<h3 id="用beautifulsoup解析"><a class="markdownIt-Anchor" href="#用beautifulsoup解析"></a> 用BeautifulSoup解析</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html.text,<span class="string">'html.parser'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="对网页元素进行选择"><a class="markdownIt-Anchor" href="#对网页元素进行选择"></a> 对网页元素进行选择</h3>
+<p>为了方便对HTML文档的阅读，我们使用浏览器的F12工具进行阅读。这个工具只需在浏览器中按下F12键即可打开。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004135639.png" alt="" /></p>
+<p>观察文档可知，第一张图片的标签为<code>&lt;img class=&quot;BDE_Image&quot; src=&quot;http://tiebapic.baidu.com/forum/w%3D580/sign=219b01688545d688a302b2ac94c37dab/f3e3241f95cad1c845e0347c683e6709c83d5144.jpg&quot; size=&quot;905080&quot; changedsize=&quot;true&quot; width=&quot;560&quot; height=&quot;817&quot;&gt;</code>。</p>
+<blockquote>
+<p>您可以把鼠标悬浮在图片上，然后按下<code>Ctrl+Shift+C</code>进行快速定位。</p>
+</blockquote>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004135857.png" alt="" /><br />
+观察后面几张图片，发现<strong>共性</strong>为img标签，class为<strong>BDE_Image</strong>，而我们只需要获得src链接即可。</p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="_v_images/20201004140033913_32281.png" alt="" /><br />
+橙色是共性，绿色是需要爬取的内容。</p>
+<h3 id="查找标签-2"><a class="markdownIt-Anchor" href="#查找标签-2"></a> 查找标签</h3>
+<p>由上面的分析易得，我们需要写的代码为：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">images = soup.find_all(<span class="string">'img'</span>,class_=<span class="string">'BDE_Image'</span>) <span class="comment">#这将返回含有每个图片元素的一个列表</span></span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> images:</span><br><span class="line">    print(img[<span class="string">'src'</span>])</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="_v_images/20201004140632114_5447.png" alt="" /></p>
+<p>可以看到我们获得了大量的链接。<br />
+接下来只需要下载这些链接的内容即可。</p>
+<h3 id="下载图片"><a class="markdownIt-Anchor" href="#下载图片"></a> 下载图片</h3>
+<p>此处先直接贴出代码再做解释。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> images:</span><br><span class="line">    print(<span class="string">'*'</span>*<span class="number">100</span>)</span><br><span class="line">    <span class="keyword">with</span> open(str(int(time.time()))+<span class="string">'.jpg'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:  <span class="comment"># 使用with语句打开文件（文件不存在则会创建, 用时间戳命名文件）</span></span><br><span class="line">       f.write(requests.get(img[<span class="string">'src'</span>]).content)    <span class="comment"># 写入字节集</span></span><br><span class="line">       <span class="comment"># requests.get(img['src']) 是用requests访问目标链接 然后用 .content属性去获取二进制内容</span></span><br><span class="line">       time.sleep(<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="完整代码"><a class="markdownIt-Anchor" href="#完整代码"></a> 完整代码</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">html = requests.get(<span class="string">'https://tieba.baidu.com/p/6970148254'</span>)</span><br><span class="line">print(html.status_code) <span class="comment"># 返回200即为请求成功</span></span><br><span class="line">print(html.text)  <span class="comment"># html.text 即为我们想要的HTML文档</span></span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html.text,<span class="string">'html.parser'</span>)</span><br><span class="line">images = soup.find_all(<span class="string">'img'</span>,class_=<span class="string">'BDE_Image'</span>) <span class="comment">#这将返回含有每个图片元素的一个列表</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">for</span> img <span class="keyword">in</span> images:</span><br><span class="line">    print(<span class="string">'*'</span>*<span class="number">100</span>)</span><br><span class="line">    <span class="keyword">with</span> open(str(int(time.time()))+<span class="string">'.jpg'</span>,<span class="string">'wb'</span>) <span class="keyword">as</span> f:  <span class="comment"># 使用with语句打开文件（文件不存在则会创建, 用时间戳命名文件）</span></span><br><span class="line">       f.write(requests.get(img[<span class="string">'src'</span>]).content)    <span class="comment"># 写入字节集</span></span><br><span class="line">       <span class="comment"># requests.get(img['src']) 是用requests访问目标链接 然后用 .content属性去获取二进制内容</span></span><br><span class="line">       time.sleep(<span class="number">4</span>)  <span class="comment"># 等待4秒 以防止来不及下载</span></span><br></pre></td></tr></table></figure>
+<h2 id="爬取豆瓣影评"><a class="markdownIt-Anchor" href="#爬取豆瓣影评"></a> 爬取豆瓣影评</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 先引用包</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> time</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004193912.png" alt="" /><br />
+找到要爬取的目标，我选择了这个《我和我的家乡》的影评。<a href="https://movie.douban.com/subject/35051512/comments?limit=20&amp;status=P&amp;sort=new_score" target="_blank" rel="noopener">链接</a></p>
+<h3 id="获取html文档-2"><a class="markdownIt-Anchor" href="#获取html文档-2"></a> 获取HTML文档</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">html = requests.get(<span class="string">'https://movie.douban.com/subject/35051512/comments?limit=20&amp;status=P&amp;sort=new_score'</span>)</span><br><span class="line">print(html.status_code) <span class="comment"># 返回200即为请求成功</span></span><br><span class="line">print(html.text)  <span class="comment"># html.text 即为我们想要的HTML文档</span></span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004194033.png" alt="" /><br />
+我们可以看到，直接进行GET请求，返回的状态号为418，并没有成功。<br />
+这可能是网站检测出非正常访问，所以我们要伪装成真实人物来访问。<br />
+这里就涉及一个<code>User-Agent</code>的概念了，简称<code>UA</code>。这里不解释<code>UA</code>是什么。只说明如何利用。<br />
+如何找到<code>UA</code>呢？下面介绍两个方法：</p>
+<h4 id="方法一"><a class="markdownIt-Anchor" href="#方法一"></a> 方法一</h4>
+<p>打开F12工具，刷新一下网页。选择Network页签，在左边的选项中随便点一个，在右边的Headers中找到user-agent字段。<br />
+即 <code>Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36</code></p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004180427.png" alt="" /></p>
+<h4 id="方法二"><a class="markdownIt-Anchor" href="#方法二"></a> 方法二</h4>
+<p>打开浏览器，在地址栏输入<code>about://version</code>并回车。可以方便地找到<code>UA</code>字段。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004180711.png" alt="" /></p>
+<h3 id="headers"><a class="markdownIt-Anchor" href="#headers"></a> headers</h3>
+<p>创建一个字典headers，将刚刚找到的<code>UA</code>，作为字段<code>User-Agent</code>的值写入其中。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">headers = &#123;</span><br><span class="line">             <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36'</span>,</span><br><span class="line">            &#125;</span><br></pre></td></tr></table></figure>
+<p>接下来将之前的</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">html = requests.get(<span class="string">'https://movie.douban.com/subject/35051512/comments?limit=20&amp;status=P&amp;sort=new_score'</span>)</span><br></pre></td></tr></table></figure>
+<p>修改为</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">html = requests.get(<span class="string">'https://movie.douban.com/subject/35051512/comments?limit=20&amp;status=P&amp;sort=new_score'</span>,headers=headers)</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004194227.png" alt="" /></p>
+<p>这个时候就可以发现能成功请求了。</p>
+<h3 id="用beautifulsoup解析-2"><a class="markdownIt-Anchor" href="#用beautifulsoup解析-2"></a> 用BeautifulSoup解析</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">soup = BeautifulSoup(html.text,<span class="string">'html.parser'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="对网页元素进行选择-2"><a class="markdownIt-Anchor" href="#对网页元素进行选择-2"></a> 对网页元素进行选择</h3>
+<p>我们要爬取的目标是，该电影的影评，最好爬取到尽可能多的内容。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004194838.png" alt="" /></p>
+<p>拟定对图上每一个用户的昵称、评分、时间、评论内容、赞成数进行爬取。</p>
+<p>打开F12工具进行分析，我们发现每一个用户的评论和其相关信息都在一个<code>div</code>标签，<code>class</code>为<code>comment-item</code>的容器（共同点）中。<br />
+<strong>注：容器是为方便陈述自己拟定的非正式称谓。</strong></p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004194326.png" alt="" /></p>
+<h3 id="查找标签-3"><a class="markdownIt-Anchor" href="#查找标签-3"></a> 查找标签</h3>
+<p>思路：我们可以先把页面上所有的<strong>容器</strong>选出来，再从每个容器中选取自己想要的信息。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">boxes = soup.find_all(<span class="string">'div'</span>,class_=<span class="string">'comment-item'</span>)</span><br></pre></td></tr></table></figure>
+<p>这样就找到了所有的<strong>容器</strong>，并以列表的形式返回。<br />
+然后我们<strong>遍历每个容器</strong>，提取自己想要的信息。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> box <span class="keyword">in</span> boxes:</span><br><span class="line">   <span class="comment"># 在box中提取信息</span></span><br></pre></td></tr></table></figure>
+<p>这个时候，每个容器中的内容应类似这样（部分内容被隐去）：</p>
+<details green><summary> <p>容器内容</p> </summary>
+              <div class='content'>
+              <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"comment-item "</span> <span class="attr">data-cid</span>=<span class="string">"2455502478"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"comment-item "</span> <span class="attr">data-cid</span>=<span class="string">"2538318284"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"avatar"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">title</span>=<span class="string">"Username"</span> <span class="attr">href</span>=<span class="string">"https://www.douban.com/people/0000000/"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"https://img1.doubanio.com/icon/u0000000-17.jpg"</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"comment"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"comment-vote"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"votes vote-count"</span>&gt;</span>2217<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                    <span class="tag">&lt;<span class="name">input</span> <span class="attr">value</span>=<span class="string">"2538318284"</span> <span class="attr">type</span>=<span class="string">"hidden"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">data-id</span>=<span class="string">"2538318284"</span> <span class="attr">class</span>=<span class="string">"j a_show_login"</span> <span class="attr">onclick</span>=<span class="string">""</span>&gt;</span>有用<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!-- 删除短评 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"comment-info"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"https://www.douban.com/people/0000000/"</span> <span class="attr">class</span>=<span class="string">""</span>&gt;</span>Username<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">span</span>&gt;</span>看过<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"allstar50 rating"</span> <span class="attr">title</span>=<span class="string">"力荐"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"comment-time "</span> <span class="attr">title</span>=<span class="string">"2020-09-20 20:16:27"</span>&gt;</span></span><br><span class="line">                    2020-09-20</span><br><span class="line">                <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">" comment-content"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">class="short"</span>&gt;</span>徐峥的才华确实被低估了。“乡村教师”这个题材的电影展现出他某个程度的细腻——他很擅长从一个小的切角去展开一个宏大叙题，这样的融合不会过于煽情，却分外让人感动。<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<p>然后我们再对<strong>每个容器</strong>进行分析：<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004195144.png" alt="" /></p>
+<h4 id="赞成数"><a class="markdownIt-Anchor" href="#赞成数"></a> 赞成数</h4>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004195424.png" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">box.find(<span class="string">'span'</span>,class_=<span class="string">'votes'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>注：我们观察到上面的类写的是 class=“votes vote-count”，这不是一个类的名字，而是两个类的名字，也就是说这个span既属于votes也属于vote-count。</strong></p>
+<p>为了提取其中的<strong>正文</strong>，我们加上<code>.text</code>属性。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">box.find(<span class="string">'span'</span>,class_=<span class="string">'votes'</span>).text</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004195541.png" alt="" /></p>
+<h4 id="用户名"><a class="markdownIt-Anchor" href="#用户名"></a> 用户名</h4>
+<p>那么如何提取用户名呢？用户名的class为空。和上面提取赞成数类似。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">box.find(<span class="string">'a'</span>,class_=<span class="string">''</span>).text</span><br></pre></td></tr></table></figure>
+<p>但是不建议使用这个方法，似乎是会出现BUG。（这个条件太弱了，满足条件可能不止这一个）<br />
+所以我们可以采用连续查找的方式，先查找<code>span</code>,<code>class_=&quot;comment-info&quot;</code>，再在里面查找<code>a</code>标签。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004195830.png" alt="" /></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">box.find(<span class="string">'span'</span>,class_=<span class="string">'comment-info'</span>).find(<span class="string">'a'</span>).text</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004195944.png" alt="" /></p>
+<h4 id="评分"><a class="markdownIt-Anchor" href="#评分"></a> 评分</h4>
+<p>关于评分，我们可以在文档中观察到，没有直接的数字或文本来表示，它是用<strong>一个类名来表示</strong>的。<br />
+所以我们可以想办法获取到这个类名。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">box.find(<span class="string">'span'</span>,class_=<span class="string">'rating'</span>).get(<span class="string">'class'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004200220.png" alt="" /><br />
+在上面那个语句后加一个<code>[0]</code>来获取第一个元素，然后把<code>allstar</code>去掉。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">box.find(<span class="string">'span'</span>,class_=<span class="string">'rating'</span>).get(<span class="string">'class'</span>)[<span class="number">0</span>].replace(<span class="string">"allstar"</span>)</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004200455.png" alt="" /></p>
+<p>通过观察可知，30其实是三颗星。所以我们可以简单地换算一下。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">int(box.find(<span class="string">'span'</span>,class_=<span class="string">'rating'</span>).get(<span class="string">'class'</span>)[<span class="number">0</span>].replace(<span class="string">"allstar"</span>,<span class="string">""</span>))//<span class="number">10</span></span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004200639.png" alt="" /></p>
+<h4 id="评论内容"><a class="markdownIt-Anchor" href="#评论内容"></a> 评论内容</h4>
+<p>这个也非常简单。<br />
+只需要：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">box.find(<span class="string">'span'</span>,class_=<span class="string">'short'</span>).text</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004200810.png" alt="" /></p>
+<h4 id="时间"><a class="markdownIt-Anchor" href="#时间"></a> 时间</h4>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">box.find(<span class="string">'span'</span>,class_=<span class="string">'comment-time'</span>).text.strip()</span><br><span class="line"><span class="comment">#不使用strip()的话两边会有空格或换行, 用这个方法来去掉这些我们不要的东西。</span></span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004200953.png" alt="" /></p>
+<hr />
+<p>也可以从属性中取得更详细的时间。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">box.find(<span class="string">'span'</span>,class_=<span class="string">'comment-time'</span>)[<span class="string">'title'</span>]</span><br></pre></td></tr></table></figure>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004201110.png" alt="" /></p>
+<h3 id="完整代码-2"><a class="markdownIt-Anchor" href="#完整代码-2"></a> 完整代码</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">headers = &#123;</span><br><span class="line">             <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.89 Safari/537.36'</span>,</span><br><span class="line">            &#125;</span><br><span class="line">html = requests.get(<span class="string">'https://movie.douban.com/subject/35051512/comments?limit=20&amp;status=P&amp;sort=new_score'</span>,headers=headers)</span><br><span class="line">print(html.status_code) <span class="comment"># 返回200即为请求成功</span></span><br><span class="line">print(html.text)  <span class="comment"># html.text 即为我们想要的HTML文档</span></span><br><span class="line">soup = BeautifulSoup(html.text,<span class="string">'html.parser'</span>)</span><br><span class="line">boxes = soup.find_all(<span class="string">'div'</span>,class_=<span class="string">'comment-item'</span>)</span><br><span class="line"><span class="keyword">for</span> box <span class="keyword">in</span> boxes:</span><br><span class="line">    print(<span class="string">"用户名"</span>,box.find(<span class="string">'span'</span>,class_=<span class="string">'comment-info'</span>).find(<span class="string">'a'</span>).text)</span><br><span class="line">    print(<span class="string">"赞成数"</span>,box.find(<span class="string">'span'</span>,class_=<span class="string">'votes'</span>).text)</span><br><span class="line">    print(<span class="string">"时间"</span>,box.find(<span class="string">'span'</span>,class_=<span class="string">'comment-time'</span>).text.strip())</span><br><span class="line">    print(<span class="string">"星数"</span>,int(box.find(<span class="string">'span'</span>,class_=<span class="string">'rating'</span>).get(<span class="string">'class'</span>)[<span class="number">0</span>].replace(<span class="string">"allstar"</span>,<span class="string">""</span>))//<span class="number">10</span>)</span><br><span class="line">    print(<span class="string">"评论内容"</span>,box.find(<span class="string">'span'</span>,class_=<span class="string">'short'</span>).text)</span><br><span class="line">    print(<span class="string">"-"</span>*<span class="number">10</span>) <span class="comment">#分隔符</span></span><br></pre></td></tr></table></figure>
+<p>运行效果如下图所示：<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201004202132.png" alt="" /></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实训日记 | Day 03. 函数、包和数据库</title>
     <url>/2020/07/22/training_2/</url>
     <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
