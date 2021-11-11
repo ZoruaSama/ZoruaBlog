@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>算法笔记 | 前缀和</title>
+    <url>/2021/11/11/algorithm_0/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>今天是8月14日，实训的第20天。实训的最后一天。<br />
+今天我如预期一样地完成了答辩，两位老师似乎对我的项目及答辩都还很满意。<br />
+看着自己完整的项目和老师的认可，我感到非常有成就感。<br />
+我能在这取得一个小小的进步，离不开孟老师的耐心教导，同学们友爱的帮助。<br />
+由于我今天中午又加了一些新的内容，所以也在这里再对昨天的内容进行补充。</p>
+<h1 id="事先准备"><a class="markdownIt-Anchor" href="#事先准备"></a> 事先准备</h1>
+<ul>
+<li>另一块屏幕用来播放本文档</li>
+<li>已经开启服务的项目（原项目，处于登录状态，数据仅有一页）</li>
+<li>ZOL手机报价网站</li>
+<li>360安全浏览器</li>
+</ul>
+<h1 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h1>
+<ul>
+<li>名称：指上云霄手机信息查阅系统</li>
+<li>功能：提供爬虫和数据可视化两部分功能。
+<ul>
+<li>爬虫：可以在页面上调用后台接口，爬取ZOL手机报价网站上的数据并存储到数据库中。</li>
+<li>数据可视化：可以在页面上显示手机的相关数据信息。</li>
+</ul>
+</li>
+</ul>
+<h1 id="介绍数据爬取来源"><a class="markdownIt-Anchor" href="#介绍数据爬取来源"></a> 介绍数据爬取来源</h1>
+<ul>
+<li>手机报价首页</li>
+<li>手机配置参数页</li>
+<li>手机评价页面</li>
+<li>bilibili搜索</li>
+</ul>
+<p>难点：ZOL手机报价的页面很多都不一样。对于一些没有评价或未上市的手机数据不予爬取。</p>
+<h1 id="应用页面"><a class="markdownIt-Anchor" href="#应用页面"></a> 应用页面</h1>
+<p>应用的页面有<strong>登录注册页面</strong>、<strong>数据可视化首页</strong>、<strong>爬虫页面</strong>、<strong>数据柱状图页面</strong>、<strong>关于页面</strong>五个页面。</p>
+<h2 id="登录注册页面"><a class="markdownIt-Anchor" href="#登录注册页面"></a> 登录注册页面</h2>
+<ul>
+<li>在图1中点击注册按钮可切换为图2界面，图2界面点击返回按钮可切换为图1界面。</li>
+<li>在<strong>注册登录界面</strong>，对填充的文本内容有长度和字符内容的限制。例如用户名和密码只能为字母和数字组成。</li>
+<li>在此界面注册后，密码将以加密后的文本进行存储。</li>
+<li><strong>如果还未登录，企图访问其他网页，则会自动跳转至登录注册页面</strong>。反之，若在登录后，访问该登录注册页面，将会自动跳转至首页。</li>
+</ul>
+<h2 id="数据可视化首页"><a class="markdownIt-Anchor" href="#数据可视化首页"></a> 数据可视化首页</h2>
+<ul>
+<li>数据可视化首页会在顶部显示<strong>当前的数据库条目数量</strong>。</li>
+<li>数据可视化首页显示的手机信息的序列，将是一个<strong>随机序列</strong>。</li>
+<li><strong>在刚载入页面时，首页只会显示8条数据。当滚轮被滑到底部时，将会再次载入至多4条数据。实现了动态加载数据的过程，直至数据库的所有数据都已呈现</strong>。
+<ul>
+<li>每次载入的数据都是从后端被渲染完毕后，以HTML的形式插入的。</li>
+</ul>
+</li>
+<li><strong>每个标签左侧会读取数据库中的基本信息并显示，右侧会以echarts雷达图的形式显示当前的数据和平均的数据。</strong></li>
+<li>点击名字可以弹出bilibili的视频。</li>
+</ul>
+<h2 id="爬虫页面"><a class="markdownIt-Anchor" href="#爬虫页面"></a> 爬虫页面</h2>
+<p>在文本框填入要爬取数据的第几页，点击爬虫，即可爬取数据。<br />
+数据来源是<strong>ZOL手机报价</strong>。</p>
+<ul>
+<li>如果选择的页号已经被爬取到数据库中，后端将会拒绝该爬取请求。</li>
+<li>如果选择的页号不符合要求，后端也会拒绝该爬取请求。</li>
+<li>清空数据库前，需要填入事先在后端设置好的密码。</li>
+</ul>
+<h2 id="数据柱状图页面"><a class="markdownIt-Anchor" href="#数据柱状图页面"></a> 数据柱状图页面</h2>
+<p>该页面将会呈现数据库中所有条目的售价以及得分状况。通过调节图像四周的工具，可以获取不同的信息。<br />
+该页面将会呈现数据库中所有条目的售价以及得分状况。通过调节图像四周的工具，可以获取不同的信息。</p>
+<ul>
+<li>单击柱状条可以在下方显示手机信息卡片。</li>
+<li>双击柱状条会自动跳转到和这个手机相关的B站视频链接。</li>
+</ul>
+<h2 id="关于页面"><a class="markdownIt-Anchor" href="#关于页面"></a> 关于页面</h2>
+<p>关于页面比较简单，仅仅只是显示了本文档的<strong>简介</strong>部分的内容。在此不再赘述。</p>
+<h1 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h1>
+<p>接口分成两个模块，UserInfo模块和echarts模块。</p>
+<h2 id="userinfo"><a class="markdownIt-Anchor" href="#userinfo"></a> UserInfo</h2>
+<ul>
+<li>index，被请求时，将会返回<strong>登录注册页面</strong>。</li>
+<li>user_login，仅能被POST请求，参数为username和password。用于登录。</li>
+<li>user_register，仅能被POST请求，参数为username和password及emailAddress。用于注册。</li>
+<li>user_activate，能被GET请求，参数为id。用于注册账号的激活。将会返回一个JsonResponse。</li>
+<li>is_login，参数为id。被请求时，会检查浏览器的session，查看是否登录。</li>
+<li>user_logout，参数为id。被请求时，将会删除浏览器的session。</li>
+</ul>
+<h2 id="echarts"><a class="markdownIt-Anchor" href="#echarts"></a> echarts</h2>
+<ul>
+<li>空，被请求时，返回<strong>数据可视化首页</strong>。</li>
+<li>run_page，被请求时，返回<strong>爬虫页面</strong>。</li>
+<li>hot_page，被请求时，返回<strong>数据柱状图页面</strong>。</li>
+<li>about，被请求时，返回<strong>关于页面</strong>。</li>
+<li>timenow，被请求时，返回含有系统现行时间信息的JsonResponse。</li>
+<li>run，参数为index，仅能被POST请求。被请求后，将会启动爬虫程序。</li>
+<li>get_hot_json，被请求时，返回一个字典。字典内容为数据库中所有手机的名称、价格、分数数据。</li>
+<li>delete，仅能被POST请求。将会清空数据库数据。</li>
+<li>get_data，参数为index，将会从数据库中读取序号为index的手机数据并返回一个JsonResponse。</li>
+<li>get_random_dict，以列表的形式产生一个随机的序列。</li>
+<li>get_average，被请求时，将以JsonResponse返回数据库中所有数据的评分的平均值。</li>
+<li>init_zorua_box，参数为index，将读取数据库中的数据，并对指定的HTML文件进行渲染，然后<strong>将渲染后的HTML文件返回</strong>。</li>
+</ul>
+<h1 id="数据库结构"><a class="markdownIt-Anchor" href="#数据库结构"></a> 数据库结构</h1>
+<ul>
+<li>User(id,username,password,is_activate)</li>
+<li>Phone(id,name,price,img,score)</li>
+<li>config(phone,soc,camera,camera_vice,ram,battery,screen_size,image)</li>
+<li>evaluation(phone,cost_performance,performance,endurance,design,photograph)</li>
+</ul>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>前缀和</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Works | 标签夹 Tab Clamp</title>
     <url>/2021/10/26/TabClamp/</url>
     <content><![CDATA[<h1 id="标签夹-tabclamp-是什么"><a class="markdownIt-Anchor" href="#标签夹-tabclamp-是什么"></a> 标签夹 TabClamp 是什么</h1>

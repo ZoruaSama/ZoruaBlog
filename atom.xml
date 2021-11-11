@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://zoruasama.gitee.io/"/>
-  <updated>2021-10-26T07:41:28.206Z</updated>
+  <updated>2021-11-11T11:05:43.837Z</updated>
   <id>https://zoruasama.gitee.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>算法笔记 | 前缀和</title>
+    <link href="https://zoruasama.gitee.io/2021/11/11/algorithm_0/"/>
+    <id>https://zoruasama.gitee.io/2021/11/11/algorithm_0/</id>
+    <published>2021-11-11T11:05:00.000Z</published>
+    <updated>2021-11-11T11:05:43.837Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1><p>今天是8月14日，实训的第20天。实训的最后一天。<br />今天我如预期一样地完成了答辩，两位老师似乎对我的项目及答辩都还很满意。<br />看着自己完整的项目和老师的认可，我感到非常有成就感。<br />我能在这取得一个小小的进步，离不开孟老师的耐心教导，同学们友爱的帮助。<br />由于我今天中午又加了一些新的内容，所以也在这里再对昨天的内容进行补充。</p><h1 id="事先准备"><a class="markdownIt-Anchor" href="#事先准备"></a> 事先准备</h1><ul><li>另一块屏幕用来播放本文档</li><li>已经开启服务的项目（原项目，处于登录状态，数据仅有一页）</li><li>ZOL手机报价网站</li><li>360安全浏览器</li></ul><h1 id="简介"><a class="markdownIt-Anchor" href="#简介"></a> 简介</h1><ul><li>名称：指上云霄手机信息查阅系统</li><li>功能：提供爬虫和数据可视化两部分功能。<ul><li>爬虫：可以在页面上调用后台接口，爬取ZOL手机报价网站上的数据并存储到数据库中。</li><li>数据可视化：可以在页面上显示手机的相关数据信息。</li></ul></li></ul><h1 id="介绍数据爬取来源"><a class="markdownIt-Anchor" href="#介绍数据爬取来源"></a> 介绍数据爬取来源</h1><ul><li>手机报价首页</li><li>手机配置参数页</li><li>手机评价页面</li><li>bilibili搜索</li></ul><p>难点：ZOL手机报价的页面很多都不一样。对于一些没有评价或未上市的手机数据不予爬取。</p><h1 id="应用页面"><a class="markdownIt-Anchor" href="#应用页面"></a> 应用页面</h1><p>应用的页面有<strong>登录注册页面</strong>、<strong>数据可视化首页</strong>、<strong>爬虫页面</strong>、<strong>数据柱状图页面</strong>、<strong>关于页面</strong>五个页面。</p><h2 id="登录注册页面"><a class="markdownIt-Anchor" href="#登录注册页面"></a> 登录注册页面</h2><ul><li>在图1中点击注册按钮可切换为图2界面，图2界面点击返回按钮可切换为图1界面。</li><li>在<strong>注册登录界面</strong>，对填充的文本内容有长度和字符内容的限制。例如用户名和密码只能为字母和数字组成。</li><li>在此界面注册后，密码将以加密后的文本进行存储。</li><li><strong>如果还未登录，企图访问其他网页，则会自动跳转至登录注册页面</strong>。反之，若在登录后，访问该登录注册页面，将会自动跳转至首页。</li></ul><h2 id="数据可视化首页"><a class="markdownIt-Anchor" href="#数据可视化首页"></a> 数据可视化首页</h2><ul><li>数据可视化首页会在顶部显示<strong>当前的数据库条目数量</strong>。</li><li>数据可视化首页显示的手机信息的序列，将是一个<strong>随机序列</strong>。</li><li><strong>在刚载入页面时，首页只会显示8条数据。当滚轮被滑到底部时，将会再次载入至多4条数据。实现了动态加载数据的过程，直至数据库的所有数据都已呈现</strong>。<ul><li>每次载入的数据都是从后端被渲染完毕后，以HTML的形式插入的。</li></ul></li><li><strong>每个标签左侧会读取数据库中的基本信息并显示，右侧会以echarts雷达图的形式显示当前的数据和平均的数据。</strong></li><li>点击名字可以弹出bilibili的视频。</li></ul><h2 id="爬虫页面"><a class="markdownIt-Anchor" href="#爬虫页面"></a> 爬虫页面</h2><p>在文本框填入要爬取数据的第几页，点击爬虫，即可爬取数据。<br />数据来源是<strong>ZOL手机报价</strong>。</p><ul><li>如果选择的页号已经被爬取到数据库中，后端将会拒绝该爬取请求。</li><li>如果选择的页号不符合要求，后端也会拒绝该爬取请求。</li><li>清空数据库前，需要填入事先在后端设置好的密码。</li></ul><h2 id="数据柱状图页面"><a class="markdownIt-Anchor" href="#数据柱状图页面"></a> 数据柱状图页面</h2><p>该页面将会呈现数据库中所有条目的售价以及得分状况。通过调节图像四周的工具，可以获取不同的信息。<br />该页面将会呈现数据库中所有条目的售价以及得分状况。通过调节图像四周的工具，可以获取不同的信息。</p><ul><li>单击柱状条可以在下方显示手机信息卡片。</li><li>双击柱状条会自动跳转到和这个手机相关的B站视频链接。</li></ul><h2 id="关于页面"><a class="markdownIt-Anchor" href="#关于页面"></a> 关于页面</h2><p>关于页面比较简单，仅仅只是显示了本文档的<strong>简介</strong>部分的内容。在此不再赘述。</p><h1 id="接口"><a class="markdownIt-Anchor" href="#接口"></a> 接口</h1><p>接口分成两个模块，UserInfo模块和echarts模块。</p><h2 id="userinfo"><a class="markdownIt-Anchor" href="#userinfo"></a> UserInfo</h2><ul><li>index，被请求时，将会返回<strong>登录注册页面</strong>。</li><li>user_login，仅能被POST请求，参数为username和password。用于登录。</li><li>user_register，仅能被POST请求，参数为username和password及emailAddress。用于注册。</li><li>user_activate，能被GET请求，参数为id。用于注册账号的激活。将会返回一个JsonResponse。</li><li>is_login，参数为id。被请求时，会检查浏览器的session，查看是否登录。</li><li>user_logout，参数为id。被请求时，将会删除浏览器的session。</li></ul><h2 id="echarts"><a class="markdownIt-Anchor" href="#echarts"></a> echarts</h2><ul><li>空，被请求时，返回<strong>数据可视化首页</strong>。</li><li>run_page，被请求时，返回<strong>爬虫页面</strong>。</li><li>hot_page，被请求时，返回<strong>数据柱状图页面</strong>。</li><li>about，被请求时，返回<strong>关于页面</strong>。</li><li>timenow，被请求时，返回含有系统现行时间信息的JsonResponse。</li><li>run，参数为index，仅能被POST请求。被请求后，将会启动爬虫程序。</li><li>get_hot_json，被请求时，返回一个字典。字典内容为数据库中所有手机的名称、价格、分数数据。</li><li>delete，仅能被POST请求。将会清空数据库数据。</li><li>get_data，参数为index，将会从数据库中读取序号为index的手机数据并返回一个JsonResponse。</li><li>get_random_dict，以列表的形式产生一个随机的序列。</li><li>get_average，被请求时，将以JsonResponse返回数据库中所有数据的评分的平均值。</li><li>init_zorua_box，参数为index，将读取数据库中的数据，并对指定的HTML文件进行渲染，然后<strong>将渲染后的HTML文件返回</strong>。</li></ul><h1 id="数据库结构"><a class="markdownIt-Anchor" href="#数据库结构"></a> 数据库结构</h1><ul><li>User(id,username,password,is_activate)</li><li>Phone(id,name,price,img,score)</li><li>config(phone,soc,camera,camera_vice,ram,battery,screen_size,image)</li><li>evaluation(phone,cost_performance,performance,endurance,design,photograph)</li></ul><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;总述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#总述&quot;&gt;&lt;/a&gt; 总述&lt;/h1&gt;
+&lt;p&gt;今天是8月14日，实训的第20天。实训的最后一天。&lt;br /&gt;
+今天我如预期一样地完成了答辩，两位老师似乎对我的项目及答辩都还很满意。&lt;br /
+      
+    
+    </summary>
+    
+    
+      <category term="算法" scheme="https://zoruasama.gitee.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="https://zoruasama.gitee.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="前缀和" scheme="https://zoruasama.gitee.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>Works | 标签夹 Tab Clamp</title>
@@ -579,35 +609,6 @@
       <category term="Python" scheme="https://zoruasama.gitee.io/tags/Python/"/>
     
       <category term="实训" scheme="https://zoruasama.gitee.io/tags/%E5%AE%9E%E8%AE%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows | 应用程序的Zorua有机分类使用管理办法</title>
-    <link href="https://zoruasama.gitee.io/2020/07/22/windows_0/"/>
-    <id>https://zoruasama.gitee.io/2020/07/22/windows_0/</id>
-    <published>2020-07-22T11:30:00.000Z</published>
-    <updated>2020-07-22T11:47:40.846Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="引言"><a class="markdownIt-Anchor" href="#引言"></a> 引言</h1><p><code>Windows</code>作为广泛地被使用的个人计算机操作系统，在学习和工作中发挥着举足轻重的作用。但是，就我身边的人而言，大家似乎都是到手即用，而没有事先对其作一番设置让自己使用得更加舒适。本文简要地谈谈，我是怎么样理解并发挥<code>Windows</code>提供的一些功能的，仅供参考。<br />正如题文的<strong>应用程序的Zorua有机分类使用管理办法</strong>，这是我随意地对这篇见解起的名字，英文名为<strong>Zorua Organic Rating Utilization Administration</strong>，简称<strong>ZORUA</strong>。</p><h1 id="应用程序的启动"><a class="markdownIt-Anchor" href="#应用程序的启动"></a> 应用程序的启动</h1><p>在我们日常使用计算机的时候，必然是需要启动应用程序的。按照使用频率，我把这些应用程序分成如下几类：</p><ul><li><strong>强必定启动项</strong>：每次开启计算机，必定会启动的应用程序，但是希望它是自动启动</li><li><strong>弱必定启动项</strong>：每次开启计算机，必定会启动的应用程序，但是希望它是手动启动</li><li><strong>偶尔启动项</strong>：正在进行工作时，出于一时的需求需要启动的应用程序</li><li><strong>非必定启动项</strong>：其他不常使用的应用程序</li></ul><p>对于不同类别的应用程序，全部都使用桌面快捷方式，是非常不科学高效的。</p><ul><li>桌面壁纸混搭各种风格的图标，美观度下降</li><li>桌面图标过多，难以迅速找到自己需要启动应用程序，尤其是在桌面图标被重新排序后</li></ul><blockquote><p><span class="inline-tag grey">P.S.</span> 笔者的桌面上图标也挺多的，但是主要都是<strong>文件</strong>，而不是<strong>软件</strong>，且这些文件通常具有时间上的<strong>局域性</strong>，会定期清理。<br />对于常用的软件、游戏等，使用了<strong>Fences+文件夹</strong>的方式进行了管理。<br /><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200722172753.png" alt="" /></p></blockquote><p><strong>因此，不同类别就应该使用不同的管理方式。</strong></p><h2 id="强必定启动项"><a class="markdownIt-Anchor" href="#强必定启动项"></a> 强必定启动项</h2><p><strong>强必定启动项</strong>，或许用术语来称呼，应为<strong>开机启动项</strong>。对于这些程序，我们在启动<code>Windows</code>完毕后，它们就会自动运行，这样可以省去我们每次手动运行的繁琐。<br />但是，需要注意的是，<strong>过多的开机启动项可能会影响开机时间</strong>，但也<strong>切忌刻意地优化开机时间</strong>，极端地追求过短的开机时间。即使你的计算机能很快的开机并打败了全国99%的用户，这时你也还得花费时间启动软件，得不偿失。除非你是常年不关机。</p><h3 id="管理办法"><a class="markdownIt-Anchor" href="#管理办法"></a> 管理办法</h3><p>打开任务管理员，切换到<code>启动</code>标签页便可以进行启用/禁用。<br /><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200722171507.png" alt="" /></p><h3 id="示例我的应用"><a class="markdownIt-Anchor" href="#示例我的应用"></a> 示例：我的应用</h3><p>在我的计算机上，我设置的该类应用：</p><ul><li>TrafficMonitor：在任务栏实时显示资源使用情况</li><li>坚果云：文件同步网盘</li><li>Snipaste：截图工具</li><li>火柴：类everything软件</li><li>火绒安全软件</li><li>Fences：桌面管理软件</li></ul><h2 id="弱必定启动项"><a class="markdownIt-Anchor" href="#弱必定启动项"></a> 弱必定启动项</h2><p>对于这类应用，和前文所述的<strong>强必定启动项</strong>几乎一致，差别只在<strong>希望它是手动启动</strong>。<br />可能有读者会问了，既然它们也是必定会启动的，为什么不直接归到上一类中，而要<strong>希望它是手动启动</strong>呢？</p><p>在回答这个问题前，我们来看下面这张图片。<br /><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200722173818.png" alt="" /></p><p>我相信不少用户对登录QQ时弹出的这个新闻窗口是反感的，上面的新闻你或许偶尔会看，但是大部分时候不看。而它并不懂得迎合，只会每次精准无误地弹出，造成了打扰。</p><p>试想一下，<strong>弱必定启动项</strong>一般会有什么呢？</p><ul><li>每天都会登录的QQ</li><li>每天都会登录的微信</li><li>每天都会打开的浏览器</li><li>每天都会打开的文件资源管理器</li><li>……</li></ul><p>上面提到的频度是每天，而不是每次。</p><blockquote><p>我某次开机准备拷贝计算机中的一个文件到同学的U盘时，突然弹出QQ登录窗口。<br />类似上述这样的场景，实质上也是会像那个迷你版新闻弹窗一样充满打扰感的。</p></blockquote><p>而真正配得开机自运行的，就应该是那种静默运行的应用程序。</p><h3 id="管理方法"><a class="markdownIt-Anchor" href="#管理方法"></a> 管理方法</h3><p>那么，言归正传。<br />那么对于这类应用，应该如何管理呢？</p><p>我认为，最好就是将其锁定在任务栏中（但是QQ仍然不适合，我会在下文解释原因）。<br />先分析一下锁定任务栏的优缺点：</p><ul><li>锁定在任务栏中的优点：除全屏应用外（如游戏、电影），你可以在任何场景下打开这个应用。</li><li>锁定在任务栏中的缺点：在未运行时，它将一直占着位置，使得任务栏能容下的应用按钮位置少了。</li></ul><p>基于上面两点，可以得出的结论是——</p><ul><li><strong>任务栏锁定应用可以处理场景中的插入事件，例如——</strong><ul><li><strong>正写着代码，要打开浏览器查一些资料</strong></li><li><strong>正聊着天，突然被催促着提交某个报告</strong></li></ul></li><li><strong>任务栏锁定应用尽量不要太多</strong></li><li><strong>任务栏锁定应用在运行后，应该是<code>理想状态</code></strong></li></ul><p>为了表述简洁，上述提到了一个词，叫做<code>理想状态</code>，现在我对它下一个不严谨的定义。<br /><span class="inline-tag red">定义</span> <strong>理想状态</strong>是指，被锁定在任务栏的应用被运行后，<strong>再次点击任务栏上的图标</strong>，将会出现<strong>已经运行的程序窗口</strong>，而不是另行再运行一次程序的状态。<br />处于理想状态的好处是，相当于<strong>在运行时，锁定在任务栏的缺点被避免了</strong>。</p><p>这是什么意思呢？以腾讯QQ为例，当把腾讯QQ锁定在任务栏上后，点击腾讯QQ，将会运行并打开QQ登录界面。<br />这时输入账号密码登录，在登录完成后，点击QQ，依然打开的是QQ登录界面。<br /><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200722175337.png" alt="" /></p><p>再以360安全浏览器为例，将360安全浏览器锁定在任务栏上后，点击它，将会运行并打开，当我再次点击时，它打开的是我已经打开的界面。</p><p>如果你还是很难明白上面的举例，那只需要知道，在点击运行之后，下方应显示一条亮横线。如图中的蓝色亮横线。<br /><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200704212859.png" alt="" /></p><h3 id="示例我的应用-2"><a class="markdownIt-Anchor" href="#示例我的应用-2"></a> 示例：我的应用</h3><p>在我的计算机上，我设置的该类应用：</p><ul><li>文件资源管理器</li><li>360安全浏览器（其他浏览器当然也可以……）</li></ul><p>当然，适合这种情况的应用还有很多。你可以根据自己的实际情况来进行配置。</p><h2 id="偶尔启动项"><a class="markdownIt-Anchor" href="#偶尔启动项"></a> 偶尔启动项</h2><p><strong>偶尔启动项</strong>，我将其描述为<strong>正在进行工作时，出于一时的需求需要启动的应用程序</strong>。这种场景其实也有很多。<br />例如——</p><ul><li>正在进行编写文档的工作，为了确定自己的工作节奏，查看一下今天的日程安排。</li><li>正在写英语论文，一时需要查询一个单词。</li><li>正在浏览网页，看到有价值的内容想记录在word文档中。</li><li>正在做PPT的时候，临时对某个图片使用PS进行处理。</li><li>正在敲代码，一时需要打开一个word文档查看需求。</li><li>正在写markdown文档，为插入图片，打开图床工具。</li><li>正在使用PR进行剪辑，一时需要使用AU为音频进行处理。</li></ul><p>最典型的就是<strong>打开计算器</strong>，<strong>打开画图</strong>，<strong>打开文本文档</strong>了。</p><p>对于<strong>偶尔启动项</strong>，通常的情况为 <em>ABA</em>。<br />即正在进行A任务时，突然进行B任务，待B任务进行完毕后，再恢复A任务。</p><p>因此显然，对管理方法有如下要求：</p><ul><li>实行起来快速且高效</li><li>对工作思路的干扰小</li></ul><p>第一点不难理解。我来着重提一下第二点。因为B的插入对A这个任务产生了中断，如果想让这个中断对A任务的思路延续性影响最小的话，应该做到<strong>进行B任务时前后处理时间短</strong>或<strong>进行B任务时屏幕内容变化不大</strong>。这个B任务往往很少符合前一点，但是对于后一点，我想绝大多数人使用QQ回复聊天时，一定是窗口化的，而不是最大化的。因为窗口化的B界面只需要直接关掉就好了，或者再点击回A界面就能延续任务。</p><p>而不少人使用的<strong>切到桌面</strong>→<strong>找到软件并双击运行</strong>→<strong>还原工作界面</strong>，这个流程的前后处理时间不短，而且屏幕内容变化极大，主要就是花在了<strong>还原工作界面</strong>这个过程中。而且鼠标或键盘需要连续操作。</p><p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200722184308.png" alt="" /></p><h3 id="管理方法-2"><a class="markdownIt-Anchor" href="#管理方法-2"></a> 管理方法</h3><p>我推荐的是，Windows开始菜单。<br /><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200722184443.png" alt="" /></p><p>首先Windows菜单只需要占用一半不到的屏幕，对<strong>屏幕内容变化</strong>影响极小，其次整个动作只需要<strong>按Win键打开菜单</strong>→<strong>点击程序运行</strong>，鼠标或键盘只需要操作两到三下即可完成。</p><h3 id="示例我的应用-3"><a class="markdownIt-Anchor" href="#示例我的应用-3"></a> 示例：我的应用</h3><p>在我的计算机上，我设置的该类应用：</p><ul><li>……</li><li>上面都发图了……</li><li>自己看吧……</li></ul><h2 id="非必定启动项"><a class="markdownIt-Anchor" href="#非必定启动项"></a> 非必定启动项</h2><p>这些没有什么值得好说的了。<br />我是把他们放在桌面上或者桌面上的文件夹。<br />即，下面这张图片。<br /><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200722172753.png" alt="" /></p><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;引言&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#引言&quot;&gt;&lt;/a&gt; 引言&lt;/h1&gt;
-&lt;p&gt;&lt;code&gt;Windows&lt;/code&gt;作为广泛地被使用的个人计算机操作系统，在学习和工作中发挥着举足轻重的作用。但是，就我身边的人而言，大家似
-      
-    
-    </summary>
-    
-    
-      <category term="其他" scheme="https://zoruasama.gitee.io/categories/%E5%85%B6%E4%BB%96/"/>
-    
-    
-      <category term="操作系统" scheme="https://zoruasama.gitee.io/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
-    
-      <category term="Windows" scheme="https://zoruasama.gitee.io/tags/Windows/"/>
     
   </entry>
   
