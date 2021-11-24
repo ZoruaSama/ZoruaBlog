@@ -1,6 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Works | 如果穿越到异世界，你的身份是 _____</title>
+    <url>/2021/11/24/CrossSpace/</url>
+    <content><![CDATA[<style type="text/css">
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.btn-outline-dark {
+    color: #343a40;
+    border-color: #343a40;
+}
+.btn {
+    display: inline-block;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+.btn-outline-dark {
+    color: #343a40;
+    border-color: #343a40;
+}
+button {
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: buttonface;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+}
+button {
+    margin: 0;
+    font-family: inherit;
+    font-size:28px;
+    line-height: inherit;
+}
+.btn-outline-dark:hover {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+.btn-group-sm>.btn, .btn-sm {
+    padding: .25rem .5rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+.innerListItems{
+    list-style-type:none;
+}
+
+input {
+				border: 1px solid #ccc;
+				padding: 5px 0px;
+				border-radius: 3px;
+				padding-left: 5px;
+				font-size:40px;
+				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+				box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+				-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+				-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+				transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+			}
+
+			input:focus {
+				border-color: #66afe9;
+				outline: 0;
+				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+				box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+			}
+#reshead{
+    font-size: 60px;
+    position:absolute;
+    top:7%;
+    left:23%;
+    line-height:65px;
+    text-align:left;
+    color:#FFFFFF;
+}
+#res{
+    font-size: 80px;
+    position:absolute;
+    top:24%;
+    left:32%;
+    line-height:85px;
+    text-align:right;
+    color:#FFFFFF;
+}
+        </style>
+<h1 id="背景故事"><a class="markdownIt-Anchor" href="#背景故事"></a> 背景故事</h1>
+<p>早上偶然看到QQ空间在刷一个<strong>你的名字的意义</strong>的小程序。和室友们一边看一边笑。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211124122725.png" alt="" /><br />
+我是一个无聊的人。<br />
+于是我<s>花了上午约莫一个小时的时间</s>完成了这个小程序的开发。<s>原理是基于姓名编码作了哈希散列。</s><br />
+<strong>“如果穿越到异世界，你的身份是 _____！！！”</strong></p>
+<hr />
+<p>如果你也想玩的话，在这篇文章的<strong>下一节</strong>就可以玩了喔。往下滑，往下滑~~~<br />
+欢迎把结果以文字或截图的形式分享到评论区或者邀请你的朋友一起来看看喔。<br />
+建议在手机上看。</p>
+<h1 id="如果穿越到异世界你的身份是-_____"><a class="markdownIt-Anchor" href="#如果穿越到异世界你的身份是-_____"></a> 如果穿越到异世界，你的身份是 _____</h1>
+<script src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/crossspace-min.js"></script>
+<input type="text" name="fname" id="input"/>
+<button type="button" class="btn btn-outline-dark btn-sm">穿越到异世界！</button>
+<p><br><br></p>
+<div id="box" style="position: relative;">
+<div id="reshead"></div>
+<div id="res"></div>
+<img id="respic" src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<script>
+$('button').on('click',function(){
+        $('#reshead').html('如果穿越到异世界，<br><u>' + $('#input').val() + '</u>的身份是');
+        $('#res').html(crossspace($('#input').val()));
+        $('#respic')[0].src=imgurl($('#input').val());
+})
+</script>
+<h1 id="打赏"><a class="markdownIt-Anchor" href="#打赏"></a> 打赏</h1>
+<p>如果您对这个小程序满意的话，您可以通过下面两种方式给予任意金额的打赏鼓励嗷~~。非常感谢您请我的一杯咖啡~。<br />
+感谢少侠打赏，来杯咖啡提提神，大战到天亮。</p>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026152954.png" alt="" /></p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>Works</category>
+      </categories>
+      <tags>
+        <tag>Works</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>算法笔记 | 树状数组</title>
     <url>/2021/11/23/algorithm_3/</url>
     <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
