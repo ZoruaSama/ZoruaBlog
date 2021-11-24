@@ -133,15 +133,42 @@ input {
 <button type="button" class="btn btn-outline-dark btn-sm">穿越到异世界！</button>
 <p><br><br></p>
 <div id="box" style="position: relative;">
-<div id="reshead"></div>
-<div id="res"></div>
-<img id="respic" src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="">
+<canvas id="myCanvas"></canvas>
 </div>
 <script>
 $('button').on('click',function(){
-        $('#reshead').html('如果穿越到异世界，<br><u>' + $('#input').val() + '</u>的身份是');
-        $('#res').html(crossspace($('#input').val()));
-        $('#respic')[0].src=imgurl($('#input').val());
+        // $('#reshead').html('如果穿越到异世界，<br><u>' + $('#input').val() + '</u>的身份是');
+        // $('#res').html(crossspace($('#input').val()));
+        // $('#respic')[0].src=imgurl($('#input').val());
+//<div id="reshead"></div>
+//<div id="res"></div>
+//<img id="respic" src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="">
+var canvas=document.getElementById('myCanvas');
+var ctx=canvas.getContext('2d');
+var myImage = new Image();
+myImage.src = imgurl($('#input').val());
+myImage.crossOrigin = 'Anonymous';
+myImage.onload=function(){
+     canvas.width = 720;
+     canvas.height = 1280;
+     ctx.drawImage(myImage , 0, 0 , canvas.width , canvas.height,0,0,canvas.width , canvas.height);
+     ctx.font = '60px SimHei';
+     ctx.textAlign = 'left';
+     ctx.textBaseline = 'top';
+     var left = 100;
+     var top = 100;
+     ctx.fillStyle = '#fff';
+     ctx.fillText('如果穿越到异世界，', left, top);
+     ctx.fillText($('#input').val() + '的身份是', left, top+65);
+     ctx.textAlign = 'right';
+     ctx.font = '75px SimHei';
+     txtarr = crossspace($('#input').val()).split('的');
+     ctx.fillText(txtarr[0]+'的', 660, top+65*3);
+     ctx.font = '90px SimHei';
+     ctx.fillText(txtarr[1]+'的', 660, top+65*3+90);
+     ctx.font = '120px SimHei';
+     ctx.fillText(txtarr[2], 660, top+65*3+90*2);
+}
 })
 </script>
 <h1 id="打赏"><a class="markdownIt-Anchor" href="#打赏"></a> 打赏</h1>
