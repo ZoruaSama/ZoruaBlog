@@ -7,7 +7,7 @@
 <p>早上偶然看到QQ空间在刷一个<strong>你的名字的意义</strong>的小程序。和室友们一边看一边笑。<br />
 <img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211124122725.png" alt="" /><br />
 我是一个无聊的人。<br />
-于是我<s>花了上午约莫一个小时的时间</s>完成了这个小程序的开发。<s>原理是基于姓名编码作了哈希散列。</s><br />
+于是我<s>花了上午约莫一个小时的时间，下午约莫三个多小时的时间</s>完成了这个小程序的开发。<s>原理是基于姓名编码作了哈希散列。</s><br />
 <strong>“如果穿越到异世界，你的身份是 _____！！！”</strong></p>
 <style type="text/css">
             @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
@@ -123,9 +123,8 @@ input {
 }
         </style>
 <hr />
-<p>如果你也想玩的话，在这篇文章的<strong>下一节</strong>就可以玩了喔。往下滑，往下滑~~~<br />
-欢迎把结果以文字或截图的形式分享到评论区或者邀请你的朋友一起来看看喔。<br />
-建议在手机上看。</p>
+<p>如果你也想玩的话，在<strong>这篇文章</strong>就可以玩了喔。往下滑，往下滑~~~<br />
+欢迎把结果以文字或截图的形式分享到评论区或者邀请你的朋友一起来看看喔。<strong>建议在手机上看</strong>。</p>
 <h1 id="如果穿越到异世界你的身份是-_____"><a class="markdownIt-Anchor" href="#如果穿越到异世界你的身份是-_____"></a> 如果穿越到异世界，你的身份是 _____</h1>
 <p>在下方输入姓名，点击按钮进行穿越！</p>
 <script src="/js/crossspace-min.js"></script>
@@ -175,6 +174,10 @@ myImage.onload=function(){
 <h1 id="打赏"><a class="markdownIt-Anchor" href="#打赏"></a> 打赏</h1>
 <p>如果您对这个小程序满意的话，您可以通过下面两种方式给予任意金额的打赏鼓励嗷~~。非常感谢您请我的一杯咖啡~。<br />
 感谢少侠打赏，来杯咖啡提提神，大战到天亮。</p>
+<h1 id="更新日志"><a class="markdownIt-Anchor" href="#更新日志"></a> 更新日志</h1>
+<ul>
+<li>2021.11.25 重写了<code>特殊能力</code>的生成算法。</li>
+</ul>
 <p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026152954.png" alt="" /></p>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
       <categories>
@@ -462,6 +465,14 @@ s[r]-s[l-1]=a[l]+a[l+1]+…+a[r];</p>
 <li>……</li>
 </ul>
 <h1 id="安装教程"><a class="markdownIt-Anchor" href="#安装教程"></a> 安装教程</h1>
+<p>由于上架应用商店需要审核且比较麻烦。现在只上架了 <strong>360安全浏览器</strong> 和 <strong>360极速浏览器</strong>。<br />
+如您需要在其他webkit浏览器上使用，欢迎致信 <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a>。</p>
+<h2 id="360安全浏览器"><a class="markdownIt-Anchor" href="#360安全浏览器"></a> 360安全浏览器</h2>
+<p>使用360安全浏览器的用户可以<a href="https://ext.se.360.cn/webstore/search/%E6%A0%87%E7%AD%BE%E5%A4%B9" target="_blank" rel="noopener">点击这里</a>进行下载安装。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211125122939.png" alt="" /></p>
+<h2 id="360极速浏览器"><a class="markdownIt-Anchor" href="#360极速浏览器"></a> 360极速浏览器</h2>
+<p>使用360极速浏览器的用户可以<a href="https://ext.chrome.360.cn/webstore/search/%E6%A0%87%E7%AD%BE%E5%A4%B9" target="_blank" rel="noopener">点击这里</a>进行下载安装。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211125123051.png" alt="" /></p>
 <h1 id="使用说明"><a class="markdownIt-Anchor" href="#使用说明"></a> 使用说明</h1>
 <h2 id="名词术语解释"><a class="markdownIt-Anchor" href="#名词术语解释"></a> 名词术语解释</h2>
 <ul>
