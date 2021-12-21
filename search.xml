@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Unity | Unity 窗口介绍</title>
+    <url>/2021/12/21/unity_0/</url>
+    <content><![CDATA[<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221213345.png" alt="" /><br />
+这篇文章是对Unity软件的窗口进行一个简单的介绍。<br />
+在Unity调整到<code>2 by 3</code>布局下，可以更好地看见这几个窗口。<br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221182323.png" alt="" /></p>
+<h1 id="scene-场景编辑窗口"><a class="markdownIt-Anchor" href="#scene-场景编辑窗口"></a> Scene 场景编辑窗口</h1>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221183912.png" alt="" /></p>
+<p>左边的工具栏可以使用<code>Q``W``E``R``T``Y</code>的快捷键来快速切换。它们的功能分别是：</p>
+<ul>
+<li>在屏幕方向对画面进行平移。</li>
+<li>调整物体的x, y, z坐标位置。</li>
+<li>调整物体的旋转角度。</li>
+<li>调整物体的缩放大小。</li>
+<li>框选多个物体。</li>
+<li>从图标上可以知道它是<code>W``E``R</code>的结合。</li>
+</ul>
+<p>按住右键，再操作<code>W``A``S``D``Q``E</code>可以在里面“体验”一下。</p>
+<h1 id="game-游戏运行窗口"><a class="markdownIt-Anchor" href="#game-游戏运行窗口"></a> Game 游戏运行窗口</h1>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221195353.png" alt="" /><br />
+<img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221195708.png" alt="" /><br />
+游戏的窗口，可以通过这些个按钮来操作。<br />
+上面工具栏：</p>
+<ul>
+<li>Game/Simulator：桌面端和移动端</li>
+<li>Display 1：显示第几个Camera的视角（？）</li>
+<li>Free Aspects：画面比例</li>
+<li>Scale：放大倍数</li>
+<li>Play Focused：里面有个maximized，是下次play时全屏播放</li>
+<li>Mute Audio：静音</li>
+<li>Stats：显示硬件数据</li>
+<li>Gizmos：可视化辅助工具</li>
+</ul>
+<h1 id="hierarchy-场景物体列表窗口"><a class="markdownIt-Anchor" href="#hierarchy-场景物体列表窗口"></a> Hierarchy 场景物体列表窗口</h1>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221200149.png" alt="" /><br />
+显示场景中已有的物体，双击物体，镜头会移动到物体处。</p>
+<h1 id="project-项目资源列表窗口"><a class="markdownIt-Anchor" href="#project-项目资源列表窗口"></a> Project 项目资源列表窗口</h1>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221212509.png" alt="" /></p>
+<p>放置模型等素材资源。<br />
+要修改时最好在这个窗口直接修改，因为它会生成<code>*.meta</code>文件。在Windows资源管理器中修改时可能会报错。</p>
+<h1 id="inspector-属性编辑列表窗口"><a class="markdownIt-Anchor" href="#inspector-属性编辑列表窗口"></a> Inspector 属性编辑列表窗口</h1>
+<p><img src= data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs= data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221213059.png" alt="" /><br />
+在Scene窗口中选中物体后，可以在这里修改它的属性。</p>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text/javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.2.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zoruasama/zoruasama.github.io@latest/css/mindmap.css">]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>算法笔记 | KMP算法</title>
     <url>/2021/12/20/algorithm_4/</url>
     <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
