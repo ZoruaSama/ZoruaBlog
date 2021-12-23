@@ -1294,7 +1294,7 @@ canvas:not(#ribbon-canvas),
   }
 }
 :root {
-  --global-font-size: 14px;
+  --global-font-size: 15px;
   --global-bg: #fff;
   --font-color: #4c4948;
   --hr-border: #a4d8fa;
@@ -4283,6 +4283,9 @@ img {
 }
 #article-container > :last-child {
   margin-bottom: 0 !important;
+}
+#post {
+  max-width: 1200px;
 }
 #post .tag_share .post-meta__tag-list {
   display: inline-block;
