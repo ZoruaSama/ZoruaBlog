@@ -1,97 +1,166 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zorua's Blog</title><meta name="description"><meta name="keywords" content="Zorua,博客,计算机,CS,IT"><meta name="author" content="Zorua"><meta name="copyright" content="Zorua"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://hm.baidu.com"/><link rel="dns-prefetch" href="https://hm.baidu.com"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Zorua's Blog"><meta name="twitter:description"><meta name="twitter:image" content="https://zoruasama.gitee.io/img/zorua.png"><meta property="og:type" content="website"><meta property="og:title" content="Zorua's Blog"><meta property="og:url" content="https://zoruasama.gitee.io/page/5/"><meta property="og:site_name" content="Zorua's Blog"><meta property="og:description"><meta property="og:image" content="https://zoruasama.gitee.io/img/zorua.png"><meta property="article:published_time" content="2021-12-21T13:43:21.840Z"><meta property="article:modified_time" content="2021-12-21T13:43:21.840Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = 'false'
-var t = Cookies.get("theme")
-if (autoChangeMode == '1'){
-  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined){
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport){
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour < 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-  }
-  } else if (t == 'light') activateLightMode()
-  else activateDarkMode()
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="https://zoruasama.gitee.io/page/5/"><script>var _hmt = _hmt || [];
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zorua's Blog</title><meta name="keywords" content="Zorua,博客,计算机,CS,IT"><meta name="author" content="Zorua"><meta name="copyright" content="Zorua"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Zorua&#39;s Blog">
+<meta property="og:url" content="https://zoruasama.gitee.io/page/5/index.html">
+<meta property="og:site_name" content="Zorua&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="Zorua">
+<meta property="article:tag" content="Zorua">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="CS">
+<meta property="article:tag" content="IT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zoruasama.gitee.io/page/5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?46932657b6919c7a90436ce852f93565";
+  hm.src = "https://hm.baidu.com/hm.js?6932657b6919c7a90436ce852f93565";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+</script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://zoruasama.gitee/io/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
     noSupport: '浏览器不支持'
   },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
+  relativeDate: {
+    homepage: false,
+    post: false
   },
-  runtime_unit: '天',
-  runtime: true,
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
   copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#777777","bgDark":"#2d3035","position":"bottom-left"},
-  baiduPush: true,
-  highlightCopy: true,
-  highlightLang: true,
-  highlightShrink: 'false',
-  isFontAwesomeV5: true,
-  isPhotoFigcaption: false,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
   islazyload: true,
-  isanchor: false
-  
-}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Zorua\'s Blog',
   isPost: false,
   isHome: true,
-  isSidebar: false  
-  }</script><noscript><style>
-#page-header {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/note.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/iconfont.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/hideCategory.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/buttons.min.css"><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Zorua's Blog" type="application/atom+xml">
-</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/zorua.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">47</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">32</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></div></div><div id="body-wrap"><div class="full_page" id="nav" style="background-image: url(/img/topindex.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Zorua's Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="site-info"><h1 id="site_title">Zorua's Blog</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://space.bilibili.com/11901405" target="_blank" title="bilibili"><i class="iconfont icon-bilibili1" aria-hidden="true"></i></a><a class="social-icon" href="https://github.com/zoruasama" target="_blank" title="Github"><i class="iconfont icon-githubblack" aria-hidden="true"></i></a><a class="social-icon" href="mailto:zoruasama@qq.com" target="_blank" title="Email"><i class="iconfont icon-email-copy" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="iconfont icon-RSS" aria-hidden="true"></i></a></div></div><div id="scroll_down"><i class="fa fa-angle-down scroll-down-effects"></i></div></div><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/04/19/network_0/" title="计算机网络 | 1. 计算机网络概述">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络 | 1. 计算机网络概述"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/19/network_0/" title="计算机网络 | 1. 计算机网络概述">计算机网络 | 1. 计算机网络概述</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-19 23:20:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-19</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-21 18:07:01"><i class="fa fa-history" aria-hidden="true"></i>2020-05-21</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/">互联网</a></span></div><div class="content"> 思维导图
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-12-23 19:41:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/note.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/iconfont.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/hideCategory.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/buttons.min.css"><meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="Zorua's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Zorua's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Zorua's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/zoruasama" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zoruasama@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/04/19/network_0/" title="计算机网络 | 1. 计算机网络概述">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200419231702.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络 | 1. 计算机网络概述"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/19/network_0/" title="计算机网络 | 1. 计算机网络概述">计算机网络 | 1. 计算机网络概述</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-19T15:20:00.000Z" title="发表于 2020-04-19 23:20:00">2020-04-19</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C/">网络</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/">互联网</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/04/19/network_0/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/04/19/network_0/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 思维导图
 
 计算机网络概述
 
@@ -125,7 +194,72 @@ function activateLightMode(){
 电路交换的特点
 
 
-分组交换 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/04/18/database_1/" title="数据库原理 | 2. 关系数据库">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库原理 | 2. 关系数据库"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/18/database_1/" title="数据库原理 | 2. 关系数据库">数据库原理 | 2. 关系数据库</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-18 19:42:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-18</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-03 18:23:43"><i class="fa fa-history" aria-hidden="true"></i>2020-05-03</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content"> 思维导图
+分组交换
+
+路由器
+主机和路由器的作用不同
+分组交换的优点
+分组交换带来的问题
+
+
+报文交换
+三种交换的比较
+
+
+
+
+计算机网络在我国的发展
+计算机网络的类别
+
+作用范围
+网络的使用者
+用来把用户接入互联网
+
+
+计算机网络的性能
+
+速率
+带宽
+吞吐量
+时延
+
+发送时延
+传播时延
+处理时延
+排队时延
+容易产生的错误概念
+
+
+时延带宽积
+往返时间
+利用率
+时延与网络利用率的关系
+计算机网络的非性能特征
+
+
+计算机网络的体系结构
+
+定义
+计算机网络体系结构的形成
+
+开放系统互连参考模型 OSI/RM
+两种国际标准
+
+
+协议与划分层次
+
+网络协议的三个组成要素
+协议的两种形式
+层次式协议结构
+分层的好处与缺点
+各层完成的主要功能
+
+
+具有五层协议的体系结构
+实体、协议、服务和服务访问点
+
+服务访问点
+协议很 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/04/18/database_1/" title="数据库原理 | 2. 关系数据库">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库原理 | 2. 关系数据库"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/18/database_1/" title="数据库原理 | 2. 关系数据库">数据库原理 | 2. 关系数据库</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-18T11:42:00.000Z" title="发表于 2020-04-18 19:42:00">2020-04-18</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/04/18/database_1/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/04/18/database_1/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 思维导图
 
 关系数据库
 
@@ -152,7 +286,73 @@ function activateLightMode(){
 
 元组
 单元关系与二元关系
-关系的表 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/04/14/Linux_1/" title="Linux入门 | 2. 终端介绍">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/linux.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux入门 | 2. 终端介绍"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/14/Linux_1/" title="Linux入门 | 2. 终端介绍">Linux入门 | 2. 终端介绍</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-14 15:30:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-14</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-03 18:22:28"><i class="fa fa-history" aria-hidden="true"></i>2020-05-03</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><div class="content"> 归档
+关系的表示
+属性
+码
+
+候选码（Candidate Key）
+全码（All-key）
+主码（Primary Key）
+
+
+三类关系
+基本关系的性质
+
+
+
+
+关系模式
+
+什么是关系模式
+定义关系模式
+关系模式与关系
+
+
+关系数据库
+
+简介
+定义
+型与值
+
+
+
+
+关系完整性约束
+
+实体完整性
+参照完整性
+
+关系间的引用
+外码
+规则
+
+
+用户定义的完整性
+
+
+关系代数
+
+关系代数运算符
+
+集合运算符
+比较运算符
+专门的关系运算符
+逻辑运算符
+
+
+传统的集合运算符
+
+并（Union）
+差（Difference）
+交（Intersection）
+广义笛卡尔积（Extended Cartesian Product）
+
+
+专门的关系运算符
+
+选择（Selection）
+投影（Projection）
+连接（Join ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/04/14/Linux_1/" title="Linux入门 | 2. 终端介绍">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/linux.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux入门 | 2. 终端介绍"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/14/Linux_1/" title="Linux入门 | 2. 终端介绍">Linux入门 | 2. 终端介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-14T07:30:00.000Z" title="发表于 2020-04-14 15:30:00">2020-04-14</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/04/14/Linux_1/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/04/14/Linux_1/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 归档
  关于
 
 Written BY Zorua 2020.4.14
@@ -161,7 +361,11 @@ Home: https://zoruasama.gitee.io/
 
 
  终端命令
-我最初接触到命令行这一类东西，已经是cmd.exe了，终端、命令行、bash、dash，我找不到 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/04/13/database_0/" title="数据库原理 | 1. 概述">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库原理 | 1. 概述"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/13/database_0/" title="数据库原理 | 1. 概述">数据库原理 | 1. 概述</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-04-13 23:20:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-04-13</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-18 20:17:09"><i class="fa fa-history" aria-hidden="true"></i>2020-05-18</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content"> 思维导图
+我最初接触到命令行这一类东西，已经是cmd.exe了，终端、命令行、bash、dash，我找不到对这一类命令解释器统一的专业名称（但是我觉得可以将它们视为Shell的入口，想看区别可以康康这篇文章）。总而言之，它们能够接收用户命令，然后调用相应的应用程序。接触过C语言的同学，不可能没有接触过system(&quot;pause&quot;);这一语句。事实上，这一语句就是调用了cmd.exe里的pause命令。
+如今我们正在使用图形界面（GUI）的交互，如果想要浏览文件夹，用鼠标点击文件资源管理器打开就能看；想要建立新文件夹，只需要右键-新建-文件夹即可。一切都似乎十分高效与便捷。但是现在的Windows上还是保留了命令行程序，例如cmd.exe PowerShell等等。ubuntu同样也有一个图形桌面。既然如此，为什么还要学习终端命令呢？
+我认为有如下原因：
+
+图形界面比较消耗资源 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/04/13/database_0/" title="数据库原理 | 1. 概述">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库原理 | 1. 概述"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/04/13/database_0/" title="数据库原理 | 1. 概述">数据库原理 | 1. 概述</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-04-13T15:20:00.000Z" title="发表于 2020-04-13 23:20:00">2020-04-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/04/13/database_0/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/04/13/database_0/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 思维导图
 
 概述
 
@@ -197,7 +401,51 @@ Home: https://zoruasama.gitee.io/
 网状模型
 关系模型
 
-关系 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/03/30/LaTeX_0/" title="LaTeX | LaTeX基础">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/latex.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LaTeX | LaTeX基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/30/LaTeX_0/" title="LaTeX | LaTeX基础">LaTeX | LaTeX基础</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-03-30 21:42:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-03-30</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-03 18:21:50"><i class="fa fa-history" aria-hidden="true"></i>2020-05-03</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/LaTeX/">LaTeX</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%96%87%E5%AD%97%E6%8E%92%E7%89%88/">文字排版</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E8%AE%BA%E6%96%87/">论文</a></span></div><div class="content"> 归档
+关系模型的基本概念
+
+
+
+
+
+
+数据库系统结构
+
+数据库系统模式的概念
+数据库系统的三级模式结构
+
+模式
+外模式
+内模式
+
+
+数据库的二级映像功能与数据独立性
+
+三级模式与二级映像
+外模式/模式映像
+模式/内模式映像
+
+
+
+
+
+
+
+
+ 数据库概述
+ 数据库的重要性
+如果把计算机分为如下几个层次：
+
+软件产品
+应用软件平台——协同软件、办公软件……
+软件基础构架平台——中间件、应用基础服务器……
+基础软件平台——数据库系统、操作系统……
+硬件平台
+
+因此数据库系统的地位与操作系统相当。
+
+数据库技术产生于六十年代末，是数据管理的有效技术，是计算机科学的重要分支
+数据库技术是信息系统的核心和基础，它的出现极大地促进了计算机应用向各行各业的渗透
+数据库的建设规模、数据库信息量的大小和使用频度已成为衡量 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/03/30/LaTeX_0/" title="LaTeX | LaTeX基础">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/latex.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="LaTeX | LaTeX基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/30/LaTeX_0/" title="LaTeX | LaTeX基础">LaTeX | LaTeX基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-30T13:42:00.000Z" title="发表于 2020-03-30 21:42:00">2020-03-30</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/LaTeX/">LaTeX</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%96%87%E5%AD%97%E6%8E%92%E7%89%88/">文字排版</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E8%AE%BA%E6%96%87/">论文</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/03/30/LaTeX_0/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/03/30/LaTeX_0/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 归档
 
 Written BY Zorua 2020.2.09
 
@@ -216,7 +464,15 @@ Written BY Zorua 2020.2.09
 书 Book
 中文的文章是ctexart，中文字体是UTF8
 
- 1\documentclass[UTF8]&#1 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/03/29/Linux_0/" title="Linux入门 | 1. Linux的介绍">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/linux.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux入门 | 1. Linux的介绍"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/29/Linux_0/" title="Linux入门 | 1. Linux的介绍">Linux入门 | 1. Linux的介绍</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-03-29 19:10:35"><i class="fa fa-calendar" aria-hidden="true"></i>2020-03-29</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-05-03 18:22:21"><i class="fa fa-history" aria-hidden="true"></i>2020-05-03</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><div class="content"> 归档
+ 1\documentclass[UTF8]&#123;ctexart&#125;
+其中的 [   ] 说明可以省略不写的意思，{   } 是必须写的意思。
+
+
+宏包
+想在文档里加入公式，做个表格，放个图片，需要先使用宏包。
+ 1\usepackage&#123;mathtools,amsmath,graphicx,array&#125; 
+宏包有很多：
+ 12345678\usepackage&#123;xcolor&#125;\usepackage&#123;titlesec&#125;\usepackage&#123;fontspec&#125;\defaultfontfeatures&#123;Mapping=tex-text&#125;\usepackage&#123;xunicode&#125;\usepackage&#123; ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/03/29/Linux_0/" title="Linux入门 | 1. Linux的介绍">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/linux.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux入门 | 1. Linux的介绍"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/29/Linux_0/" title="Linux入门 | 1. Linux的介绍">Linux入门 | 1. Linux的介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-29T11:10:35.000Z" title="发表于 2020-03-29 19:10:35">2020-03-29</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/03/29/Linux_0/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/03/29/Linux_0/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 归档
  关于
 
 Written BY Zorua 2020.3.29
@@ -225,7 +481,17 @@ Home: https://zoruasama.gitee.io/
 
 
  Linux
-大多数的00后应该和我一样，第一次接触PC操作系统应该是Windows，那就先来说说与Wind ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/03/26/machine_design/" title="机械设计基础笔记">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423140328.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机械设计基础笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/26/machine_design/" title="机械设计基础笔记">机械设计基础笔记</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-03-26 19:10:35"><i class="fa fa-calendar" aria-hidden="true"></i>2020-03-26</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-07 15:05:39"><i class="fa fa-history" aria-hidden="true"></i>2020-09-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1/">机械设计</a></span></div><div class="content"> 归档
+大多数的00后应该和我一样，第一次接触PC操作系统应该是Windows，那就先来说说与Windows的异同。
+
+在Windows 7以前版本的Windows是单用户操作系统，而Linux的设计初衷就是多用户操作系统。
+在Linux下，没有驱动器盘符，即没有你在Windows中看到的C:\，D:\，E:\等等，Linux中仅有/，称之为根目录。
+在Windows下，普通用户基本都是在纯图形界面下操作使用；而Linux兼具图形界面操作（桌面环境的发行版）和终端操作。几乎可以只用键盘完成一切操作。
+世界上绝大多数服务器都正在运行着Linux。
+
+当然还有很多不同的地方，我这里就只稍微例举一下下。
+以下是百度百科摘取的一段关于Linux的介绍。
+
+Linux，全称GNU/Linux，是一套免费使用和自由传播的类UNIX操作系统，其内核由林纳斯·本纳第克特·托瓦兹于1991年第一次释出，它主要 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/03/26/machine_design/" title="机械设计基础笔记">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200423140328.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="机械设计基础笔记"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/03/26/machine_design/" title="机械设计基础笔记">机械设计基础笔记</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-03-26T11:10:35.000Z" title="发表于 2020-03-26 19:10:35">2020-03-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1/">机械设计</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/03/26/machine_design/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/03/26/machine_design/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 归档
  关于
 
 Written BY Zorua 2020.3.10
@@ -233,36 +499,89 @@ Email: zoruasama@qq.com
 Home: https://zoruasama.github.io/
 
  学习素材
+来源于智慧树 机械设计基础B（黑龙江联盟）
 
-            来源于智慧树 机械设计基础B（黑龙江联盟）
-          
 
-  ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-fw fa-chevron-left" aria-hidden="true"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/zorua.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Zorua</div><div class="author-info__description">要么庸俗，要么孤独。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">47</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">32</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">11</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/11901405" target="_blank" title="bilibili"><i class="iconfont icon-bilibili1" aria-hidden="true"></i></a><a class="social-icon" href="https://github.com/zoruasama" target="_blank" title="Github"><i class="iconfont icon-githubblack" aria-hidden="true"></i></a><a class="social-icon" href="mailto:zoruasama@qq.com" target="_blank" title="Email"><i class="iconfont icon-email-copy" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="iconfont icon-RSS" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>公告</span></div><div class="announcement_content">假勤奋比懒惰更可怕。</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2021/12/21/unity_0/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221213345.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Unity | Unity 窗口介绍" alt="Unity | Unity 窗口介绍"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/12/21/unity_0/" title="Unity | Unity 窗口介绍">Unity | Unity 窗口介绍</div><time class="aside-post_meta post-meta__date" title="发表于 2021-12-21 21:35:00">2021-12-21</time></div></a></div><div class="aside-recent-post"><a href="/2021/12/20/algorithm_4/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="算法笔记 | KMP算法" alt="算法笔记 | KMP算法"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/12/20/algorithm_4/" title="算法笔记 | KMP算法">算法笔记 | KMP算法</div><time class="aside-post_meta post-meta__date" title="发表于 2021-12-20 21:30:00">2021-12-20</time></div></a></div><div class="aside-recent-post"><a href="/2021/11/24/CrossSpace/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026154117.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Works | 如果穿越到异世界，你的身份是 _____" alt="Works | 如果穿越到异世界，你的身份是 _____"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/11/24/CrossSpace/" title="Works | 如果穿越到异世界，你的身份是 _____">Works | 如果穿越到异世界，你的身份是 _____</div><time class="aside-post_meta post-meta__date" title="发表于 2021-11-24 19:30:00">2021-11-24</time></div></a></div><div class="aside-recent-post"><a href="/2021/11/23/algorithm_3/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="算法笔记 | 树状数组" alt="算法笔记 | 树状数组"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/11/23/algorithm_3/" title="算法笔记 | 树状数组">算法笔记 | 树状数组</div><time class="aside-post_meta post-meta__date" title="发表于 2021-11-23 19:05:00">2021-11-23</time></div></a></div><div class="aside-recent-post"><a href="/2021/11/17/algorithm_2/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="算法笔记 | 快速幂" alt="算法笔记 | 快速幂"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/11/17/algorithm_2/" title="算法笔记 | 快速幂">算法笔记 | 快速幂</div><time class="aside-post_meta post-meta__date" title="发表于 2021-11-17 19:05:00">2021-11-17</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="card-category-list">
-            <li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Unity/"><span class="card-category-list-name">Unity</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Works/"><span class="card-category-list-name">Works</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E4%B9%A6%E8%AF%BB/"><span class="card-category-list-name">书读</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E5%85%B6%E4%BB%96/"><span class="card-category-list-name">其他</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/"><span class="card-category-list-name">实训日记</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="card-category-list-name">操作系统</span><span class="card-category-list-count">2</span></a></li>
-            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
-                <span>查看更多</span><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>           
-            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fa fa-tags" aria-hidden="true"></i><span>标签</span></div><div class="card-tag-cloud"><a href='/tags/KMP%E7%AE%97%E6%B3%95/' style='font-size:17px; color:rgb(7, 87, 108)'>KMP算法</a><a href='/tags/LCA/' style='font-size:21px; color:rgb(172, 139, 150)'>LCA</a><a href='/tags/LaTeX/' style='font-size:19px; color:rgb(92, 153, 179)'>LaTeX</a><a href='/tags/Linux/' style='font-size:20px; color:rgb(124, 23, 189)'>Linux</a><a href='/tags/MySQL/' style='font-size:19px; color:rgb(172, 9, 14)'>MySQL</a><a href='/tags/OS/' style='font-size:20px; color:rgb(32, 8, 140)'>OS</a><a href='/tags/Python/' style='font-size:18px; color:rgb(126, 73, 71)'>Python</a><a href='/tags/SQL/' style='font-size:19px; color:rgb(139, 168, 56)'>SQL</a><a href='/tags/Unity/' style='font-size:18px; color:rgb(33, 143, 188)'>Unity</a><a href='/tags/Windows/' style='font-size:19px; color:rgb(170, 140, 198)'>Windows</a><a href='/tags/Works/' style='font-size:18px; color:rgb(141, 16, 59)'>Works</a><a href='/tags/%E4%B9%A6%E8%AF%BB/' style='font-size:21px; color:rgb(165, 35, 104)'>书读</a><a href='/tags/%E4%BA%92%E8%81%94%E7%BD%91/' style='font-size:16px; color:rgb(63, 49, 105)'>互联网</a><a href='/tags/%E5%89%8D%E7%BC%80%E5%92%8C/' style='font-size:19px; color:rgb(121, 55, 121)'>前缀和</a><a href='/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/' style='font-size:19px; color:rgb(113, 92, 52)'>字符串</a><a href='/tags/%E5%AE%9E%E8%AE%AD/' style='font-size:21px; color:rgb(16, 175, 95)'>实训</a><a href='/tags/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/' style='font-size:21px; color:rgb(156, 186, 75)'>差分数组</a><a href='/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/' style='font-size:16px; color:rgb(199, 8, 163)'>快速幂</a><a href='/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/' style='font-size:18px; color:rgb(37, 120, 26)'>操作系统</a><a href='/tags/%E6%95%88%E7%8E%87/' style='font-size:17px; color:rgb(179, 60, 49)'>效率</a><a href='/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/' style='font-size:21px; color:rgb(28, 198, 105)'>数据库</a><a href='/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/' style='font-size:20px; color:rgb(80, 100, 88)'>数据库原理</a><a href='/tags/%E6%96%87%E5%AD%97%E6%8E%92%E7%89%88/' style='font-size:20px; color:rgb(166, 190, 67)'>文字排版</a><a href='/tags/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1/' style='font-size:16px; color:rgb(119, 143, 59)'>机械设计</a><a href='/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/' style='font-size:20px; color:rgb(191, 31, 65)'>树状数组</a><a href='/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/' style='font-size:18px; color:rgb(26, 32, 104)'>正则表达式</a><a href='/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/' style='font-size:20px; color:rgb(40, 15, 128)'>浏览器</a><a href='/tags/%E7%AE%97%E6%B3%95/' style='font-size:21px; color:rgb(106, 26, 80)'>算法</a><a href='/tags/%E7%BD%91%E7%BB%9C/' style='font-size:17px; color:rgb(77, 96, 188)'>网络</a><a href='/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/' style='font-size:20px; color:rgb(92, 48, 108)'>计算机网络</a><a href='/tags/%E8%AE%BA%E6%96%87/' style='font-size:18px; color:rgb(68, 111, 113)'>论文</a><a href='/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/' style='font-size:21px; color:rgb(124, 180, 189)'>读后感</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">十月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives">
-              <span>查看更多</span><i class="fa fa-angle-right" aria-hidden="true"></i></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">47</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="3/7/2020 00:00:00">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">168.9k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/topindex.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Zorua</div><div class="framework-info"><span>Powered BY </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">这是我的底线。</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode far fa-moon" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
-POWERMODE.shake = true;
-document.body.addEventListener('input', POWERMODE);
-</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@v3.0.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/search/local-search.js"></script><script>if (document.getElementsByClassName('mermaid').length) {
-  loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js',function () {
-    mermaid.initialize({
-      theme: 'default',
-  })
-})
-}</script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleType = function () {
-  var subtitleEffect = true
-  fetch('https://api.btstu.cn/yan/api.php?charset=utf-8&encode=json',)
-    .then(function (res) {
-      return res.json()
-    })
-    .then(function (data) {
-      if (subtitleEffect) {
-        var sub = '一个普通的兴趣使然的无名 CSer.,Stay hungry&#44; Stay foolish.'.length == 0 ? new Array() : '一个普通的兴趣使然的无名 CSer.,Stay hungry&#44; Stay foolish.'.split(',')
+ 平面机构的自由度
+ 运动副及其分类
+ 基本定义
+
+构件 —— 机构中运动的单元
+运动副 —— 两个构件直接接触且具有确定相对运动的联接
+运动副元素 —— 两构件相互接触处的几何形状（点、线、面）
+运动副可以分为 平面运动副 和 空间运动副。
+
+ 平面运动副的分类
+ 低副
+
+转动副
+移动副
+
+特点：面接触、相对转动或相对移动
+
+ 高副
+
+齿轮
+凸轮
+
+特点：点或线接触、沿接触点切线方向相对移动和绕接触点的转动。
+
+ 空间运动副的分类
+
+螺旋副
+球面副
+
+ 运动链
+ 定义
+若干构件通过运动副联接而成的可动系统。
+若将运动链中的一个构件相对固定，运动链就成为机构。
+ 机构中构件的分类
+
+机架[1] —— 描述运动的参考系
+
+
+原动件 —— 运动规律已知的构件
+从动件
+
+
+
+
+ 平面机构运动简图的绘制
+ 机构运动简图
+忽略与运动无关的构件外形和 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/4/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/#content-inner">4</a><span class="page-number current">5</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Zorua</div><div class="author-info__description">要么庸俗，要么孤独。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div><a class="button--animated" id="card-info-btn" href="hhttps://github.com/zoruasama"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zoruasama" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zoruasama@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">假勤奋比懒惰更可怕。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/21/unity_0/" title="Unity | Unity 窗口介绍"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221213345.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity | Unity 窗口介绍"/></a><div class="content"><a class="title" href="/2021/12/21/unity_0/" title="Unity | Unity 窗口介绍">Unity | Unity 窗口介绍</a><time datetime="2021-12-21T13:35:00.000Z" title="发表于 2021-12-21 21:35:00">2021-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/20/algorithm_4/" title="算法笔记 | KMP算法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法笔记 | KMP算法"/></a><div class="content"><a class="title" href="/2021/12/20/algorithm_4/" title="算法笔记 | KMP算法">算法笔记 | KMP算法</a><time datetime="2021-12-20T13:30:00.000Z" title="发表于 2021-12-20 21:30:00">2021-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/24/CrossSpace/" title="Works | 如果穿越到异世界，你的身份是 _____"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026154117.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Works | 如果穿越到异世界，你的身份是 _____"/></a><div class="content"><a class="title" href="/2021/11/24/CrossSpace/" title="Works | 如果穿越到异世界，你的身份是 _____">Works | 如果穿越到异世界，你的身份是 _____</a><time datetime="2021-11-24T11:30:00.000Z" title="发表于 2021-11-24 19:30:00">2021-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/23/algorithm_3/" title="算法笔记 | 树状数组"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法笔记 | 树状数组"/></a><div class="content"><a class="title" href="/2021/11/23/algorithm_3/" title="算法笔记 | 树状数组">算法笔记 | 树状数组</a><time datetime="2021-11-23T11:05:00.000Z" title="发表于 2021-11-23 19:05:00">2021-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/algorithm_2/" title="算法笔记 | 快速幂"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法笔记 | 快速幂"/></a><div class="content"><a class="title" href="/2021/11/17/algorithm_2/" title="算法笔记 | 快速幂">算法笔记 | 快速幂</a><time datetime="2021-11-17T11:05:00.000Z" title="发表于 2021-11-17 19:05:00">2021-11-17</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity/"><span class="card-category-list-name">Unity</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Works/"><span class="card-category-list-name">Works</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B9%A6%E8%AF%BB/"><span class="card-category-list-name">书读</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B6%E4%BB%96/"><span class="card-category-list-name">其他</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/"><span class="card-category-list-name">实训日记</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="card-category-list-name">操作系统</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/KMP%E7%AE%97%E6%B3%95/" style="font-size: 1.1em; color: #999">KMP算法</a> <a href="/tags/LCA/" style="font-size: 1.1em; color: #999">LCA</a> <a href="/tags/LaTeX/" style="font-size: 1.1em; color: #999">LaTeX</a> <a href="/tags/Linux/" style="font-size: 1.23em; color: #999ea6">Linux</a> <a href="/tags/MySQL/" style="font-size: 1.17em; color: #999c9f">MySQL</a> <a href="/tags/OS/" style="font-size: 1.17em; color: #999c9f">OS</a> <a href="/tags/Python/" style="font-size: 1.5em; color: #99a9bf">Python</a> <a href="/tags/SQL/" style="font-size: 1.17em; color: #999c9f">SQL</a> <a href="/tags/Unity/" style="font-size: 1.1em; color: #999">Unity</a> <a href="/tags/Windows/" style="font-size: 1.1em; color: #999">Windows</a> <a href="/tags/Works/" style="font-size: 1.17em; color: #999c9f">Works</a> <a href="/tags/%E4%B9%A6%E8%AF%BB/" style="font-size: 1.1em; color: #999">书读</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 1.3em; color: #99a1ac">互联网</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 1.1em; color: #999">前缀和</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.1em; color: #999">字符串</a> <a href="/tags/%E5%AE%9E%E8%AE%AD/" style="font-size: 1.5em; color: #99a9bf">实训</a> <a href="/tags/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/" style="font-size: 1.1em; color: #999">差分数组</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 1.1em; color: #999">快速幂</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.37em; color: #99a4b2">操作系统</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.1em; color: #999">效率</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.43em; color: #99a6b9">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 1.43em; color: #99a6b9">数据库原理</a> <a href="/tags/%E6%96%87%E5%AD%97%E6%8E%92%E7%89%88/" style="font-size: 1.1em; color: #999">文字排版</a> <a href="/tags/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1/" style="font-size: 1.1em; color: #999">机械设计</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 1.1em; color: #999">树状数组</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 1.1em; color: #999">浏览器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.37em; color: #99a4b2">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.3em; color: #99a1ac">网络</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.3em; color: #99a1ac">计算机网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 1.1em; color: #999">论文</a> <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" style="font-size: 1.1em; color: #999">读后感</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">十月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">5</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">47</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2020-03-06T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">170.4k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-12-23T11:41:20.069Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Zorua</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">这是我的底线。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: 'YVFPT1pFRjpG5oM88rpDgyj7-MdYXbMMI',
+        appKey: 'pry5uB2QzPFBPeMcz9MzkeIz',
+      }
+      
+      const valine = new Valine(initData)
+    }
+
+    if (typeof Valine === 'function') initValine() 
+    else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  }
+
+  window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+})()</script><script>function subtitleType () {
+  fetch('https://api.btstu.cn/yan/api.php?charset=utf-8&encode=json')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        var sub = "一个普通的兴趣使然的无名 CSer.,Stay hungry&#44; Stay foolish.".length == 0 ? new Array() : "一个普通的兴趣使然的无名 CSer.,Stay hungry&#44; Stay foolish.".split(',')
         var both = sub.unshift(data.text)
-        var typed = new Typed('#subtitle', {
+        typed = new Typed('#subtitle', {
           strings: sub,
           startDelay: 300,
           typeSpeed: 150,
@@ -273,9 +592,124 @@ document.body.addEventListener('input', POWERMODE);
         document.getElementById('subtitle').innerHTML = data.text
       }
     })
-    .catch(function (err) {
-      console.error(err)
-    })
 }
-window.addEventListener('load', subtitleType)
-</script><script src="/js/zorua.js"></script><script src="/js/hideCategory.js"></script></body></html>
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://YVFPT1pF.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'YVFPT1pFRjpG5oM88rpDgyj7-MdYXbMMI',
+        "X-LC-Key": 'pry5uB2QzPFBPeMcz9MzkeIz',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/zorua.js"></script><script src="/js/hideCategory.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

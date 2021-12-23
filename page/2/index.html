@@ -1,107 +1,194 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zorua's Blog</title><meta name="description"><meta name="keywords" content="Zorua,博客,计算机,CS,IT"><meta name="author" content="Zorua"><meta name="copyright" content="Zorua"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="dns-prefetch" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="https://hm.baidu.com"/><link rel="dns-prefetch" href="https://hm.baidu.com"/><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="crossorigin"/><link rel="dns-prefetch" href="https://fonts.googleapis.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="dns-prefetch" href="//busuanzi.ibruce.info"/><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Zorua's Blog"><meta name="twitter:description"><meta name="twitter:image" content="https://zoruasama.gitee.io/img/zorua.png"><meta property="og:type" content="website"><meta property="og:title" content="Zorua's Blog"><meta property="og:url" content="https://zoruasama.gitee.io/page/2/"><meta property="og:site_name" content="Zorua's Blog"><meta property="og:description"><meta property="og:image" content="https://zoruasama.gitee.io/img/zorua.png"><meta property="article:published_time" content="2021-12-21T13:43:21.789Z"><meta property="article:modified_time" content="2021-12-21T13:43:21.789Z"><script src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script><script>var autoChangeMode = 'false'
-var t = Cookies.get("theme")
-if (autoChangeMode == '1'){
-  var isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-  var isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
-  var isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
-  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
-
-  if (t === undefined){
-    if (isLightMode) activateLightMode()
-    else if (isDarkMode) activateDarkMode()
-    else if (isNotSpecified || hasNoSupport){
-      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
-      var now = new Date()
-      var hour = now.getHours()
-      var isNight = hour < 6 || hour >= 18
-      isNight ? activateDarkMode() : activateLightMode()
-  }
-  } else if (t == 'light') activateLightMode()
-  else activateDarkMode()
-
-} else if (autoChangeMode == '2'){
-  now = new Date();
-  hour = now.getHours();
-  isNight = hour < 6 || hour >= 18
-  if(t === undefined) isNight? activateDarkMode() : activateLightMode()
-  else if (t === 'light') activateLightMode()
-  else activateDarkMode() 
-} else {
-  if ( t == 'dark' ) activateDarkMode()
-  else if ( t == 'light') activateLightMode()
-}
-
-function activateDarkMode(){
-  document.documentElement.setAttribute('data-theme', 'dark')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-    document.querySelector('meta[name="theme-color"]').setAttribute('content','#000')
-  }
-}
-function activateLightMode(){
-  document.documentElement.setAttribute('data-theme', 'light')
-  if (document.querySelector('meta[name="theme-color"]') !== null){
-  document.querySelector('meta[name="theme-color"]').setAttribute('content','#fff')
-  }
-}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="canonical" href="https://zoruasama.gitee.io/page/2/"><script>var _hmt = _hmt || [];
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zorua's Blog</title><meta name="keywords" content="Zorua,博客,计算机,CS,IT"><meta name="author" content="Zorua"><meta name="copyright" content="Zorua"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
+<meta property="og:title" content="Zorua&#39;s Blog">
+<meta property="og:url" content="https://zoruasama.gitee.io/page/2/index.html">
+<meta property="og:site_name" content="Zorua&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="Zorua">
+<meta property="article:tag" content="Zorua">
+<meta property="article:tag" content="博客">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="CS">
+<meta property="article:tag" content="IT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zoruasama.gitee.io/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><meta/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?46932657b6919c7a90436ce852f93565";
+  hm.src = "https://hm.baidu.com/hm.js?6932657b6919c7a90436ce852f93565";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();
-</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+</script><script>const GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
-  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容:${query}"}},
-  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://zoruasama.gitee/io/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
     noSupport: '浏览器不支持'
   },
-  bookmark: {
-    message_prev: '按',
-    message_next: '键将本页加入书签'
+  relativeDate: {
+    homepage: false,
+    post: false
   },
-  runtime_unit: '天',
-  runtime: true,
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
   copyright: undefined,
-  ClickShowText: undefined,
-  medium_zoom: false,
-  fancybox: true,
-  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#777777","bgDark":"#2d3035","position":"bottom-left"},
-  baiduPush: true,
-  highlightCopy: true,
-  highlightLang: true,
-  highlightShrink: 'false',
-  isFontAwesomeV5: true,
-  isPhotoFigcaption: false,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: true,
   islazyload: true,
-  isanchor: false
-  
-}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isanchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Zorua\'s Blog',
   isPost: false,
   isHome: true,
-  isSidebar: false  
-  }</script><noscript><style>
-#page-header {
-  opacity: 1
-}
-.justified-gallery img{
-  opacity: 1
-}
-</style></noscript><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/note.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/iconfont.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/hideCategory.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/buttons.min.css"><meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="Zorua's Blog" type="application/atom+xml">
-</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/zorua.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">47</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">32</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div></div></div><div id="body-wrap"><div class="full_page" id="nav" style="background-image: url(/img/topindex.jpg)"><div id="page-header"><span class="pull_left" id="blog_name"><a class="blog_title" id="site-name" href="/">Zorua's Blog</a></span><span class="pull_right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fa fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> 列表</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li></ul></div></div><span class="toggle-menu close"><a class="site-page"><i class="fa fa-bars fa-fw" aria-hidden="true"></i></a></span></span></div><div id="site-info"><h1 id="site_title">Zorua's Blog</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://space.bilibili.com/11901405" target="_blank" title="bilibili"><i class="iconfont icon-bilibili1" aria-hidden="true"></i></a><a class="social-icon" href="https://github.com/zoruasama" target="_blank" title="Github"><i class="iconfont icon-githubblack" aria-hidden="true"></i></a><a class="social-icon" href="mailto:zoruasama@qq.com" target="_blank" title="Email"><i class="iconfont icon-email-copy" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="iconfont icon-RSS" aria-hidden="true"></i></a></div></div><div id="scroll_down"><i class="fa fa-angle-down scroll-down-effects"></i></div></div><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/09/26/regexp_0/" title="正则表达式 | 初入茅庐[0-9]+">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926232542.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正则表达式 | 初入茅庐[0-9]+"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/26/regexp_0/" title="正则表达式 | 初入茅庐[0-9]+">正则表达式 | 初入茅庐[0-9]+</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-09-26 11:51:02"><i class="fa fa-calendar" aria-hidden="true"></i>2020-09-26</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-26 23:34:25"><i class="fa fa-history" aria-hidden="true"></i>2020-09-26</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a></span></div><div class="content">
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-12-23 19:41:21'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" href="/css/note.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/iconfont.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/hideCategory.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/buttons.min.css"><meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="Zorua's Blog" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Zorua's Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div><div class="menus_item"><a class="site-page" href="/board/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fa fa-list"></i><span> 列表</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E9%9F%B3%E4%B9%90"><i class="fa-fw /music/"></i><span> 0</span></a></li><li><a class="site-page child" href="/%E7%94%B5%E5%BD%B1"><i class="fa-fw /movies/"></i><span> 1</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Zorua's Blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/zoruasama" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zoruasama@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/09/26/regexp_0/" title="正则表达式 | 初入茅庐[0-9]+">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200926232542.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="正则表达式 | 初入茅庐[0-9]+"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/26/regexp_0/" title="正则表达式 | 初入茅庐[0-9]+">正则表达式 | 初入茅庐[0-9]+</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-09-26T03:51:02.000Z" title="发表于 2020-09-26 11:51:02">2020-09-26</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%85%B6%E4%BB%96/">其他</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/09/26/regexp_0/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/09/26/regexp_0/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
  前言
 正则表达式描述了一种字符串匹配的模式是怎么回事呢？正则表达式相信大家都很熟悉，但是正则表达式描述了一种字符串匹配的模式是怎么回事呢，下面就让小编带大家一起了解吧。
-正则表达式描述了一种字符串匹配的模式，其实就是正则表达式可以用来匹配字符串，大家可能会很惊讶正则表达式怎么会描述了一种字符串匹 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/09/11/database_x/" title="数据库原理 | 一些填空题的摘录">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库原理 | 一些填空题的摘录"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/11/database_x/" title="数据库原理 | 一些填空题的摘录">数据库原理 | 一些填空题的摘录</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-09-11 11:51:02"><i class="fa fa-calendar" aria-hidden="true"></i>2020-09-11</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2021-11-24 13:16:47"><i class="fa fa-history" aria-hidden="true"></i>2021-11-24</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">
+正则表达式描述了一种字符串匹配的模式，其实就是正则表达式可以用来匹配字符串，大家可能会很惊讶正则表达式怎么会描述了一种字符串匹配的模式呢？但事实就是这样，小编也感到非常惊讶。
+这就是关于正则表达式描述了一种字符串匹配的模式的事情了，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！【大雾】
+ 是什么
+在阐述我自己的理解前，先搬出百度百科的内容撑撑场面。
+度娘百科正则表达式，又称规则表达式。（英语：Regular Expression，在代码中常简写为regex、regexp或RE），计算机科学的一个概念。正则表达式通常被用来检索、替换那些符合某个模式(规则)的文本。
+
+正则表达式是对字符串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。
+
+
+正则表达式是对字符串（包括普通字符（例如，a 到 z 之间的字母）和特殊字符 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/09/11/database_x/" title="数据库原理 | 一些填空题的摘录">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库原理 | 一些填空题的摘录"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/11/database_x/" title="数据库原理 | 一些填空题的摘录">数据库原理 | 一些填空题的摘录</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-09-11T03:51:02.000Z" title="发表于 2020-09-11 11:51:02">2020-09-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/09/11/database_x/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/09/11/database_x/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
  关于
 本文档由Zorua自行整理，如果有错误请在评论区反馈，或投递邮件至zoruasama@qq.com。
 文档采用CC BY-NC-ND 4.0许可协议。转载本文档请保留本文档地址。
 (?)如果您对此留有任何疑问，可以访问知识共享许可协议以获取帮助。
  正文
 
-数据管理技术经历了人工管理、文件 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/09/07/database_6/" title="数据库原理 | 7. 关系数据理论">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库原理 | 7. 关系数据理论"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/07/database_6/" title="数据库原理 | 7. 关系数据理论">数据库原理 | 7. 关系数据理论</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-09-07 11:51:02"><i class="fa fa-calendar" aria-hidden="true"></i>2020-09-07</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-07 16:13:30"><i class="fa fa-history" aria-hidden="true"></i>2020-09-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content"> 思维导图
+数据管理技术经历了人工管理、文件系统、数据库管理三个阶段。
+数据库系统中常用的三种模型有层次模型、网状模型、关系模型。
+数据模型的三要素包括数据结构、数据操纵或操作、数据的完整性约束。
+实体之间的联系可抽象为三类，它们是一对一、一对多、多对多。
+在数据库设计中，数据字典是系统中各类数据描述的集合，是进行详细的数据收集和数据分析所获得的主要成果。
+数据库系统一般由数据库、数据库应用系统、数据库管理系统、数据库管理员和用户构成。
+数据库系统在运行过程中，可能会发生故障。故障主要有事务故障、系统故障、介质故障和计算机病毒四类。
+并发控制的主要方法是采用封锁机制，其类型有共享锁和排它锁两种。
+数据库的完整性是指数据的正确性和相容性。
+在SQL语言中，为了数据库的安全性，设置了对数据的存取进行控制的语句，对用户授权使用GRANT语句 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/09/07/database_6/" title="数据库原理 | 7. 关系数据理论">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/databasecover.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据库原理 | 7. 关系数据理论"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/09/07/database_6/" title="数据库原理 | 7. 关系数据理论">数据库原理 | 7. 关系数据理论</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-09-07T03:51:02.000Z" title="发表于 2020-09-07 11:51:02">2020-09-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/">数据库原理</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/09/07/database_6/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/09/07/database_6/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 思维导图
 
 关系数据理论
 
@@ -134,7 +221,52 @@ SLC不是一个好的关系模式
 BC 范式
 
 解决方法
-3NF ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/27/Linux_2/" title="Linux入门 | 3.常用命令">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/linux.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux入门 | 3.常用命令"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/27/Linux_2/" title="Linux入门 | 3.常用命令">Linux入门 | 3.常用命令</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-27 21:00:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-08-27</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-10 14:31:50"><i class="fa fa-history" aria-hidden="true"></i>2020-09-10</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span></div><div class="content">
+3NF与BCNF的关系
+BCNF的关系模式所具有的性质
+
+
+规范化
+
+关系模式规范化的基本步骤
+规范化的基本思想
+
+
+
+
+数据依赖的公理系统
+
+Armstrong公理系统
+导出规则
+函数依赖闭包
+
+关于闭包的引理
+
+
+函数依赖集等价
+
+最小依赖集
+极小化过程
+
+
+
+
+
+
+
+
+ 问题的提出
+
+关系数据库逻辑设计
+
+针对具体问题，如何构造一个适合于它的数据模式
+数据库逻辑设计的工具──关系数据库的规范化理论
+
+
+
+ 函数依赖
+ 函数依赖
+设R(U)R(U)R(U)是一个属性集UUU上的关系模式，XXX和YYY是UUU的子集。
+若对于R(U)R(U)R(U)的任意一个可能的关系rrr，rrr中不可能存在两个元组在XXX上的属性值相等， 而在YYY上的属性值不等， 则称 X函数确定Y 或Y函数依赖于X，记 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/27/Linux_2/" title="Linux入门 | 3.常用命令">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/linux.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Linux入门 | 3.常用命令"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/27/Linux_2/" title="Linux入门 | 3.常用命令">Linux入门 | 3.常用命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-27T13:00:00.000Z" title="发表于 2020-08-27 21:00:00">2020-08-27</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Linux/">Linux</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Linux/">Linux</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/08/27/Linux_2/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/08/27/Linux_2/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content">
  基础命令
 在上一篇文章中，我写到了在Linux系统中常用了8个命令，在这篇文章中，将会对这8个命令作较为详细的解析。
 如果各位读者对本文有所不清晰或认为有错误的地方，欢迎来评论区指出。我会及时确认并修正。
@@ -154,12 +286,92 @@ ls
 list
 列出指定文件夹下的内容
 
- ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/20/training_20/" title="实训日记 | Day 20. 答辩的终稿">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 20. 答辩的终稿"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/20/training_20/" title="实训日记 | Day 20. 答辩的终稿">实训日记 | Day 20. 答辩的终稿</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-20 19:30:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-08-20</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-07 16:24:29"><i class="fa fa-history" aria-hidden="true"></i>2020-09-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span></div><div class="content"> 总述
+
+02
+pwd
+print work directory
+显示当前工作路径
+
+
+03
+cd
+change directory
+改变当前工作路径
+
+
+04
+touch
+touch
+新建一个空白文件
+
+
+05
+mkdir
+make directory
+创建一个新的目录
+
+
+06
+rm
+remove
+删除指定文件
+
+
+07
+clear
+clear
+清除当前屏幕上的信息（新建一屏）
+
+
+08
+reset
+reset
+重置终端
+
+
+
+ 命令格式
+在终端中，命令通常是按照如下格式进行的：
+1command [-options] [parameter]
+
+command：命令名称，
+[-options]：选项，可用来对命令进行控制，实现不同的效果。这一项可以省略。
+parameter：传给命令的参数，可以 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/20/training_20/" title="实训日记 | Day 20. 答辩的终稿">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 20. 答辩的终稿"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/20/training_20/" title="实训日记 | Day 20. 答辩的终稿">实训日记 | Day 20. 答辩的终稿</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-20T11:30:00.000Z" title="发表于 2020-08-20 19:30:00">2020-08-20</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/08/20/training_20/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/08/20/training_20/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 总述
 今天是8月14日，实训的第20天。实训的最后一天。
 今天我如预期一样地完成了答辩，两位老师似乎对我的项目及答辩都还很满意。
 看着自己完整的项目和老师的认可，我感到非常有成就感。
 我能在这取得一个小小的进步，离不开孟老师的耐心教导，同学们友爱的帮助。
-由于我今天中午又加了一些新的内容，所以也在 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/13/training_19/" title="实训日记 | Day 19. 答辩的准备">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 19. 答辩的准备"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/13/training_19/" title="实训日记 | Day 19. 答辩的准备">实训日记 | Day 19. 答辩的准备</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-13 19:30:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-08-13</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-07 16:24:12"><i class="fa fa-history" aria-hidden="true"></i>2020-09-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span></div><div class="content"> 总述
+由于我今天中午又加了一些新的内容，所以也在这里再对昨天的内容进行补充。
+ 事先准备
+
+另一块屏幕用来播放本文档
+已经开启服务的项目（原项目，处于登录状态，数据仅有一页）
+ZOL手机报价网站
+360安全浏览器
+
+ 简介
+
+名称：指上云霄手机信息查阅系统
+功能：提供爬虫和数据可视化两部分功能。
+
+爬虫：可以在页面上调用后台接口，爬取ZOL手机报价网站上的数据并存储到数据库中。
+数据可视化：可以在页面上显示手机的相关数据信息。
+
+
+
+ 介绍数据爬取来源
+
+手机报价首页
+手机配置参数页
+手机评价页面
+bilibili搜索
+
+难点：ZOL手机报价的页面很多都不一样。对于一些没有评价或未上市的手机数据不予爬取。
+ 应用页面
+应用的页面有登录注册页面、数据可视化首页、爬虫页面、数据柱状图页面、关于页面五个页面。
+ 登录注册页面
+
+在图1中点击注册 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/13/training_19/" title="实训日记 | Day 19. 答辩的准备">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 19. 答辩的准备"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/13/training_19/" title="实训日记 | Day 19. 答辩的准备">实训日记 | Day 19. 答辩的准备</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-13T11:30:00.000Z" title="发表于 2020-08-13 19:30:00">2020-08-13</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/08/13/training_19/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/08/13/training_19/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 总述
 今天是8月13日，实训的第19天。实训即将步入尾声。
 今天是答辩的第一天。
 而我是在第二天答辩。今天准备了一下答辩的思路。
@@ -172,7 +384,29 @@ ZOL手机报价网站
 
  简介
 
-名称：指上云霄手机信 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/12/training_18/" title="实训日记 | Day 18. 我的项目介绍">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 18. 我的项目介绍"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/12/training_18/" title="实训日记 | Day 18. 我的项目介绍">实训日记 | Day 18. 我的项目介绍</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-12 19:30:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-08-12</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-07 16:23:51"><i class="fa fa-history" aria-hidden="true"></i>2020-09-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span></div><div class="content"> 总述
+名称：指上云霄手机信息查阅系统
+功能：提供爬虫和数据可视化两部分功能。
+
+爬虫：可以在页面上调用后台接口，爬取ZOL手机报价网站上的数据并存储到数据库中。
+数据可视化：可以在页面上显示手机的相关数据信息。
+
+
+
+ 介绍数据爬取来源
+
+手机报价首页
+手机配置参数页
+手机评价页面
+bilibili搜索
+
+难点：ZOL手机报价的页面很多都不一样。对于一些没有评价或未上市的手机数据不予爬取。
+ 应用页面
+应用的页面有登录注册页面、数据可视化首页、爬虫页面、数据柱状图页面、关于页面五个页面。
+ 登录注册页面
+
+在图1中点击注册按钮可切换为图2界面，图2界面点击返回按钮可切换为图1界面。
+在注册登录界面，对填充的文本内容有长度和字符内容的限制。例如用户名和密码只能为字母和数字组成。
+在此界面注册后，密码将以加密后的文本进行 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/12/training_18/" title="实训日记 | Day 18. 我的项目介绍">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 18. 我的项目介绍"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/12/training_18/" title="实训日记 | Day 18. 我的项目介绍">实训日记 | Day 18. 我的项目介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-12T11:30:00.000Z" title="发表于 2020-08-12 19:30:00">2020-08-12</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/08/12/training_18/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/08/12/training_18/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 总述
 今天是8月12日，实训的第18天。实训即将步入尾声。
 今天孟老师依然全天给同学们进行答疑。
 我整理了一下我的项目的相关信息以准备明天后天的答辩。
@@ -182,18 +416,65 @@ ZOL手机报价网站
 名称：指上云霄手机信息查阅系统
 功能：提供爬虫和数据可视化两部分功能。
 
-爬虫：可以在页面上调用后台接口，爬取ZOL手机 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/11/training_17/" title="实训日记 | Day 17. 一些乱七八糟的随笔">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 17. 一些乱七八糟的随笔"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/11/training_17/" title="实训日记 | Day 17. 一些乱七八糟的随笔">实训日记 | Day 17. 一些乱七八糟的随笔</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-11 19:30:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-08-11</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-07 16:23:32"><i class="fa fa-history" aria-hidden="true"></i>2020-09-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span></div><div class="content"> 总述
+爬虫：可以在页面上调用后台接口，爬取ZOL手机报价网站上的数据并存储到数据库中。
+数据可视化：可以在页面上显示手机的相关数据信息。
+
+
+开发工具：PyCharm
+后台开发语言：Python3
+前端开发语言：HTML5+CSS+JavaScript
+作者：张仁忠(Zorua) 2018065527
+指导老师：孟老师（mzm5466）
+
+ 应用页面
+应用的页面有登录注册页面、数据可视化首页、爬虫页面、数据柱状图页面、关于页面五个页面。
+ 登录注册页面
+
+
+
+在图1中点击注册按钮可切换为图2界面，图2界面点击返回按钮可切换为图1界面。
+在注册登录界面，对填充的文本内容有长度和字符内容的限制。例如用户名和密码只能为字母和数字组成。
+在此界面注册后，密码将以加密后的文本进行存储。
+如果还未登录，企图访问其他网页，则会自动跳转至登录注册页面。反之， ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/11/training_17/" title="实训日记 | Day 17. 一些乱七八糟的随笔">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 17. 一些乱七八糟的随笔"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/11/training_17/" title="实训日记 | Day 17. 一些乱七八糟的随笔">实训日记 | Day 17. 一些乱七八糟的随笔</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-11T11:30:00.000Z" title="发表于 2020-08-11 19:30:00">2020-08-11</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/08/11/training_17/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/08/11/training_17/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 总述
 今天是8月11日，实训的第17天。实训即将步入尾声。
 今天孟老师全程在给同学答疑，但是由于我的大作业已经完成了，基本上没有什么问题需要向孟老师询问。
 所以今天的日志就写一写，在答疑过程中，收获的几个比较有意思的知识点吧。
  eval()
  描述
-eval() 函数是python内置函数，用来 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/10/training_16/" title="实训日记 | Day 16. 服务器的部署">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 16. 服务器的部署"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/10/training_16/" title="实训日记 | Day 16. 服务器的部署">实训日记 | Day 16. 服务器的部署</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-10 19:30:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-08-10</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-07 16:23:04"><i class="fa fa-history" aria-hidden="true"></i>2020-09-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span></div><div class="content"> 总述
+eval() 函数是python内置函数，用来执行一个字符串表达式，并返回表达式的值。
+ 语法
+以下是 eval() 方法的语法:
+eval(expression[, globals[, locals]])
+ 参数
+
+expression – 表达式。
+globals – 变量作用域，全局命名空间，如果被提供，则必须是一个字典对象。
+locals – 变量作用域，局部命名空间，如果被提供，可以是任何映射对象。
+
+ 返回值
+返回表达式计算结果。
+ 实例
+以下展示了使用 eval() 方法的实例：
+12345678910&gt;&gt;&gt;x = 7&gt;&gt;&gt; eval( &#x27;3 * x&#x27; )21&gt;&gt;&gt; eval(&#x27;pow(2,2)&#x27;)4&gt;&gt;&gt; ev ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/08/10/training_16/" title="实训日记 | Day 16. 服务器的部署">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 16. 服务器的部署"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/10/training_16/" title="实训日记 | Day 16. 服务器的部署">实训日记 | Day 16. 服务器的部署</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-10T11:30:00.000Z" title="发表于 2020-08-10 19:30:00">2020-08-10</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/08/10/training_16/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/08/10/training_16/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 总述
 今天是8月10日，实训的第16天。
 上午孟老师演示了如何将Django项目部署在云服务器上。
 由于我没有云服务器，因此用装有Centos7的虚拟机来代替。
 将项目部署在虚拟机上的过程也不算容易，途中遇到了不少坎坷。例如我的centos在刚开始时连不上网络，rc命令无法上传等等。
-靠着不断百度 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/07/training_15/" title="实训日记 | Day 15. Django打分系统示例">     <img class="post_bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 15. Django打分系统示例"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/07/training_15/" title="实训日记 | Day 15. Django打分系统示例">实训日记 | Day 15. Django打分系统示例</a><div class="article-meta-wrap"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2020-08-07 19:30:00"><i class="fa fa-calendar" aria-hidden="true"></i>2020-08-07</span><span class="article-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2020-09-07 16:22:02"><i class="fa fa-history" aria-hidden="true"></i>2020-09-07</span></time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fa fa-inbox article-meta__icon" aria-hidden="true"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">-</span><i class="fa fa-tag article-meta__icon" aria-hidden="true"></i><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span></div><div class="content"> 总述
+靠着不断百度到的CSDN的资料还是艰难地克服了难题，完成了部署。
+今天还有部分关于Nginx的还未讲授完，为保证该笔记的一体性，我也加上去了。
+ SSH设置
+ 启动ssh服务
+在打开centos虚拟机后，先用yum install openssh* -y安装开启SSH必备的程序。
+而后用vi /etc/ssh/sshd config命令打开sshd的配置文件。
+修改内容为：
+
+ListenAddress 0.0.0.0和ListenAddress ::的井号去掉。
+PermitRootLogin前的井号去掉。
+
+完成这些操作后，用systemctl restart sshd指令重启sshd服务。
+ 查询IP地址
+接下来使用ifconfig来查询虚拟机的IP地址。
+由于我的centos7没有内置ifcon ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/08/07/training_15/" title="实训日记 | Day 15. Django打分系统示例">     <img class="post_bg" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200802165415.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="实训日记 | Day 15. Django打分系统示例"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/08/07/training_15/" title="实训日记 | Day 15. Django打分系统示例">实训日记 | Day 15. Django打分系统示例</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2020-08-07T11:30:00.000Z" title="发表于 2020-08-07 19:30:00">2020-08-07</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/">实训日记</a></span><span class="article-meta tags"><span class="article-meta__separator">|</span><i class="fas fa-tag"></i><a class="article-meta__tags" href="/tags/Python/">Python</a><span class="article-meta__link">•</span><a class="article-meta__tags" href="/tags/%E5%AE%9E%E8%AE%AD/">实训</a></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-comments"></i><a href="/2020/08/07/training_15/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/2020/08/07/training_15/" itemprop="commentCount"></span></a><span class="article-meta-label"> 条评论</span></span></div><div class="content"> 总述
 今天是8月7日，实训的第15天。
 上午孟老师演示了如何用Django做一个打分系统，先是分析需求——
 打分系统需要满足：
@@ -205,32 +486,43 @@ eval() 函数是python内置函数，用来 ...</div></div></div><div class="rec
 成绩汇总显示
 导出成绩 查询账号 可查分数 学号
 
-下午主要是帮助同学们答疑。由于我的项目已经接近尾 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fa fa-fw fa-chevron-left" aria-hidden="true"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-fw fa-chevron-right" aria-hidden="true"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/zorua.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Zorua</div><div class="author-info__description">要么庸俗，要么孤独。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">47</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">32</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">11</div></a></div></div><div class="card-info-bookmark is-center"><a class="bookmark button--primary button--animated" id="bookmark-it" href="javascript:;" title="加入书签" target="_self"><i class="fa fa-bookmark" aria-hidden="true"></i><span>加入书签</span></a></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://space.bilibili.com/11901405" target="_blank" title="bilibili"><i class="iconfont icon-bilibili1" aria-hidden="true"></i></a><a class="social-icon" href="https://github.com/zoruasama" target="_blank" title="Github"><i class="iconfont icon-githubblack" aria-hidden="true"></i></a><a class="social-icon" href="mailto:zoruasama@qq.com" target="_blank" title="Email"><i class="iconfont icon-email-copy" aria-hidden="true"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="iconfont icon-RSS" aria-hidden="true"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fa fa-bullhorn card-announcement-animation" aria-hidden="true"></i><span>公告</span></div><div class="announcement_content">假勤奋比懒惰更可怕。</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fa fa-history" aria-hidden="true"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2021/12/21/unity_0/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221213345.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Unity | Unity 窗口介绍" alt="Unity | Unity 窗口介绍"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/12/21/unity_0/" title="Unity | Unity 窗口介绍">Unity | Unity 窗口介绍</div><time class="aside-post_meta post-meta__date" title="发表于 2021-12-21 21:35:00">2021-12-21</time></div></a></div><div class="aside-recent-post"><a href="/2021/12/20/algorithm_4/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="算法笔记 | KMP算法" alt="算法笔记 | KMP算法"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/12/20/algorithm_4/" title="算法笔记 | KMP算法">算法笔记 | KMP算法</div><time class="aside-post_meta post-meta__date" title="发表于 2021-12-20 21:30:00">2021-12-20</time></div></a></div><div class="aside-recent-post"><a href="/2021/11/24/CrossSpace/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026154117.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Works | 如果穿越到异世界，你的身份是 _____" alt="Works | 如果穿越到异世界，你的身份是 _____"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/11/24/CrossSpace/" title="Works | 如果穿越到异世界，你的身份是 _____">Works | 如果穿越到异世界，你的身份是 _____</div><time class="aside-post_meta post-meta__date" title="发表于 2021-11-24 19:30:00">2021-11-24</time></div></a></div><div class="aside-recent-post"><a href="/2021/11/23/algorithm_3/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="算法笔记 | 树状数组" alt="算法笔记 | 树状数组"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/11/23/algorithm_3/" title="算法笔记 | 树状数组">算法笔记 | 树状数组</div><time class="aside-post_meta post-meta__date" title="发表于 2021-11-23 19:05:00">2021-11-23</time></div></a></div><div class="aside-recent-post"><a href="/2021/11/17/algorithm_2/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" title="算法笔记 | 快速幂" alt="算法笔记 | 快速幂"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2021/11/17/algorithm_2/" title="算法笔记 | 快速幂">算法笔记 | 快速幂</div><time class="aside-post_meta post-meta__date" title="发表于 2021-11-17 19:05:00">2021-11-17</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fa fa-folder-open" aria-hidden="true"></i><span>分类</span></div><ul class="card-category-list">
-            <li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Unity/"><span class="card-category-list-name">Unity</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/Works/"><span class="card-category-list-name">Works</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E4%B9%A6%E8%AF%BB/"><span class="card-category-list-name">书读</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E5%85%B6%E4%BB%96/"><span class="card-category-list-name">其他</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/"><span class="card-category-list-name">实训日记</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item"><a class="card-category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="card-category-list-name">操作系统</span><span class="card-category-list-count">2</span></a></li>
-            <li class="card-category-list-item more is-center"><a class="card-category-list-link-more" href="/categories">
-                <span>查看更多</span><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>           
-            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fa fa-tags" aria-hidden="true"></i><span>标签</span></div><div class="card-tag-cloud"><a href='/tags/KMP%E7%AE%97%E6%B3%95/' style='font-size:17px; color:rgb(7, 87, 108)'>KMP算法</a><a href='/tags/LCA/' style='font-size:21px; color:rgb(172, 139, 150)'>LCA</a><a href='/tags/LaTeX/' style='font-size:19px; color:rgb(92, 153, 179)'>LaTeX</a><a href='/tags/Linux/' style='font-size:20px; color:rgb(124, 23, 189)'>Linux</a><a href='/tags/MySQL/' style='font-size:19px; color:rgb(172, 9, 14)'>MySQL</a><a href='/tags/OS/' style='font-size:20px; color:rgb(32, 8, 140)'>OS</a><a href='/tags/Python/' style='font-size:18px; color:rgb(126, 73, 71)'>Python</a><a href='/tags/SQL/' style='font-size:19px; color:rgb(139, 168, 56)'>SQL</a><a href='/tags/Unity/' style='font-size:18px; color:rgb(33, 143, 188)'>Unity</a><a href='/tags/Windows/' style='font-size:19px; color:rgb(170, 140, 198)'>Windows</a><a href='/tags/Works/' style='font-size:18px; color:rgb(141, 16, 59)'>Works</a><a href='/tags/%E4%B9%A6%E8%AF%BB/' style='font-size:21px; color:rgb(165, 35, 104)'>书读</a><a href='/tags/%E4%BA%92%E8%81%94%E7%BD%91/' style='font-size:16px; color:rgb(63, 49, 105)'>互联网</a><a href='/tags/%E5%89%8D%E7%BC%80%E5%92%8C/' style='font-size:19px; color:rgb(121, 55, 121)'>前缀和</a><a href='/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/' style='font-size:19px; color:rgb(113, 92, 52)'>字符串</a><a href='/tags/%E5%AE%9E%E8%AE%AD/' style='font-size:21px; color:rgb(16, 175, 95)'>实训</a><a href='/tags/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/' style='font-size:21px; color:rgb(156, 186, 75)'>差分数组</a><a href='/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/' style='font-size:16px; color:rgb(199, 8, 163)'>快速幂</a><a href='/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/' style='font-size:18px; color:rgb(37, 120, 26)'>操作系统</a><a href='/tags/%E6%95%88%E7%8E%87/' style='font-size:17px; color:rgb(179, 60, 49)'>效率</a><a href='/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/' style='font-size:21px; color:rgb(28, 198, 105)'>数据库</a><a href='/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/' style='font-size:20px; color:rgb(80, 100, 88)'>数据库原理</a><a href='/tags/%E6%96%87%E5%AD%97%E6%8E%92%E7%89%88/' style='font-size:20px; color:rgb(166, 190, 67)'>文字排版</a><a href='/tags/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1/' style='font-size:16px; color:rgb(119, 143, 59)'>机械设计</a><a href='/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/' style='font-size:20px; color:rgb(191, 31, 65)'>树状数组</a><a href='/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/' style='font-size:18px; color:rgb(26, 32, 104)'>正则表达式</a><a href='/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/' style='font-size:20px; color:rgb(40, 15, 128)'>浏览器</a><a href='/tags/%E7%AE%97%E6%B3%95/' style='font-size:21px; color:rgb(106, 26, 80)'>算法</a><a href='/tags/%E7%BD%91%E7%BB%9C/' style='font-size:17px; color:rgb(77, 96, 188)'>网络</a><a href='/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/' style='font-size:20px; color:rgb(92, 48, 108)'>计算机网络</a><a href='/tags/%E8%AE%BA%E6%96%87/' style='font-size:18px; color:rgb(68, 111, 113)'>论文</a><a href='/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/' style='font-size:21px; color:rgb(124, 180, 189)'>读后感</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fa fa-archive" aria-hidden="true"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">十月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item more is-center"><a class="card-archive-list-link-more" href="/archives">
-              <span>查看更多</span><i class="fa fa-angle-right" aria-hidden="true"></i></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line" aria-hidden="true"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">47</div></div><div class="webinfo-item"><div class="webinfo-runtime-name">已运行时间 :</div><div class="webinfo-runtime-count" id="webinfo-runtime-count" start_date="3/7/2020 00:00:00">     </div></div><div class="webinfo-item"><div class="webinfo-site-wordcount-name">本站总字数 :</div><div class="webinfo-site-wordcount">168.9k</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/topindex.jpg)" data-type="photo"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Zorua</div><div class="framework-info"><span>Powered BY </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">这是我的底线。</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换" target="_self">繁</a><i class="darkmode far fa-moon" id="darkmode" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a href="https://github.com/wzpan/hexo-generator-search" target="_blank" rel="noopener" style="color:#49B1F5;">hexo-generator-search</a>
- <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script id="canvas_nest" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="/js/third-party/canvas-nest.js"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
-POWERMODE.shake = true;
-document.body.addEventListener('input', POWERMODE);
-</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@v3.0.0/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/search/local-search.js"></script><script>if (document.getElementsByClassName('mermaid').length) {
-  loadScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js',function () {
-    mermaid.initialize({
-      theme: 'default',
-  })
-})
-}</script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleType = function () {
-  var subtitleEffect = true
-  fetch('https://api.btstu.cn/yan/api.php?charset=utf-8&encode=json',)
-    .then(function (res) {
-      return res.json()
-    })
-    .then(function (data) {
-      if (subtitleEffect) {
-        var sub = '一个普通的兴趣使然的无名 CSer.,Stay hungry&#44; Stay foolish.'.length == 0 ? new Array() : '一个普通的兴趣使然的无名 CSer.,Stay hungry&#44; Stay foolish.'.split(',')
+下午主要是帮助同学们答疑。由于我的项目已经接近尾声，所以我比较闲，我也就跟着帮助同学了。
+ 打分系统
+ 数据库的建立
+12345678910111213141516171819202122232425262728293031323334353637383940414243from django.db import models # Create your models here.class UserTeacher(models.Model):    username =models.CharField(max_length=20,verbose_name=&#x27;用户名&#x27;)    password = models.CharField(max_length=20,verbose_name=&#x27;密码&#x27;)    ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Zorua</div><div class="author-info__description">要么庸俗，要么孤独。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">47</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">32</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div><a class="button--animated" id="card-info-btn" href="hhttps://github.com/zoruasama"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zoruasama" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zoruasama@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">假勤奋比懒惰更可怕。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/21/unity_0/" title="Unity | Unity 窗口介绍"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221213345.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity | Unity 窗口介绍"/></a><div class="content"><a class="title" href="/2021/12/21/unity_0/" title="Unity | Unity 窗口介绍">Unity | Unity 窗口介绍</a><time datetime="2021-12-21T13:35:00.000Z" title="发表于 2021-12-21 21:35:00">2021-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/12/20/algorithm_4/" title="算法笔记 | KMP算法"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法笔记 | KMP算法"/></a><div class="content"><a class="title" href="/2021/12/20/algorithm_4/" title="算法笔记 | KMP算法">算法笔记 | KMP算法</a><time datetime="2021-12-20T13:30:00.000Z" title="发表于 2021-12-20 21:30:00">2021-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/24/CrossSpace/" title="Works | 如果穿越到异世界，你的身份是 _____"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026154117.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Works | 如果穿越到异世界，你的身份是 _____"/></a><div class="content"><a class="title" href="/2021/11/24/CrossSpace/" title="Works | 如果穿越到异世界，你的身份是 _____">Works | 如果穿越到异世界，你的身份是 _____</a><time datetime="2021-11-24T11:30:00.000Z" title="发表于 2021-11-24 19:30:00">2021-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/23/algorithm_3/" title="算法笔记 | 树状数组"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法笔记 | 树状数组"/></a><div class="content"><a class="title" href="/2021/11/23/algorithm_3/" title="算法笔记 | 树状数组">算法笔记 | 树状数组</a><time datetime="2021-11-23T11:05:00.000Z" title="发表于 2021-11-23 19:05:00">2021-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/17/algorithm_2/" title="算法笔记 | 快速幂"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20210121193809.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法笔记 | 快速幂"/></a><div class="content"><a class="title" href="/2021/11/17/algorithm_2/" title="算法笔记 | 快速幂">算法笔记 | 快速幂</a><time datetime="2021-11-17T11:05:00.000Z" title="发表于 2021-11-17 19:05:00">2021-11-17</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Linux/"><span class="card-category-list-name">Linux</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Unity/"><span class="card-category-list-name">Unity</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Works/"><span class="card-category-list-name">Works</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%B9%A6%E8%AF%BB/"><span class="card-category-list-name">书读</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%85%B6%E4%BB%96/"><span class="card-category-list-name">其他</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AE%9E%E8%AE%AD%E6%97%A5%E8%AE%B0/"><span class="card-category-list-name">实训日记</span><span class="card-category-list-count">14</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="card-category-list-name">操作系统</span><span class="card-category-list-count">2</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/KMP%E7%AE%97%E6%B3%95/" style="font-size: 1.1em; color: #999">KMP算法</a> <a href="/tags/LCA/" style="font-size: 1.1em; color: #999">LCA</a> <a href="/tags/LaTeX/" style="font-size: 1.1em; color: #999">LaTeX</a> <a href="/tags/Linux/" style="font-size: 1.23em; color: #999ea6">Linux</a> <a href="/tags/MySQL/" style="font-size: 1.17em; color: #999c9f">MySQL</a> <a href="/tags/OS/" style="font-size: 1.17em; color: #999c9f">OS</a> <a href="/tags/Python/" style="font-size: 1.5em; color: #99a9bf">Python</a> <a href="/tags/SQL/" style="font-size: 1.17em; color: #999c9f">SQL</a> <a href="/tags/Unity/" style="font-size: 1.1em; color: #999">Unity</a> <a href="/tags/Windows/" style="font-size: 1.1em; color: #999">Windows</a> <a href="/tags/Works/" style="font-size: 1.17em; color: #999c9f">Works</a> <a href="/tags/%E4%B9%A6%E8%AF%BB/" style="font-size: 1.1em; color: #999">书读</a> <a href="/tags/%E4%BA%92%E8%81%94%E7%BD%91/" style="font-size: 1.3em; color: #99a1ac">互联网</a> <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/" style="font-size: 1.1em; color: #999">前缀和</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" style="font-size: 1.1em; color: #999">字符串</a> <a href="/tags/%E5%AE%9E%E8%AE%AD/" style="font-size: 1.5em; color: #99a9bf">实训</a> <a href="/tags/%E5%B7%AE%E5%88%86%E6%95%B0%E7%BB%84/" style="font-size: 1.1em; color: #999">差分数组</a> <a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/" style="font-size: 1.1em; color: #999">快速幂</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.37em; color: #99a4b2">操作系统</a> <a href="/tags/%E6%95%88%E7%8E%87/" style="font-size: 1.1em; color: #999">效率</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.43em; color: #99a6b9">数据库</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86/" style="font-size: 1.43em; color: #99a6b9">数据库原理</a> <a href="/tags/%E6%96%87%E5%AD%97%E6%8E%92%E7%89%88/" style="font-size: 1.1em; color: #999">文字排版</a> <a href="/tags/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1/" style="font-size: 1.1em; color: #999">机械设计</a> <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" style="font-size: 1.1em; color: #999">树状数组</a> <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 1.1em; color: #999">浏览器</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.37em; color: #99a4b2">算法</a> <a href="/tags/%E7%BD%91%E7%BB%9C/" style="font-size: 1.3em; color: #99a1ac">网络</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.3em; color: #99a1ac">计算机网络</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 1.1em; color: #999">论文</a> <a href="/tags/%E8%AF%BB%E5%90%8E%E6%84%9F/" style="font-size: 1.1em; color: #999">读后感</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/12/"><span class="card-archive-list-date">十二月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/11/"><span class="card-archive-list-date">十一月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/10/"><span class="card-archive-list-date">十月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/06/"><span class="card-archive-list-date">六月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/01/"><span class="card-archive-list-date">一月 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">11</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">5</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">47</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2020-03-06T16:00:00.000Z"></div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">170.4k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-12-23T11:41:20.069Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Zorua</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">这是我的底线。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><div class="js-pjax"><script>(() => {
+  function loadValine () {
+    function initValine () {
+      let initData = {
+        el: '#vcomment',
+        appId: 'YVFPT1pFRjpG5oM88rpDgyj7-MdYXbMMI',
+        appKey: 'pry5uB2QzPFBPeMcz9MzkeIz',
+      }
+      
+      const valine = new Valine(initData)
+    }
+
+    if (typeof Valine === 'function') initValine() 
+    else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+  }
+
+  window.pjax ? loadValine() : window.addEventListener('load', loadValine)
+})()</script><script>function subtitleType () {
+  fetch('https://api.btstu.cn/yan/api.php?charset=utf-8&encode=json')
+    .then(response => response.json())
+    .then(data => {
+      if (true) {
+        var sub = "一个普通的兴趣使然的无名 CSer.,Stay hungry&#44; Stay foolish.".length == 0 ? new Array() : "一个普通的兴趣使然的无名 CSer.,Stay hungry&#44; Stay foolish.".split(',')
         var both = sub.unshift(data.text)
-        var typed = new Typed('#subtitle', {
+        typed = new Typed('#subtitle', {
           strings: sub,
           startDelay: 300,
           typeSpeed: 150,
@@ -241,9 +533,124 @@ document.body.addEventListener('input', POWERMODE);
         document.getElementById('subtitle').innerHTML = data.text
       }
     })
-    .catch(function (err) {
-      console.error(err)
-    })
 }
-window.addEventListener('load', subtitleType)
-</script><script src="/js/zorua.js"></script><script src="/js/hideCategory.js"></script></body></html>
+
+if (true) {
+  if (typeof Typed === 'function') {
+    subtitleType()
+  } else {
+    getScript('https://cdn.jsdelivr.net/npm/typed.js/lib/typed.min.js').then(subtitleType)
+  }
+} else {
+  subtitleType()
+}
+</script><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script></div><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.17.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=monsterid'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${btf.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://YVFPT1pF.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": 'YVFPT1pFRjpG5oM88rpDgyj7-MdYXbMMI',
+        "X-LC-Key": 'pry5uB2QzPFBPeMcz9MzkeIz',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script src="/js/zorua.js"></script><script src="/js/hideCategory.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
