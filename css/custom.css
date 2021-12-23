@@ -1173,3 +1173,7 @@ span.grey {
 [data-theme="dark"] .tip{
   color: #4c4948;
 }
+
+.layout{
+  max-width: 1400px;
+}
