@@ -1180,3 +1180,11 @@ span.grey {
 blockquote.pullquote{
   max-width: 100%;
 }
+
+#card-newest-comments > div.aside-list > .aside-list-item .thumbnail {
+    border-radius: 50%;
+}
+
+.card-recent-post > div.aside-list > .aside-list-item .thumbnail {
+   border-radius: 20%;
+}
