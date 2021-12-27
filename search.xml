@@ -188,111 +188,6 @@ myImage.onload=function(){
       </tags>
   </entry>
   <entry>
-    <title>Linux入门 | 1. Linux的介绍</title>
-    <url>/2020/03/29/Linux_0/</url>
-    <content><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1>
-<h2 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h2>
-<blockquote>
-<p>Written BY Zorua 2020.3.29<br />
-Email: <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a><br />
-Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
-</blockquote>
-<hr />
-<h1 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h1>
-<p>大多数的00后应该和我一样，第一次接触PC操作系统应该是<code>Windows</code>，那就先来说说与<code>Windows</code>的异同。</p>
-<ul>
-<li>在<code>Windows 7</code>以前版本的<code>Windows</code>是单用户操作系统，而<code>Linux</code>的设计初衷就是多用户操作系统。</li>
-<li>在<code>Linux</code>下，没有驱动器盘符，即没有你在<code>Windows</code>中看到的<code>C:\</code>，<code>D:\</code>，<code>E:\</code>等等，<code>Linux</code>中仅有<code>/</code>，称之为根目录。</li>
-<li>在<code>Windows</code>下，普通用户基本都是在纯图形界面下操作使用；而<code>Linux</code>兼具图形界面操作（桌面环境的发行版）和终端操作。几乎可以只用键盘完成一切操作。</li>
-<li>世界上绝大多数服务器都正在运行着<code>Linux</code>。</li>
-</ul>
-<p>当然还有很多不同的地方，我这里就只稍微例举一下下。</p>
-<p>以下是百度百科摘取的一段关于<code>Linux</code>的介绍。</p>
-<blockquote>
-<p>Linux，全称GNU/Linux，是一套免费使用和自由传播的类UNIX操作系统，其内核由林纳斯·本纳第克特·托瓦兹于1991年第一次释出，它主要受到Minix和Unix思想的启发，是一个基于POSIX和Unix的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的Unix工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的debian、archlinux，和基于商业开发的Red Hat Enterprise Linux、SUSE、oracle linux等。</p>
-</blockquote>
-<p>比较著名的发行版本有<code>Debian</code>、<code>RedHat</code>、<code>Centos</code>、<code>Slackware</code>、<code>clearlinux</code>、<code>ubuntu</code>等等。无论何种版本的 Linux 发行版，桌面、应用是<code>Linux</code>的外衣，文件组织、目录结构才是<code>Linux</code>的内心。</p>
-<p>我使用的是<code>ubuntu-16.04.6</code>，可以在其官网获取相关镜像。<a href="https://ubuntu.com/download">Ubuntu官网</a><br />
-如果下载速度可能比较缓慢，可以在<a href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站</a>或其他镜像站进行下载。<br />
-由于技术所限，我并没有在我的计算机上安装双系统，是用虚拟机软件进行模拟的。<br />
-常用的虚拟机软件有<code>VirtualBox</code> <code>VMware Workstation</code>  <code>Virtual PC</code>等等。请自行在互联网上获取。</p>
-<blockquote>
-<p>Windows的Pro版本好像自带一个Hyper-V。</p>
-</blockquote>
-<h1 id="文件和目录"><a class="markdownIt-Anchor" href="#文件和目录"></a> 文件和目录</h1>
-<p>上面说到<code>Linux</code>中仅有根目录<code>/</code>，下面是根目录下，一些常用的目录的简单描述。</p>
-<table>
-<thead>
-<tr>
-<th>目录</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/</td>
-<td>有且仅有一个的根目录，所有的文件都存放在这里。</td>
-</tr>
-<tr>
-<td>/bin、/usr/bin</td>
-<td>存放着可执行二进制文件的目录，如常用的命令 ls、cat 等等。</td>
-</tr>
-<tr>
-<td>/home</td>
-<td>家目录，用户的家目录都存放在该目录下。</td>
-</tr>
-<tr>
-<td>/etc</td>
-<td>系统配置文件存放的目录。</td>
-</tr>
-<tr>
-<td>/dev</td>
-<td>存放在系统下的设备文件，访问该目录的文件相当于访问某个设备。</td>
-</tr>
-</tbody>
-</table>
-<p>另外还有些<code>/root</code> <code>/proc</code>等就暂且不提辽。<br />
-着重提一下家目录，<code>/home</code>下存放着各个用户的家目录，例如一个<code>Ubuntu</code>系统上有<code>Zorua</code> <code>Zoroark</code>两个用户，则<code>/home</code>下就会有两个家目录：<code>/home/Zorua</code> <code>/home/Zoroark</code>。每个用户的家目录大概可以类比为<code>Windows</code>的<code>C:/Users/Zorua</code>这一文件夹吧。<br />
-在<code>Linux</code>中，当前用户的家目录路径可以用<code>~</code>来表示，例如当前用户名为<code>Zorua</code>，则<code>~</code>等价于<code>/home/Zorua</code>。<br />
-每个用户的家目录下，也有很多的文件夹。<br />
-如下，是我的家目录下的文件夹和文件。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drwxr-xr-x 6 zorua zorua 4096 Apr 12 22:11 Desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Documents</span><br><span class="line">drwxr-xr-x 3 zorua zorua 4096 Apr 12 06:51 Downloads</span><br><span class="line">-rw-r--r-- 1 zorua zorua 8980 Sep 30  2019 examples.desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Apr  5 02:05 Music</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Pictures</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Public</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Templates</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Videos</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>examples.desktop</code>是一个<strong>快捷方式</strong>。详情会在之后的文章里写。</p>
-</blockquote>
-<ul>
-<li>在<code>Linux</code>的目录系统中，文件或文件名前面加一个<code>.</code>，就是<strong>隐藏文件</strong>的意思，隐藏文件默认不能直接在图形界面或终端的<code>ls</code>命令下看到。</li>
-<li>有两个特殊的隐藏目录，之所以说是隐藏，是因为只能用<code>ls -a</code>才能看到。一个是<code>..</code>，一个是<code>.</code>。<br />
-<code>..</code>表示这个目录的上一级目录，<code>.</code>表示当前目录。这两个目录都是相对路径。<br />
-例如对于目录<code>/home/Zorua</code>，它的<code>..</code>就意味着<code>/home</code>，<code>.</code>就意味着<code>/home/Zorua</code>。<br />
-这两个目录在任何目录都有的（是的，包括根目录，根目录的 <code>..</code>还是根目录）。</li>
-</ul>
-<p>#小练习</p>
-<div class="note success flat"><p><strong>小练习</strong></p>
-<ul>
-<li>对于用户<code>Zorua</code>，<code>~</code>目录指的是： <span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">C</span></span><br />
-A.<code>/</code><br />
-B.<code>/home</code><br />
-C.<code>/home/Zorua</code><br />
-D.<code>/Zorua</code></li>
-<li>对于目录<code>/home/Zorua/Desktop</code>，<code>.</code>目录指的是： <span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">D</span></span><br />
-A.<code>/</code><br />
-B.<code>/home</code><br />
-C.<code>/home/Zorua</code><br />
-D.<code>/home/Zorua/Desktop</code></li>
-</ul>
-</div><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LaTeX | LaTeX基础</title>
     <url>/2020/03/30/LaTeX_0/</url>
     <content><![CDATA[<h1 id="归档"><a class="markdownIt-Anchor" href="#归档"></a> 归档</h1>
@@ -514,6 +409,111 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
         <tag>LaTeX</tag>
         <tag>文字排版</tag>
         <tag>论文</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux入门 | 1. Linux的介绍</title>
+    <url>/2020/03/29/Linux_0/</url>
+    <content><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1>
+<h2 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h2>
+<blockquote>
+<p>Written BY Zorua 2020.3.29<br />
+Email: <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a><br />
+Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
+</blockquote>
+<hr />
+<h1 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h1>
+<p>大多数的00后应该和我一样，第一次接触PC操作系统应该是<code>Windows</code>，那就先来说说与<code>Windows</code>的异同。</p>
+<ul>
+<li>在<code>Windows 7</code>以前版本的<code>Windows</code>是单用户操作系统，而<code>Linux</code>的设计初衷就是多用户操作系统。</li>
+<li>在<code>Linux</code>下，没有驱动器盘符，即没有你在<code>Windows</code>中看到的<code>C:\</code>，<code>D:\</code>，<code>E:\</code>等等，<code>Linux</code>中仅有<code>/</code>，称之为根目录。</li>
+<li>在<code>Windows</code>下，普通用户基本都是在纯图形界面下操作使用；而<code>Linux</code>兼具图形界面操作（桌面环境的发行版）和终端操作。几乎可以只用键盘完成一切操作。</li>
+<li>世界上绝大多数服务器都正在运行着<code>Linux</code>。</li>
+</ul>
+<p>当然还有很多不同的地方，我这里就只稍微例举一下下。</p>
+<p>以下是百度百科摘取的一段关于<code>Linux</code>的介绍。</p>
+<blockquote>
+<p>Linux，全称GNU/Linux，是一套免费使用和自由传播的类UNIX操作系统，其内核由林纳斯·本纳第克特·托瓦兹于1991年第一次释出，它主要受到Minix和Unix思想的启发，是一个基于POSIX和Unix的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的Unix工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的debian、archlinux，和基于商业开发的Red Hat Enterprise Linux、SUSE、oracle linux等。</p>
+</blockquote>
+<p>比较著名的发行版本有<code>Debian</code>、<code>RedHat</code>、<code>Centos</code>、<code>Slackware</code>、<code>clearlinux</code>、<code>ubuntu</code>等等。无论何种版本的 Linux 发行版，桌面、应用是<code>Linux</code>的外衣，文件组织、目录结构才是<code>Linux</code>的内心。</p>
+<p>我使用的是<code>ubuntu-16.04.6</code>，可以在其官网获取相关镜像。<a href="https://ubuntu.com/download">Ubuntu官网</a><br />
+如果下载速度可能比较缓慢，可以在<a href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站</a>或其他镜像站进行下载。<br />
+由于技术所限，我并没有在我的计算机上安装双系统，是用虚拟机软件进行模拟的。<br />
+常用的虚拟机软件有<code>VirtualBox</code> <code>VMware Workstation</code>  <code>Virtual PC</code>等等。请自行在互联网上获取。</p>
+<blockquote>
+<p>Windows的Pro版本好像自带一个Hyper-V。</p>
+</blockquote>
+<h1 id="文件和目录"><a class="markdownIt-Anchor" href="#文件和目录"></a> 文件和目录</h1>
+<p>上面说到<code>Linux</code>中仅有根目录<code>/</code>，下面是根目录下，一些常用的目录的简单描述。</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>有且仅有一个的根目录，所有的文件都存放在这里。</td>
+</tr>
+<tr>
+<td>/bin、/usr/bin</td>
+<td>存放着可执行二进制文件的目录，如常用的命令 ls、cat 等等。</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>家目录，用户的家目录都存放在该目录下。</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>系统配置文件存放的目录。</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>存放在系统下的设备文件，访问该目录的文件相当于访问某个设备。</td>
+</tr>
+</tbody>
+</table>
+<p>另外还有些<code>/root</code> <code>/proc</code>等就暂且不提辽。<br />
+着重提一下家目录，<code>/home</code>下存放着各个用户的家目录，例如一个<code>Ubuntu</code>系统上有<code>Zorua</code> <code>Zoroark</code>两个用户，则<code>/home</code>下就会有两个家目录：<code>/home/Zorua</code> <code>/home/Zoroark</code>。每个用户的家目录大概可以类比为<code>Windows</code>的<code>C:/Users/Zorua</code>这一文件夹吧。<br />
+在<code>Linux</code>中，当前用户的家目录路径可以用<code>~</code>来表示，例如当前用户名为<code>Zorua</code>，则<code>~</code>等价于<code>/home/Zorua</code>。<br />
+每个用户的家目录下，也有很多的文件夹。<br />
+如下，是我的家目录下的文件夹和文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drwxr-xr-x 6 zorua zorua 4096 Apr 12 22:11 Desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Documents</span><br><span class="line">drwxr-xr-x 3 zorua zorua 4096 Apr 12 06:51 Downloads</span><br><span class="line">-rw-r--r-- 1 zorua zorua 8980 Sep 30  2019 examples.desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Apr  5 02:05 Music</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Pictures</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Public</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Templates</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Videos</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>examples.desktop</code>是一个<strong>快捷方式</strong>。详情会在之后的文章里写。</p>
+</blockquote>
+<ul>
+<li>在<code>Linux</code>的目录系统中，文件或文件名前面加一个<code>.</code>，就是<strong>隐藏文件</strong>的意思，隐藏文件默认不能直接在图形界面或终端的<code>ls</code>命令下看到。</li>
+<li>有两个特殊的隐藏目录，之所以说是隐藏，是因为只能用<code>ls -a</code>才能看到。一个是<code>..</code>，一个是<code>.</code>。<br />
+<code>..</code>表示这个目录的上一级目录，<code>.</code>表示当前目录。这两个目录都是相对路径。<br />
+例如对于目录<code>/home/Zorua</code>，它的<code>..</code>就意味着<code>/home</code>，<code>.</code>就意味着<code>/home/Zorua</code>。<br />
+这两个目录在任何目录都有的（是的，包括根目录，根目录的 <code>..</code>还是根目录）。</li>
+</ul>
+<p>#小练习</p>
+<div class="note success flat"><p><strong>小练习</strong></p>
+<ul>
+<li>对于用户<code>Zorua</code>，<code>~</code>目录指的是： <span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">C</span></span><br />
+A.<code>/</code><br />
+B.<code>/home</code><br />
+C.<code>/home/Zorua</code><br />
+D.<code>/Zorua</code></li>
+<li>对于目录<code>/home/Zorua/Desktop</code>，<code>.</code>目录指的是： <span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">D</span></span><br />
+A.<code>/</code><br />
+B.<code>/home</code><br />
+C.<code>/home/Zorua</code><br />
+D.<code>/home/Zorua/Desktop</code></li>
+</ul>
+</div><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>操作系统</tag>
       </tags>
   </entry>
   <entry>
@@ -1104,57 +1104,6 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
       </tags>
   </entry>
   <entry>
-    <title>算法笔记 | 差分数组</title>
-    <url>/2021/11/14/algorithm_1/</url>
-    <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
-<p>对于一个数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">a[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span>，如果对它有着频繁的区间操作（例如第5个到第60个数增加2，或第6个到第40个数减去2）。这个时候，暴力的做法时，直接用循环去操作，但是这样做的时间复杂度很大。所以对于这样的问题，可以使用<strong>差分数组</strong>。</p>
-<h1 id="具体做法"><a class="markdownIt-Anchor" href="#具体做法"></a> 具体做法</h1>
-<p><code>差分</code>其实就是数据之间的差，什么数据的差呢？就是上面所给的原始数组<code>a[n]</code>的相邻元素之间的差值，我们令<code>d[i]=a[i+1]-a[i]</code>，一遍for循环即可将差分数组求出来。例如下面这个数组。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114164848.PNG" alt="" /><br />
-据此，可以发现两条差分数组的性质：</p>
-<ul>
-<li><code>a[i]</code>等于<code>d[i]</code>的前缀和</li>
-<li><code>a[i]</code>的前缀和可以通过如下公式来求得：
-<ul>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msub><mi>a</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum_x=\sum_{i=1}^{x}a_x=\sum_{i=1}^{x}\sum_{j=1}^{i}d_i=\sum_{i=1}^{x}(x-i+1)\times d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
-</ul>
-</li>
-</ul>
-<h1 id="用途"><a class="markdownIt-Anchor" href="#用途"></a> 用途</h1>
-<p>差分数组主要支持两种操作：<strong>1、区间修改；2、单点查询</strong><br />
-根据性质一，可以得到若对某个区间<code>[L, R]</code> 增加一个数 <code>x</code>，只需要使 <code>d[L] += x; d[R + 1] -= x;</code> 即可实现对区间的批量修改，而查询时只需要<strong>求前缀和查询单个元素</strong>，或者通过上述性质二的公式查询<strong>前缀和/区间和</strong>即可</p>
-<h2 id="区间修改"><a class="markdownIt-Anchor" href="#区间修改"></a> 区间修改</h2>
-<p>对上面那个表的数组作下面两个操作：</p>
-<ul>
-<li>将区间 [1,4] 的数值全部加上3</li>
-<li>将区间 [3,5] 的数值全部减去5<br />
-其实<strong>当你将原始数组中元素同时加上或者减掉某个数，那么他们的差分数组其实是不会变化的。</strong><br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170247.PNG" alt="" /><br />
-只有 d[1]和d[5]发生了变化，而d[2],d[3],d[4]却保持着原样。</li>
-</ul>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170311.PNG" alt="" /></p>
-<blockquote>
-<p>当对一个区间进行增减某个值的时候，它的差分数组对应的区间左端点的值会同步变化，而它的右端点的后一个值则会相反地变化，其实这个很好理解</p>
-</blockquote>
-<h2 id="更新原数组"><a class="markdownIt-Anchor" href="#更新原数组"></a> 更新原数组</h2>
-<p>因为我们的差分数组是由原始数组的相邻两项作差求出来的，即 d[i]=a[i]-a[i-1]；那么我们能不能反过来，求得一下修改过后的a[i]呢？</p>
-<p><strong>直接反过来即得  a[i]=a[i-1]+d[i]</strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    a[i]=a[i<span class="number">-1</span>]+d[i];</span><br></pre></td></tr></table></figure>
-<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p>[1] <a href="https://blog.csdn.net/qq_31601743/article/details/105352885">https://blog.csdn.net/qq_31601743/article/details/105352885</a><br />
-[2] <a href="https://blog.csdn.net/qq_44786250/article/details/100056975">https://blog.csdn.net/qq_44786250/article/details/100056975</a><br />
-[3] <a href="https://www.jianshu.com/p/2a4e861b44ae">https://www.jianshu.com/p/2a4e861b44ae</a><br />
-[4] <a href="https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html">https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html</a></p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>差分数组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>算法笔记 | 前缀和</title>
     <url>/2021/11/11/algorithm_0/</url>
     <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
@@ -1207,66 +1156,6 @@ s[r]-s[l-1]=a[l]+a[l+1]+…+a[r];</p>
       <tags>
         <tag>算法</tag>
         <tag>前缀和</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法笔记 | 树状数组</title>
-    <url>/2021/11/23/algorithm_3/</url>
-    <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
-<p>树状数组是一个查询和修改复杂度都为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">\log{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span></span></span>的数据结构。主要用于数组的<strong>单点修改</strong>和<strong>区间求和</strong>。广义上来说，能够动态维护<strong>前缀和</strong>。基本上树状数组能做的事情，线段树都能做，反之就不一定了。所以线段树更加强大。但是<s>线段树代码太难写了</s>。</p>
-<h2 id="和线段树的区别"><a class="markdownIt-Anchor" href="#和线段树的区别"></a> 和线段树的区别</h2>
-<ol>
-<li>两者在复杂度上同级, 但是树状数组的常数明显优于线段树, 其编程复杂度也远小于线段树。</li>
-<li>树状数组的作用被线段树完全涵盖, 凡是可以使用树状数组解决的问题, 使用线段树一定可以解决, 但是线段树能够解决的问题树状数组未必能够解决。</li>
-<li>树状数组的突出特点是其编程的极端简洁性, 使用<code>lowbit</code>技术可以在很短的几步操作中完成树状数组的核心操作，其代码效率远高于线段树。</li>
-</ol>
-<p>上面出现了一个新名词: <code>lowbit</code>.其实<code>lowbit(x)</code>就是求x最低位的1。</p>
-<h2 id="具体做法"><a class="markdownIt-Anchor" href="#具体做法"></a> 具体做法</h2>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123200518.png" alt="" /><br />
-其实树状数组是用一个连续的数组来存储树的结构，<code>t[x]</code>保存以<code>x</code>为根的子树中叶节点值的和。上图中的<code>a[n]</code>是原数组。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123200656.png" alt="" /><br />
-而且每一个节点覆盖的长度就是<code>lowbit(x)</code>。<br />
-<code>t[x]</code>节点的父节点为<code>t[x+lowbit(x)]</code>。<br />
-而且整棵树的深度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\log{n}+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
-<h3 id="lowbit"><a class="markdownIt-Anchor" href="#lowbit"></a> lowbit</h3>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="单点修改"><a class="markdownIt-Anchor" href="#单点修改"></a> 单点修改</h3>
-<p>以<code>add(x,k)</code>操作为例。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&lt;=n;i+=<span class="built_in">lowbit</span>(i))&#123;</span><br><span class="line">        t[i]+=k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="区间求和"><a class="markdownIt-Anchor" href="#区间求和"></a> 区间求和</h3>
-<p>以<code>ask(x)</code>操作为例。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&gt;<span class="number">0</span>;i-=<span class="built_in">lowbit</span>(i))&#123;</span><br><span class="line">        res+=t[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>要求区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[x,y]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span></span></span></span>的和时，可以使用前缀和<code>ask(y)-ask(x-1)</code>来求出它。</p>
-<hr />
-<p>下面的这些扩展函数<code>add</code> <code>ask</code>函数内部操作还是一样的。就是外部有差别。</p>
-<h2 id="区间修改-单点查询"><a class="markdownIt-Anchor" href="#区间修改-单点查询"></a> 区间修改、单点查询</h2>
-<p>引入差分数组<code>b[n]</code>，作为原数组<code>a[n]</code>的增量数组（不用对这个树状数组预处理）。用树状数组来维护这个数组。<br />
-而后区间修改的操作和差分数组一样，使用<code>add(l,d)</code>和<code>add(r+1,-d)</code>来完成。<br />
-查询原数组<code>a[x]</code>的值时，因为差分数组的前缀和等于原数组，所以可以用<code>a[x]+ask(x)</code>来完成。（有了<code>a[x]</code>不用对树状数组预处理了）<br />
-这个地方的操作和差分数组是一样的。只是单点查询时，复杂度会低一些。</p>
-<h2 id="区间修改-区间查询"><a class="markdownIt-Anchor" href="#区间修改-区间查询"></a> 区间修改、区间查询</h2>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msub><mi>a</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum_x=\sum_{i=1}^{x}a_x=\sum_{i=1}^{x}\sum_{j=1}^{i}d_i=\sum_{i=1}^{x}(x-i+1)\times d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><br />
-由之前的<strong>差分数组</strong>帖子可知上式。如果要进行<strong>区间修改</strong>，维护差分数组<code>b[x]</code>就可以了，但是这样只能更新到单点<code>a[x]</code>，再想<strong>区间查询</strong>，最好对a[x]再做一个前缀和。显然这里会用到两个树状数组。但是去求区间查询很麻烦，可以用下面这个式子转换着去求。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123202657.png" alt="" /><br />
-设树状数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">t_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>维护<code>b[i]</code>前缀和，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">t_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>维护<code>i*b[i]</code>前缀和。<br />
-这里的<code>b[i]</code>依旧是<strong>增量数组</strong>。</p>
-<p>那么区间修改<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>加上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">add1</span>(l,d)</span><br><span class="line"><span class="built_in">add1</span>(r+<span class="number">1</span>,-d)</span><br><span class="line"><span class="comment">//维护数组b[i]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">add2</span>(l,l*d)</span><br><span class="line"><span class="built_in">add2</span>(r+<span class="number">1</span>,-(r+<span class="number">1</span>)*d)</span><br><span class="line"><span class="comment">//维护数组i*b[i]</span></span><br></pre></td></tr></table></figure>
-<p>区间查询<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>的和：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">ans=sum[r]-sum[l<span class="number">-1</span>]+((r+<span class="number">1</span>)*<span class="built_in">ask1</span>(r)-<span class="built_in">ask2</span>(r))-(l*<span class="built_in">ask1</span>(l<span class="number">-1</span>)-<span class="built_in">ask2</span>(l<span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// (x+1)sum(b,x) = (x+1)ask1(x)</span></span><br><span class="line"><span class="comment">// sum(i*b,x) = ask2(x)</span></span><br></pre></td></tr></table></figure>
-<h1 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h1>
-<p>对于一个数组，可以用树状数组前缀区间维护<strong>和、异或和、最大值、最小值</strong>等等。</p>
-<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p>[1] <a href="https://blog.csdn.net/bestsort/article/details/80796531">https://blog.csdn.net/bestsort/article/details/80796531</a><br />
-[2] <a href="https://blog.csdn.net/qq_41021816/article/details/81167388">https://blog.csdn.net/qq_41021816/article/details/81167388</a><br />
-[3] <a href="https://www.bilibili.com/video/BV1pE41197Qj">https://www.bilibili.com/video/BV1pE41197Qj</a></p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>树状数组</tag>
       </tags>
   </entry>
   <entry>
@@ -1357,6 +1246,117 @@ F_1\\F_{2}
       <tags>
         <tag>算法</tag>
         <tag>快速幂</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法笔记 | 差分数组</title>
+    <url>/2021/11/14/algorithm_1/</url>
+    <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
+<p>对于一个数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">a[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span>，如果对它有着频繁的区间操作（例如第5个到第60个数增加2，或第6个到第40个数减去2）。这个时候，暴力的做法时，直接用循环去操作，但是这样做的时间复杂度很大。所以对于这样的问题，可以使用<strong>差分数组</strong>。</p>
+<h1 id="具体做法"><a class="markdownIt-Anchor" href="#具体做法"></a> 具体做法</h1>
+<p><code>差分</code>其实就是数据之间的差，什么数据的差呢？就是上面所给的原始数组<code>a[n]</code>的相邻元素之间的差值，我们令<code>d[i]=a[i+1]-a[i]</code>，一遍for循环即可将差分数组求出来。例如下面这个数组。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114164848.PNG" alt="" /><br />
+据此，可以发现两条差分数组的性质：</p>
+<ul>
+<li><code>a[i]</code>等于<code>d[i]</code>的前缀和</li>
+<li><code>a[i]</code>的前缀和可以通过如下公式来求得：
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msub><mi>a</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum_x=\sum_{i=1}^{x}a_x=\sum_{i=1}^{x}\sum_{j=1}^{i}d_i=\sum_{i=1}^{x}(x-i+1)\times d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
+</ul>
+</li>
+</ul>
+<h1 id="用途"><a class="markdownIt-Anchor" href="#用途"></a> 用途</h1>
+<p>差分数组主要支持两种操作：<strong>1、区间修改；2、单点查询</strong><br />
+根据性质一，可以得到若对某个区间<code>[L, R]</code> 增加一个数 <code>x</code>，只需要使 <code>d[L] += x; d[R + 1] -= x;</code> 即可实现对区间的批量修改，而查询时只需要<strong>求前缀和查询单个元素</strong>，或者通过上述性质二的公式查询<strong>前缀和/区间和</strong>即可</p>
+<h2 id="区间修改"><a class="markdownIt-Anchor" href="#区间修改"></a> 区间修改</h2>
+<p>对上面那个表的数组作下面两个操作：</p>
+<ul>
+<li>将区间 [1,4] 的数值全部加上3</li>
+<li>将区间 [3,5] 的数值全部减去5<br />
+其实<strong>当你将原始数组中元素同时加上或者减掉某个数，那么他们的差分数组其实是不会变化的。</strong><br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170247.PNG" alt="" /><br />
+只有 d[1]和d[5]发生了变化，而d[2],d[3],d[4]却保持着原样。</li>
+</ul>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170311.PNG" alt="" /></p>
+<blockquote>
+<p>当对一个区间进行增减某个值的时候，它的差分数组对应的区间左端点的值会同步变化，而它的右端点的后一个值则会相反地变化，其实这个很好理解</p>
+</blockquote>
+<h2 id="更新原数组"><a class="markdownIt-Anchor" href="#更新原数组"></a> 更新原数组</h2>
+<p>因为我们的差分数组是由原始数组的相邻两项作差求出来的，即 d[i]=a[i]-a[i-1]；那么我们能不能反过来，求得一下修改过后的a[i]呢？</p>
+<p><strong>直接反过来即得  a[i]=a[i-1]+d[i]</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    a[i]=a[i<span class="number">-1</span>]+d[i];</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p>[1] <a href="https://blog.csdn.net/qq_31601743/article/details/105352885">https://blog.csdn.net/qq_31601743/article/details/105352885</a><br />
+[2] <a href="https://blog.csdn.net/qq_44786250/article/details/100056975">https://blog.csdn.net/qq_44786250/article/details/100056975</a><br />
+[3] <a href="https://www.jianshu.com/p/2a4e861b44ae">https://www.jianshu.com/p/2a4e861b44ae</a><br />
+[4] <a href="https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html">https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html</a></p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>差分数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>算法笔记 | 树状数组</title>
+    <url>/2021/11/23/algorithm_3/</url>
+    <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
+<p>树状数组是一个查询和修改复杂度都为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">\log{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span></span></span>的数据结构。主要用于数组的<strong>单点修改</strong>和<strong>区间求和</strong>。广义上来说，能够动态维护<strong>前缀和</strong>。基本上树状数组能做的事情，线段树都能做，反之就不一定了。所以线段树更加强大。但是<s>线段树代码太难写了</s>。</p>
+<h2 id="和线段树的区别"><a class="markdownIt-Anchor" href="#和线段树的区别"></a> 和线段树的区别</h2>
+<ol>
+<li>两者在复杂度上同级, 但是树状数组的常数明显优于线段树, 其编程复杂度也远小于线段树。</li>
+<li>树状数组的作用被线段树完全涵盖, 凡是可以使用树状数组解决的问题, 使用线段树一定可以解决, 但是线段树能够解决的问题树状数组未必能够解决。</li>
+<li>树状数组的突出特点是其编程的极端简洁性, 使用<code>lowbit</code>技术可以在很短的几步操作中完成树状数组的核心操作，其代码效率远高于线段树。</li>
+</ol>
+<p>上面出现了一个新名词: <code>lowbit</code>.其实<code>lowbit(x)</code>就是求x最低位的1。</p>
+<h2 id="具体做法"><a class="markdownIt-Anchor" href="#具体做法"></a> 具体做法</h2>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123200518.png" alt="" /><br />
+其实树状数组是用一个连续的数组来存储树的结构，<code>t[x]</code>保存以<code>x</code>为根的子树中叶节点值的和。上图中的<code>a[n]</code>是原数组。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123200656.png" alt="" /><br />
+而且每一个节点覆盖的长度就是<code>lowbit(x)</code>。<br />
+<code>t[x]</code>节点的父节点为<code>t[x+lowbit(x)]</code>。<br />
+而且整棵树的深度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\log{n}+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
+<h3 id="lowbit"><a class="markdownIt-Anchor" href="#lowbit"></a> lowbit</h3>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="单点修改"><a class="markdownIt-Anchor" href="#单点修改"></a> 单点修改</h3>
+<p>以<code>add(x,k)</code>操作为例。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&lt;=n;i+=<span class="built_in">lowbit</span>(i))&#123;</span><br><span class="line">        t[i]+=k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="区间求和"><a class="markdownIt-Anchor" href="#区间求和"></a> 区间求和</h3>
+<p>以<code>ask(x)</code>操作为例。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&gt;<span class="number">0</span>;i-=<span class="built_in">lowbit</span>(i))&#123;</span><br><span class="line">        res+=t[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>要求区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[x,y]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span></span></span></span>的和时，可以使用前缀和<code>ask(y)-ask(x-1)</code>来求出它。</p>
+<hr />
+<p>下面的这些扩展函数<code>add</code> <code>ask</code>函数内部操作还是一样的。就是外部有差别。</p>
+<h2 id="区间修改-单点查询"><a class="markdownIt-Anchor" href="#区间修改-单点查询"></a> 区间修改、单点查询</h2>
+<p>引入差分数组<code>b[n]</code>，作为原数组<code>a[n]</code>的增量数组（不用对这个树状数组预处理）。用树状数组来维护这个数组。<br />
+而后区间修改的操作和差分数组一样，使用<code>add(l,d)</code>和<code>add(r+1,-d)</code>来完成。<br />
+查询原数组<code>a[x]</code>的值时，因为差分数组的前缀和等于原数组，所以可以用<code>a[x]+ask(x)</code>来完成。（有了<code>a[x]</code>不用对树状数组预处理了）<br />
+这个地方的操作和差分数组是一样的。只是单点查询时，复杂度会低一些。</p>
+<h2 id="区间修改-区间查询"><a class="markdownIt-Anchor" href="#区间修改-区间查询"></a> 区间修改、区间查询</h2>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msub><mi>a</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum_x=\sum_{i=1}^{x}a_x=\sum_{i=1}^{x}\sum_{j=1}^{i}d_i=\sum_{i=1}^{x}(x-i+1)\times d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><br />
+由之前的<strong>差分数组</strong>帖子可知上式。如果要进行<strong>区间修改</strong>，维护差分数组<code>b[x]</code>就可以了，但是这样只能更新到单点<code>a[x]</code>，再想<strong>区间查询</strong>，最好对a[x]再做一个前缀和。显然这里会用到两个树状数组。但是去求区间查询很麻烦，可以用下面这个式子转换着去求。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123202657.png" alt="" /><br />
+设树状数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">t_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>维护<code>b[i]</code>前缀和，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">t_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>维护<code>i*b[i]</code>前缀和。<br />
+这里的<code>b[i]</code>依旧是<strong>增量数组</strong>。</p>
+<p>那么区间修改<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>加上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">add1</span>(l,d)</span><br><span class="line"><span class="built_in">add1</span>(r+<span class="number">1</span>,-d)</span><br><span class="line"><span class="comment">//维护数组b[i]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">add2</span>(l,l*d)</span><br><span class="line"><span class="built_in">add2</span>(r+<span class="number">1</span>,-(r+<span class="number">1</span>)*d)</span><br><span class="line"><span class="comment">//维护数组i*b[i]</span></span><br></pre></td></tr></table></figure>
+<p>区间查询<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>的和：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">ans=sum[r]-sum[l<span class="number">-1</span>]+((r+<span class="number">1</span>)*<span class="built_in">ask1</span>(r)-<span class="built_in">ask2</span>(r))-(l*<span class="built_in">ask1</span>(l<span class="number">-1</span>)-<span class="built_in">ask2</span>(l<span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// (x+1)sum(b,x) = (x+1)ask1(x)</span></span><br><span class="line"><span class="comment">// sum(i*b,x) = ask2(x)</span></span><br></pre></td></tr></table></figure>
+<h1 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h1>
+<p>对于一个数组，可以用树状数组前缀区间维护<strong>和、异或和、最大值、最小值</strong>等等。</p>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p>[1] <a href="https://blog.csdn.net/bestsort/article/details/80796531">https://blog.csdn.net/bestsort/article/details/80796531</a><br />
+[2] <a href="https://blog.csdn.net/qq_41021816/article/details/81167388">https://blog.csdn.net/qq_41021816/article/details/81167388</a><br />
+[3] <a href="https://www.bilibili.com/video/BV1pE41197Qj">https://www.bilibili.com/video/BV1pE41197Qj</a></p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>树状数组</tag>
       </tags>
   </entry>
   <entry>
@@ -3701,6 +3701,90 @@ Flask 是一个微型的 Python 开发的 Web 框架，基于Werkzeug WSGI工具
       </tags>
   </entry>
   <entry>
+    <title>实训日记 | Day 15. Django打分系统示例</title>
+    <url>/2020/08/07/training_15/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>今天是8月7日，实训的第15天。<br />
+上午孟老师演示了如何用Django做一个打分系统，先是分析需求——<br />
+打分系统需要满足：</p>
+<ul>
+<li>录入学生信息</li>
+<li>添加评委账号</li>
+<li>企业打分占比50%</li>
+<li>校内打分占比50%</li>
+<li>成绩汇总显示</li>
+<li>导出成绩 查询账号 可查分数 学号</li>
+</ul>
+<p>下午主要是帮助同学们答疑。由于我的项目已经接近尾声，所以我比较闲，我也就跟着帮助同学了。</p>
+<h1 id="打分系统"><a class="markdownIt-Anchor" href="#打分系统"></a> 打分系统</h1>
+<h2 id="数据库的建立"><a class="markdownIt-Anchor" href="#数据库的建立"></a> 数据库的建立</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserTeacher</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    username =models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;用户名&#x27;</span>)</span><br><span class="line">    password = models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;密码&#x27;</span>)</span><br><span class="line">    nickname =  models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;昵称&#x27;</span>)</span><br><span class="line">    kind = models.IntegerField(verbose_name=<span class="string">&#x27;是否企业老师&#x27;</span>) <span class="comment">#0不是 1 是</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.nickname</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&#x27;教师账号&#x27;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StundentInfo</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    username = models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;用户名&#x27;</span>)</span><br><span class="line">    password = models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;密码&#x27;</span>,default=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line">    nickname =  models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;昵称&#x27;</span>)</span><br><span class="line">    score = models.IntegerField(verbose_name=<span class="string">&#x27;总得分&#x27;</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.username+<span class="string">&quot;_&quot;</span>+self.nickname</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&#x27;学生账号&#x27;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CompanyScore</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    score1 = models.IntegerField(verbose_name=<span class="string">&#x27;寻求解决方案的能力&#x27;</span>)</span><br><span class="line">    score2 = models.IntegerField(verbose_name=<span class="string">&#x27;综合应用分析的能力&#x27;</span>)</span><br><span class="line">    score3 = models.IntegerField(verbose_name=<span class="string">&#x27;考虑社会等因素&#x27;</span>)</span><br><span class="line">    score4 = models.IntegerField(verbose_name=<span class="string">&#x27;工具的选择和使用能力&#x27;</span>)</span><br><span class="line">    score5 = models.IntegerField(verbose_name=<span class="string">&#x27;沟通交流能力&#x27;</span>)</span><br><span class="line">    score6 = models.IntegerField(verbose_name=<span class="string">&#x27;考勤&#x27;</span>)</span><br><span class="line">    student = models.ForeignKey(StundentInfo,on_delete=models.CASCADE,verbose_name=<span class="string">&#x27;学生&#x27;</span>)</span><br><span class="line">    teacher = models.ForeignKey(UserTeacher,on_delete=models.CASCADE,verbose_name=<span class="string">&#x27;老师&#x27;</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.student.nickname,self.teacher.nickname,self.student.username</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&#x27;企业打分&#x27;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SchoolScore</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    score1 = models.IntegerField(verbose_name=<span class="string">&#x27;实习日志&#x27;</span>)</span><br><span class="line">    score2 = models.IntegerField(verbose_name=<span class="string">&#x27;实习报告&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="视图的建立"><a class="markdownIt-Anchor" href="#视图的建立"></a> 视图的建立</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render,redirect</span><br><span class="line"><span class="keyword">from</span> api.models <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> JsonResponse</span><br><span class="line"><span class="keyword">from</span> django.forms.models <span class="keyword">import</span> model_to_dict</span><br><span class="line"><span class="keyword">from</span> django.views.decorators.csrf <span class="keyword">import</span> csrf_exempt</span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="meta">@csrf_exempt</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">if</span> request.method==<span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        username = request.POST.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">        password = request.POST.get(<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">        user_check=UserTeacher.objects.<span class="built_in">filter</span>(username=username,password=password)</span><br><span class="line">        <span class="keyword">if</span> user_check:</span><br><span class="line">            request.session[<span class="string">&#x27;techer_id&#x27;</span>]=user_check.first().<span class="built_in">id</span></span><br><span class="line">            <span class="keyword">return</span> redirect(<span class="string">&#x27;/student_page/&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;登陆失败&#x27;</span>&#125;)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render(request,<span class="string">&#x27;login.html&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="meta">@csrf_exempt</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_score_by_company</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">if</span> request.method==<span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        username=request.POST.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">        teacher_id=request.session[<span class="string">&#x27;techer_id&#x27;</span>]</span><br><span class="line">        has_score=CompanyScore.objects.<span class="built_in">filter</span>(teacher_id=teacher_id)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> has_score:</span><br><span class="line">            student_id=StundentInfo.objects.get(username=username).<span class="built_in">id</span></span><br><span class="line">            systemDict = &#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> key <span class="keyword">in</span> request.POST:</span><br><span class="line">                systemDict[key] = request.POST.get(key)</span><br><span class="line">            <span class="keyword">del</span> systemDict[<span class="string">&#x27;username&#x27;</span>]</span><br><span class="line">            CompanyScore.objects.create(**systemDict,teacher_id=teacher_id,student_id=student_id).save()</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;打分成功&#x27;</span>&#125;)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;您已经为该同学打过分了，请勿重复打分&#x27;</span>&#125;)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">&#x27;company_score.html&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_score_by_school</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">if</span> request.method==<span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        username=request.POST.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">        teacher_id=request.session[<span class="string">&#x27;techer_id&#x27;</span>]</span><br><span class="line">        has_score=SchoolScore.objects.<span class="built_in">filter</span>(teacher_id=teacher_id)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> has_score:</span><br><span class="line">            student_id=StundentInfo.objects.get(username=username).<span class="built_in">id</span></span><br><span class="line">            systemDict = &#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> key <span class="keyword">in</span> request.POST:</span><br><span class="line">                systemDict[key] = request.POST.get(key)</span><br><span class="line">            <span class="keyword">del</span> systemDict[<span class="string">&#x27;username&#x27;</span>]</span><br><span class="line">            SchoolScore.objects.create(**systemDict,teacher_id=teacher_id,student_id=student_id).save()</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;打分成功&#x27;</span>&#125;)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;您已经为该同学打过分了，请勿重复打分&#x27;</span>&#125;)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">&#x27;shcool_score.html&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">score_all</span>(<span class="params">request</span>):</span></span><br><span class="line">    username = request.POST.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">    student_id = StundentInfo.objects.get(username=username).<span class="built_in">id</span></span><br><span class="line">    cs = CompanyScore.objects.<span class="built_in">filter</span>(student_id=student_id)</span><br><span class="line">    ss = SchoolScore.objects.<span class="built_in">filter</span>(student_id=student_id)</span><br><span class="line">    list_cs=[]</span><br><span class="line">    list_ss=[]</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> cs:</span><br><span class="line">        list_cs.append(model_to_dict(c,exclude=[<span class="string">&#x27;student_id&#x27;</span>,<span class="string">&#x27;teacher_id&#x27;</span>]))</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> ss:</span><br><span class="line">        list_ss.append(model_to_dict(s,exclude=[<span class="string">&#x27;student_id&#x27;</span>,<span class="string">&#x27;teacher_id&#x27;</span>]))</span><br><span class="line">    cs_all=<span class="built_in">zip</span>(*<span class="built_in">map</span>(<span class="keyword">lambda</span> x: (x[<span class="string">&#x27;score1&#x27;</span>], x[<span class="string">&#x27;score2&#x27;</span>],x[<span class="string">&#x27;score3&#x27;</span>],x[<span class="string">&#x27;score4&#x27;</span>],x[<span class="string">&#x27;score5&#x27;</span>],x[<span class="string">&#x27;score6&#x27;</span>]), list_cs))</span><br><span class="line">    sum_cs=<span class="number">0</span> <span class="comment">#((1,2),(3,4),(5,6))</span></span><br><span class="line">    <span class="keyword">for</span> index,i <span class="keyword">in</span> <span class="built_in">enumerate</span>(cs_all):</span><br><span class="line">        sum_cs+=<span class="built_in">sum</span>(<span class="built_in">list</span>(i))/<span class="built_in">len</span>(i)</span><br><span class="line">    ss_all=<span class="built_in">zip</span>(*<span class="built_in">map</span>(<span class="keyword">lambda</span> x: (x[<span class="string">&#x27;score1&#x27;</span>], x[<span class="string">&#x27;score2&#x27;</span>],x[<span class="string">&#x27;score3&#x27;</span>]), list_ss))</span><br><span class="line">    sum_ss=<span class="number">0</span> <span class="comment">#((1,2),(3,4),(5,6))</span></span><br><span class="line">    <span class="keyword">for</span> index,i <span class="keyword">in</span> <span class="built_in">enumerate</span>(ss_all):</span><br><span class="line">        sum_ss+=<span class="built_in">sum</span>(<span class="built_in">list</span>(i))/<span class="built_in">len</span>(i)</span><br><span class="line">    total_score = sum_cs + sum_ss</span><br><span class="line">    StundentInfo.objects.<span class="built_in">filter</span>(username=username).update(score=total_score)</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;成绩核算成功&#x27;</span>&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">student_list</span>(<span class="params">request</span>):</span></span><br><span class="line">    all_stus=StundentInfo.objects.<span class="built_in">all</span>()</span><br></pre></td></tr></table></figure>
+<h2 id="登录界面"><a class="markdownIt-Anchor" href="#登录界面"></a> 登录界面</h2>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login/&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;password&quot;</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登陆&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="学生列表界面"><a class="markdownIt-Anchor" href="#学生列表界面"></a> 学生列表界面</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;学生列表&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;序号&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;学号&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;姓名&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;操作&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">&#x27;/student_list/&#x27;</span>,</span><br><span class="line">        <span class="built_in">type</span>:<span class="string">&#x27;get&#x27;</span>,</span><br><span class="line">        dataType:<span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">        success:function (res) &#123;</span><br><span class="line">          <span class="keyword">for</span>(var i = <span class="number">0</span>;i&lt;res.data.length;i++)&#123;</span><br><span class="line">              var htmlStr=<span class="string">&#x27;&lt;tr&gt;\n&#x27;</span> +</span><br><span class="line">                  <span class="string">&#x27;        &lt;td&gt;&#x27;</span>+(i+<span class="number">1</span>)+<span class="string">&#x27;&lt;/td&gt;\n&#x27;</span> +</span><br><span class="line">                  <span class="string">&#x27;        &lt;td&gt;&#x27;</span>+res.data[i].username+<span class="string">&#x27;&lt;/td&gt;\n&#x27;</span> +</span><br><span class="line">                  <span class="string">&#x27;        &lt;td&gt;&#x27;</span>+res.data[i].nickname+<span class="string">&#x27;&lt;/td&gt;\n&#x27;</span> +</span><br><span class="line">                  <span class="string">&#x27;        &lt;td&gt;&lt;button class=&quot;company&quot;&gt;企业&lt;/button&gt;&lt;button class=&quot;school&quot;&gt;学校&lt;/button&gt;&lt;/td&gt;\n&#x27;</span> +</span><br><span class="line">                  <span class="string">&#x27;    &lt;/tr&gt;&#x27;</span></span><br><span class="line">              $(<span class="string">&#x27;tbody&#x27;</span>).append(htmlStr);</span><br><span class="line">          &#125;</span><br><span class="line">          company();</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">    function company()&#123;</span><br><span class="line">        $(<span class="string">&quot;.company&quot;</span>).click(function()&#123;</span><br><span class="line">            var username=$(this).parent().parent().find(<span class="string">&#x27;td:eq(1)&#x27;</span>).text();</span><br><span class="line">            window.location.href=<span class="string">&#x27;/msbc/?username=&#x27;</span>+username+<span class="string">&#x27;&#x27;</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="公司评分界面"><a class="markdownIt-Anchor" href="#公司评分界面"></a> 公司评分界面</h2>
+</head>
+<body>
+<h1></h1>
+<div>寻求解决方案的能力<input id="score1" type="text" placeholder="满分：16" value="0"></div>
+<div>综合应用分析的能力<input id="score2" type="text" placeholder="满分：23" value="0"></div>
+<div>考虑社会等因素<input id="score3" type="text" placeholder="满分：15" value="0"></div>
+<div>工具的选择和使用能力<input id="score4" type="text" placeholder="满分：22" value="0"></div>
+<div>沟通交流能力<input id="score5" type="text" placeholder="满分：4" value="0"></div>
+<div>考勤<input id="score6" type="text" placeholder="满分：20" value="0"></div>
+<div><span>目前分</span><span id="score"></span></div>
+<button id="submit">提交成绩</button>
+</body>
+<script>
+    function getUrlParam(name) { //a标签跳转获取参数
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if(r != null) return decodeURI(r[2]);
+        return null;
+    }
+    var username = getUrlParam('username');
+    $('h1').text(username);
+    $("#submit").click(function () {
+         $.ajax({
+        url:'/msbc/',
+        type:'post',
+        dataType:'json',
+        data:{
+            username:username,
+            score1:$("#score1").val(),
+            score2:$("#score2").val(),
+            score3:$("#score3").val(),
+            score4:$("#score4").val(),
+            score5:$("#score5").val(),
+            score6:$("#score6").val(),
+        },
+        success:function (res) {
+            alert(res.data);
+        },
+    })
+    });
+    $("input").change(function(){
+       $("#score").empty();
+       var sum = 0;
+       var a=$("input").each(function(){var value = $(this).val();sum+=parseInt(value)});
+       $("#score").text(sum);
+    });
+</script>
+</html>
+<h2 id="获取上一链接的参数"><a class="markdownIt-Anchor" href="#获取上一链接的参数"></a> 获取上一链接的参数</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function getUrlParam(name) &#123; //a标签跳转获取参数</span><br><span class="line">	var reg = new RegExp(&quot;(^|&amp;)&quot; + name + &quot;=([^&amp;]*)(&amp;|$)&quot;, &quot;i&quot;);</span><br><span class="line">	var r = window.location.search.substr(1).match(reg);</span><br><span class="line">	if(r != null) return decodeURI(r[2]);</span><br><span class="line">	return null;</span><br><span class="line">&#125;</span><br><span class="line">var username = getUrlParam(&#x27;username&#x27;);</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实训日记 | Day 13. Flask的工程化</title>
     <url>/2020/08/05/training_13/</url>
     <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
@@ -3827,90 +3911,6 @@ session中的记录是有有效期的。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CORS_ALLOW_CREDENTIALS = True</span><br><span class="line">CORS_ORIGIN_ALLOW_ALL = True</span><br><span class="line">CORS_ORIGIN_WHITELIST = (</span><br><span class="line">	&#x27;*&#x27;</span><br><span class="line">)</span><br><span class="line">CORS_ALLOW_METHODS = (</span><br><span class="line">	&#x27;DELETE&#x27;,</span><br><span class="line">	&#x27;GET&#x27;,</span><br><span class="line">	&#x27;OPTIONS&#x27;,</span><br><span class="line">	&#x27;PATCH&#x27;,</span><br><span class="line">	&#x27;POST&#x27;,</span><br><span class="line">	&#x27;PUT&#x27;,</span><br><span class="line">	&#x27;VIEW&#x27;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">CORS_ALLOW_HEADERS = (</span><br><span class="line">	&#x27;XMLHttpRequest&#x27;,</span><br><span class="line">	&#x27;X_FILENAME&#x27;,</span><br><span class="line">	&#x27;accept-encoding&#x27;,</span><br><span class="line">	&#x27;authorization&#x27;,</span><br><span class="line">	&#x27;content-type&#x27;,</span><br><span class="line">	&#x27;dnt&#x27;,</span><br><span class="line">	&#x27;origin&#x27;,</span><br><span class="line">	&#x27;user-agent&#x27;,</span><br><span class="line">	&#x27;x-csrftoken&#x27;,</span><br><span class="line">	&#x27;x-requested-with&#x27;,</span><br><span class="line">	&#x27;Pragma&#x27;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>启动项目时，使用<code>python manage.py runserver 0.0.0.0:8000</code></p>
 <script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>实训日记</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>实训</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>实训日记 | Day 15. Django打分系统示例</title>
-    <url>/2020/08/07/training_15/</url>
-    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
-<p>今天是8月7日，实训的第15天。<br />
-上午孟老师演示了如何用Django做一个打分系统，先是分析需求——<br />
-打分系统需要满足：</p>
-<ul>
-<li>录入学生信息</li>
-<li>添加评委账号</li>
-<li>企业打分占比50%</li>
-<li>校内打分占比50%</li>
-<li>成绩汇总显示</li>
-<li>导出成绩 查询账号 可查分数 学号</li>
-</ul>
-<p>下午主要是帮助同学们答疑。由于我的项目已经接近尾声，所以我比较闲，我也就跟着帮助同学了。</p>
-<h1 id="打分系统"><a class="markdownIt-Anchor" href="#打分系统"></a> 打分系统</h1>
-<h2 id="数据库的建立"><a class="markdownIt-Anchor" href="#数据库的建立"></a> 数据库的建立</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserTeacher</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    username =models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;用户名&#x27;</span>)</span><br><span class="line">    password = models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;密码&#x27;</span>)</span><br><span class="line">    nickname =  models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;昵称&#x27;</span>)</span><br><span class="line">    kind = models.IntegerField(verbose_name=<span class="string">&#x27;是否企业老师&#x27;</span>) <span class="comment">#0不是 1 是</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.nickname</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&#x27;教师账号&#x27;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StundentInfo</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    username = models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;用户名&#x27;</span>)</span><br><span class="line">    password = models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;密码&#x27;</span>,default=<span class="string">&#x27;123456&#x27;</span>)</span><br><span class="line">    nickname =  models.CharField(max_length=<span class="number">20</span>,verbose_name=<span class="string">&#x27;昵称&#x27;</span>)</span><br><span class="line">    score = models.IntegerField(verbose_name=<span class="string">&#x27;总得分&#x27;</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.username+<span class="string">&quot;_&quot;</span>+self.nickname</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&#x27;学生账号&#x27;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CompanyScore</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    score1 = models.IntegerField(verbose_name=<span class="string">&#x27;寻求解决方案的能力&#x27;</span>)</span><br><span class="line">    score2 = models.IntegerField(verbose_name=<span class="string">&#x27;综合应用分析的能力&#x27;</span>)</span><br><span class="line">    score3 = models.IntegerField(verbose_name=<span class="string">&#x27;考虑社会等因素&#x27;</span>)</span><br><span class="line">    score4 = models.IntegerField(verbose_name=<span class="string">&#x27;工具的选择和使用能力&#x27;</span>)</span><br><span class="line">    score5 = models.IntegerField(verbose_name=<span class="string">&#x27;沟通交流能力&#x27;</span>)</span><br><span class="line">    score6 = models.IntegerField(verbose_name=<span class="string">&#x27;考勤&#x27;</span>)</span><br><span class="line">    student = models.ForeignKey(StundentInfo,on_delete=models.CASCADE,verbose_name=<span class="string">&#x27;学生&#x27;</span>)</span><br><span class="line">    teacher = models.ForeignKey(UserTeacher,on_delete=models.CASCADE,verbose_name=<span class="string">&#x27;老师&#x27;</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> self.student.nickname,self.teacher.nickname,self.student.username</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">&#x27;企业打分&#x27;</span></span><br><span class="line">        verbose_name_plural = verbose_name</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SchoolScore</span>(<span class="params">models.Model</span>):</span></span><br><span class="line">    score1 = models.IntegerField(verbose_name=<span class="string">&#x27;实习日志&#x27;</span>)</span><br><span class="line">    score2 = models.IntegerField(verbose_name=<span class="string">&#x27;实习报告&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="视图的建立"><a class="markdownIt-Anchor" href="#视图的建立"></a> 视图的建立</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render,redirect</span><br><span class="line"><span class="keyword">from</span> api.models <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> JsonResponse</span><br><span class="line"><span class="keyword">from</span> django.forms.models <span class="keyword">import</span> model_to_dict</span><br><span class="line"><span class="keyword">from</span> django.views.decorators.csrf <span class="keyword">import</span> csrf_exempt</span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="meta">@csrf_exempt</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">if</span> request.method==<span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        username = request.POST.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">        password = request.POST.get(<span class="string">&#x27;password&#x27;</span>)</span><br><span class="line">        user_check=UserTeacher.objects.<span class="built_in">filter</span>(username=username,password=password)</span><br><span class="line">        <span class="keyword">if</span> user_check:</span><br><span class="line">            request.session[<span class="string">&#x27;techer_id&#x27;</span>]=user_check.first().<span class="built_in">id</span></span><br><span class="line">            <span class="keyword">return</span> redirect(<span class="string">&#x27;/student_page/&#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;登陆失败&#x27;</span>&#125;)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render(request,<span class="string">&#x27;login.html&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="meta">@csrf_exempt</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_score_by_company</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">if</span> request.method==<span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        username=request.POST.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">        teacher_id=request.session[<span class="string">&#x27;techer_id&#x27;</span>]</span><br><span class="line">        has_score=CompanyScore.objects.<span class="built_in">filter</span>(teacher_id=teacher_id)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> has_score:</span><br><span class="line">            student_id=StundentInfo.objects.get(username=username).<span class="built_in">id</span></span><br><span class="line">            systemDict = &#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> key <span class="keyword">in</span> request.POST:</span><br><span class="line">                systemDict[key] = request.POST.get(key)</span><br><span class="line">            <span class="keyword">del</span> systemDict[<span class="string">&#x27;username&#x27;</span>]</span><br><span class="line">            CompanyScore.objects.create(**systemDict,teacher_id=teacher_id,student_id=student_id).save()</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;打分成功&#x27;</span>&#125;)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;您已经为该同学打过分了，请勿重复打分&#x27;</span>&#125;)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">&#x27;company_score.html&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_score_by_school</span>(<span class="params">request</span>):</span></span><br><span class="line">    <span class="keyword">if</span> request.method==<span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        username=request.POST.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">        teacher_id=request.session[<span class="string">&#x27;techer_id&#x27;</span>]</span><br><span class="line">        has_score=SchoolScore.objects.<span class="built_in">filter</span>(teacher_id=teacher_id)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> has_score:</span><br><span class="line">            student_id=StundentInfo.objects.get(username=username).<span class="built_in">id</span></span><br><span class="line">            systemDict = &#123;&#125;</span><br><span class="line">            <span class="keyword">for</span> key <span class="keyword">in</span> request.POST:</span><br><span class="line">                systemDict[key] = request.POST.get(key)</span><br><span class="line">            <span class="keyword">del</span> systemDict[<span class="string">&#x27;username&#x27;</span>]</span><br><span class="line">            SchoolScore.objects.create(**systemDict,teacher_id=teacher_id,student_id=student_id).save()</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;打分成功&#x27;</span>&#125;)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;您已经为该同学打过分了，请勿重复打分&#x27;</span>&#125;)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> render(request, <span class="string">&#x27;shcool_score.html&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">score_all</span>(<span class="params">request</span>):</span></span><br><span class="line">    username = request.POST.get(<span class="string">&#x27;username&#x27;</span>)</span><br><span class="line">    student_id = StundentInfo.objects.get(username=username).<span class="built_in">id</span></span><br><span class="line">    cs = CompanyScore.objects.<span class="built_in">filter</span>(student_id=student_id)</span><br><span class="line">    ss = SchoolScore.objects.<span class="built_in">filter</span>(student_id=student_id)</span><br><span class="line">    list_cs=[]</span><br><span class="line">    list_ss=[]</span><br><span class="line">    <span class="keyword">for</span> c <span class="keyword">in</span> cs:</span><br><span class="line">        list_cs.append(model_to_dict(c,exclude=[<span class="string">&#x27;student_id&#x27;</span>,<span class="string">&#x27;teacher_id&#x27;</span>]))</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> ss:</span><br><span class="line">        list_ss.append(model_to_dict(s,exclude=[<span class="string">&#x27;student_id&#x27;</span>,<span class="string">&#x27;teacher_id&#x27;</span>]))</span><br><span class="line">    cs_all=<span class="built_in">zip</span>(*<span class="built_in">map</span>(<span class="keyword">lambda</span> x: (x[<span class="string">&#x27;score1&#x27;</span>], x[<span class="string">&#x27;score2&#x27;</span>],x[<span class="string">&#x27;score3&#x27;</span>],x[<span class="string">&#x27;score4&#x27;</span>],x[<span class="string">&#x27;score5&#x27;</span>],x[<span class="string">&#x27;score6&#x27;</span>]), list_cs))</span><br><span class="line">    sum_cs=<span class="number">0</span> <span class="comment">#((1,2),(3,4),(5,6))</span></span><br><span class="line">    <span class="keyword">for</span> index,i <span class="keyword">in</span> <span class="built_in">enumerate</span>(cs_all):</span><br><span class="line">        sum_cs+=<span class="built_in">sum</span>(<span class="built_in">list</span>(i))/<span class="built_in">len</span>(i)</span><br><span class="line">    ss_all=<span class="built_in">zip</span>(*<span class="built_in">map</span>(<span class="keyword">lambda</span> x: (x[<span class="string">&#x27;score1&#x27;</span>], x[<span class="string">&#x27;score2&#x27;</span>],x[<span class="string">&#x27;score3&#x27;</span>]), list_ss))</span><br><span class="line">    sum_ss=<span class="number">0</span> <span class="comment">#((1,2),(3,4),(5,6))</span></span><br><span class="line">    <span class="keyword">for</span> index,i <span class="keyword">in</span> <span class="built_in">enumerate</span>(ss_all):</span><br><span class="line">        sum_ss+=<span class="built_in">sum</span>(<span class="built_in">list</span>(i))/<span class="built_in">len</span>(i)</span><br><span class="line">    total_score = sum_cs + sum_ss</span><br><span class="line">    StundentInfo.objects.<span class="built_in">filter</span>(username=username).update(score=total_score)</span><br><span class="line">    <span class="keyword">return</span> JsonResponse(&#123;<span class="string">&#x27;data&#x27;</span>: <span class="string">&#x27;成绩核算成功&#x27;</span>&#125;)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">student_list</span>(<span class="params">request</span>):</span></span><br><span class="line">    all_stus=StundentInfo.objects.<span class="built_in">all</span>()</span><br></pre></td></tr></table></figure>
-<h2 id="登录界面"><a class="markdownIt-Anchor" href="#登录界面"></a> 登录界面</h2>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;box&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;/login/&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">&quot;password&quot;</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;登陆&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="学生列表界面"><a class="markdownIt-Anchor" href="#学生列表界面"></a> 学生列表界面</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;学生列表&lt;/title&gt;</span><br><span class="line">    &lt;script src=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line"> </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;table&gt;</span><br><span class="line">    &lt;thead&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;序号&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;学号&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;姓名&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;操作&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;/thead&gt;</span><br><span class="line">    &lt;tbody&gt;</span><br><span class="line"> </span><br><span class="line">    &lt;/tbody&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $.ajax(&#123;</span><br><span class="line">        url:<span class="string">&#x27;/student_list/&#x27;</span>,</span><br><span class="line">        <span class="built_in">type</span>:<span class="string">&#x27;get&#x27;</span>,</span><br><span class="line">        dataType:<span class="string">&#x27;json&#x27;</span>,</span><br><span class="line">        success:function (res) &#123;</span><br><span class="line">          <span class="keyword">for</span>(var i = <span class="number">0</span>;i&lt;res.data.length;i++)&#123;</span><br><span class="line">              var htmlStr=<span class="string">&#x27;&lt;tr&gt;\n&#x27;</span> +</span><br><span class="line">                  <span class="string">&#x27;        &lt;td&gt;&#x27;</span>+(i+<span class="number">1</span>)+<span class="string">&#x27;&lt;/td&gt;\n&#x27;</span> +</span><br><span class="line">                  <span class="string">&#x27;        &lt;td&gt;&#x27;</span>+res.data[i].username+<span class="string">&#x27;&lt;/td&gt;\n&#x27;</span> +</span><br><span class="line">                  <span class="string">&#x27;        &lt;td&gt;&#x27;</span>+res.data[i].nickname+<span class="string">&#x27;&lt;/td&gt;\n&#x27;</span> +</span><br><span class="line">                  <span class="string">&#x27;        &lt;td&gt;&lt;button class=&quot;company&quot;&gt;企业&lt;/button&gt;&lt;button class=&quot;school&quot;&gt;学校&lt;/button&gt;&lt;/td&gt;\n&#x27;</span> +</span><br><span class="line">                  <span class="string">&#x27;    &lt;/tr&gt;&#x27;</span></span><br><span class="line">              $(<span class="string">&#x27;tbody&#x27;</span>).append(htmlStr);</span><br><span class="line">          &#125;</span><br><span class="line">          company();</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">    function company()&#123;</span><br><span class="line">        $(<span class="string">&quot;.company&quot;</span>).click(function()&#123;</span><br><span class="line">            var username=$(this).parent().parent().find(<span class="string">&#x27;td:eq(1)&#x27;</span>).text();</span><br><span class="line">            window.location.href=<span class="string">&#x27;/msbc/?username=&#x27;</span>+username+<span class="string">&#x27;&#x27;</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="公司评分界面"><a class="markdownIt-Anchor" href="#公司评分界面"></a> 公司评分界面</h2>
-</head>
-<body>
-<h1></h1>
-<div>寻求解决方案的能力<input id="score1" type="text" placeholder="满分：16" value="0"></div>
-<div>综合应用分析的能力<input id="score2" type="text" placeholder="满分：23" value="0"></div>
-<div>考虑社会等因素<input id="score3" type="text" placeholder="满分：15" value="0"></div>
-<div>工具的选择和使用能力<input id="score4" type="text" placeholder="满分：22" value="0"></div>
-<div>沟通交流能力<input id="score5" type="text" placeholder="满分：4" value="0"></div>
-<div>考勤<input id="score6" type="text" placeholder="满分：20" value="0"></div>
-<div><span>目前分</span><span id="score"></span></div>
-<button id="submit">提交成绩</button>
-</body>
-<script>
-    function getUrlParam(name) { //a标签跳转获取参数
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-        var r = window.location.search.substr(1).match(reg);
-        if(r != null) return decodeURI(r[2]);
-        return null;
-    }
-    var username = getUrlParam('username');
-    $('h1').text(username);
-    $("#submit").click(function () {
-         $.ajax({
-        url:'/msbc/',
-        type:'post',
-        dataType:'json',
-        data:{
-            username:username,
-            score1:$("#score1").val(),
-            score2:$("#score2").val(),
-            score3:$("#score3").val(),
-            score4:$("#score4").val(),
-            score5:$("#score5").val(),
-            score6:$("#score6").val(),
-        },
-        success:function (res) {
-            alert(res.data);
-        },
-    })
-    });
-    $("input").change(function(){
-       $("#score").empty();
-       var sum = 0;
-       var a=$("input").each(function(){var value = $(this).val();sum+=parseInt(value)});
-       $("#score").text(sum);
-    });
-</script>
-</html>
-<h2 id="获取上一链接的参数"><a class="markdownIt-Anchor" href="#获取上一链接的参数"></a> 获取上一链接的参数</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function getUrlParam(name) &#123; //a标签跳转获取参数</span><br><span class="line">	var reg = new RegExp(&quot;(^|&amp;)&quot; + name + &quot;=([^&amp;]*)(&amp;|$)&quot;, &quot;i&quot;);</span><br><span class="line">	var r = window.location.search.substr(1).match(reg);</span><br><span class="line">	if(r != null) return decodeURI(r[2]);</span><br><span class="line">	return null;</span><br><span class="line">&#125;</span><br><span class="line">var username = getUrlParam(&#x27;username&#x27;);</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>实训日记</category>
       </categories>
@@ -4585,59 +4585,6 @@ Python 模块(Module)，是一个 Python 文件，以 .py 结尾，包含了 Pyt
       </tags>
   </entry>
   <entry>
-    <title>Unity | Unity 窗口介绍</title>
-    <url>/2021/12/21/unity_0/</url>
-    <content><![CDATA[<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221213345.png" alt="" /><br />
-这篇文章是对Unity软件的窗口进行一个简单的介绍。<br />
-在Unity调整到<code>2 by 3</code>布局下，可以更好地看见这几个窗口。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221182323.png" alt="" /></p>
-<h1 id="scene-场景编辑窗口"><a class="markdownIt-Anchor" href="#scene-场景编辑窗口"></a> Scene 场景编辑窗口</h1>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221183912.png" alt="" /></p>
-<p>左边的工具栏可以使用<code>Q``W``E``R``T``Y</code>的快捷键来快速切换。它们的功能分别是：</p>
-<ul>
-<li>在屏幕方向对画面进行平移。</li>
-<li>调整物体的x, y, z坐标位置。</li>
-<li>调整物体的旋转角度。</li>
-<li>调整物体的缩放大小。</li>
-<li>框选多个物体。</li>
-<li>从图标上可以知道它是<code>W``E``R</code>的结合。</li>
-</ul>
-<p>按住右键，再操作<code>W``A``S``D``Q``E</code>可以在里面“体验”一下。</p>
-<h1 id="game-游戏运行窗口"><a class="markdownIt-Anchor" href="#game-游戏运行窗口"></a> Game 游戏运行窗口</h1>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221195353.png" alt="" /><br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221195708.png" alt="" /><br />
-游戏的窗口，可以通过这些个按钮来操作。<br />
-上面工具栏：</p>
-<ul>
-<li>Game/Simulator：桌面端和移动端</li>
-<li>Display 1：显示第几个Camera的视角（？）</li>
-<li>Free Aspects：画面比例</li>
-<li>Scale：放大倍数</li>
-<li>Play Focused：里面有个maximized，是下次play时全屏播放</li>
-<li>Mute Audio：静音</li>
-<li>Stats：显示硬件数据</li>
-<li>Gizmos：可视化辅助工具</li>
-</ul>
-<h1 id="hierarchy-场景物体列表窗口"><a class="markdownIt-Anchor" href="#hierarchy-场景物体列表窗口"></a> Hierarchy 场景物体列表窗口</h1>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221200149.png" alt="" /><br />
-显示场景中已有的物体，双击物体，镜头会移动到物体处。</p>
-<h1 id="project-项目资源列表窗口"><a class="markdownIt-Anchor" href="#project-项目资源列表窗口"></a> Project 项目资源列表窗口</h1>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221212509.png" alt="" /></p>
-<p>放置模型等素材资源。<br />
-要修改时最好在这个窗口直接修改，因为它会生成<code>*.meta</code>文件。在Windows资源管理器中修改时可能会报错。</p>
-<h1 id="inspector-属性编辑列表窗口"><a class="markdownIt-Anchor" href="#inspector-属性编辑列表窗口"></a> Inspector 属性编辑列表窗口</h1>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221213059.png" alt="" /><br />
-在Scene窗口中选中物体后，可以在这里修改它的属性。</p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Unity</category>
-      </categories>
-      <tags>
-        <tag>Unity</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Windows | 应用程序的Zorua有机分类使用管理办法</title>
     <url>/2020/07/22/windows_0/</url>
     <content><![CDATA[<h1 id="引言"><a class="markdownIt-Anchor" href="#引言"></a> 引言</h1>
@@ -4780,6 +4727,59 @@ Python 模块(Module)，是一个 Python 文件，以 .py 结尾，包含了 Pyt
       <tags>
         <tag>操作系统</tag>
         <tag>Windows</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Unity | Unity 窗口介绍</title>
+    <url>/2021/12/21/unity_0/</url>
+    <content><![CDATA[<h1 id="前言"><a class="markdownIt-Anchor" href="#前言"></a> 前言</h1>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221213345.png" alt="" /><br />
+这篇文章是对Unity软件的窗口进行一个简单的介绍。<br />
+在Unity调整到<code>2 by 3</code>布局下，可以更好地看见这几个窗口。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221182323.png" alt="" /></p>
+<h1 id="scene-场景编辑窗口"><a class="markdownIt-Anchor" href="#scene-场景编辑窗口"></a> Scene 场景编辑窗口</h1>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221183912.png" alt="" /></p>
+<p>左边的工具栏可以使用<code>Q``W``E``R``T``Y</code>的快捷键来快速切换。它们的功能分别是：</p>
+<ul>
+<li>在屏幕方向对画面进行平移。</li>
+<li>调整物体的x, y, z坐标位置。</li>
+<li>调整物体的旋转角度。</li>
+<li>调整物体的缩放大小。</li>
+<li>框选多个物体。</li>
+<li>从图标上可以知道它是<code>W``E``R</code>的结合。</li>
+</ul>
+<p>按住右键，再操作<code>W``A``S``D``Q``E</code>可以在里面“体验”一下。</p>
+<h1 id="game-游戏运行窗口"><a class="markdownIt-Anchor" href="#game-游戏运行窗口"></a> Game 游戏运行窗口</h1>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221195353.png" alt="" /><br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221195708.png" alt="" /><br />
+游戏的窗口，可以通过这些个按钮来操作。<br />
+上面工具栏：</p>
+<ul>
+<li>Game/Simulator：桌面端和移动端</li>
+<li>Display 1：显示第几个Camera的视角（？）</li>
+<li>Free Aspects：画面比例</li>
+<li>Scale：放大倍数</li>
+<li>Play Focused：里面有个maximized，是下次play时全屏播放</li>
+<li>Mute Audio：静音</li>
+<li>Stats：显示硬件数据</li>
+<li>Gizmos：可视化辅助工具</li>
+</ul>
+<h1 id="hierarchy-场景物体列表窗口"><a class="markdownIt-Anchor" href="#hierarchy-场景物体列表窗口"></a> Hierarchy 场景物体列表窗口</h1>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221200149.png" alt="" /><br />
+显示场景中已有的物体，双击物体，镜头会移动到物体处。</p>
+<h1 id="project-项目资源列表窗口"><a class="markdownIt-Anchor" href="#project-项目资源列表窗口"></a> Project 项目资源列表窗口</h1>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221212509.png" alt="" /></p>
+<p>放置模型等素材资源。<br />
+要修改时最好在这个窗口直接修改，因为它会生成<code>*.meta</code>文件。在Windows资源管理器中修改时可能会报错。</p>
+<h1 id="inspector-属性编辑列表窗口"><a class="markdownIt-Anchor" href="#inspector-属性编辑列表窗口"></a> Inspector 属性编辑列表窗口</h1>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211221213059.png" alt="" /><br />
+在Scene窗口中选中物体后，可以在这里修改它的属性。</p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Unity</category>
+      </categories>
+      <tags>
+        <tag>Unity</tag>
       </tags>
   </entry>
   <entry>
@@ -7130,7 +7130,7 @@ A至少需要进行1+(N-2)/M次查询<br />
 <p>2020年7月20日，实训开始了。<br />
 这个日记系列将用于记录我在这一个月内的成长与收获。由于一天的工作量很大，很难再安排时间进行整理😂。<br />
 先说说这个实训相关的一些情况叭。</p>
-<div class="tabs" id="tab-id"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-id-1">日程安排</button></li><li class="tab"><button type="button" data-href="#tab-id-2">使用到的工具</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-id-1"><p>7月20日到8月14日，周末正常休息。</p>
+<div class="tabs" id="tab-id"><ul class="nav-tabs"><li class="tab active"><a href="#tab-id-1">日程安排</a></li><li class="tab"><a href="#tab-id-2">使用到的工具</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-1"><p>7月20日到8月14日，周末正常休息。</p>
 <table>
 <thead>
 <tr>
@@ -7156,11 +7156,11 @@ A至少需要进行1+(N-2)/M次查询<br />
 <td style="text-align:center">🕞15:15–16:45</td>
 </tr>
 </tbody>
-</table><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-id-2"><p><span class="inline-tag green">Python 3.7.4</span><br />
+</table></div><div class="tab-pane" id="tab-id-2"><p><span class="inline-tag green">Python 3.7.4</span><br />
 <span class="inline-tag green">Pycharm</span><br />
 <span class="inline-tag yellow">Navicat</span><br />
 <span class="inline-tag red">腾讯QQ</span><br />
-<span class="inline-tag blue">腾讯会议 WeMeet</span></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<span class="inline-tag blue">腾讯会议 WeMeet</span></p></div></div></div>
 <h1 id="什么是python"><a class="markdownIt-Anchor" href="#什么是python"></a> 什么是Python</h1>
 <blockquote>
 <p>以下内容援引自<strong>百度百科</strong>。<br />
