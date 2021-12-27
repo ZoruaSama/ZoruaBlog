@@ -188,6 +188,111 @@ myImage.onload=function(){
       </tags>
   </entry>
   <entry>
+    <title>Linux入门 | 1. Linux的介绍</title>
+    <url>/2020/03/29/Linux_0/</url>
+    <content><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1>
+<h2 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h2>
+<blockquote>
+<p>Written BY Zorua 2020.3.29<br />
+Email: <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a><br />
+Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
+</blockquote>
+<hr />
+<h1 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h1>
+<p>大多数的00后应该和我一样，第一次接触PC操作系统应该是<code>Windows</code>，那就先来说说与<code>Windows</code>的异同。</p>
+<ul>
+<li>在<code>Windows 7</code>以前版本的<code>Windows</code>是单用户操作系统，而<code>Linux</code>的设计初衷就是多用户操作系统。</li>
+<li>在<code>Linux</code>下，没有驱动器盘符，即没有你在<code>Windows</code>中看到的<code>C:\</code>，<code>D:\</code>，<code>E:\</code>等等，<code>Linux</code>中仅有<code>/</code>，称之为根目录。</li>
+<li>在<code>Windows</code>下，普通用户基本都是在纯图形界面下操作使用；而<code>Linux</code>兼具图形界面操作（桌面环境的发行版）和终端操作。几乎可以只用键盘完成一切操作。</li>
+<li>世界上绝大多数服务器都正在运行着<code>Linux</code>。</li>
+</ul>
+<p>当然还有很多不同的地方，我这里就只稍微例举一下下。</p>
+<p>以下是百度百科摘取的一段关于<code>Linux</code>的介绍。</p>
+<blockquote>
+<p>Linux，全称GNU/Linux，是一套免费使用和自由传播的类UNIX操作系统，其内核由林纳斯·本纳第克特·托瓦兹于1991年第一次释出，它主要受到Minix和Unix思想的启发，是一个基于POSIX和Unix的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的Unix工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的debian、archlinux，和基于商业开发的Red Hat Enterprise Linux、SUSE、oracle linux等。</p>
+</blockquote>
+<p>比较著名的发行版本有<code>Debian</code>、<code>RedHat</code>、<code>Centos</code>、<code>Slackware</code>、<code>clearlinux</code>、<code>ubuntu</code>等等。无论何种版本的 Linux 发行版，桌面、应用是<code>Linux</code>的外衣，文件组织、目录结构才是<code>Linux</code>的内心。</p>
+<p>我使用的是<code>ubuntu-16.04.6</code>，可以在其官网获取相关镜像。<a href="https://ubuntu.com/download">Ubuntu官网</a><br />
+如果下载速度可能比较缓慢，可以在<a href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站</a>或其他镜像站进行下载。<br />
+由于技术所限，我并没有在我的计算机上安装双系统，是用虚拟机软件进行模拟的。<br />
+常用的虚拟机软件有<code>VirtualBox</code> <code>VMware Workstation</code>  <code>Virtual PC</code>等等。请自行在互联网上获取。</p>
+<blockquote>
+<p>Windows的Pro版本好像自带一个Hyper-V。</p>
+</blockquote>
+<h1 id="文件和目录"><a class="markdownIt-Anchor" href="#文件和目录"></a> 文件和目录</h1>
+<p>上面说到<code>Linux</code>中仅有根目录<code>/</code>，下面是根目录下，一些常用的目录的简单描述。</p>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/</td>
+<td>有且仅有一个的根目录，所有的文件都存放在这里。</td>
+</tr>
+<tr>
+<td>/bin、/usr/bin</td>
+<td>存放着可执行二进制文件的目录，如常用的命令 ls、cat 等等。</td>
+</tr>
+<tr>
+<td>/home</td>
+<td>家目录，用户的家目录都存放在该目录下。</td>
+</tr>
+<tr>
+<td>/etc</td>
+<td>系统配置文件存放的目录。</td>
+</tr>
+<tr>
+<td>/dev</td>
+<td>存放在系统下的设备文件，访问该目录的文件相当于访问某个设备。</td>
+</tr>
+</tbody>
+</table>
+<p>另外还有些<code>/root</code> <code>/proc</code>等就暂且不提辽。<br />
+着重提一下家目录，<code>/home</code>下存放着各个用户的家目录，例如一个<code>Ubuntu</code>系统上有<code>Zorua</code> <code>Zoroark</code>两个用户，则<code>/home</code>下就会有两个家目录：<code>/home/Zorua</code> <code>/home/Zoroark</code>。每个用户的家目录大概可以类比为<code>Windows</code>的<code>C:/Users/Zorua</code>这一文件夹吧。<br />
+在<code>Linux</code>中，当前用户的家目录路径可以用<code>~</code>来表示，例如当前用户名为<code>Zorua</code>，则<code>~</code>等价于<code>/home/Zorua</code>。<br />
+每个用户的家目录下，也有很多的文件夹。<br />
+如下，是我的家目录下的文件夹和文件。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drwxr-xr-x 6 zorua zorua 4096 Apr 12 22:11 Desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Documents</span><br><span class="line">drwxr-xr-x 3 zorua zorua 4096 Apr 12 06:51 Downloads</span><br><span class="line">-rw-r--r-- 1 zorua zorua 8980 Sep 30  2019 examples.desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Apr  5 02:05 Music</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Pictures</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Public</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Templates</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Videos</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>examples.desktop</code>是一个<strong>快捷方式</strong>。详情会在之后的文章里写。</p>
+</blockquote>
+<ul>
+<li>在<code>Linux</code>的目录系统中，文件或文件名前面加一个<code>.</code>，就是<strong>隐藏文件</strong>的意思，隐藏文件默认不能直接在图形界面或终端的<code>ls</code>命令下看到。</li>
+<li>有两个特殊的隐藏目录，之所以说是隐藏，是因为只能用<code>ls -a</code>才能看到。一个是<code>..</code>，一个是<code>.</code>。<br />
+<code>..</code>表示这个目录的上一级目录，<code>.</code>表示当前目录。这两个目录都是相对路径。<br />
+例如对于目录<code>/home/Zorua</code>，它的<code>..</code>就意味着<code>/home</code>，<code>.</code>就意味着<code>/home/Zorua</code>。<br />
+这两个目录在任何目录都有的（是的，包括根目录，根目录的 <code>..</code>还是根目录）。</li>
+</ul>
+<p>#小练习</p>
+<div class="note success flat"><p><strong>小练习</strong></p>
+<ul>
+<li>对于用户<code>Zorua</code>，<code>~</code>目录指的是： <span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">C</span></span><br />
+A.<code>/</code><br />
+B.<code>/home</code><br />
+C.<code>/home/Zorua</code><br />
+D.<code>/Zorua</code></li>
+<li>对于目录<code>/home/Zorua/Desktop</code>，<code>.</code>目录指的是： <span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">D</span></span><br />
+A.<code>/</code><br />
+B.<code>/home</code><br />
+C.<code>/home/Zorua</code><br />
+D.<code>/home/Zorua/Desktop</code></li>
+</ul>
+</div><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LaTeX | LaTeX基础</title>
     <url>/2020/03/30/LaTeX_0/</url>
     <content><![CDATA[<h1 id="归档"><a class="markdownIt-Anchor" href="#归档"></a> 归档</h1>
@@ -412,111 +517,6 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>Linux入门 | 1. Linux的介绍</title>
-    <url>/2020/03/29/Linux_0/</url>
-    <content><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1>
-<h2 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h2>
-<blockquote>
-<p>Written BY Zorua 2020.3.29<br />
-Email: <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a><br />
-Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
-</blockquote>
-<hr />
-<h1 id="linux"><a class="markdownIt-Anchor" href="#linux"></a> Linux</h1>
-<p>大多数的00后应该和我一样，第一次接触PC操作系统应该是<code>Windows</code>，那就先来说说与<code>Windows</code>的异同。</p>
-<ul>
-<li>在<code>Windows 7</code>以前版本的<code>Windows</code>是单用户操作系统，而<code>Linux</code>的设计初衷就是多用户操作系统。</li>
-<li>在<code>Linux</code>下，没有驱动器盘符，即没有你在<code>Windows</code>中看到的<code>C:\</code>，<code>D:\</code>，<code>E:\</code>等等，<code>Linux</code>中仅有<code>/</code>，称之为根目录。</li>
-<li>在<code>Windows</code>下，普通用户基本都是在纯图形界面下操作使用；而<code>Linux</code>兼具图形界面操作（桌面环境的发行版）和终端操作。几乎可以只用键盘完成一切操作。</li>
-<li>世界上绝大多数服务器都正在运行着<code>Linux</code>。</li>
-</ul>
-<p>当然还有很多不同的地方，我这里就只稍微例举一下下。</p>
-<p>以下是百度百科摘取的一段关于<code>Linux</code>的介绍。</p>
-<blockquote>
-<p>Linux，全称GNU/Linux，是一套免费使用和自由传播的类UNIX操作系统，其内核由林纳斯·本纳第克特·托瓦兹于1991年第一次释出，它主要受到Minix和Unix思想的启发，是一个基于POSIX和Unix的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的Unix工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。Linux有上百种不同的发行版，如基于社区开发的debian、archlinux，和基于商业开发的Red Hat Enterprise Linux、SUSE、oracle linux等。</p>
-</blockquote>
-<p>比较著名的发行版本有<code>Debian</code>、<code>RedHat</code>、<code>Centos</code>、<code>Slackware</code>、<code>clearlinux</code>、<code>ubuntu</code>等等。无论何种版本的 Linux 发行版，桌面、应用是<code>Linux</code>的外衣，文件组织、目录结构才是<code>Linux</code>的内心。</p>
-<p>我使用的是<code>ubuntu-16.04.6</code>，可以在其官网获取相关镜像。<a href="https://ubuntu.com/download">Ubuntu官网</a><br />
-如果下载速度可能比较缓慢，可以在<a href="https://mirrors.tuna.tsinghua.edu.cn/">清华大学开源软件镜像站</a>或其他镜像站进行下载。<br />
-由于技术所限，我并没有在我的计算机上安装双系统，是用虚拟机软件进行模拟的。<br />
-常用的虚拟机软件有<code>VirtualBox</code> <code>VMware Workstation</code>  <code>Virtual PC</code>等等。请自行在互联网上获取。</p>
-<blockquote>
-<p>Windows的Pro版本好像自带一个Hyper-V。</p>
-</blockquote>
-<h1 id="文件和目录"><a class="markdownIt-Anchor" href="#文件和目录"></a> 文件和目录</h1>
-<p>上面说到<code>Linux</code>中仅有根目录<code>/</code>，下面是根目录下，一些常用的目录的简单描述。</p>
-<table>
-<thead>
-<tr>
-<th>目录</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>/</td>
-<td>有且仅有一个的根目录，所有的文件都存放在这里。</td>
-</tr>
-<tr>
-<td>/bin、/usr/bin</td>
-<td>存放着可执行二进制文件的目录，如常用的命令 ls、cat 等等。</td>
-</tr>
-<tr>
-<td>/home</td>
-<td>家目录，用户的家目录都存放在该目录下。</td>
-</tr>
-<tr>
-<td>/etc</td>
-<td>系统配置文件存放的目录。</td>
-</tr>
-<tr>
-<td>/dev</td>
-<td>存放在系统下的设备文件，访问该目录的文件相当于访问某个设备。</td>
-</tr>
-</tbody>
-</table>
-<p>另外还有些<code>/root</code> <code>/proc</code>等就暂且不提辽。<br />
-着重提一下家目录，<code>/home</code>下存放着各个用户的家目录，例如一个<code>Ubuntu</code>系统上有<code>Zorua</code> <code>Zoroark</code>两个用户，则<code>/home</code>下就会有两个家目录：<code>/home/Zorua</code> <code>/home/Zoroark</code>。每个用户的家目录大概可以类比为<code>Windows</code>的<code>C:/Users/Zorua</code>这一文件夹吧。<br />
-在<code>Linux</code>中，当前用户的家目录路径可以用<code>~</code>来表示，例如当前用户名为<code>Zorua</code>，则<code>~</code>等价于<code>/home/Zorua</code>。<br />
-每个用户的家目录下，也有很多的文件夹。<br />
-如下，是我的家目录下的文件夹和文件。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">drwxr-xr-x 6 zorua zorua 4096 Apr 12 22:11 Desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Documents</span><br><span class="line">drwxr-xr-x 3 zorua zorua 4096 Apr 12 06:51 Downloads</span><br><span class="line">-rw-r--r-- 1 zorua zorua 8980 Sep 30  2019 examples.desktop</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Apr  5 02:05 Music</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Pictures</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Public</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Templates</span><br><span class="line">drwxr-xr-x 2 zorua zorua 4096 Sep 30  2019 Videos</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>examples.desktop</code>是一个<strong>快捷方式</strong>。详情会在之后的文章里写。</p>
-</blockquote>
-<ul>
-<li>在<code>Linux</code>的目录系统中，文件或文件名前面加一个<code>.</code>，就是<strong>隐藏文件</strong>的意思，隐藏文件默认不能直接在图形界面或终端的<code>ls</code>命令下看到。</li>
-<li>有两个特殊的隐藏目录，之所以说是隐藏，是因为只能用<code>ls -a</code>才能看到。一个是<code>..</code>，一个是<code>.</code>。<br />
-<code>..</code>表示这个目录的上一级目录，<code>.</code>表示当前目录。这两个目录都是相对路径。<br />
-例如对于目录<code>/home/Zorua</code>，它的<code>..</code>就意味着<code>/home</code>，<code>.</code>就意味着<code>/home/Zorua</code>。<br />
-这两个目录在任何目录都有的（是的，包括根目录，根目录的 <code>..</code>还是根目录）。</li>
-</ul>
-<p>#小练习</p>
-<div class="note success flat"><p><strong>小练习</strong></p>
-<ul>
-<li>对于用户<code>Zorua</code>，<code>~</code>目录指的是： <span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">C</span></span><br />
-A.<code>/</code><br />
-B.<code>/home</code><br />
-C.<code>/home/Zorua</code><br />
-D.<code>/Zorua</code></li>
-<li>对于目录<code>/home/Zorua/Desktop</code>，<code>.</code>目录指的是： <span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">D</span></span><br />
-A.<code>/</code><br />
-B.<code>/home</code><br />
-C.<code>/home/Zorua</code><br />
-D.<code>/home/Zorua/Desktop</code></li>
-</ul>
-</div><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-        <tag>操作系统</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux入门 | 2. 终端介绍</title>
     <url>/2020/04/14/Linux_1/</url>
     <content><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1>
@@ -685,6 +685,62 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
       <tags>
         <tag>Linux</tag>
         <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>题解心得 | P3379 【模板】最近公共祖先（LCA）</title>
+    <url>/2021/01/21/P3379/</url>
+    <content><![CDATA[<h1 id="题面原文"><a class="markdownIt-Anchor" href="#题面原文"></a> 题面原文</h1>
+<p><a href="https://www.luogu.com.cn/problem/P3379">原题链接</a></p>
+<h2 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h2>
+<p>如题，给定一棵有根多叉树，请求出指定两个点直接最近的公共祖先。</p>
+<h2 id="输入格式"><a class="markdownIt-Anchor" href="#输入格式"></a> 输入格式</h2>
+<p>第一行包含三个正整数 N,M，分别表示树的结点个数、询问的个数和树根结点的序号。<br />
+接下来 N-1 行每行包含两个正整数 x, y，表示 x 结点和 y 结点之间有一条直接连接的边（数据保证可以构成树）。<br />
+接下来 M行每行包含两个正整数 a, b表示询问 a 结点和 b 结点的最近公共祖先。</p>
+<h2 id="输出格式"><a class="markdownIt-Anchor" href="#输出格式"></a> 输出格式</h2>
+<p>输出包含 M 行，每行包含一个正整数，依次为每一个询问的结果。</p>
+<h1 id="ac-record"><a class="markdownIt-Anchor" href="#ac-record"></a> Ac Record</h1>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201205213926.png" alt="" /></p>
+<h1 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h1>
+<details cyan open><summary> <p>show me the code.</p> </summary>
+              <div class='content'>
+              <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">500001</span>;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; node[maxn];</span><br><span class="line"><span class="keyword">int</span> dep[maxn];</span><br><span class="line"><span class="keyword">int</span> f[maxn][<span class="number">22</span>]; <span class="comment">//2^20</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">log2</span>(x&amp;(-x));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> fa,<span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    dep[u]=d;</span><br><span class="line">    f[u][<span class="number">0</span>]=fa;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;node[u].<span class="built_in">size</span>();++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(node[u][i]==fa) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(node[u][i],u,d+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x]&lt;dep[y]) <span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(dep[x]&gt;dep[y])&#123;</span><br><span class="line">        x=f[x][<span class="built_in">lowbit</span>(dep[x]-dep[y])];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x==y) <span class="keyword">return</span> x;<span class="comment">// or return y.</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="built_in">log2</span>(dep[x]);i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(f[x][i]!=f[y][i])&#123;</span><br><span class="line">            x=f[x][i];</span><br><span class="line">            y=f[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">0</span>,fs=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))&#123;<span class="keyword">if</span>(c==<span class="string">&#x27;-&#x27;</span>)fs=<span class="number">-1</span>;c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))x=(x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+(c^<span class="number">48</span>),c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>(); <span class="comment">//NOLINT</span></span><br><span class="line">    <span class="keyword">return</span> x*fs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;<span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>),a=-a;</span><br><span class="line">    <span class="keyword">if</span>(a&gt;=<span class="number">10</span>)<span class="built_in">write</span>(a/<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(a%<span class="number">10</span>+<span class="number">48</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,s;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> x,y;</span><br><span class="line">        x=<span class="built_in">read</span>();</span><br><span class="line">        y=<span class="built_in">read</span>();</span><br><span class="line">        node[x].<span class="built_in">push_back</span>(y);</span><br><span class="line">        node[y].<span class="built_in">push_back</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dfs</span>(s,s,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">22</span>;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> u=<span class="number">1</span>;u&lt;=n;u++)&#123;</span><br><span class="line">            f[u][i]=f[f[u][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> x,y;</span><br><span class="line">        x=<span class="built_in">read</span>();</span><br><span class="line">        y=<span class="built_in">read</span>();</span><br><span class="line">        cout&lt;&lt;<span class="built_in">lca</span>(x,y)&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h1 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h1>
+<p>这就是一道LCA模板题。</p>
+<ul>
+<li>简单地用vector存图。</li>
+<li>先用DFS把整个树遍历一遍，标记上每个节点的<strong>深度</strong>。这个深度的作用会在后面的算法体现到。</li>
+<li><code>f[u][i]=f[f[u][i-1]][i-1];</code>这是<strong>倍增</strong>的递推式。
+<ul>
+<li><code>f[u][i]</code>指的是，节点<code>u</code>的前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span>个父节点。</li>
+<li>例如<code>f[u][0]</code>指的是就是节点<code>u</code>的父节点。<code>f[u][1]</code>指的是就是节点<code>u</code>的父节点的父节点。<code>f[u][2]</code>指的是就是节点<code>u</code>的父节点的父节点的父节点的父节点。</li>
+<li>在这个题目中的节点数最多是500000，所以最坏情况下是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>19</mn></msup></mrow><annotation encoding="application/x-tex">2^{19}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></span>，所以数组开到20就差不多够用了。（为保险可以多开一点）</li>
+</ul>
+</li>
+<li>用LCA函数求解答案。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x]&lt;dep[y]) <span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(dep[x]&gt;dep[y])&#123;</span><br><span class="line">        x=f[x][<span class="built_in">lowbit</span>(dep[x]-dep[y])];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x==y) <span class="keyword">return</span> x;<span class="comment">// or return y.</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="built_in">log2</span>(dep[x]);i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(f[x][i]!=f[y][i])&#123;</span><br><span class="line">            x=f[x][i];</span><br><span class="line">            y=f[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>先将两个节点移动至同一深度。
+<ul>
+<li>这个操作可以通过不断使更深的节点变为它的父节点就行了。</li>
+<li>为了快速移动，通过<strong>倍增</strong>来实现。</li>
+</ul>
+</li>
+<li>如果移动至同一深度，两个节点变成同一节点了，那么就可以返回了。</li>
+<li>如果不是同一节点，那么就再<strong>同时移动两个节点</strong>（变为它们的父节点），直至最后一个节点的下一层节点。</li>
+<li>这个时候返回这层节点的父节点即为答案。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LCA</tag>
       </tags>
   </entry>
   <entry>
@@ -1048,59 +1104,54 @@ Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
       </tags>
   </entry>
   <entry>
-    <title>题解心得 | P3379 【模板】最近公共祖先（LCA）</title>
-    <url>/2021/01/21/P3379/</url>
-    <content><![CDATA[<h1 id="题面原文"><a class="markdownIt-Anchor" href="#题面原文"></a> 题面原文</h1>
-<p><a href="https://www.luogu.com.cn/problem/P3379">原题链接</a></p>
-<h2 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h2>
-<p>如题，给定一棵有根多叉树，请求出指定两个点直接最近的公共祖先。</p>
-<h2 id="输入格式"><a class="markdownIt-Anchor" href="#输入格式"></a> 输入格式</h2>
-<p>第一行包含三个正整数 N,M，分别表示树的结点个数、询问的个数和树根结点的序号。<br />
-接下来 N-1 行每行包含两个正整数 x, y，表示 x 结点和 y 结点之间有一条直接连接的边（数据保证可以构成树）。<br />
-接下来 M行每行包含两个正整数 a, b表示询问 a 结点和 b 结点的最近公共祖先。</p>
-<h2 id="输出格式"><a class="markdownIt-Anchor" href="#输出格式"></a> 输出格式</h2>
-<p>输出包含 M 行，每行包含一个正整数，依次为每一个询问的结果。</p>
-<h1 id="ac-record"><a class="markdownIt-Anchor" href="#ac-record"></a> Ac Record</h1>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201205213926.png" alt="" /></p>
-<h1 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h1>
-<details cyan open><summary> <p>show me the code.</p> </summary>
-              <div class='content'>
-              <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">500001</span>;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; node[maxn];</span><br><span class="line"><span class="keyword">int</span> dep[maxn];</span><br><span class="line"><span class="keyword">int</span> f[maxn][<span class="number">22</span>]; <span class="comment">//2^20</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">log2</span>(x&amp;(-x));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> fa,<span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    dep[u]=d;</span><br><span class="line">    f[u][<span class="number">0</span>]=fa;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;node[u].<span class="built_in">size</span>();++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(node[u][i]==fa) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(node[u][i],u,d+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x]&lt;dep[y]) <span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(dep[x]&gt;dep[y])&#123;</span><br><span class="line">        x=f[x][<span class="built_in">lowbit</span>(dep[x]-dep[y])];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x==y) <span class="keyword">return</span> x;<span class="comment">// or return y.</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="built_in">log2</span>(dep[x]);i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(f[x][i]!=f[y][i])&#123;</span><br><span class="line">            x=f[x][i];</span><br><span class="line">            y=f[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">0</span>,fs=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))&#123;<span class="keyword">if</span>(c==<span class="string">&#x27;-&#x27;</span>)fs=<span class="number">-1</span>;c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))x=(x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+(c^<span class="number">48</span>),c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>(); <span class="comment">//NOLINT</span></span><br><span class="line">    <span class="keyword">return</span> x*fs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;<span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>),a=-a;</span><br><span class="line">    <span class="keyword">if</span>(a&gt;=<span class="number">10</span>)<span class="built_in">write</span>(a/<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(a%<span class="number">10</span>+<span class="number">48</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,s;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> x,y;</span><br><span class="line">        x=<span class="built_in">read</span>();</span><br><span class="line">        y=<span class="built_in">read</span>();</span><br><span class="line">        node[x].<span class="built_in">push_back</span>(y);</span><br><span class="line">        node[y].<span class="built_in">push_back</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dfs</span>(s,s,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">22</span>;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> u=<span class="number">1</span>;u&lt;=n;u++)&#123;</span><br><span class="line">            f[u][i]=f[f[u][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> x,y;</span><br><span class="line">        x=<span class="built_in">read</span>();</span><br><span class="line">        y=<span class="built_in">read</span>();</span><br><span class="line">        cout&lt;&lt;<span class="built_in">lca</span>(x,y)&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-              </div>
-            </details>
-<h1 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h1>
-<p>这就是一道LCA模板题。</p>
+    <title>算法笔记 | 差分数组</title>
+    <url>/2021/11/14/algorithm_1/</url>
+    <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
+<p>对于一个数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">a[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span>，如果对它有着频繁的区间操作（例如第5个到第60个数增加2，或第6个到第40个数减去2）。这个时候，暴力的做法时，直接用循环去操作，但是这样做的时间复杂度很大。所以对于这样的问题，可以使用<strong>差分数组</strong>。</p>
+<h1 id="具体做法"><a class="markdownIt-Anchor" href="#具体做法"></a> 具体做法</h1>
+<p><code>差分</code>其实就是数据之间的差，什么数据的差呢？就是上面所给的原始数组<code>a[n]</code>的相邻元素之间的差值，我们令<code>d[i]=a[i+1]-a[i]</code>，一遍for循环即可将差分数组求出来。例如下面这个数组。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114164848.PNG" alt="" /><br />
+据此，可以发现两条差分数组的性质：</p>
 <ul>
-<li>简单地用vector存图。</li>
-<li>先用DFS把整个树遍历一遍，标记上每个节点的<strong>深度</strong>。这个深度的作用会在后面的算法体现到。</li>
-<li><code>f[u][i]=f[f[u][i-1]][i-1];</code>这是<strong>倍增</strong>的递推式。
+<li><code>a[i]</code>等于<code>d[i]</code>的前缀和</li>
+<li><code>a[i]</code>的前缀和可以通过如下公式来求得：
 <ul>
-<li><code>f[u][i]</code>指的是，节点<code>u</code>的前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span>个父节点。</li>
-<li>例如<code>f[u][0]</code>指的是就是节点<code>u</code>的父节点。<code>f[u][1]</code>指的是就是节点<code>u</code>的父节点的父节点。<code>f[u][2]</code>指的是就是节点<code>u</code>的父节点的父节点的父节点的父节点。</li>
-<li>在这个题目中的节点数最多是500000，所以最坏情况下是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>19</mn></msup></mrow><annotation encoding="application/x-tex">2^{19}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></span>，所以数组开到20就差不多够用了。（为保险可以多开一点）</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msub><mi>a</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum_x=\sum_{i=1}^{x}a_x=\sum_{i=1}^{x}\sum_{j=1}^{i}d_i=\sum_{i=1}^{x}(x-i+1)\times d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
 </ul>
 </li>
-<li>用LCA函数求解答案。</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x]&lt;dep[y]) <span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(dep[x]&gt;dep[y])&#123;</span><br><span class="line">        x=f[x][<span class="built_in">lowbit</span>(dep[x]-dep[y])];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x==y) <span class="keyword">return</span> x;<span class="comment">// or return y.</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="built_in">log2</span>(dep[x]);i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(f[x][i]!=f[y][i])&#123;</span><br><span class="line">            x=f[x][i];</span><br><span class="line">            y=f[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="用途"><a class="markdownIt-Anchor" href="#用途"></a> 用途</h1>
+<p>差分数组主要支持两种操作：<strong>1、区间修改；2、单点查询</strong><br />
+根据性质一，可以得到若对某个区间<code>[L, R]</code> 增加一个数 <code>x</code>，只需要使 <code>d[L] += x; d[R + 1] -= x;</code> 即可实现对区间的批量修改，而查询时只需要<strong>求前缀和查询单个元素</strong>，或者通过上述性质二的公式查询<strong>前缀和/区间和</strong>即可</p>
+<h2 id="区间修改"><a class="markdownIt-Anchor" href="#区间修改"></a> 区间修改</h2>
+<p>对上面那个表的数组作下面两个操作：</p>
 <ul>
-<li>先将两个节点移动至同一深度。
-<ul>
-<li>这个操作可以通过不断使更深的节点变为它的父节点就行了。</li>
-<li>为了快速移动，通过<strong>倍增</strong>来实现。</li>
+<li>将区间 [1,4] 的数值全部加上3</li>
+<li>将区间 [3,5] 的数值全部减去5<br />
+其实<strong>当你将原始数组中元素同时加上或者减掉某个数，那么他们的差分数组其实是不会变化的。</strong><br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170247.PNG" alt="" /><br />
+只有 d[1]和d[5]发生了变化，而d[2],d[3],d[4]却保持着原样。</li>
 </ul>
-</li>
-<li>如果移动至同一深度，两个节点变成同一节点了，那么就可以返回了。</li>
-<li>如果不是同一节点，那么就再<strong>同时移动两个节点</strong>（变为它们的父节点），直至最后一个节点的下一层节点。</li>
-<li>这个时候返回这层节点的父节点即为答案。</li>
-</ul>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170311.PNG" alt="" /></p>
+<blockquote>
+<p>当对一个区间进行增减某个值的时候，它的差分数组对应的区间左端点的值会同步变化，而它的右端点的后一个值则会相反地变化，其实这个很好理解</p>
+</blockquote>
+<h2 id="更新原数组"><a class="markdownIt-Anchor" href="#更新原数组"></a> 更新原数组</h2>
+<p>因为我们的差分数组是由原始数组的相邻两项作差求出来的，即 d[i]=a[i]-a[i-1]；那么我们能不能反过来，求得一下修改过后的a[i]呢？</p>
+<p><strong>直接反过来即得  a[i]=a[i-1]+d[i]</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    a[i]=a[i<span class="number">-1</span>]+d[i];</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p>[1] <a href="https://blog.csdn.net/qq_31601743/article/details/105352885">https://blog.csdn.net/qq_31601743/article/details/105352885</a><br />
+[2] <a href="https://blog.csdn.net/qq_44786250/article/details/100056975">https://blog.csdn.net/qq_44786250/article/details/100056975</a><br />
+[3] <a href="https://www.jianshu.com/p/2a4e861b44ae">https://www.jianshu.com/p/2a4e861b44ae</a><br />
+[4] <a href="https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html">https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html</a></p>
 <script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>算法</category>
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>LCA</tag>
+        <tag>差分数组</tag>
       </tags>
   </entry>
   <entry>
@@ -1159,54 +1210,63 @@ s[r]-s[l-1]=a[l]+a[l+1]+…+a[r];</p>
       </tags>
   </entry>
   <entry>
-    <title>算法笔记 | 差分数组</title>
-    <url>/2021/11/14/algorithm_1/</url>
+    <title>算法笔记 | 树状数组</title>
+    <url>/2021/11/23/algorithm_3/</url>
     <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
-<p>对于一个数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">a[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span>，如果对它有着频繁的区间操作（例如第5个到第60个数增加2，或第6个到第40个数减去2）。这个时候，暴力的做法时，直接用循环去操作，但是这样做的时间复杂度很大。所以对于这样的问题，可以使用<strong>差分数组</strong>。</p>
-<h1 id="具体做法"><a class="markdownIt-Anchor" href="#具体做法"></a> 具体做法</h1>
-<p><code>差分</code>其实就是数据之间的差，什么数据的差呢？就是上面所给的原始数组<code>a[n]</code>的相邻元素之间的差值，我们令<code>d[i]=a[i+1]-a[i]</code>，一遍for循环即可将差分数组求出来。例如下面这个数组。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114164848.PNG" alt="" /><br />
-据此，可以发现两条差分数组的性质：</p>
-<ul>
-<li><code>a[i]</code>等于<code>d[i]</code>的前缀和</li>
-<li><code>a[i]</code>的前缀和可以通过如下公式来求得：
-<ul>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msub><mi>a</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum_x=\sum_{i=1}^{x}a_x=\sum_{i=1}^{x}\sum_{j=1}^{i}d_i=\sum_{i=1}^{x}(x-i+1)\times d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
-</ul>
-</li>
-</ul>
-<h1 id="用途"><a class="markdownIt-Anchor" href="#用途"></a> 用途</h1>
-<p>差分数组主要支持两种操作：<strong>1、区间修改；2、单点查询</strong><br />
-根据性质一，可以得到若对某个区间<code>[L, R]</code> 增加一个数 <code>x</code>，只需要使 <code>d[L] += x; d[R + 1] -= x;</code> 即可实现对区间的批量修改，而查询时只需要<strong>求前缀和查询单个元素</strong>，或者通过上述性质二的公式查询<strong>前缀和/区间和</strong>即可</p>
-<h2 id="区间修改"><a class="markdownIt-Anchor" href="#区间修改"></a> 区间修改</h2>
-<p>对上面那个表的数组作下面两个操作：</p>
-<ul>
-<li>将区间 [1,4] 的数值全部加上3</li>
-<li>将区间 [3,5] 的数值全部减去5<br />
-其实<strong>当你将原始数组中元素同时加上或者减掉某个数，那么他们的差分数组其实是不会变化的。</strong><br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170247.PNG" alt="" /><br />
-只有 d[1]和d[5]发生了变化，而d[2],d[3],d[4]却保持着原样。</li>
-</ul>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170311.PNG" alt="" /></p>
-<blockquote>
-<p>当对一个区间进行增减某个值的时候，它的差分数组对应的区间左端点的值会同步变化，而它的右端点的后一个值则会相反地变化，其实这个很好理解</p>
-</blockquote>
-<h2 id="更新原数组"><a class="markdownIt-Anchor" href="#更新原数组"></a> 更新原数组</h2>
-<p>因为我们的差分数组是由原始数组的相邻两项作差求出来的，即 d[i]=a[i]-a[i-1]；那么我们能不能反过来，求得一下修改过后的a[i]呢？</p>
-<p><strong>直接反过来即得  a[i]=a[i-1]+d[i]</strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    a[i]=a[i<span class="number">-1</span>]+d[i];</span><br></pre></td></tr></table></figure>
+<p>树状数组是一个查询和修改复杂度都为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">\log{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span></span></span>的数据结构。主要用于数组的<strong>单点修改</strong>和<strong>区间求和</strong>。广义上来说，能够动态维护<strong>前缀和</strong>。基本上树状数组能做的事情，线段树都能做，反之就不一定了。所以线段树更加强大。但是<s>线段树代码太难写了</s>。</p>
+<h2 id="和线段树的区别"><a class="markdownIt-Anchor" href="#和线段树的区别"></a> 和线段树的区别</h2>
+<ol>
+<li>两者在复杂度上同级, 但是树状数组的常数明显优于线段树, 其编程复杂度也远小于线段树。</li>
+<li>树状数组的作用被线段树完全涵盖, 凡是可以使用树状数组解决的问题, 使用线段树一定可以解决, 但是线段树能够解决的问题树状数组未必能够解决。</li>
+<li>树状数组的突出特点是其编程的极端简洁性, 使用<code>lowbit</code>技术可以在很短的几步操作中完成树状数组的核心操作，其代码效率远高于线段树。</li>
+</ol>
+<p>上面出现了一个新名词: <code>lowbit</code>.其实<code>lowbit(x)</code>就是求x最低位的1。</p>
+<h2 id="具体做法"><a class="markdownIt-Anchor" href="#具体做法"></a> 具体做法</h2>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123200518.png" alt="" /><br />
+其实树状数组是用一个连续的数组来存储树的结构，<code>t[x]</code>保存以<code>x</code>为根的子树中叶节点值的和。上图中的<code>a[n]</code>是原数组。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123200656.png" alt="" /><br />
+而且每一个节点覆盖的长度就是<code>lowbit(x)</code>。<br />
+<code>t[x]</code>节点的父节点为<code>t[x+lowbit(x)]</code>。<br />
+而且整棵树的深度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\log{n}+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
+<h3 id="lowbit"><a class="markdownIt-Anchor" href="#lowbit"></a> lowbit</h3>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="单点修改"><a class="markdownIt-Anchor" href="#单点修改"></a> 单点修改</h3>
+<p>以<code>add(x,k)</code>操作为例。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&lt;=n;i+=<span class="built_in">lowbit</span>(i))&#123;</span><br><span class="line">        t[i]+=k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="区间求和"><a class="markdownIt-Anchor" href="#区间求和"></a> 区间求和</h3>
+<p>以<code>ask(x)</code>操作为例。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&gt;<span class="number">0</span>;i-=<span class="built_in">lowbit</span>(i))&#123;</span><br><span class="line">        res+=t[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>要求区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[x,y]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span></span></span></span>的和时，可以使用前缀和<code>ask(y)-ask(x-1)</code>来求出它。</p>
+<hr />
+<p>下面的这些扩展函数<code>add</code> <code>ask</code>函数内部操作还是一样的。就是外部有差别。</p>
+<h2 id="区间修改-单点查询"><a class="markdownIt-Anchor" href="#区间修改-单点查询"></a> 区间修改、单点查询</h2>
+<p>引入差分数组<code>b[n]</code>，作为原数组<code>a[n]</code>的增量数组（不用对这个树状数组预处理）。用树状数组来维护这个数组。<br />
+而后区间修改的操作和差分数组一样，使用<code>add(l,d)</code>和<code>add(r+1,-d)</code>来完成。<br />
+查询原数组<code>a[x]</code>的值时，因为差分数组的前缀和等于原数组，所以可以用<code>a[x]+ask(x)</code>来完成。（有了<code>a[x]</code>不用对树状数组预处理了）<br />
+这个地方的操作和差分数组是一样的。只是单点查询时，复杂度会低一些。</p>
+<h2 id="区间修改-区间查询"><a class="markdownIt-Anchor" href="#区间修改-区间查询"></a> 区间修改、区间查询</h2>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msub><mi>a</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum_x=\sum_{i=1}^{x}a_x=\sum_{i=1}^{x}\sum_{j=1}^{i}d_i=\sum_{i=1}^{x}(x-i+1)\times d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><br />
+由之前的<strong>差分数组</strong>帖子可知上式。如果要进行<strong>区间修改</strong>，维护差分数组<code>b[x]</code>就可以了，但是这样只能更新到单点<code>a[x]</code>，再想<strong>区间查询</strong>，最好对a[x]再做一个前缀和。显然这里会用到两个树状数组。但是去求区间查询很麻烦，可以用下面这个式子转换着去求。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123202657.png" alt="" /><br />
+设树状数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">t_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>维护<code>b[i]</code>前缀和，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">t_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>维护<code>i*b[i]</code>前缀和。<br />
+这里的<code>b[i]</code>依旧是<strong>增量数组</strong>。</p>
+<p>那么区间修改<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>加上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">add1</span>(l,d)</span><br><span class="line"><span class="built_in">add1</span>(r+<span class="number">1</span>,-d)</span><br><span class="line"><span class="comment">//维护数组b[i]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">add2</span>(l,l*d)</span><br><span class="line"><span class="built_in">add2</span>(r+<span class="number">1</span>,-(r+<span class="number">1</span>)*d)</span><br><span class="line"><span class="comment">//维护数组i*b[i]</span></span><br></pre></td></tr></table></figure>
+<p>区间查询<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>的和：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">ans=sum[r]-sum[l<span class="number">-1</span>]+((r+<span class="number">1</span>)*<span class="built_in">ask1</span>(r)-<span class="built_in">ask2</span>(r))-(l*<span class="built_in">ask1</span>(l<span class="number">-1</span>)-<span class="built_in">ask2</span>(l<span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// (x+1)sum(b,x) = (x+1)ask1(x)</span></span><br><span class="line"><span class="comment">// sum(i*b,x) = ask2(x)</span></span><br></pre></td></tr></table></figure>
+<h1 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h1>
+<p>对于一个数组，可以用树状数组前缀区间维护<strong>和、异或和、最大值、最小值</strong>等等。</p>
 <h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p>[1] <a href="https://blog.csdn.net/qq_31601743/article/details/105352885">https://blog.csdn.net/qq_31601743/article/details/105352885</a><br />
-[2] <a href="https://blog.csdn.net/qq_44786250/article/details/100056975">https://blog.csdn.net/qq_44786250/article/details/100056975</a><br />
-[3] <a href="https://www.jianshu.com/p/2a4e861b44ae">https://www.jianshu.com/p/2a4e861b44ae</a><br />
-[4] <a href="https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html">https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html</a></p>
+<p>[1] <a href="https://blog.csdn.net/bestsort/article/details/80796531">https://blog.csdn.net/bestsort/article/details/80796531</a><br />
+[2] <a href="https://blog.csdn.net/qq_41021816/article/details/81167388">https://blog.csdn.net/qq_41021816/article/details/81167388</a><br />
+[3] <a href="https://www.bilibili.com/video/BV1pE41197Qj">https://www.bilibili.com/video/BV1pE41197Qj</a></p>
 <script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>算法</category>
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>差分数组</tag>
+        <tag>树状数组</tag>
       </tags>
   </entry>
   <entry>
@@ -1950,66 +2010,6 @@ D. 平行四边形</p>
       <tags>
         <tag>数据库原理</tag>
         <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法笔记 | 树状数组</title>
-    <url>/2021/11/23/algorithm_3/</url>
-    <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
-<p>树状数组是一个查询和修改复杂度都为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">\log{n}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span></span></span>的数据结构。主要用于数组的<strong>单点修改</strong>和<strong>区间求和</strong>。广义上来说，能够动态维护<strong>前缀和</strong>。基本上树状数组能做的事情，线段树都能做，反之就不一定了。所以线段树更加强大。但是<s>线段树代码太难写了</s>。</p>
-<h2 id="和线段树的区别"><a class="markdownIt-Anchor" href="#和线段树的区别"></a> 和线段树的区别</h2>
-<ol>
-<li>两者在复杂度上同级, 但是树状数组的常数明显优于线段树, 其编程复杂度也远小于线段树。</li>
-<li>树状数组的作用被线段树完全涵盖, 凡是可以使用树状数组解决的问题, 使用线段树一定可以解决, 但是线段树能够解决的问题树状数组未必能够解决。</li>
-<li>树状数组的突出特点是其编程的极端简洁性, 使用<code>lowbit</code>技术可以在很短的几步操作中完成树状数组的核心操作，其代码效率远高于线段树。</li>
-</ol>
-<p>上面出现了一个新名词: <code>lowbit</code>.其实<code>lowbit(x)</code>就是求x最低位的1。</p>
-<h2 id="具体做法"><a class="markdownIt-Anchor" href="#具体做法"></a> 具体做法</h2>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123200518.png" alt="" /><br />
-其实树状数组是用一个连续的数组来存储树的结构，<code>t[x]</code>保存以<code>x</code>为根的子树中叶节点值的和。上图中的<code>a[n]</code>是原数组。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123200656.png" alt="" /><br />
-而且每一个节点覆盖的长度就是<code>lowbit(x)</code>。<br />
-<code>t[x]</code>节点的父节点为<code>t[x+lowbit(x)]</code>。<br />
-而且整棵树的深度为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\log{n}+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">n</span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>。</p>
-<h3 id="lowbit"><a class="markdownIt-Anchor" href="#lowbit"></a> lowbit</h3>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x&amp;(-x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="单点修改"><a class="markdownIt-Anchor" href="#单点修改"></a> 单点修改</h3>
-<p>以<code>add(x,k)</code>操作为例。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&lt;=n;i+=<span class="built_in">lowbit</span>(i))&#123;</span><br><span class="line">        t[i]+=k;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="区间求和"><a class="markdownIt-Anchor" href="#区间求和"></a> 区间求和</h3>
-<p>以<code>ask(x)</code>操作为例。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ask</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=x;i&gt;<span class="number">0</span>;i-=<span class="built_in">lowbit</span>(i))&#123;</span><br><span class="line">        res+=t[i]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>要求区间<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[x,y]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">]</span></span></span></span>的和时，可以使用前缀和<code>ask(y)-ask(x-1)</code>来求出它。</p>
-<hr />
-<p>下面的这些扩展函数<code>add</code> <code>ask</code>函数内部操作还是一样的。就是外部有差别。</p>
-<h2 id="区间修改-单点查询"><a class="markdownIt-Anchor" href="#区间修改-单点查询"></a> 区间修改、单点查询</h2>
-<p>引入差分数组<code>b[n]</code>，作为原数组<code>a[n]</code>的增量数组（不用对这个树状数组预处理）。用树状数组来维护这个数组。<br />
-而后区间修改的操作和差分数组一样，使用<code>add(l,d)</code>和<code>add(r+1,-d)</code>来完成。<br />
-查询原数组<code>a[x]</code>的值时，因为差分数组的前缀和等于原数组，所以可以用<code>a[x]+ask(x)</code>来完成。（有了<code>a[x]</code>不用对树状数组预处理了）<br />
-这个地方的操作和差分数组是一样的。只是单点查询时，复杂度会低一些。</p>
-<h2 id="区间修改-区间查询"><a class="markdownIt-Anchor" href="#区间修改-区间查询"></a> 区间修改、区间查询</h2>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msub><mi>a</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum_x=\sum_{i=1}^{x}a_x=\sum_{i=1}^{x}\sum_{j=1}^{i}d_i=\sum_{i=1}^{x}(x-i+1)\times d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span><br />
-由之前的<strong>差分数组</strong>帖子可知上式。如果要进行<strong>区间修改</strong>，维护差分数组<code>b[x]</code>就可以了，但是这样只能更新到单点<code>a[x]</code>，再想<strong>区间查询</strong>，最好对a[x]再做一个前缀和。显然这里会用到两个树状数组。但是去求区间查询很麻烦，可以用下面这个式子转换着去求。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211123202657.png" alt="" /><br />
-设树状数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">t_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>维护<code>b[i]</code>前缀和，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">t_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>维护<code>i*b[i]</code>前缀和。<br />
-这里的<code>b[i]</code>依旧是<strong>增量数组</strong>。</p>
-<p>那么区间修改<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>加上<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">d</span></span></span></span>：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="built_in">add1</span>(l,d)</span><br><span class="line"><span class="built_in">add1</span>(r+<span class="number">1</span>,-d)</span><br><span class="line"><span class="comment">//维护数组b[i]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">add2</span>(l,l*d)</span><br><span class="line"><span class="built_in">add2</span>(r+<span class="number">1</span>,-(r+<span class="number">1</span>)*d)</span><br><span class="line"><span class="comment">//维护数组i*b[i]</span></span><br></pre></td></tr></table></figure>
-<p>区间查询<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo stretchy="false">[</mo><mi>l</mi><mo separator="true">,</mo><mi>r</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l,r]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="mclose">]</span></span></span></span>的和：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">ans=sum[r]-sum[l<span class="number">-1</span>]+((r+<span class="number">1</span>)*<span class="built_in">ask1</span>(r)-<span class="built_in">ask2</span>(r))-(l*<span class="built_in">ask1</span>(l<span class="number">-1</span>)-<span class="built_in">ask2</span>(l<span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// (x+1)sum(b,x) = (x+1)ask1(x)</span></span><br><span class="line"><span class="comment">// sum(i*b,x) = ask2(x)</span></span><br></pre></td></tr></table></figure>
-<h1 id="其他"><a class="markdownIt-Anchor" href="#其他"></a> 其他</h1>
-<p>对于一个数组，可以用树状数组前缀区间维护<strong>和、异或和、最大值、最小值</strong>等等。</p>
-<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p>[1] <a href="https://blog.csdn.net/bestsort/article/details/80796531">https://blog.csdn.net/bestsort/article/details/80796531</a><br />
-[2] <a href="https://blog.csdn.net/qq_41021816/article/details/81167388">https://blog.csdn.net/qq_41021816/article/details/81167388</a><br />
-[3] <a href="https://www.bilibili.com/video/BV1pE41197Qj">https://www.bilibili.com/video/BV1pE41197Qj</a></p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>树状数组</tag>
       </tags>
   </entry>
   <entry>
@@ -3031,65 +3031,6 @@ $('button').on('click',function(){
       </tags>
   </entry>
   <entry>
-    <title>MySQL | 1. 数据库的创建</title>
-    <url>/2020/05/13/mysql_1/</url>
-    <content><![CDATA[<h1 id="任务内容"><a class="markdownIt-Anchor" href="#任务内容"></a> 任务内容</h1>
-<ol>
-<li>创建一个数据库</li>
-<li>创建对应的数据库对象</li>
-<li>以学生、课程、选课关系构成的数据库为例
-<ol>
-<li>运用SQL语言创建数据库S-C</li>
-<li>运用SQL语言创建S-C中的关系</li>
-<li>运用SQL语言完成关系各属性定义，及主码、外码的定义</li>
-</ol>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Student(Sno,Sname,Ssex,Sage,Sdept)</span><br><span class="line">Course(Cno,Cname,Ccredit,Cpno)</span><br><span class="line">SC(Sno,Cno,Grade)</span><br></pre></td></tr></table></figure>
-<hr />
-<h1 id="创建一个数据库"><a class="markdownIt-Anchor" href="#创建一个数据库"></a> 创建一个数据库</h1>
-<h2 id="显示数据库列表"><a class="markdownIt-Anchor" href="#显示数据库列表"></a> 显示数据库列表</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
-<p>使用这个语句可以看已有的数据库列表。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427231946.png" alt="" /></p>
-<h2 id="创建数据库"><a class="markdownIt-Anchor" href="#创建数据库"></a> 创建数据库</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create database databasename;</span><br></pre></td></tr></table></figure>
-<p>使用这个语句创建一个新的数据库。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427232110.png" alt="" /></p>
-<p>然后用<code>show databases;</code>可以看到这个新创建的数据库。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427232312.png" alt="" /></p>
-<h2 id="指定数据库"><a class="markdownIt-Anchor" href="#指定数据库"></a> 指定数据库</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">use databasename;</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427232513.png" alt="" /></p>
-<h2 id="创建基本表"><a class="markdownIt-Anchor" href="#创建基本表"></a> 创建基本表</h2>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br><span class="line">(<span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[ <span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span> ]</span><br><span class="line">      [,<span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[ <span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span>] ] …      [,<span class="operator">&lt;</span>表级完整性约束条件<span class="operator">&gt;</span> ]);</span><br></pre></td></tr></table></figure>
-<p>根据要求：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Student(Sno，Sname，Ssex，Sage，Sdept)</span><br><span class="line">Course(Cno，Cname，Ccredit，Cpno)</span><br><span class="line">SC(Sno，Cno，Grade)</span><br></pre></td></tr></table></figure>
-<p>设计的SQL语句为：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table student</span><br><span class="line">(</span><br><span class="line">    Sno    varchar(20) not null UNIQUE,</span><br><span class="line">    Sname  varchar(20),</span><br><span class="line">    Ssex   varchar(10),</span><br><span class="line">    Sage   int,</span><br><span class="line">    Sdept  varchar(100),</span><br><span class="line">    PRIMARY KEY(Sno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table course</span><br><span class="line">(</span><br><span class="line">    Cno       varchar(20) not null UNIQUE,</span><br><span class="line">    Cname     varchar(20),</span><br><span class="line">    Ccredit   int,</span><br><span class="line">    Cpno      varchar(10),</span><br><span class="line">    PRIMARY KEY(Cno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table sc</span><br><span class="line">(</span><br><span class="line">    Sno     varchar(20),</span><br><span class="line">    Cno     varchar(20),</span><br><span class="line">    Grade   int,</span><br><span class="line">    FOREIGN KEY(`Sno`) references student(`Sno`),</span><br><span class="line">    FOREIGN KEY(`Cno`) references course(`Cno`)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-<h2 id="查看基本表结构"><a class="markdownIt-Anchor" href="#查看基本表结构"></a> 查看基本表结构</h2>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">desc databasename;</span><br></pre></td></tr></table></figure>
-<p>使用这个语句可以查看基本表的结构。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427233617.png" alt="" /></p>
-<hr />
-<h1 id="一点吐槽"><a class="markdownIt-Anchor" href="#一点吐槽"></a> 一点吐槽</h1>
-<p>在建立外键的那个部分磨蹭了我半个小时多，查阅各种资料无果。<br />
-最后才发现<code>Linux</code>下的MySQL是区分<strong>表名</strong>的大小写的！</p>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/664a90c0f91a4fd468d63f66a12b2bf3_1-1P224050129-50.jpg" alt="" /></p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>MySQL</category>
-      </categories>
-      <tags>
-        <tag>数据库原理</tag>
-        <tag>数据库</tag>
-        <tag>SQL</tag>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MySQL | 0. MySQL安装教程</title>
     <url>/2020/04/23/mysql_0/</url>
     <content><![CDATA[<h1 id="为什么要安装mysql"><a class="markdownIt-Anchor" href="#为什么要安装mysql"></a> 为什么要安装MySQL</h1>
@@ -3233,6 +3174,65 @@ $('button').on('click',function(){
 <h1 id="mac-os篇"><a class="markdownIt-Anchor" href="#mac-os篇"></a> Mac OS篇</h1>
 <p><s>我没得苹果家的电脑，写不了教程辽。</s><br />
 <s>好心人可以捐一台给我嗷</s></p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>数据库原理</tag>
+        <tag>数据库</tag>
+        <tag>SQL</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL | 1. 数据库的创建</title>
+    <url>/2020/05/13/mysql_1/</url>
+    <content><![CDATA[<h1 id="任务内容"><a class="markdownIt-Anchor" href="#任务内容"></a> 任务内容</h1>
+<ol>
+<li>创建一个数据库</li>
+<li>创建对应的数据库对象</li>
+<li>以学生、课程、选课关系构成的数据库为例
+<ol>
+<li>运用SQL语言创建数据库S-C</li>
+<li>运用SQL语言创建S-C中的关系</li>
+<li>运用SQL语言完成关系各属性定义，及主码、外码的定义</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Student(Sno,Sname,Ssex,Sage,Sdept)</span><br><span class="line">Course(Cno,Cname,Ccredit,Cpno)</span><br><span class="line">SC(Sno,Cno,Grade)</span><br></pre></td></tr></table></figure>
+<hr />
+<h1 id="创建一个数据库"><a class="markdownIt-Anchor" href="#创建一个数据库"></a> 创建一个数据库</h1>
+<h2 id="显示数据库列表"><a class="markdownIt-Anchor" href="#显示数据库列表"></a> 显示数据库列表</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
+<p>使用这个语句可以看已有的数据库列表。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427231946.png" alt="" /></p>
+<h2 id="创建数据库"><a class="markdownIt-Anchor" href="#创建数据库"></a> 创建数据库</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create database databasename;</span><br></pre></td></tr></table></figure>
+<p>使用这个语句创建一个新的数据库。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427232110.png" alt="" /></p>
+<p>然后用<code>show databases;</code>可以看到这个新创建的数据库。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427232312.png" alt="" /></p>
+<h2 id="指定数据库"><a class="markdownIt-Anchor" href="#指定数据库"></a> 指定数据库</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">use databasename;</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427232513.png" alt="" /></p>
+<h2 id="创建基本表"><a class="markdownIt-Anchor" href="#创建基本表"></a> 创建基本表</h2>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="operator">&lt;</span>表名<span class="operator">&gt;</span></span><br><span class="line">(<span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[ <span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span> ]</span><br><span class="line">      [,<span class="operator">&lt;</span>列名<span class="operator">&gt;</span> <span class="operator">&lt;</span>数据类型<span class="operator">&gt;</span>[ <span class="operator">&lt;</span>列级完整性约束条件<span class="operator">&gt;</span>] ] …      [,<span class="operator">&lt;</span>表级完整性约束条件<span class="operator">&gt;</span> ]);</span><br></pre></td></tr></table></figure>
+<p>根据要求：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Student(Sno，Sname，Ssex，Sage，Sdept)</span><br><span class="line">Course(Cno，Cname，Ccredit，Cpno)</span><br><span class="line">SC(Sno，Cno，Grade)</span><br></pre></td></tr></table></figure>
+<p>设计的SQL语句为：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table student</span><br><span class="line">(</span><br><span class="line">    Sno    varchar(20) not null UNIQUE,</span><br><span class="line">    Sname  varchar(20),</span><br><span class="line">    Ssex   varchar(10),</span><br><span class="line">    Sage   int,</span><br><span class="line">    Sdept  varchar(100),</span><br><span class="line">    PRIMARY KEY(Sno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table course</span><br><span class="line">(</span><br><span class="line">    Cno       varchar(20) not null UNIQUE,</span><br><span class="line">    Cname     varchar(20),</span><br><span class="line">    Ccredit   int,</span><br><span class="line">    Cpno      varchar(10),</span><br><span class="line">    PRIMARY KEY(Cno)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create table sc</span><br><span class="line">(</span><br><span class="line">    Sno     varchar(20),</span><br><span class="line">    Cno     varchar(20),</span><br><span class="line">    Grade   int,</span><br><span class="line">    FOREIGN KEY(`Sno`) references student(`Sno`),</span><br><span class="line">    FOREIGN KEY(`Cno`) references course(`Cno`)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<h2 id="查看基本表结构"><a class="markdownIt-Anchor" href="#查看基本表结构"></a> 查看基本表结构</h2>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">desc databasename;</span><br></pre></td></tr></table></figure>
+<p>使用这个语句可以查看基本表的结构。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200427233617.png" alt="" /></p>
+<hr />
+<h1 id="一点吐槽"><a class="markdownIt-Anchor" href="#一点吐槽"></a> 一点吐槽</h1>
+<p>在建立外键的那个部分磨蹭了我半个小时多，查阅各种资料无果。<br />
+最后才发现<code>Linux</code>下的MySQL是区分<strong>表名</strong>的大小写的！</p>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/664a90c0f91a4fd468d63f66a12b2bf3_1-1P224050129-50.jpg" alt="" /></p>
 <script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>MySQL</category>
@@ -7130,7 +7130,7 @@ A至少需要进行1+(N-2)/M次查询<br />
 <p>2020年7月20日，实训开始了。<br />
 这个日记系列将用于记录我在这一个月内的成长与收获。由于一天的工作量很大，很难再安排时间进行整理😂。<br />
 先说说这个实训相关的一些情况叭。</p>
-<div class="tabs" id="tab-id"><ul class="nav-tabs"><li class="tab active"><a href="#tab-id-1">日程安排</a></li><li class="tab"><a href="#tab-id-2">使用到的工具</a></li></ul><div class="tab-content"><div class="tab-pane active" id="tab-id-1"><p>7月20日到8月14日，周末正常休息。</p>
+<div class="tabs" id="tab-id"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#tab-id-1">日程安排</button></li><li class="tab"><button type="button" data-href="#tab-id-2">使用到的工具</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="tab-id-1"><p>7月20日到8月14日，周末正常休息。</p>
 <table>
 <thead>
 <tr>
@@ -7156,11 +7156,11 @@ A至少需要进行1+(N-2)/M次查询<br />
 <td style="text-align:center">🕞15:15–16:45</td>
 </tr>
 </tbody>
-</table></div><div class="tab-pane" id="tab-id-2"><p><span class="inline-tag green">Python 3.7.4</span><br />
+</table><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="tab-id-2"><p><span class="inline-tag green">Python 3.7.4</span><br />
 <span class="inline-tag green">Pycharm</span><br />
 <span class="inline-tag yellow">Navicat</span><br />
 <span class="inline-tag red">腾讯QQ</span><br />
-<span class="inline-tag blue">腾讯会议 WeMeet</span></p></div></div></div>
+<span class="inline-tag blue">腾讯会议 WeMeet</span></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
 <h1 id="什么是python"><a class="markdownIt-Anchor" href="#什么是python"></a> 什么是Python</h1>
 <blockquote>
 <p>以下内容援引自<strong>百度百科</strong>。<br />
