@@ -1,6 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Works | 如果穿越到异世界，你的身份是 _____</title>
+    <url>/2021/11/24/CrossSpace/</url>
+    <content><![CDATA[<h1 id="背景故事"><a class="markdownIt-Anchor" href="#背景故事"></a> 背景故事</h1>
+<p>早上偶然看到QQ空间在刷一个<strong>你的名字的意义</strong>的小程序。和室友们一边看一边笑。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211124122725.png" alt="" /><br />
+我是一个无聊的人。<br />
+于是我<s>花了上午约莫一个小时的时间，下午约莫三个多小时的时间</s>完成了这个小程序的开发。<s>原理是基于姓名编码作了哈希散列。</s><br />
+<strong>“如果穿越到异世界，你的身份是 _____！！！”</strong></p>
+<style type="text/css">
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+.btn-outline-dark {
+    color: #343a40;
+    border-color: #343a40;
+}
+.btn {
+    display: inline-block;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+[type=button], [type=reset], [type=submit], button {
+    -webkit-appearance: button;
+}
+.btn-outline-dark {
+    color: #343a40;
+    border-color: #343a40;
+}
+button {
+    -webkit-appearance: button;
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    background-color: buttonface;
+    box-sizing: border-box;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    border-image: initial;
+}
+button {
+    margin: 0;
+    font-family: inherit;
+    font-size:28px;
+    line-height: inherit;
+}
+.btn-outline-dark:hover {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+.btn-group-sm>.btn, .btn-sm {
+    padding: .25rem .5rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
+.innerListItems{
+    list-style-type:none;
+}
+
+input {
+				border: 1px solid #ccc;
+                                                                width: 100%;
+				padding: 5px 0px;
+				border-radius: 3px;
+				padding-left: 5px;
+				font-size:40px;
+				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+				box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+				-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+				-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+				transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+			}
+
+			input:focus {
+				border-color: #66afe9;
+				outline: 0;
+				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+				box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
+			}
+#reshead{
+    font-size: 1.7rem;
+    position: absolute;
+    top: 5%;
+    left: 12%;
+    line-height: 1.1em;
+    text-align: left;
+    color: #FFFFFF;
+}
+#res{
+    font-size: 3em;
+    position: absolute;
+    top: 20%;
+    left: 17%;
+    line-height: 1.2em;
+    text-align: right;
+    color: #FFFFFF;
+}
+        </style>
+<hr />
+<p>如果你也想玩的话，在<strong>这篇文章</strong>就可以玩了喔。往下滑，往下滑~~~<br />
+欢迎把结果以文字或截图的形式分享到评论区或者邀请你的朋友一起来看看喔。<strong>建议在手机上看</strong>。</p>
+<h1 id="如果穿越到异世界你的身份是-_____"><a class="markdownIt-Anchor" href="#如果穿越到异世界你的身份是-_____"></a> 如果穿越到异世界，你的身份是 _____</h1>
+<p>在下方输入姓名，点击按钮进行穿越！</p>
+<script src="/js/crossspace-min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
+<input type="text" name="fname" id="input"/>
+<button type="button" class="btn btn-outline-dark btn-sm">穿越到异世界！</button>
+<p><br><br></p>
+<div id="box" style="position: relative;">
+<canvas id="myCanvas"></canvas>
+</div>
+<script>
+$('button').on('click',function(){
+        // $('#reshead').html('如果穿越到异世界，<br><u>' + $('#input').val() + '</u>的身份是');
+        // $('#res').html(crossspace($('#input').val()));
+        // $('#respic')[0].src=imgurl($('#input').val());
+//<div id="reshead"></div>
+//<div id="res"></div>
+//<img id="respic" src="">
+var canvas=document.getElementById('myCanvas');
+var ctx=canvas.getContext('2d');
+var myImage = new Image();
+myImage.src = imgurl($('#input').val());
+myImage.crossOrigin = 'Anonymous';
+myImage.onload=function(){
+     canvas.width = 720;
+     canvas.height = 1280;
+     ctx.drawImage(myImage , 0, 0 , canvas.width , canvas.height,0,0,canvas.width , canvas.height);
+     ctx.font = '60px SimHei';
+     ctx.textAlign = 'left';
+     ctx.textBaseline = 'top';
+     var left = 100;
+     var top = 100;
+     ctx.fillStyle = '#fff';
+     ctx.fillText('如果穿越到异世界，', left, top);
+     ctx.fillText($('#input').val() + '的身份是', left, top+65);
+     ctx.textAlign = 'right';
+     ctx.font = '75px SimHei';
+     txtarr = crossspace($('#input').val()).split('的');
+     ctx.fillText(txtarr[0]+'的', 660, top+65*3);
+     ctx.font = '90px SimHei';
+     ctx.fillText(txtarr[1]+'的', 660, top+65*3+90);
+     ctx.font = '120px SimHei';
+     ctx.fillText(txtarr[2], 660, top+65*3+90*2);
+}
+})
+</script>
+<h1 id="打赏"><a class="markdownIt-Anchor" href="#打赏"></a> 打赏</h1>
+<p>如果您对这个小程序满意的话，您可以通过下面两种方式给予任意金额的打赏鼓励嗷~~。非常感谢您请我的一杯咖啡~。<br />
+感谢少侠打赏，来杯咖啡提提神，大战到天亮。</p>
+<h1 id="更新日志"><a class="markdownIt-Anchor" href="#更新日志"></a> 更新日志</h1>
+<ul>
+<li>2021.11.25 重写了<code>特殊能力</code>的生成算法。</li>
+</ul>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026152954.png" alt="" /></p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Works</category>
+      </categories>
+      <tags>
+        <tag>Works</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LaTeX | LaTeX基础</title>
     <url>/2020/03/30/LaTeX_0/</url>
     <content><![CDATA[<h1 id="归档"><a class="markdownIt-Anchor" href="#归档"></a> 归档</h1>
@@ -225,193 +412,6 @@ s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class=
       </tags>
   </entry>
   <entry>
-    <title>Works | 如果穿越到异世界，你的身份是 _____</title>
-    <url>/2021/11/24/CrossSpace/</url>
-    <content><![CDATA[<h1 id="背景故事"><a class="markdownIt-Anchor" href="#背景故事"></a> 背景故事</h1>
-<p>早上偶然看到QQ空间在刷一个<strong>你的名字的意义</strong>的小程序。和室友们一边看一边笑。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211124122725.png" alt="" /><br />
-我是一个无聊的人。<br />
-于是我<s>花了上午约莫一个小时的时间，下午约莫三个多小时的时间</s>完成了这个小程序的开发。<s>原理是基于姓名编码作了哈希散列。</s><br />
-<strong>“如果穿越到异世界，你的身份是 _____！！！”</strong></p>
-<style type="text/css">
-            @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
-[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
-    cursor: pointer;
-}
-.btn-outline-dark {
-    color: #343a40;
-    border-color: #343a40;
-}
-.btn {
-    display: inline-block;
-    color: #212529;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-    user-select: none;
-    background-color: transparent;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-[type=button], [type=reset], [type=submit], button {
-    -webkit-appearance: button;
-}
-.btn-outline-dark {
-    color: #343a40;
-    border-color: #343a40;
-}
-button {
-    -webkit-appearance: button;
-    -webkit-writing-mode: horizontal-tb !important;
-    text-rendering: auto;
-    color: buttontext;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: flex-start;
-    cursor: default;
-    background-color: buttonface;
-    box-sizing: border-box;
-    margin: 0em;
-    font: 400 13.3333px Arial;
-    padding: 1px 6px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonface;
-    border-image: initial;
-}
-button {
-    margin: 0;
-    font-family: inherit;
-    font-size:28px;
-    line-height: inherit;
-}
-.btn-outline-dark:hover {
-    color: #fff;
-    background-color: #343a40;
-    border-color: #343a40;
-}
-.btn-group-sm>.btn, .btn-sm {
-    padding: .25rem .5rem;
-    line-height: 1.5;
-    border-radius: .2rem;
-}
-.innerListItems{
-    list-style-type:none;
-}
-
-input {
-				border: 1px solid #ccc;
-                                                                width: 100%;
-				padding: 5px 0px;
-				border-radius: 3px;
-				padding-left: 5px;
-				font-size:40px;
-				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-				box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-				-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-				-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-				transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
-			}
-
-			input:focus {
-				border-color: #66afe9;
-				outline: 0;
-				-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
-				box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6)
-			}
-#reshead{
-    font-size: 1.7rem;
-    position: absolute;
-    top: 5%;
-    left: 12%;
-    line-height: 1.1em;
-    text-align: left;
-    color: #FFFFFF;
-}
-#res{
-    font-size: 3em;
-    position: absolute;
-    top: 20%;
-    left: 17%;
-    line-height: 1.2em;
-    text-align: right;
-    color: #FFFFFF;
-}
-        </style>
-<hr />
-<p>如果你也想玩的话，在<strong>这篇文章</strong>就可以玩了喔。往下滑，往下滑~~~<br />
-欢迎把结果以文字或截图的形式分享到评论区或者邀请你的朋友一起来看看喔。<strong>建议在手机上看</strong>。</p>
-<h1 id="如果穿越到异世界你的身份是-_____"><a class="markdownIt-Anchor" href="#如果穿越到异世界你的身份是-_____"></a> 如果穿越到异世界，你的身份是 _____</h1>
-<p>在下方输入姓名，点击按钮进行穿越！</p>
-<script src="/js/crossspace-min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
-<input type="text" name="fname" id="input"/>
-<button type="button" class="btn btn-outline-dark btn-sm">穿越到异世界！</button>
-<p><br><br></p>
-<div id="box" style="position: relative;">
-<canvas id="myCanvas"></canvas>
-</div>
-<script>
-$('button').on('click',function(){
-        // $('#reshead').html('如果穿越到异世界，<br><u>' + $('#input').val() + '</u>的身份是');
-        // $('#res').html(crossspace($('#input').val()));
-        // $('#respic')[0].src=imgurl($('#input').val());
-//<div id="reshead"></div>
-//<div id="res"></div>
-//<img id="respic" src="">
-var canvas=document.getElementById('myCanvas');
-var ctx=canvas.getContext('2d');
-var myImage = new Image();
-myImage.src = imgurl($('#input').val());
-myImage.crossOrigin = 'Anonymous';
-myImage.onload=function(){
-     canvas.width = 720;
-     canvas.height = 1280;
-     ctx.drawImage(myImage , 0, 0 , canvas.width , canvas.height,0,0,canvas.width , canvas.height);
-     ctx.font = '60px SimHei';
-     ctx.textAlign = 'left';
-     ctx.textBaseline = 'top';
-     var left = 100;
-     var top = 100;
-     ctx.fillStyle = '#fff';
-     ctx.fillText('如果穿越到异世界，', left, top);
-     ctx.fillText($('#input').val() + '的身份是', left, top+65);
-     ctx.textAlign = 'right';
-     ctx.font = '75px SimHei';
-     txtarr = crossspace($('#input').val()).split('的');
-     ctx.fillText(txtarr[0]+'的', 660, top+65*3);
-     ctx.font = '90px SimHei';
-     ctx.fillText(txtarr[1]+'的', 660, top+65*3+90);
-     ctx.font = '120px SimHei';
-     ctx.fillText(txtarr[2], 660, top+65*3+90*2);
-}
-})
-</script>
-<h1 id="打赏"><a class="markdownIt-Anchor" href="#打赏"></a> 打赏</h1>
-<p>如果您对这个小程序满意的话，您可以通过下面两种方式给予任意金额的打赏鼓励嗷~~。非常感谢您请我的一杯咖啡~。<br />
-感谢少侠打赏，来杯咖啡提提神，大战到天亮。</p>
-<h1 id="更新日志"><a class="markdownIt-Anchor" href="#更新日志"></a> 更新日志</h1>
-<ul>
-<li>2021.11.25 重写了<code>特殊能力</code>的生成算法。</li>
-</ul>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026152954.png" alt="" /></p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Works</category>
-      </categories>
-      <tags>
-        <tag>Works</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux入门 | 1. Linux的介绍</title>
     <url>/2020/03/29/Linux_0/</url>
     <content><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1>
@@ -506,6 +506,177 @@ A.<code>/</code><br />
 B.<code>/home</code><br />
 C.<code>/home/Zorua</code><br />
 D.<code>/home/Zorua/Desktop</code></li>
+</ul>
+</div><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>操作系统</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux入门 | 2. 终端介绍</title>
+    <url>/2020/04/14/Linux_1/</url>
+    <content><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1>
+<h2 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h2>
+<blockquote>
+<p>Written BY Zorua 2020.4.14<br />
+Email: <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a><br />
+Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
+</blockquote>
+<hr />
+<h1 id="终端命令"><a class="markdownIt-Anchor" href="#终端命令"></a> 终端命令</h1>
+<p>我最初接触到命令行这一类东西，已经是<code>cmd.exe</code>了，终端、命令行、bash、dash，我找不到对这一类命令解释器统一的专业名称（但是我觉得可以将它们视为Shell的入口，想看区别可以康康<a href="https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con">这篇文章</a>）。总而言之，它们能够接收用户命令，然后调用相应的应用程序。接触过C语言的同学，不可能没有接触过<code>system(&quot;pause&quot;);</code>这一语句。事实上，这一语句就是调用了<code>cmd.exe</code>里的<code>pause</code>命令。</p>
+<p>如今我们正在使用图形界面（GUI）的交互，如果想要浏览文件夹，用鼠标点击文件资源管理器打开就能看；想要建立新文件夹，只需要<code>右键-新建-文件夹</code>即可。一切都似乎十分高效与便捷。但是现在的<code>Windows</code>上还是保留了命令行程序，例如<code>cmd.exe</code> <code>PowerShell</code>等等。<code>ubuntu</code>同样也有一个图形桌面。既然如此，为什么还要学习终端命令呢？</p>
+<p>我认为有如下原因：</p>
+<ul>
+<li>图形界面比较消耗资源。一些硬件水平没有那么高的场合（如DIY的电子设备），硬件水平不足以带动图形界面。这时候用终端命令来进行交互。</li>
+<li><code>Linux</code>发行版的桌面其实并没有商业化的<code>Windows</code> <code>Mac OS</code>稳定。而且最初的<code>Linux</code>所有的操作全靠命令完成。因此我觉得也可以说，学<code>Linux</code>就是学终端。</li>
+<li>在职场中，绝大多数<strong>服务器的运维工作</strong>都是在<strong>远程</strong>通过<strong>SSH客户端</strong>来完成的。</li>
+<li><s>使用终端命令比较装逼。</s></li>
+</ul>
+<h1 id="ubuntu的终端"><a class="markdownIt-Anchor" href="#ubuntu的终端"></a> Ubuntu的终端</h1>
+<p><code>ubuntu</code>默认使用的终端好像是叫做<code>bash</code>。</p>
+<h2 id="打开方式"><a class="markdownIt-Anchor" href="#打开方式"></a> 打开方式</h2>
+<p>在<code>ubuntu</code>的桌面/文件资源管理器任意空白位置右击，选择<code>Open Terminal</code>即可。<br />
+<img src="https://cdn.jsdelivr.net/gh/zoruasama/zorua-pic@latest/img/2020-04-14_00.png" alt="" /></p>
+<h2 id="终端界面介绍"><a class="markdownIt-Anchor" href="#终端界面介绍"></a> 终端界面介绍</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/zoruasama/zorua-pic@latest/img/20200414144137.png" alt="" /></p>
+<ul>
+<li>在未输入任何命令前，终端等待输入时，屏幕上会显示 <code>username@computername:~/Documents$</code>。<br />
+<em>每一条指令前都会自动显示这段信息。不需要用户手动来打。</em></li>
+<li>其中<code>@</code>前面的是用户名，后面的是计算机名称。</li>
+<li>在<code>:</code>后面的是当前的工作路径。一般，你在哪里打开<code>Terminal</code>，工作路径就是哪里。</li>
+<li><code>$</code>后面就是开始接收用户的命令。</li>
+<li>输入<code>help</code>然后按下回车键，会在终端中显示Bash的版本信息，和一些指令。</li>
+</ul>
+<h1 id="基础命令"><a class="markdownIt-Anchor" href="#基础命令"></a> 基础命令</h1>
+<p><code>Linux</code>发行版本的命令多达上百条，但是常用的并不是很多。多多使用就会记住了。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令</th>
+<th>对应英语</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>ls</td>
+<td>list</td>
+<td>列出指定文件夹下的内容</td>
+</tr>
+<tr>
+<td>02</td>
+<td>pwd</td>
+<td>print work directory</td>
+<td>显示当前工作路径</td>
+</tr>
+<tr>
+<td>03</td>
+<td>cd</td>
+<td>change directory</td>
+<td>改变当前工作路径</td>
+</tr>
+<tr>
+<td>04</td>
+<td>touch</td>
+<td>touch</td>
+<td>新建一个空白文件</td>
+</tr>
+<tr>
+<td>05</td>
+<td>mkdir</td>
+<td>make directory</td>
+<td>创建一个新的目录</td>
+</tr>
+<tr>
+<td>06</td>
+<td>rm</td>
+<td>remove</td>
+<td>删除指定文件</td>
+</tr>
+<tr>
+<td>07</td>
+<td>clear</td>
+<td>clear</td>
+<td>清除当前屏幕上的信息（新建一屏）</td>
+</tr>
+<tr>
+<td>08</td>
+<td>reset</td>
+<td>reset</td>
+<td>重置终端</td>
+</tr>
+</tbody>
+</table>
+<p>在下一篇文章，会详细介绍上面的命令。</p>
+<blockquote>
+<p>终端命令是严格区分大小写的。</p>
+</blockquote>
+<h1 id="终端的其他技巧"><a class="markdownIt-Anchor" href="#终端的其他技巧"></a> 终端的其他技巧</h1>
+<h2 id="字体大小"><a class="markdownIt-Anchor" href="#字体大小"></a> 字体大小</h2>
+<ul>
+<li><code>Ctrl</code> <code>Shift</code> <code>=</code>可以<strong>放大</strong>终端窗口的字体显示。</li>
+<li><code>Ctrl</code> <code>-</code>可以<strong>缩小</strong>终端窗口的字体显示。<br />
+其实就是<code>Ctrl</code> <code>+</code>和<code>Ctrl</code> <code>-</code>两个快捷键。因为在键盘上要输入<code>+</code>时，是用 <code>Shift</code> <code>=</code>的（非100%的键盘布局）。</li>
+</ul>
+<h2 id="自动补全"><a class="markdownIt-Anchor" href="#自动补全"></a> 自动补全</h2>
+<p>在敲出<code>文件</code>/<code>目录</code>/<code>命令</code>的部分字符后，按下<code>tab</code>键，终端会按照你可能想输入的字符进行补全。<br />
+例如在终端中，键入<code>cd De</code>再按下<code>tab</code>键。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> De</span><br></pre></td></tr></table></figure>
+<p>它就会自动补全为 <code>cd Desktop/</code>。因为当前工作目录为家目录<code>~</code>，而家目录<code>~</code>下恰好有一个<code>Desktop/</code>的目录。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> Desktop/</span><br><span class="line">zorua@zorua-ubuntu:~/Desktop$</span><br></pre></td></tr></table></figure>
+<p>那么，我们知道家目录下有 <code>Downloads</code> <code>Documents</code>这样两个Do打头的文件夹，那么键入<code>cd Do</code>是如何自动补全的呢？</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> Do</span><br></pre></td></tr></table></figure>
+<p>按一下<code>tab</code>键，并没有反应，<strong>再按一下<code>tab</code>键</strong>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> Do</span><br><span class="line">Documents/ Downloads/ </span><br><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> Do</span><br></pre></td></tr></table></figure>
+<p>终端将会提示，以Do打头的目录的多个可能性。这时候你可以输入<code>c</code>再<code>tab</code>自动补全为<code>Documents/</code>，也可以输入<code>w</code>再<code>tab</code>自动补全为<code>Downloads</code>。</p>
+<h2 id="过去的命令"><a class="markdownIt-Anchor" href="#过去的命令"></a> 过去的命令</h2>
+<p>按<code>UP</code>/<code>DOWN</code>光标键可以在曾经使用过的命令之间来回切换。</p>
+<blockquote>
+<p>没错，就是你玩各种游戏的上下左右键。</p>
+</blockquote>
+<h2 id="终止当前命令"><a class="markdownIt-Anchor" href="#终止当前命令"></a> 终止当前命令</h2>
+<p>有一些命令，不会自动跳出，会一直保持执行。这样就不能输入下一条命令了。<br />
+如果想终止当前正在执行的命令，可以按<code>Ctrl</code> <code>C</code>键。</p>
+<p>同样，也可以用于放弃已经键入的命令。<br />
+例如，键入了<code>cd Do</code>，但还没有按下<code>Enter</code>，选择按下<code>Ctrl</code> <code>C</code>键，它会新建一行，接受用户的重新键入。</p>
+<h2 id="复制与粘贴"><a class="markdownIt-Anchor" href="#复制与粘贴"></a> 复制与粘贴</h2>
+<p>我知道绝大多数人都养成了良好的<code>Ctrl</code> <code>C</code>和<code>Ctrl</code> <code>V</code>的习惯。<br />
+但是在上文中已经写到，<code>Ctrl</code> <code>C</code>是用于终止的。那么该如何愉快地复制与粘贴呢？</p>
+<ol>
+<li>可以使用鼠标选中文本，单击右键，选择菜单中的<code>Copy</code>和<code>Paste</code>。</li>
+<li>也可以换一组快捷键，使用<code>Ctrl</code> <code>Insert</code>复制和<code>Shift</code> <code>Insert</code>粘贴。<br />
+至于 <code>Insert</code>在哪……。建议问问度娘嗷。</li>
+</ol>
+<h1 id="小练习"><a class="markdownIt-Anchor" href="#小练习"></a> 小练习</h1>
+<div class="note success flat"><p><strong>小练习</strong></p>
+<ul>
+<li>根据作用的提示，来思考命令名称。
+<ul>
+<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">ls</span></span>  列出指定文件夹下的内容</li>
+<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">pwd</span></span>显示当前工作路径</li>
+<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">cd</span></span> 改变当前工作路径</li>
+<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">touch</span></span>新建一个空白文件</li>
+<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">mkdir</span></span> 创建一个新的目录</li>
+<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">rm</span></span>   删除指定文件</li>
+<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">clear</span></span> 清除当前屏幕上的信息（新建一屏）</li>
+<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
+</button><span class="hide-content">reset</span></span>  重置终端</li>
+</ul>
+</li>
 </ul>
 </div><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
@@ -794,174 +965,142 @@ D.<code>/home/Zorua/Desktop</code></li>
       </tags>
   </entry>
   <entry>
-    <title>Linux入门 | 2. 终端介绍</title>
-    <url>/2020/04/14/Linux_1/</url>
-    <content><![CDATA[<h1 id="font-facestcaiyun归档font"><a class="markdownIt-Anchor" href="#font-facestcaiyun归档font"></a> <font face="STCAIYUN">归档</font></h1>
-<h2 id="关于"><a class="markdownIt-Anchor" href="#关于"></a> 关于</h2>
+    <title>Works | 标签夹 Tab Clamp</title>
+    <url>/2021/10/26/TabClamp/</url>
+    <content><![CDATA[<h1 id="标签夹-tabclamp-是什么"><a class="markdownIt-Anchor" href="#标签夹-tabclamp-是什么"></a> 标签夹 TabClamp 是什么</h1>
+<p>试想您是否有这样的一个需求？</p>
 <blockquote>
-<p>Written BY Zorua 2020.4.14<br />
-Email: <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a><br />
-Home: <a href="https://zoruasama.gitee.io/">https://zoruasama.gitee.io/</a></p>
+<p>有时候进行某项工作/学习时打开了若干个网页，但是后来中断去做别的事情了，在下一次进行这项工作/学习时又要回到历史记录里一个个点开。这样非常麻烦。</p>
 </blockquote>
-<hr />
-<h1 id="终端命令"><a class="markdownIt-Anchor" href="#终端命令"></a> 终端命令</h1>
-<p>我最初接触到命令行这一类东西，已经是<code>cmd.exe</code>了，终端、命令行、bash、dash，我找不到对这一类命令解释器统一的专业名称（但是我觉得可以将它们视为Shell的入口，想看区别可以康康<a href="https://unix.stackexchange.com/questions/4126/what-is-the-exact-difference-between-a-terminal-a-shell-a-tty-and-a-con">这篇文章</a>）。总而言之，它们能够接收用户命令，然后调用相应的应用程序。接触过C语言的同学，不可能没有接触过<code>system(&quot;pause&quot;);</code>这一语句。事实上，这一语句就是调用了<code>cmd.exe</code>里的<code>pause</code>命令。</p>
-<p>如今我们正在使用图形界面（GUI）的交互，如果想要浏览文件夹，用鼠标点击文件资源管理器打开就能看；想要建立新文件夹，只需要<code>右键-新建-文件夹</code>即可。一切都似乎十分高效与便捷。但是现在的<code>Windows</code>上还是保留了命令行程序，例如<code>cmd.exe</code> <code>PowerShell</code>等等。<code>ubuntu</code>同样也有一个图形桌面。既然如此，为什么还要学习终端命令呢？</p>
-<p>我认为有如下原因：</p>
+<p>「标签夹 TabClamp」就是为了解决这样的需求而被开发的。它是一款用于<strong>任一基于Chromium开源项目webkit内核的浏览器</strong>插件，这款插件可以帮助您一次性打开多个网页，以方便您随时恢复之前的工作环境。</p>
+<p>如果您不知道您的浏览器是否是<strong>基于Chromium开源项目webkit内核</strong>的，您可以参考下面这个列表：</p>
 <ul>
-<li>图形界面比较消耗资源。一些硬件水平没有那么高的场合（如DIY的电子设备），硬件水平不足以带动图形界面。这时候用终端命令来进行交互。</li>
-<li><code>Linux</code>发行版的桌面其实并没有商业化的<code>Windows</code> <code>Mac OS</code>稳定。而且最初的<code>Linux</code>所有的操作全靠命令完成。因此我觉得也可以说，学<code>Linux</code>就是学终端。</li>
-<li>在职场中，绝大多数<strong>服务器的运维工作</strong>都是在<strong>远程</strong>通过<strong>SSH客户端</strong>来完成的。</li>
-<li><s>使用终端命令比较装逼。</s></li>
+<li>Google Chrome</li>
+<li>Microsoft Edge</li>
+<li>360安全浏览器</li>
+<li>360极速浏览器</li>
+<li>搜狗高速浏览器</li>
+<li>QQ浏览器</li>
+<li>猎豹安全浏览器</li>
+<li>傲游浏览器</li>
+<li>……</li>
 </ul>
-<h1 id="ubuntu的终端"><a class="markdownIt-Anchor" href="#ubuntu的终端"></a> Ubuntu的终端</h1>
-<p><code>ubuntu</code>默认使用的终端好像是叫做<code>bash</code>。</p>
-<h2 id="打开方式"><a class="markdownIt-Anchor" href="#打开方式"></a> 打开方式</h2>
-<p>在<code>ubuntu</code>的桌面/文件资源管理器任意空白位置右击，选择<code>Open Terminal</code>即可。<br />
-<img src="https://cdn.jsdelivr.net/gh/zoruasama/zorua-pic@latest/img/2020-04-14_00.png" alt="" /></p>
-<h2 id="终端界面介绍"><a class="markdownIt-Anchor" href="#终端界面介绍"></a> 终端界面介绍</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/zoruasama/zorua-pic@latest/img/20200414144137.png" alt="" /></p>
+<h1 id="安装教程"><a class="markdownIt-Anchor" href="#安装教程"></a> 安装教程</h1>
+<p>由于上架应用商店需要审核且比较麻烦。现在只上架了 <strong>360安全浏览器</strong> 和 <strong>360极速浏览器</strong>。<br />
+如您需要在其他webkit浏览器上使用，欢迎致信 <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a>。</p>
+<h2 id="360安全浏览器"><a class="markdownIt-Anchor" href="#360安全浏览器"></a> 360安全浏览器</h2>
+<p>使用360安全浏览器的用户可以<a href="https://ext.se.360.cn/webstore/search/%E6%A0%87%E7%AD%BE%E5%A4%B9">点击这里</a>进行下载安装。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211125122939.png" alt="" /></p>
+<h2 id="360极速浏览器"><a class="markdownIt-Anchor" href="#360极速浏览器"></a> 360极速浏览器</h2>
+<p>使用360极速浏览器的用户可以<a href="https://ext.chrome.360.cn/webstore/search/%E6%A0%87%E7%AD%BE%E5%A4%B9">点击这里</a>进行下载安装。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211125123051.png" alt="" /></p>
+<h1 id="使用说明"><a class="markdownIt-Anchor" href="#使用说明"></a> 使用说明</h1>
+<h2 id="名词术语解释"><a class="markdownIt-Anchor" href="#名词术语解释"></a> 名词术语解释</h2>
 <ul>
-<li>在未输入任何命令前，终端等待输入时，屏幕上会显示 <code>username@computername:~/Documents$</code>。<br />
-<em>每一条指令前都会自动显示这段信息。不需要用户手动来打。</em></li>
-<li>其中<code>@</code>前面的是用户名，后面的是计算机名称。</li>
-<li>在<code>:</code>后面的是当前的工作路径。一般，你在哪里打开<code>Terminal</code>，工作路径就是哪里。</li>
-<li><code>$</code>后面就是开始接收用户的命令。</li>
-<li>输入<code>help</code>然后按下回车键，会在终端中显示Bash的版本信息，和一些指令。</li>
+<li><strong>标签 Tabs</strong>，准确称法是“标签页”，也称作“选项卡”，简称为“标签”。通常标签页栏所处的是浏览器窗体的上方，您可以通过点击标签来切换当前要浏览的网页。</li>
+<li><strong>窗体 Windows</strong>，您运行浏览器时打开的整个浏览器程序界面被称作窗体，您可以打开多个窗体，也可以在每个窗体上打开多个标签。</li>
+<li><strong>标签夹 Tab Clamp</strong>，即本插件的名称，亦是本插件中引入的概念。顾名思义地，标签夹是将复数数量的标签打包在一起后的物体。</li>
 </ul>
-<h1 id="基础命令"><a class="markdownIt-Anchor" href="#基础命令"></a> 基础命令</h1>
-<p><code>Linux</code>发行版本的命令多达上百条，但是常用的并不是很多。多多使用就会记住了。</p>
-<table>
-<thead>
-<tr>
-<th>序号</th>
-<th>命令</th>
-<th>对应英语</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>01</td>
-<td>ls</td>
-<td>list</td>
-<td>列出指定文件夹下的内容</td>
-</tr>
-<tr>
-<td>02</td>
-<td>pwd</td>
-<td>print work directory</td>
-<td>显示当前工作路径</td>
-</tr>
-<tr>
-<td>03</td>
-<td>cd</td>
-<td>change directory</td>
-<td>改变当前工作路径</td>
-</tr>
-<tr>
-<td>04</td>
-<td>touch</td>
-<td>touch</td>
-<td>新建一个空白文件</td>
-</tr>
-<tr>
-<td>05</td>
-<td>mkdir</td>
-<td>make directory</td>
-<td>创建一个新的目录</td>
-</tr>
-<tr>
-<td>06</td>
-<td>rm</td>
-<td>remove</td>
-<td>删除指定文件</td>
-</tr>
-<tr>
-<td>07</td>
-<td>clear</td>
-<td>clear</td>
-<td>清除当前屏幕上的信息（新建一屏）</td>
-</tr>
-<tr>
-<td>08</td>
-<td>reset</td>
-<td>reset</td>
-<td>重置终端</td>
-</tr>
-</tbody>
-</table>
-<p>在下一篇文章，会详细介绍上面的命令。</p>
-<blockquote>
-<p>终端命令是严格区分大小写的。</p>
-</blockquote>
-<h1 id="终端的其他技巧"><a class="markdownIt-Anchor" href="#终端的其他技巧"></a> 终端的其他技巧</h1>
-<h2 id="字体大小"><a class="markdownIt-Anchor" href="#字体大小"></a> 字体大小</h2>
-<ul>
-<li><code>Ctrl</code> <code>Shift</code> <code>=</code>可以<strong>放大</strong>终端窗口的字体显示。</li>
-<li><code>Ctrl</code> <code>-</code>可以<strong>缩小</strong>终端窗口的字体显示。<br />
-其实就是<code>Ctrl</code> <code>+</code>和<code>Ctrl</code> <code>-</code>两个快捷键。因为在键盘上要输入<code>+</code>时，是用 <code>Shift</code> <code>=</code>的（非100%的键盘布局）。</li>
-</ul>
-<h2 id="自动补全"><a class="markdownIt-Anchor" href="#自动补全"></a> 自动补全</h2>
-<p>在敲出<code>文件</code>/<code>目录</code>/<code>命令</code>的部分字符后，按下<code>tab</code>键，终端会按照你可能想输入的字符进行补全。<br />
-例如在终端中，键入<code>cd De</code>再按下<code>tab</code>键。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> De</span><br></pre></td></tr></table></figure>
-<p>它就会自动补全为 <code>cd Desktop/</code>。因为当前工作目录为家目录<code>~</code>，而家目录<code>~</code>下恰好有一个<code>Desktop/</code>的目录。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> Desktop/</span><br><span class="line">zorua@zorua-ubuntu:~/Desktop$</span><br></pre></td></tr></table></figure>
-<p>那么，我们知道家目录下有 <code>Downloads</code> <code>Documents</code>这样两个Do打头的文件夹，那么键入<code>cd Do</code>是如何自动补全的呢？</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> Do</span><br></pre></td></tr></table></figure>
-<p>按一下<code>tab</code>键，并没有反应，<strong>再按一下<code>tab</code>键</strong>。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> Do</span><br><span class="line">Documents/ Downloads/ </span><br><span class="line">zorua@zorua-ubuntu:~$ <span class="built_in">cd</span> Do</span><br></pre></td></tr></table></figure>
-<p>终端将会提示，以Do打头的目录的多个可能性。这时候你可以输入<code>c</code>再<code>tab</code>自动补全为<code>Documents/</code>，也可以输入<code>w</code>再<code>tab</code>自动补全为<code>Downloads</code>。</p>
-<h2 id="过去的命令"><a class="markdownIt-Anchor" href="#过去的命令"></a> 过去的命令</h2>
-<p>按<code>UP</code>/<code>DOWN</code>光标键可以在曾经使用过的命令之间来回切换。</p>
-<blockquote>
-<p>没错，就是你玩各种游戏的上下左右键。</p>
-</blockquote>
-<h2 id="终止当前命令"><a class="markdownIt-Anchor" href="#终止当前命令"></a> 终止当前命令</h2>
-<p>有一些命令，不会自动跳出，会一直保持执行。这样就不能输入下一条命令了。<br />
-如果想终止当前正在执行的命令，可以按<code>Ctrl</code> <code>C</code>键。</p>
-<p>同样，也可以用于放弃已经键入的命令。<br />
-例如，键入了<code>cd Do</code>，但还没有按下<code>Enter</code>，选择按下<code>Ctrl</code> <code>C</code>键，它会新建一行，接受用户的重新键入。</p>
-<h2 id="复制与粘贴"><a class="markdownIt-Anchor" href="#复制与粘贴"></a> 复制与粘贴</h2>
-<p>我知道绝大多数人都养成了良好的<code>Ctrl</code> <code>C</code>和<code>Ctrl</code> <code>V</code>的习惯。<br />
-但是在上文中已经写到，<code>Ctrl</code> <code>C</code>是用于终止的。那么该如何愉快地复制与粘贴呢？</p>
+<h2 id="界面功能解释"><a class="markdownIt-Anchor" href="#界面功能解释"></a> 界面功能解释</h2>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026142613.png" alt="" /></p>
+<h3 id="保存当前所有标签页到标签夹"><a class="markdownIt-Anchor" href="#保存当前所有标签页到标签夹"></a> 保存当前所有标签页到标签夹</h3>
 <ol>
-<li>可以使用鼠标选中文本，单击右键，选择菜单中的<code>Copy</code>和<code>Paste</code>。</li>
-<li>也可以换一组快捷键，使用<code>Ctrl</code> <code>Insert</code>复制和<code>Shift</code> <code>Insert</code>粘贴。<br />
-至于 <code>Insert</code>在哪……。建议问问度娘嗷。</li>
+<li>输入标签夹名字，注意不要和已有的标签夹名字重复，否则会直接覆盖内容。虽然没有对标签夹名字长度进行限制，但是仍然不建议使用过长的标签夹名字。</li>
+<li>点击“保存当前所有标签页到标签夹”按钮，将会保存<strong>当前浏览器上打开的所有标签</strong>到指定标签夹中。由于后续的“打开”功能是一次性全部打开并加载网页，出于对您的机器性能负担考虑，一个标签夹内最好不要放过多的标签。</li>
 </ol>
-<h1 id="小练习"><a class="markdownIt-Anchor" href="#小练习"></a> 小练习</h1>
-<div class="note success flat"><p><strong>小练习</strong></p>
+<h3 id="打开该标签夹内所有的标签"><a class="markdownIt-Anchor" href="#打开该标签夹内所有的标签"></a> 打开该标签夹内所有的标签</h3>
+<ol>
+<li>输入标签夹名字，注意应该输入已有的标签夹。</li>
+<li>点击“打开该标签夹内所有的标签”按钮，将会在<strong>当前浏览器窗口上</strong>打开该标签夹内的所有网页。</li>
+</ol>
+<h3 id="删除该标签夹"><a class="markdownIt-Anchor" href="#删除该标签夹"></a> 删除该标签夹</h3>
+<ol>
+<li>输入标签夹名字，注意应该输入已有的标签夹。</li>
+<li>点击“删除该标签夹”按钮，将会<strong>永久删除</strong>该标签夹和该标签夹下所有的标签。</li>
+</ol>
+<h3 id="点击标签夹"><a class="markdownIt-Anchor" href="#点击标签夹"></a> 点击标签夹</h3>
+<ol>
+<li>当您已经拥有标签夹时，界面上将会显示其按钮。按钮文本为标签夹名字，括号内部数字表示标签夹内的标签数量。</li>
+<li>单击这些标签夹按钮，将会在下方显示该标签夹内的标签，您可以点击这些标签，就能打开指定的单个标签页。</li>
+<li>单击标签夹按钮后，标签夹名字会自动输入到输入框中，而不需要自己手动输入，方便您的后续操作（例如保存、打开、删除）。</li>
+</ol>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026144533.png" alt="" /></p>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026144549.png" alt="" /></p>
+<h1 id="环境要求"><a class="markdownIt-Anchor" href="#环境要求"></a> 环境要求</h1>
+<p>本插件使用了localStorage特性作为存储，</p>
+<h1 id="版本更新日志"><a class="markdownIt-Anchor" href="#版本更新日志"></a> 版本更新日志</h1>
+<h2 id="10020211026"><a class="markdownIt-Anchor" href="#10020211026"></a> 1.0.0(2021/10/26)</h2>
 <ul>
-<li>根据作用的提示，来思考命令名称。
-<ul>
-<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">ls</span></span>  列出指定文件夹下的内容</li>
-<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">pwd</span></span>显示当前工作路径</li>
-<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">cd</span></span> 改变当前工作路径</li>
-<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">touch</span></span>新建一个空白文件</li>
-<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">mkdir</span></span> 创建一个新的目录</li>
-<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">rm</span></span>   删除指定文件</li>
-<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">clear</span></span> 清除当前屏幕上的信息（新建一屏）</li>
-<li><span class="hide-inline"><button type="button" class="hide-button button--animated" style="background-color: #FF7242;color: #fff">查看答案<br />
-</button><span class="hide-content">reset</span></span>  重置终端</li>
+<li>产品上线</li>
 </ul>
-</li>
-</ul>
-</div><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+<h1 id="打赏"><a class="markdownIt-Anchor" href="#打赏"></a> 打赏</h1>
+<p>如果您对这个小插件满意的话，您可以通过下面两种方式给予任意金额的打赏鼓励嗷~~。非常感谢您请我的一杯咖啡~。<br />
+感谢少侠打赏，来杯咖啡提提神，大战到天亮。</p>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026152954.png" alt="" /></p>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
-        <category>Linux</category>
+        <category>Works</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
-        <tag>操作系统</tag>
+        <tag>Works</tag>
+        <tag>效率</tag>
+        <tag>浏览器</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>题解心得 | P3379 【模板】最近公共祖先（LCA）</title>
+    <url>/2021/01/21/P3379/</url>
+    <content><![CDATA[<h1 id="题面原文"><a class="markdownIt-Anchor" href="#题面原文"></a> 题面原文</h1>
+<p><a href="https://www.luogu.com.cn/problem/P3379">原题链接</a></p>
+<h2 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h2>
+<p>如题，给定一棵有根多叉树，请求出指定两个点直接最近的公共祖先。</p>
+<h2 id="输入格式"><a class="markdownIt-Anchor" href="#输入格式"></a> 输入格式</h2>
+<p>第一行包含三个正整数 N,M，分别表示树的结点个数、询问的个数和树根结点的序号。<br />
+接下来 N-1 行每行包含两个正整数 x, y，表示 x 结点和 y 结点之间有一条直接连接的边（数据保证可以构成树）。<br />
+接下来 M行每行包含两个正整数 a, b表示询问 a 结点和 b 结点的最近公共祖先。</p>
+<h2 id="输出格式"><a class="markdownIt-Anchor" href="#输出格式"></a> 输出格式</h2>
+<p>输出包含 M 行，每行包含一个正整数，依次为每一个询问的结果。</p>
+<h1 id="ac-record"><a class="markdownIt-Anchor" href="#ac-record"></a> Ac Record</h1>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201205213926.png" alt="" /></p>
+<h1 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h1>
+<details cyan open><summary> <p>show me the code.</p> </summary>
+              <div class='content'>
+              <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">500001</span>;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; node[maxn];</span><br><span class="line"><span class="keyword">int</span> dep[maxn];</span><br><span class="line"><span class="keyword">int</span> f[maxn][<span class="number">22</span>]; <span class="comment">//2^20</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">log2</span>(x&amp;(-x));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> fa,<span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    dep[u]=d;</span><br><span class="line">    f[u][<span class="number">0</span>]=fa;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;node[u].<span class="built_in">size</span>();++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(node[u][i]==fa) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(node[u][i],u,d+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x]&lt;dep[y]) <span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(dep[x]&gt;dep[y])&#123;</span><br><span class="line">        x=f[x][<span class="built_in">lowbit</span>(dep[x]-dep[y])];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x==y) <span class="keyword">return</span> x;<span class="comment">// or return y.</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="built_in">log2</span>(dep[x]);i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(f[x][i]!=f[y][i])&#123;</span><br><span class="line">            x=f[x][i];</span><br><span class="line">            y=f[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">0</span>,fs=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))&#123;<span class="keyword">if</span>(c==<span class="string">&#x27;-&#x27;</span>)fs=<span class="number">-1</span>;c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))x=(x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+(c^<span class="number">48</span>),c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>(); <span class="comment">//NOLINT</span></span><br><span class="line">    <span class="keyword">return</span> x*fs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;<span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>),a=-a;</span><br><span class="line">    <span class="keyword">if</span>(a&gt;=<span class="number">10</span>)<span class="built_in">write</span>(a/<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(a%<span class="number">10</span>+<span class="number">48</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,s;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> x,y;</span><br><span class="line">        x=<span class="built_in">read</span>();</span><br><span class="line">        y=<span class="built_in">read</span>();</span><br><span class="line">        node[x].<span class="built_in">push_back</span>(y);</span><br><span class="line">        node[y].<span class="built_in">push_back</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dfs</span>(s,s,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">22</span>;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> u=<span class="number">1</span>;u&lt;=n;u++)&#123;</span><br><span class="line">            f[u][i]=f[f[u][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> x,y;</span><br><span class="line">        x=<span class="built_in">read</span>();</span><br><span class="line">        y=<span class="built_in">read</span>();</span><br><span class="line">        cout&lt;&lt;<span class="built_in">lca</span>(x,y)&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h1 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h1>
+<p>这就是一道LCA模板题。</p>
+<ul>
+<li>简单地用vector存图。</li>
+<li>先用DFS把整个树遍历一遍，标记上每个节点的<strong>深度</strong>。这个深度的作用会在后面的算法体现到。</li>
+<li><code>f[u][i]=f[f[u][i-1]][i-1];</code>这是<strong>倍增</strong>的递推式。
+<ul>
+<li><code>f[u][i]</code>指的是，节点<code>u</code>的前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span>个父节点。</li>
+<li>例如<code>f[u][0]</code>指的是就是节点<code>u</code>的父节点。<code>f[u][1]</code>指的是就是节点<code>u</code>的父节点的父节点。<code>f[u][2]</code>指的是就是节点<code>u</code>的父节点的父节点的父节点的父节点。</li>
+<li>在这个题目中的节点数最多是500000，所以最坏情况下是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>19</mn></msup></mrow><annotation encoding="application/x-tex">2^{19}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></span>，所以数组开到20就差不多够用了。（为保险可以多开一点）</li>
+</ul>
+</li>
+<li>用LCA函数求解答案。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x]&lt;dep[y]) <span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(dep[x]&gt;dep[y])&#123;</span><br><span class="line">        x=f[x][<span class="built_in">lowbit</span>(dep[x]-dep[y])];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x==y) <span class="keyword">return</span> x;<span class="comment">// or return y.</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="built_in">log2</span>(dep[x]);i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(f[x][i]!=f[y][i])&#123;</span><br><span class="line">            x=f[x][i];</span><br><span class="line">            y=f[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>先将两个节点移动至同一深度。
+<ul>
+<li>这个操作可以通过不断使更深的节点变为它的父节点就行了。</li>
+<li>为了快速移动，通过<strong>倍增</strong>来实现。</li>
+</ul>
+</li>
+<li>如果移动至同一深度，两个节点变成同一节点了，那么就可以返回了。</li>
+<li>如果不是同一节点，那么就再<strong>同时移动两个节点</strong>（变为它们的父节点），直至最后一个节点的下一层节点。</li>
+<li>这个时候返回这层节点的父节点即为答案。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>LCA</tag>
       </tags>
   </entry>
   <entry>
@@ -1020,59 +1159,54 @@ s[r]-s[l-1]=a[l]+a[l+1]+…+a[r];</p>
       </tags>
   </entry>
   <entry>
-    <title>题解心得 | P3379 【模板】最近公共祖先（LCA）</title>
-    <url>/2021/01/21/P3379/</url>
-    <content><![CDATA[<h1 id="题面原文"><a class="markdownIt-Anchor" href="#题面原文"></a> 题面原文</h1>
-<p><a href="https://www.luogu.com.cn/problem/P3379">原题链接</a></p>
-<h2 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h2>
-<p>如题，给定一棵有根多叉树，请求出指定两个点直接最近的公共祖先。</p>
-<h2 id="输入格式"><a class="markdownIt-Anchor" href="#输入格式"></a> 输入格式</h2>
-<p>第一行包含三个正整数 N,M，分别表示树的结点个数、询问的个数和树根结点的序号。<br />
-接下来 N-1 行每行包含两个正整数 x, y，表示 x 结点和 y 结点之间有一条直接连接的边（数据保证可以构成树）。<br />
-接下来 M行每行包含两个正整数 a, b表示询问 a 结点和 b 结点的最近公共祖先。</p>
-<h2 id="输出格式"><a class="markdownIt-Anchor" href="#输出格式"></a> 输出格式</h2>
-<p>输出包含 M 行，每行包含一个正整数，依次为每一个询问的结果。</p>
-<h1 id="ac-record"><a class="markdownIt-Anchor" href="#ac-record"></a> Ac Record</h1>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20201205213926.png" alt="" /></p>
-<h1 id="code"><a class="markdownIt-Anchor" href="#code"></a> Code</h1>
-<details cyan open><summary> <p>show me the code.</p> </summary>
-              <div class='content'>
-              <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn=<span class="number">500001</span>;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt; node[maxn];</span><br><span class="line"><span class="keyword">int</span> dep[maxn];</span><br><span class="line"><span class="keyword">int</span> f[maxn][<span class="number">22</span>]; <span class="comment">//2^20</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">log2</span>(x&amp;(-x));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> fa,<span class="keyword">int</span> d)</span></span>&#123;</span><br><span class="line">    dep[u]=d;</span><br><span class="line">    f[u][<span class="number">0</span>]=fa;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;node[u].<span class="built_in">size</span>();++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(node[u][i]==fa) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(node[u][i],u,d+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x]&lt;dep[y]) <span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(dep[x]&gt;dep[y])&#123;</span><br><span class="line">        x=f[x][<span class="built_in">lowbit</span>(dep[x]-dep[y])];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x==y) <span class="keyword">return</span> x;<span class="comment">// or return y.</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="built_in">log2</span>(dep[x]);i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(f[x][i]!=f[y][i])&#123;</span><br><span class="line">            x=f[x][i];</span><br><span class="line">            y=f[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">0</span>,fs=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!<span class="built_in">isdigit</span>(c))&#123;<span class="keyword">if</span>(c==<span class="string">&#x27;-&#x27;</span>)fs=<span class="number">-1</span>;c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">isdigit</span>(c))x=(x&lt;&lt;<span class="number">3</span>)+(x&lt;&lt;<span class="number">1</span>)+(c^<span class="number">48</span>),c=(<span class="keyword">char</span>)<span class="built_in">getchar</span>(); <span class="comment">//NOLINT</span></span><br><span class="line">    <span class="keyword">return</span> x*fs;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">write</span><span class="params">(<span class="keyword">int</span> a)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;<span class="number">0</span>) <span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>),a=-a;</span><br><span class="line">    <span class="keyword">if</span>(a&gt;=<span class="number">10</span>)<span class="built_in">write</span>(a/<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(a%<span class="number">10</span>+<span class="number">48</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,s;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;s;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> x,y;</span><br><span class="line">        x=<span class="built_in">read</span>();</span><br><span class="line">        y=<span class="built_in">read</span>();</span><br><span class="line">        node[x].<span class="built_in">push_back</span>(y);</span><br><span class="line">        node[y].<span class="built_in">push_back</span>(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dfs</span>(s,s,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">22</span>;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> u=<span class="number">1</span>;u&lt;=n;u++)&#123;</span><br><span class="line">            f[u][i]=f[f[u][i<span class="number">-1</span>]][i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;++i)&#123;</span><br><span class="line">        <span class="keyword">int</span> x,y;</span><br><span class="line">        x=<span class="built_in">read</span>();</span><br><span class="line">        y=<span class="built_in">read</span>();</span><br><span class="line">        cout&lt;&lt;<span class="built_in">lca</span>(x,y)&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-              </div>
-            </details>
-<h1 id="思路"><a class="markdownIt-Anchor" href="#思路"></a> 思路</h1>
-<p>这就是一道LCA模板题。</p>
+    <title>算法笔记 | 差分数组</title>
+    <url>/2021/11/14/algorithm_1/</url>
+    <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
+<p>对于一个数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">a[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span>，如果对它有着频繁的区间操作（例如第5个到第60个数增加2，或第6个到第40个数减去2）。这个时候，暴力的做法时，直接用循环去操作，但是这样做的时间复杂度很大。所以对于这样的问题，可以使用<strong>差分数组</strong>。</p>
+<h1 id="具体做法"><a class="markdownIt-Anchor" href="#具体做法"></a> 具体做法</h1>
+<p><code>差分</code>其实就是数据之间的差，什么数据的差呢？就是上面所给的原始数组<code>a[n]</code>的相邻元素之间的差值，我们令<code>d[i]=a[i+1]-a[i]</code>，一遍for循环即可将差分数组求出来。例如下面这个数组。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114164848.PNG" alt="" /><br />
+据此，可以发现两条差分数组的性质：</p>
 <ul>
-<li>简单地用vector存图。</li>
-<li>先用DFS把整个树遍历一遍，标记上每个节点的<strong>深度</strong>。这个深度的作用会在后面的算法体现到。</li>
-<li><code>f[u][i]=f[f[u][i-1]][i-1];</code>这是<strong>倍增</strong>的递推式。
+<li><code>a[i]</code>等于<code>d[i]</code>的前缀和</li>
+<li><code>a[i]</code>的前缀和可以通过如下公式来求得：
 <ul>
-<li><code>f[u][i]</code>指的是，节点<code>u</code>的前<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mi>i</mi></msup></mrow><annotation encoding="application/x-tex">2^i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.824664em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.824664em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span></span></span></span></span></span></span>个父节点。</li>
-<li>例如<code>f[u][0]</code>指的是就是节点<code>u</code>的父节点。<code>f[u][1]</code>指的是就是节点<code>u</code>的父节点的父节点。<code>f[u][2]</code>指的是就是节点<code>u</code>的父节点的父节点的父节点的父节点。</li>
-<li>在这个题目中的节点数最多是500000，所以最坏情况下是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mn>2</mn><mn>19</mn></msup></mrow><annotation encoding="application/x-tex">2^{19}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">9</span></span></span></span></span></span></span></span></span></span></span></span>，所以数组开到20就差不多够用了。（为保险可以多开一点）</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msub><mi>a</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum_x=\sum_{i=1}^{x}a_x=\sum_{i=1}^{x}\sum_{j=1}^{i}d_i=\sum_{i=1}^{x}(x-i+1)\times d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
 </ul>
 </li>
-<li>用LCA函数求解答案。</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lca</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(dep[x]&lt;dep[y]) <span class="built_in">swap</span>(x,y);</span><br><span class="line">    <span class="keyword">while</span>(dep[x]&gt;dep[y])&#123;</span><br><span class="line">        x=f[x][<span class="built_in">lowbit</span>(dep[x]-dep[y])];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x==y) <span class="keyword">return</span> x;<span class="comment">// or return y.</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="built_in">log2</span>(dep[x]);i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(f[x][i]!=f[y][i])&#123;</span><br><span class="line">            x=f[x][i];</span><br><span class="line">            y=f[y][i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f[x][<span class="number">0</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="用途"><a class="markdownIt-Anchor" href="#用途"></a> 用途</h1>
+<p>差分数组主要支持两种操作：<strong>1、区间修改；2、单点查询</strong><br />
+根据性质一，可以得到若对某个区间<code>[L, R]</code> 增加一个数 <code>x</code>，只需要使 <code>d[L] += x; d[R + 1] -= x;</code> 即可实现对区间的批量修改，而查询时只需要<strong>求前缀和查询单个元素</strong>，或者通过上述性质二的公式查询<strong>前缀和/区间和</strong>即可</p>
+<h2 id="区间修改"><a class="markdownIt-Anchor" href="#区间修改"></a> 区间修改</h2>
+<p>对上面那个表的数组作下面两个操作：</p>
 <ul>
-<li>先将两个节点移动至同一深度。
-<ul>
-<li>这个操作可以通过不断使更深的节点变为它的父节点就行了。</li>
-<li>为了快速移动，通过<strong>倍增</strong>来实现。</li>
+<li>将区间 [1,4] 的数值全部加上3</li>
+<li>将区间 [3,5] 的数值全部减去5<br />
+其实<strong>当你将原始数组中元素同时加上或者减掉某个数，那么他们的差分数组其实是不会变化的。</strong><br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170247.PNG" alt="" /><br />
+只有 d[1]和d[5]发生了变化，而d[2],d[3],d[4]却保持着原样。</li>
 </ul>
-</li>
-<li>如果移动至同一深度，两个节点变成同一节点了，那么就可以返回了。</li>
-<li>如果不是同一节点，那么就再<strong>同时移动两个节点</strong>（变为它们的父节点），直至最后一个节点的下一层节点。</li>
-<li>这个时候返回这层节点的父节点即为答案。</li>
-</ul>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170311.PNG" alt="" /></p>
+<blockquote>
+<p>当对一个区间进行增减某个值的时候，它的差分数组对应的区间左端点的值会同步变化，而它的右端点的后一个值则会相反地变化，其实这个很好理解</p>
+</blockquote>
+<h2 id="更新原数组"><a class="markdownIt-Anchor" href="#更新原数组"></a> 更新原数组</h2>
+<p>因为我们的差分数组是由原始数组的相邻两项作差求出来的，即 d[i]=a[i]-a[i-1]；那么我们能不能反过来，求得一下修改过后的a[i]呢？</p>
+<p><strong>直接反过来即得  a[i]=a[i-1]+d[i]</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    a[i]=a[i<span class="number">-1</span>]+d[i];</span><br></pre></td></tr></table></figure>
+<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
+<p>[1] <a href="https://blog.csdn.net/qq_31601743/article/details/105352885">https://blog.csdn.net/qq_31601743/article/details/105352885</a><br />
+[2] <a href="https://blog.csdn.net/qq_44786250/article/details/100056975">https://blog.csdn.net/qq_44786250/article/details/100056975</a><br />
+[3] <a href="https://www.jianshu.com/p/2a4e861b44ae">https://www.jianshu.com/p/2a4e861b44ae</a><br />
+[4] <a href="https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html">https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html</a></p>
 <script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>算法</category>
       </categories>
       <tags>
         <tag>算法</tag>
-        <tag>LCA</tag>
+        <tag>差分数组</tag>
       </tags>
   </entry>
   <entry>
@@ -1163,140 +1297,6 @@ F_1\\F_{2}
       <tags>
         <tag>算法</tag>
         <tag>快速幂</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>算法笔记 | 差分数组</title>
-    <url>/2021/11/14/algorithm_1/</url>
-    <content><![CDATA[<h1 id="定义"><a class="markdownIt-Anchor" href="#定义"></a> 定义</h1>
-<p>对于一个数组<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo stretchy="false">[</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">a[n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">a</span><span class="mopen">[</span><span class="mord mathdefault">n</span><span class="mclose">]</span></span></span></span>，如果对它有着频繁的区间操作（例如第5个到第60个数增加2，或第6个到第40个数减去2）。这个时候，暴力的做法时，直接用循环去操作，但是这样做的时间复杂度很大。所以对于这样的问题，可以使用<strong>差分数组</strong>。</p>
-<h1 id="具体做法"><a class="markdownIt-Anchor" href="#具体做法"></a> 具体做法</h1>
-<p><code>差分</code>其实就是数据之间的差，什么数据的差呢？就是上面所给的原始数组<code>a[n]</code>的相邻元素之间的差值，我们令<code>d[i]=a[i+1]-a[i]</code>，一遍for循环即可将差分数组求出来。例如下面这个数组。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114164848.PNG" alt="" /><br />
-据此，可以发现两条差分数组的性质：</p>
-<ul>
-<li><code>a[i]</code>等于<code>d[i]</code>的前缀和</li>
-<li><code>a[i]</code>的前缀和可以通过如下公式来求得：
-<ul>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>u</mi><msub><mi>m</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msub><mi>a</mi><mi>x</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><msubsup><mo>∑</mo><mrow><mi>j</mi><mo>=</mo><mn>1</mn></mrow><mi>i</mi></msubsup><msub><mi>d</mi><mi>i</mi></msub><mo>=</mo><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>x</mi></msubsup><mo stretchy="false">(</mo><mi>x</mi><mo>−</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo><mo>×</mo><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">sum_x=\sum_{i=1}^{x}a_x=\sum_{i=1}^{x}\sum_{j=1}^{i}d_i=\sum_{i=1}^{x}(x-i+1)\times d_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">u</span><span class="mord"><span class="mord mathdefault">m</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">x</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.400382em;vertical-align:-0.43581800000000004em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.964564em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.43581800000000004em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.74285em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.84444em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
-</ul>
-</li>
-</ul>
-<h1 id="用途"><a class="markdownIt-Anchor" href="#用途"></a> 用途</h1>
-<p>差分数组主要支持两种操作：<strong>1、区间修改；2、单点查询</strong><br />
-根据性质一，可以得到若对某个区间<code>[L, R]</code> 增加一个数 <code>x</code>，只需要使 <code>d[L] += x; d[R + 1] -= x;</code> 即可实现对区间的批量修改，而查询时只需要<strong>求前缀和查询单个元素</strong>，或者通过上述性质二的公式查询<strong>前缀和/区间和</strong>即可</p>
-<h2 id="区间修改"><a class="markdownIt-Anchor" href="#区间修改"></a> 区间修改</h2>
-<p>对上面那个表的数组作下面两个操作：</p>
-<ul>
-<li>将区间 [1,4] 的数值全部加上3</li>
-<li>将区间 [3,5] 的数值全部减去5<br />
-其实<strong>当你将原始数组中元素同时加上或者减掉某个数，那么他们的差分数组其实是不会变化的。</strong><br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170247.PNG" alt="" /><br />
-只有 d[1]和d[5]发生了变化，而d[2],d[3],d[4]却保持着原样。</li>
-</ul>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211114170311.PNG" alt="" /></p>
-<blockquote>
-<p>当对一个区间进行增减某个值的时候，它的差分数组对应的区间左端点的值会同步变化，而它的右端点的后一个值则会相反地变化，其实这个很好理解</p>
-</blockquote>
-<h2 id="更新原数组"><a class="markdownIt-Anchor" href="#更新原数组"></a> 更新原数组</h2>
-<p>因为我们的差分数组是由原始数组的相邻两项作差求出来的，即 d[i]=a[i]-a[i-1]；那么我们能不能反过来，求得一下修改过后的a[i]呢？</p>
-<p><strong>直接反过来即得  a[i]=a[i-1]+d[i]</strong></p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    a[i]=a[i<span class="number">-1</span>]+d[i];</span><br></pre></td></tr></table></figure>
-<h1 id="参考资料"><a class="markdownIt-Anchor" href="#参考资料"></a> 参考资料</h1>
-<p>[1] <a href="https://blog.csdn.net/qq_31601743/article/details/105352885">https://blog.csdn.net/qq_31601743/article/details/105352885</a><br />
-[2] <a href="https://blog.csdn.net/qq_44786250/article/details/100056975">https://blog.csdn.net/qq_44786250/article/details/100056975</a><br />
-[3] <a href="https://www.jianshu.com/p/2a4e861b44ae">https://www.jianshu.com/p/2a4e861b44ae</a><br />
-[4] <a href="https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html">https://www.cnblogs.com/COLIN-LIGHTNING/p/8436624.html</a></p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>差分数组</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Works | 标签夹 Tab Clamp</title>
-    <url>/2021/10/26/TabClamp/</url>
-    <content><![CDATA[<h1 id="标签夹-tabclamp-是什么"><a class="markdownIt-Anchor" href="#标签夹-tabclamp-是什么"></a> 标签夹 TabClamp 是什么</h1>
-<p>试想您是否有这样的一个需求？</p>
-<blockquote>
-<p>有时候进行某项工作/学习时打开了若干个网页，但是后来中断去做别的事情了，在下一次进行这项工作/学习时又要回到历史记录里一个个点开。这样非常麻烦。</p>
-</blockquote>
-<p>「标签夹 TabClamp」就是为了解决这样的需求而被开发的。它是一款用于<strong>任一基于Chromium开源项目webkit内核的浏览器</strong>插件，这款插件可以帮助您一次性打开多个网页，以方便您随时恢复之前的工作环境。</p>
-<p>如果您不知道您的浏览器是否是<strong>基于Chromium开源项目webkit内核</strong>的，您可以参考下面这个列表：</p>
-<ul>
-<li>Google Chrome</li>
-<li>Microsoft Edge</li>
-<li>360安全浏览器</li>
-<li>360极速浏览器</li>
-<li>搜狗高速浏览器</li>
-<li>QQ浏览器</li>
-<li>猎豹安全浏览器</li>
-<li>傲游浏览器</li>
-<li>……</li>
-</ul>
-<h1 id="安装教程"><a class="markdownIt-Anchor" href="#安装教程"></a> 安装教程</h1>
-<p>由于上架应用商店需要审核且比较麻烦。现在只上架了 <strong>360安全浏览器</strong> 和 <strong>360极速浏览器</strong>。<br />
-如您需要在其他webkit浏览器上使用，欢迎致信 <a href="mailto:zoruasama@qq.com">zoruasama@qq.com</a>。</p>
-<h2 id="360安全浏览器"><a class="markdownIt-Anchor" href="#360安全浏览器"></a> 360安全浏览器</h2>
-<p>使用360安全浏览器的用户可以<a href="https://ext.se.360.cn/webstore/search/%E6%A0%87%E7%AD%BE%E5%A4%B9">点击这里</a>进行下载安装。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211125122939.png" alt="" /></p>
-<h2 id="360极速浏览器"><a class="markdownIt-Anchor" href="#360极速浏览器"></a> 360极速浏览器</h2>
-<p>使用360极速浏览器的用户可以<a href="https://ext.chrome.360.cn/webstore/search/%E6%A0%87%E7%AD%BE%E5%A4%B9">点击这里</a>进行下载安装。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211125123051.png" alt="" /></p>
-<h1 id="使用说明"><a class="markdownIt-Anchor" href="#使用说明"></a> 使用说明</h1>
-<h2 id="名词术语解释"><a class="markdownIt-Anchor" href="#名词术语解释"></a> 名词术语解释</h2>
-<ul>
-<li><strong>标签 Tabs</strong>，准确称法是“标签页”，也称作“选项卡”，简称为“标签”。通常标签页栏所处的是浏览器窗体的上方，您可以通过点击标签来切换当前要浏览的网页。</li>
-<li><strong>窗体 Windows</strong>，您运行浏览器时打开的整个浏览器程序界面被称作窗体，您可以打开多个窗体，也可以在每个窗体上打开多个标签。</li>
-<li><strong>标签夹 Tab Clamp</strong>，即本插件的名称，亦是本插件中引入的概念。顾名思义地，标签夹是将复数数量的标签打包在一起后的物体。</li>
-</ul>
-<h2 id="界面功能解释"><a class="markdownIt-Anchor" href="#界面功能解释"></a> 界面功能解释</h2>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026142613.png" alt="" /></p>
-<h3 id="保存当前所有标签页到标签夹"><a class="markdownIt-Anchor" href="#保存当前所有标签页到标签夹"></a> 保存当前所有标签页到标签夹</h3>
-<ol>
-<li>输入标签夹名字，注意不要和已有的标签夹名字重复，否则会直接覆盖内容。虽然没有对标签夹名字长度进行限制，但是仍然不建议使用过长的标签夹名字。</li>
-<li>点击“保存当前所有标签页到标签夹”按钮，将会保存<strong>当前浏览器上打开的所有标签</strong>到指定标签夹中。由于后续的“打开”功能是一次性全部打开并加载网页，出于对您的机器性能负担考虑，一个标签夹内最好不要放过多的标签。</li>
-</ol>
-<h3 id="打开该标签夹内所有的标签"><a class="markdownIt-Anchor" href="#打开该标签夹内所有的标签"></a> 打开该标签夹内所有的标签</h3>
-<ol>
-<li>输入标签夹名字，注意应该输入已有的标签夹。</li>
-<li>点击“打开该标签夹内所有的标签”按钮，将会在<strong>当前浏览器窗口上</strong>打开该标签夹内的所有网页。</li>
-</ol>
-<h3 id="删除该标签夹"><a class="markdownIt-Anchor" href="#删除该标签夹"></a> 删除该标签夹</h3>
-<ol>
-<li>输入标签夹名字，注意应该输入已有的标签夹。</li>
-<li>点击“删除该标签夹”按钮，将会<strong>永久删除</strong>该标签夹和该标签夹下所有的标签。</li>
-</ol>
-<h3 id="点击标签夹"><a class="markdownIt-Anchor" href="#点击标签夹"></a> 点击标签夹</h3>
-<ol>
-<li>当您已经拥有标签夹时，界面上将会显示其按钮。按钮文本为标签夹名字，括号内部数字表示标签夹内的标签数量。</li>
-<li>单击这些标签夹按钮，将会在下方显示该标签夹内的标签，您可以点击这些标签，就能打开指定的单个标签页。</li>
-<li>单击标签夹按钮后，标签夹名字会自动输入到输入框中，而不需要自己手动输入，方便您的后续操作（例如保存、打开、删除）。</li>
-</ol>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026144533.png" alt="" /></p>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026144549.png" alt="" /></p>
-<h1 id="环境要求"><a class="markdownIt-Anchor" href="#环境要求"></a> 环境要求</h1>
-<p>本插件使用了localStorage特性作为存储，</p>
-<h1 id="版本更新日志"><a class="markdownIt-Anchor" href="#版本更新日志"></a> 版本更新日志</h1>
-<h2 id="10020211026"><a class="markdownIt-Anchor" href="#10020211026"></a> 1.0.0(2021/10/26)</h2>
-<ul>
-<li>产品上线</li>
-</ul>
-<h1 id="打赏"><a class="markdownIt-Anchor" href="#打赏"></a> 打赏</h1>
-<p>如果您对这个小插件满意的话，您可以通过下面两种方式给予任意金额的打赏鼓励嗷~~。非常感谢您请我的一杯咖啡~。<br />
-感谢少侠打赏，来杯咖啡提提神，大战到天亮。</p>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20211026152954.png" alt="" /></p>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>Works</category>
-      </categories>
-      <tags>
-        <tag>Works</tag>
-        <tag>效率</tag>
-        <tag>浏览器</tag>
       </tags>
   </entry>
   <entry>
@@ -3419,111 +3419,6 @@ $('button').on('click',function(){
       </tags>
   </entry>
   <entry>
-    <title>实训日记 | Day 12. Flask框架</title>
-    <url>/2020/08/04/training_12/</url>
-    <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
-<p>2020年8月4日。是实训的第12天。<br />
-今天上午孟老师带我们回顾了过去在Django这一块所学的一些知识，然后开始讲授flask。完成从flask的创建到部署，再是路由、跨域、连接数据库等等任务。</p>
-<div class="snote quote">
-Flask 是一个微型的 Python 开发的 Web 框架，基于Werkzeug WSGI工具箱和Jinja2模板引擎。 Flask使用BSD授权。 Flask也被称为“microframework”，因为它使用简单的核心，用extension增加其他功能。Flask没有默认使用的数据库、窗体验证工具。然而，Flask保留了扩增的弹性，可以用Flask-extension加入这些功能：ORM、窗体验证工具、文件上传、各种开放式身份验证技术。
-</div>
-<p>通过今天的学习，我确实感受到了Flask比Django要简单一些。花费较少的精力和时间就能达到和Django同样的效果。但是即便如此，我依然决定在我的大作业上使用Django。因为就我自身而言，我对Django更加熟悉。</p>
-<p>今天的知识把握程度还行，基于对Django的理解上再去学习Flask就没有那么难。但是对于ajax嵌套，我仍是有一些不明白的地方。</p>
-<p>Flask的优势：</p>
-<ul>
-<li>Flask是一个轻量级的可定制框架</li>
-<li>插件超级多，不用自己造轮子</li>
-</ul>
-<h1 id="新建flask项目"><a class="markdownIt-Anchor" href="#新建flask项目"></a> 新建Flask项目</h1>
-<p>在Pycharm中点击新建，选择Flask项目，即可完成项目的创建。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804092656.png" alt="" /></p>
-<p>项目创建完毕后，可以看到如下的文件夹结构。Flask框架确实比Django框架要轻量得多。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804092804.png" alt="" /></p>
-<h2 id="运行测试"><a class="markdownIt-Anchor" href="#运行测试"></a> 运行测试</h2>
-<p>先来对主要的app.py的代码，作一些注释。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 路由不可重复，函数也不可重复。</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span>():</span> <span class="comment">#视图函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()  <span class="comment">#会在这里启动。所以Flask不用像Django一样输入命令行启动。直接运行即可。</span></span><br></pre></td></tr></table></figure>
-<p>运行的结果如下图所示。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804095707.png" alt="" /></p>
-<p>一般，我们想要的数据，是json数据，在此引入一个包。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> jsonify</span><br></pre></td></tr></table></figure>
-<p>有了这样一个包，</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:&#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;Zorua&#x27;</span>,<span class="string">&#x27;age&#x27;</span>:<span class="number">20</span>&#125;&#125;)</span><br><span class="line"><span class="comment">#等价于之前在Django的JsonResponse</span></span><br></pre></td></tr></table></figure>
-<p>测试效果<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804095648.png" alt="" /></p>
-<h2 id="部署修改"><a class="markdownIt-Anchor" href="#部署修改"></a> 部署修改</h2>
-<p>现在这个站点是部署在本地的，如果部署在云服务器上，或需要修改端口。<br />
-可在<code>app.run()</code>中加入参数，如下所示。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>,port=<span class="number">8888</span>)</span><br></pre></td></tr></table></figure>
-<p>这个效果不能马上生效，还需要添加新的配置。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804094850.png" alt="" /><br />
-选择Python，然后在右侧，名称写为<code>app.py</code>，Script Path为该文件的绝对路径。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804093304.png" alt="" /></p>
-<p>最后在命令行键入<code>python app.py</code>即可生效。</p>
-<h2 id="debug模式"><a class="markdownIt-Anchor" href="#debug模式"></a> DEBUG模式</h2>
-<p>Flask默认是没有开启debug模式的，开启debug模式有很多好处：</p>
-<ul>
-<li>可以帮助我们查找代码里面的错误</li>
-<li>每次修改代码不需要重新运行代码</li>
-</ul>
-<p>为开启DEBUG模式，只需要在<code>app.run()</code>的参数中增加一个<code>debug=True</code>，或者在其下面加一句<code>app.debug=True</code>。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.run(debug=<span class="literal">True</span>,host=<span class="string">&#x27;0.0.0.0&#x27;</span>,port=<span class="number">8888</span>)</span><br><span class="line">app.debug = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-<h1 id="前后端分离"><a class="markdownIt-Anchor" href="#前后端分离"></a> 前后端分离</h1>
-<h2 id="添加新的路由"><a class="markdownIt-Anchor" href="#添加新的路由"></a> 添加新的路由</h2>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/index&#x27;</span></span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span>():</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line">    <span class="comment">#为使用上面这个语句，需要引入包：</span></span><br><span class="line">    <span class="comment"># from flask import render_template</span></span><br></pre></td></tr></table></figure>
-<p>再在templates文件夹中，新建一个<code>index.html</code></p>
-<p>运行查看一下效果：<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804095612.png" alt="" /></p>
-<h3 id="请求类型"><a class="markdownIt-Anchor" href="#请求类型"></a> 请求类型</h3>
-<p>对于路由的请求类型，可以在装饰器的函数里面加一个参数<code>methods=['GET','POST']</code>。<br />
-即</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/api&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>,<span class="string">&#x27;GET&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api</span>():</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-<p>如果想获取参数的话，需要引入一个包：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/api&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>,<span class="string">&#x27;GET&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api</span>():</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    name = request.args.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">    age = request.args.get(<span class="string">&#x27;age&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:&#123;<span class="string">&#x27;name&#x27;</span>:name,<span class="string">&#x27;age&#x27;</span>:age&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p>之后和Django类似，使用<code>request.args.get()</code>函数来获取参数。<br />
-对于post请求，只需要把上面的args改成form就可以了。<br />
-即：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/api&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>,<span class="string">&#x27;GET&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api</span>():</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    name = request.form.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">    age = request.form.get(<span class="string">&#x27;age&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:&#123;<span class="string">&#x27;name&#x27;</span>:name,<span class="string">&#x27;age&#x27;</span>:age&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="跨域"><a class="markdownIt-Anchor" href="#跨域"></a> 跨域</h2>
-<p>引用包<code>flask_cors</code>，然后调用<code>flask_cors.CORS(app)</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> flask_cors</span><br><span class="line">flask_cors.CORS(app)</span><br></pre></td></tr></table></figure>
-<p>跨域能够实现前后端分离：</p>
-<ul>
-<li>前端：对json数据进行渲染，ajax请求后台接口</li>
-<li>后端：数据打包json，提供可以被调用的api</li>
-</ul>
-<h2 id="ajax"><a class="markdownIt-Anchor" href="#ajax"></a> ajax</h2>
-<p>和之前的Django类似，不同的地方在于url。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>wow<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    Wow awesome</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    $.ajax(&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">url</span>:<span class="string">&#x27;http://127.0.0.1:8888/api&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">type</span>:<span class="string">&#x27;post&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">dataType</span>:<span class="string">&#x27;json&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="javascript">          <span class="attr">name</span>:<span class="string">&#x27;Zorua&#x27;</span>,</span></span><br><span class="line"><span class="javascript">          <span class="attr">age</span>:<span class="number">13</span></span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(res.data)</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="连接数据库"><a class="markdownIt-Anchor" href="#连接数据库"></a> 连接数据库</h2>
-<h3 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h3>
-<p>先安装一个库。在命令行中键入<code>pip install Flask-SQLAlchemy</code>并按下回车键。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#数据库连接</span></span><br><span class="line">app.config[<span class="string">&#x27;SQLALCHEMY_DATABASE_URI&#x27;</span>] = <span class="string">&#x27;sqlite:///&#x27;</span>+os.path.join(BASEDIR,<span class="string">&#x27;data.sqlite&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">如果设置成 True（默认情况），Flask-SQLAlchemy将会追踪对象的修改并且发送信号 这需要额外的内存 如果不必要的话可以禁用它</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">app.config[<span class="string">&#x27;SQLALCHEMY_TRACK_MODIFICATIONS&#x27;</span>]=<span class="literal">False</span></span><br></pre></td></tr></table></figure>
-<h3 id="创建数据库"><a class="markdownIt-Anchor" href="#创建数据库"></a> 创建数据库</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">db = SQLAlchemy(app)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Info</span>(<span class="params">db.Model</span>):</span></span><br><span class="line">    <span class="built_in">id</span> = db.Column(db.Integer,primary_key=<span class="literal">True</span>)</span><br><span class="line">    title = db.Column(db.String(<span class="number">255</span>))</span><br><span class="line">    category = db.Column(db.String(<span class="number">60</span>))</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;info.&gt;%s &#x27;</span> %  self.title</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804145108.png" alt="" /><br />
-创建完毕后，再命令行中键入flask shell。<br />
-<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804145346.png" alt="" /></p>
-<h3 id="插入数据"><a class="markdownIt-Anchor" href="#插入数据"></a> 插入数据</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">info1 = Info(<span class="built_in">id</span>=<span class="number">1</span>,title=<span class="string">&#x27;新闻1&#x27;</span>,category=<span class="string">&#x27;娱乐新闻&#x27;</span>)</span><br><span class="line">info2 = Info(<span class="built_in">id</span>=<span class="number">2</span>,title=<span class="string">&#x27;新闻2&#x27;</span>,category=<span class="string">&#x27;工作新闻&#x27;</span>)</span><br><span class="line">db.session.add_all([info1,info2]) <span class="comment">#将数据添加到会话</span></span><br><span class="line">db.session.commit() <span class="comment">#提交会话</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804152306.png" alt="" /></p>
-<h3 id="查询数据"><a class="markdownIt-Anchor" href="#查询数据"></a> 查询数据</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/query&#x27;</span>,methods=[<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;POST&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">query</span>():</span></span><br><span class="line">    results=Info.query.<span class="built_in">all</span>()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> results:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:<span class="string">&#x27;Success&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
-<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804152941.png" alt="" /></p>
-<h3 id="更新数据"><a class="markdownIt-Anchor" href="#更新数据"></a> 更新数据</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/update&#x27;</span>,methods=[<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;POST&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span>():</span></span><br><span class="line">    Info.query.<span class="built_in">filter</span>(Info.title==<span class="string">&#x27;新闻1&#x27;</span>).update(&#123;<span class="string">&#x27;category&#x27;</span>:<span class="string">&#x27;改后新闻&#x27;</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:<span class="string">&#x27;Success&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
-<h3 id="删除数据"><a class="markdownIt-Anchor" href="#删除数据"></a> 删除数据</h3>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/update&#x27;</span>,methods=[<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;POST&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span>():</span></span><br><span class="line">    Info.query.<span class="built_in">filter</span>(Info.title==<span class="string">&#x27;新闻1&#x27;</span>).delete()</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:<span class="string">&#x27;Success&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>实训日记</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>实训</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>实训日记 | Day 11. 数据的可视化</title>
     <url>/2020/08/03/training_11/</url>
     <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
@@ -3701,6 +3596,111 @@ See Deploying static files for proper strategies to serve static files in produc
       </tags>
   </entry>
   <entry>
+    <title>实训日记 | Day 12. Flask框架</title>
+    <url>/2020/08/04/training_12/</url>
+    <content><![CDATA[<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>2020年8月4日。是实训的第12天。<br />
+今天上午孟老师带我们回顾了过去在Django这一块所学的一些知识，然后开始讲授flask。完成从flask的创建到部署，再是路由、跨域、连接数据库等等任务。</p>
+<div class="snote quote">
+Flask 是一个微型的 Python 开发的 Web 框架，基于Werkzeug WSGI工具箱和Jinja2模板引擎。 Flask使用BSD授权。 Flask也被称为“microframework”，因为它使用简单的核心，用extension增加其他功能。Flask没有默认使用的数据库、窗体验证工具。然而，Flask保留了扩增的弹性，可以用Flask-extension加入这些功能：ORM、窗体验证工具、文件上传、各种开放式身份验证技术。
+</div>
+<p>通过今天的学习，我确实感受到了Flask比Django要简单一些。花费较少的精力和时间就能达到和Django同样的效果。但是即便如此，我依然决定在我的大作业上使用Django。因为就我自身而言，我对Django更加熟悉。</p>
+<p>今天的知识把握程度还行，基于对Django的理解上再去学习Flask就没有那么难。但是对于ajax嵌套，我仍是有一些不明白的地方。</p>
+<p>Flask的优势：</p>
+<ul>
+<li>Flask是一个轻量级的可定制框架</li>
+<li>插件超级多，不用自己造轮子</li>
+</ul>
+<h1 id="新建flask项目"><a class="markdownIt-Anchor" href="#新建flask项目"></a> 新建Flask项目</h1>
+<p>在Pycharm中点击新建，选择Flask项目，即可完成项目的创建。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804092656.png" alt="" /></p>
+<p>项目创建完毕后，可以看到如下的文件夹结构。Flask框架确实比Django框架要轻量得多。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804092804.png" alt="" /></p>
+<h2 id="运行测试"><a class="markdownIt-Anchor" href="#运行测试"></a> 运行测试</h2>
+<p>先来对主要的app.py的代码，作一些注释。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 路由不可重复，函数也不可重复。</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span>():</span> <span class="comment">#视图函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run()  <span class="comment">#会在这里启动。所以Flask不用像Django一样输入命令行启动。直接运行即可。</span></span><br></pre></td></tr></table></figure>
+<p>运行的结果如下图所示。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804095707.png" alt="" /></p>
+<p>一般，我们想要的数据，是json数据，在此引入一个包。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> jsonify</span><br></pre></td></tr></table></figure>
+<p>有了这样一个包，</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:&#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;Zorua&#x27;</span>,<span class="string">&#x27;age&#x27;</span>:<span class="number">20</span>&#125;&#125;)</span><br><span class="line"><span class="comment">#等价于之前在Django的JsonResponse</span></span><br></pre></td></tr></table></figure>
+<p>测试效果<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804095648.png" alt="" /></p>
+<h2 id="部署修改"><a class="markdownIt-Anchor" href="#部署修改"></a> 部署修改</h2>
+<p>现在这个站点是部署在本地的，如果部署在云服务器上，或需要修改端口。<br />
+可在<code>app.run()</code>中加入参数，如下所示。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.run(host=<span class="string">&#x27;0.0.0.0&#x27;</span>,port=<span class="number">8888</span>)</span><br></pre></td></tr></table></figure>
+<p>这个效果不能马上生效，还需要添加新的配置。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804094850.png" alt="" /><br />
+选择Python，然后在右侧，名称写为<code>app.py</code>，Script Path为该文件的绝对路径。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804093304.png" alt="" /></p>
+<p>最后在命令行键入<code>python app.py</code>即可生效。</p>
+<h2 id="debug模式"><a class="markdownIt-Anchor" href="#debug模式"></a> DEBUG模式</h2>
+<p>Flask默认是没有开启debug模式的，开启debug模式有很多好处：</p>
+<ul>
+<li>可以帮助我们查找代码里面的错误</li>
+<li>每次修改代码不需要重新运行代码</li>
+</ul>
+<p>为开启DEBUG模式，只需要在<code>app.run()</code>的参数中增加一个<code>debug=True</code>，或者在其下面加一句<code>app.debug=True</code>。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">app.run(debug=<span class="literal">True</span>,host=<span class="string">&#x27;0.0.0.0&#x27;</span>,port=<span class="number">8888</span>)</span><br><span class="line">app.debug = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+<h1 id="前后端分离"><a class="markdownIt-Anchor" href="#前后端分离"></a> 前后端分离</h1>
+<h2 id="添加新的路由"><a class="markdownIt-Anchor" href="#添加新的路由"></a> 添加新的路由</h2>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/index&#x27;</span></span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span>():</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&#x27;index.html&#x27;</span>)</span><br><span class="line">    <span class="comment">#为使用上面这个语句，需要引入包：</span></span><br><span class="line">    <span class="comment"># from flask import render_template</span></span><br></pre></td></tr></table></figure>
+<p>再在templates文件夹中，新建一个<code>index.html</code></p>
+<p>运行查看一下效果：<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804095612.png" alt="" /></p>
+<h3 id="请求类型"><a class="markdownIt-Anchor" href="#请求类型"></a> 请求类型</h3>
+<p>对于路由的请求类型，可以在装饰器的函数里面加一个参数<code>methods=['GET','POST']</code>。<br />
+即</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/api&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>,<span class="string">&#x27;GET&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api</span>():</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<p>如果想获取参数的话，需要引入一个包：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/api&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>,<span class="string">&#x27;GET&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api</span>():</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    name = request.args.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">    age = request.args.get(<span class="string">&#x27;age&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:&#123;<span class="string">&#x27;name&#x27;</span>:name,<span class="string">&#x27;age&#x27;</span>:age&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>之后和Django类似，使用<code>request.args.get()</code>函数来获取参数。<br />
+对于post请求，只需要把上面的args改成form就可以了。<br />
+即：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> request</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/api&#x27;</span>,methods=[<span class="string">&#x27;POST&#x27;</span>,<span class="string">&#x27;GET&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">api</span>():</span>  <span class="comment"># 视图函数</span></span><br><span class="line">    name = request.form.get(<span class="string">&#x27;name&#x27;</span>)</span><br><span class="line">    age = request.form.get(<span class="string">&#x27;age&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:&#123;<span class="string">&#x27;name&#x27;</span>:name,<span class="string">&#x27;age&#x27;</span>:age&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="跨域"><a class="markdownIt-Anchor" href="#跨域"></a> 跨域</h2>
+<p>引用包<code>flask_cors</code>，然后调用<code>flask_cors.CORS(app)</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> flask_cors</span><br><span class="line">flask_cors.CORS(app)</span><br></pre></td></tr></table></figure>
+<p>跨域能够实现前后端分离：</p>
+<ul>
+<li>前端：对json数据进行渲染，ajax请求后台接口</li>
+<li>后端：数据打包json，提供可以被调用的api</li>
+</ul>
+<h2 id="ajax"><a class="markdownIt-Anchor" href="#ajax"></a> ajax</h2>
+<p>和之前的Django类似，不同的地方在于url。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>wow<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    Wow awesome</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    $.ajax(&#123;</span></span><br><span class="line"><span class="javascript">        <span class="attr">url</span>:<span class="string">&#x27;http://127.0.0.1:8888/api&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">type</span>:<span class="string">&#x27;post&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">dataType</span>:<span class="string">&#x27;json&#x27;</span>,</span></span><br><span class="line"><span class="javascript">        <span class="attr">data</span>:&#123;</span></span><br><span class="line"><span class="javascript">          <span class="attr">name</span>:<span class="string">&#x27;Zorua&#x27;</span>,</span></span><br><span class="line"><span class="javascript">          <span class="attr">age</span>:<span class="number">13</span></span></span><br><span class="line"><span class="javascript">        &#125;,</span></span><br><span class="line"><span class="javascript">        <span class="attr">success</span>:<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(res.data)</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    &#125;)</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="连接数据库"><a class="markdownIt-Anchor" href="#连接数据库"></a> 连接数据库</h2>
+<h3 id="准备工作"><a class="markdownIt-Anchor" href="#准备工作"></a> 准备工作</h3>
+<p>先安装一个库。在命令行中键入<code>pip install Flask-SQLAlchemy</code>并按下回车键。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#数据库连接</span></span><br><span class="line">app.config[<span class="string">&#x27;SQLALCHEMY_DATABASE_URI&#x27;</span>] = <span class="string">&#x27;sqlite:///&#x27;</span>+os.path.join(BASEDIR,<span class="string">&#x27;data.sqlite&#x27;</span>)</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">如果设置成 True（默认情况），Flask-SQLAlchemy将会追踪对象的修改并且发送信号 这需要额外的内存 如果不必要的话可以禁用它</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">app.config[<span class="string">&#x27;SQLALCHEMY_TRACK_MODIFICATIONS&#x27;</span>]=<span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建数据库"><a class="markdownIt-Anchor" href="#创建数据库"></a> 创建数据库</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">db = SQLAlchemy(app)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Info</span>(<span class="params">db.Model</span>):</span></span><br><span class="line">    <span class="built_in">id</span> = db.Column(db.Integer,primary_key=<span class="literal">True</span>)</span><br><span class="line">    title = db.Column(db.String(<span class="number">255</span>))</span><br><span class="line">    category = db.Column(db.String(<span class="number">60</span>))</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__repr__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&lt;info.&gt;%s &#x27;</span> %  self.title</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804145108.png" alt="" /><br />
+创建完毕后，再命令行中键入flask shell。<br />
+<img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804145346.png" alt="" /></p>
+<h3 id="插入数据"><a class="markdownIt-Anchor" href="#插入数据"></a> 插入数据</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">info1 = Info(<span class="built_in">id</span>=<span class="number">1</span>,title=<span class="string">&#x27;新闻1&#x27;</span>,category=<span class="string">&#x27;娱乐新闻&#x27;</span>)</span><br><span class="line">info2 = Info(<span class="built_in">id</span>=<span class="number">2</span>,title=<span class="string">&#x27;新闻2&#x27;</span>,category=<span class="string">&#x27;工作新闻&#x27;</span>)</span><br><span class="line">db.session.add_all([info1,info2]) <span class="comment">#将数据添加到会话</span></span><br><span class="line">db.session.commit() <span class="comment">#提交会话</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804152306.png" alt="" /></p>
+<h3 id="查询数据"><a class="markdownIt-Anchor" href="#查询数据"></a> 查询数据</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/query&#x27;</span>,methods=[<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;POST&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">query</span>():</span></span><br><span class="line">    results=Info.query.<span class="built_in">all</span>()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> results:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:<span class="string">&#x27;Success&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/zoruasama/Zorua-Pic/raw/master/20200804152941.png" alt="" /></p>
+<h3 id="更新数据"><a class="markdownIt-Anchor" href="#更新数据"></a> 更新数据</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/update&#x27;</span>,methods=[<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;POST&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span>():</span></span><br><span class="line">    Info.query.<span class="built_in">filter</span>(Info.title==<span class="string">&#x27;新闻1&#x27;</span>).update(&#123;<span class="string">&#x27;category&#x27;</span>:<span class="string">&#x27;改后新闻&#x27;</span>&#125;)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:<span class="string">&#x27;Success&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="删除数据"><a class="markdownIt-Anchor" href="#删除数据"></a> 删除数据</h3>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/update&#x27;</span>,methods=[<span class="string">&#x27;GET&#x27;</span>,<span class="string">&#x27;POST&#x27;</span>]</span>) </span><span class="comment">#装饰器路由</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span>():</span></span><br><span class="line">    Info.query.<span class="built_in">filter</span>(Info.title==<span class="string">&#x27;新闻1&#x27;</span>).delete()</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&#x27;data&#x27;</span>:<span class="string">&#x27;Success&#x27;</span>&#125;)</span><br></pre></td></tr></table></figure>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>实训日记 | Day 13. Flask的工程化</title>
     <url>/2020/08/05/training_13/</url>
     <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
@@ -3836,88 +3836,6 @@ session中的记录是有有效期的。</p>
       </tags>
   </entry>
   <entry>
-    <title>实训日记 | Day 16. 服务器的部署</title>
-    <url>/2020/08/10/training_16/</url>
-    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
-<p>今天是8月10日，实训的第16天。<br />
-上午孟老师演示了如何将Django项目部署在云服务器上。<br />
-由于我没有云服务器，因此用装有Centos7的虚拟机来代替。<br />
-将项目部署在虚拟机上的过程也不算容易，途中遇到了不少坎坷。例如我的centos在刚开始时连不上网络，rc命令无法上传等等。<br />
-靠着不断百度到的CSDN的资料还是艰难地克服了难题，完成了部署。<br />
-今天还有部分关于Nginx的还未讲授完，为保证该笔记的一体性，我也加上去了。</p>
-<h1 id="ssh设置"><a class="markdownIt-Anchor" href="#ssh设置"></a> SSH设置</h1>
-<h2 id="启动ssh服务"><a class="markdownIt-Anchor" href="#启动ssh服务"></a> 启动ssh服务</h2>
-<p>在打开centos虚拟机后，先用<code>yum install openssh* -y</code>安装开启SSH必备的程序。<br />
-而后用<code>vi /etc/ssh/sshd config</code>命令打开sshd的配置文件。<br />
-修改内容为：</p>
-<ul>
-<li><code>ListenAddress 0.0.0.0</code>和<code>ListenAddress ::</code>的井号去掉。</li>
-<li><code>PermitRootLogin</code>前的井号去掉。</li>
-</ul>
-<p>完成这些操作后，用<code>systemctl restart sshd</code>指令重启sshd服务。</p>
-<h2 id="查询ip地址"><a class="markdownIt-Anchor" href="#查询ip地址"></a> 查询IP地址</h2>
-<p>接下来使用<code>ifconfig</code>来查询虚拟机的IP地址。<br />
-由于我的centos7没有内置ifconfig命令，因此需要进行额外的安装。<br />
-通过<code>yum search ifconfig</code>命令发现，ifconfig命令在net-tools.x86_64这个包里。<br />
-因此使用<code>yum install net-tools.x86_64</code>命令来进行安装。</p>
-<h2 id="建立ssh连接"><a class="markdownIt-Anchor" href="#建立ssh连接"></a> 建立SSH连接</h2>
-<p>在配置完SSH服务和获取IP地址后，在本机上的XShell或者其他能SSH连接的shell中输入<code>ssh ip address</code>进行连接。<br />
-通过命令<code>sudo apt install lrzsz unzip -y</code>解压缩上传工具，但由于我安装成功后也无法使用<code>rc</code>命令，因此只能采用<code>scp</code>命令。<br />
-形如<code>scp a.txt root@ip:/home</code>的命令，来完成文件的上传。</p>
-<p>ln -s /usr/local/python3/bin/uwsgi /usr/bin/uwsgi 创建软连接</p>
-<h1 id="安装python3"><a class="markdownIt-Anchor" href="#安装python3"></a> 安装python3</h1>
-<p>centos自带了一个python2，但是没有python3。因此需要安装一个python3。依照以下步骤即可完成python3的安装。</p>
-<ol>
-<li>拉取远程包<code>yum install wget -y</code></li>
-<li>安装编译时需要的程序<code>yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel python-devel gcc make -y</code></li>
-<li>在home创建一个目录<code>mkdir python37</code></li>
-<li>切换到目标文件夹 <code>cd python37/</code></li>
-<li>获取python的源文件 <code>wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz</code>
-<ul>
-<li>直接从官网获取速度会比较慢，因此也可以使用阿里云的源<code>https://npm.taobao.org/mirrors/python/3.7.2/Python-3.7.2.tar.xz</code></li>
-</ul>
-</li>
-<li>使用tar命令进行解压 <code>tar -xvJf Python-3.7.2.tar.xz</code></li>
-<li>进入解压后的目录，指定编译路径 <code>./configure prefix=/usr/local/python3</code></li>
-<li>进行文件的编译<code>make &amp;&amp; make install</code>
-<ul>
-<li>如果报错ModuleNotFoundError: No module named ‘_ctypes’，则<code>yum install libffi-devel –y</code></li>
-</ul>
-</li>
-<li>删除旧的python2 <code>rm -rf /usr/bin/python</code></li>
-<li>创建软连接 <code>ln -s /usr/local/python3/bin/python3 /usr/bin/python</code></li>
-<li>修改yum vim <code>/usr/bin/yum</code></li>
-<li><code>vim /usr/libexec/urlgrabber-ext-down</code></li>
-<li>永久换pip源  <code>mkdir ~/.pip</code></li>
-<li>vim <code>~/.pip/pip.conf</code></li>
-<li>在前一步文件都迁移过来后，安装工程项目所需的包。</li>
-</ol>
-<pre><code>+ `python -m pip install -r r.txt -i https://pypi.tuna.tsinghua.edu.cn/simple`
-+ 其中`r.txt`的内容是，工程项目所需要的包的名字。一行一个。
-</code></pre>
-<h1 id="uwsgi部署"><a class="markdownIt-Anchor" href="#uwsgi部署"></a> uwsgi部署</h1>
-<p>uwsgi --ini uwsgi.ini 前台以http方式启动uwsgi<br />
-uwsgi -d --ini uwsgi.ini 以后台运行uwsgi<br />
-pkill -f uwsgi -9 杀死uwsgi服务</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">chdir = /home/qd201909dj #设置项目根目录</span><br><span class="line">module = qd201909dj.wsgi:application #设置项目启动器</span><br><span class="line">master = true  #设置主节点</span><br><span class="line">processes = 1  #设置进程数</span><br><span class="line">http = 0.0.0.0:80  #以http形式访问</span><br><span class="line">chmod-socket = 644</span><br><span class="line">vacuum = true #服务停止杀死pid</span><br><span class="line">logto = /home/qd201909dj/test.log  #输出日志</span><br><span class="line">pidfile = /home/qd201909dj/uwsgi.pid  #pid文件</span><br><span class="line">static-map = /static =  /home/qd201909dj/ 静态文件</span><br><span class="line">py-autoreload = 1  #修改后自动重启项目（生产不可用）</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Nginx</span><br><span class="line">server&#123;</span><br><span class="line">    listen        80;</span><br><span class="line">    server_name   39.100.6.138;</span><br><span class="line">    charset       utf-8;</span><br><span class="line"></span><br><span class="line">    client_max_body_size 75M;</span><br><span class="line"></span><br><span class="line">    location /static &#123;</span><br><span class="line">        alias /home/qd201909dj;</span><br><span class="line">    &#125;</span><br><span class="line">    location / &#123;</span><br><span class="line">        uwsgi_pass 127.0.0.1:8888;</span><br><span class="line">        include     /etc/nginx/uwsgi_params;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="生成文件服务器"><a class="markdownIt-Anchor" href="#生成文件服务器"></a> 生成文件服务器</h2>
-<ol>
-<li>yum install httpd-tools -y</li>
-<li>htpasswd -bc /home/htpasswd python（用户名） python2019（密码）</li>
-<li>配置文件</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen        9999;</span><br><span class="line">    server_name   39.100.6.138;</span><br><span class="line">    charset       utf-8;</span><br><span class="line">    location / &#123;</span><br><span class="line">       auth_basic &quot;input your user name and password&quot;;</span><br><span class="line">       auth_basic_user_file     /home/htpasswd;#密码文件</span><br><span class="line">       autoindex on;  #自动展示索引文件</span><br><span class="line">       root /home/;  #显示的目录</span><br><span class="line">    &#125;</span><br><span class="line">    location ^*\.(*)$ &#123;</span><br><span class="line">        add_header Content-Type text/plain;</span><br><span class="line">        root /home/;   ##匹配下载的目录</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
-      <categories>
-        <category>实训日记</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-        <tag>实训</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>实训日记 | Day 15. Django打分系统示例</title>
     <url>/2020/08/07/training_15/</url>
     <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
@@ -3993,6 +3911,88 @@ pkill -f uwsgi -9 杀死uwsgi服务</p>
 </html>
 <h2 id="获取上一链接的参数"><a class="markdownIt-Anchor" href="#获取上一链接的参数"></a> 获取上一链接的参数</h2>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function getUrlParam(name) &#123; //a标签跳转获取参数</span><br><span class="line">	var reg = new RegExp(&quot;(^|&amp;)&quot; + name + &quot;=([^&amp;]*)(&amp;|$)&quot;, &quot;i&quot;);</span><br><span class="line">	var r = window.location.search.substr(1).match(reg);</span><br><span class="line">	if(r != null) return decodeURI(r[2]);</span><br><span class="line">	return null;</span><br><span class="line">&#125;</span><br><span class="line">var username = getUrlParam(&#x27;username&#x27;);</span><br></pre></td></tr></table></figure><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
+      <categories>
+        <category>实训日记</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>实训</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>实训日记 | Day 16. 服务器的部署</title>
+    <url>/2020/08/10/training_16/</url>
+    <content><![CDATA[<h1 id="总述"><a class="markdownIt-Anchor" href="#总述"></a> 总述</h1>
+<p>今天是8月10日，实训的第16天。<br />
+上午孟老师演示了如何将Django项目部署在云服务器上。<br />
+由于我没有云服务器，因此用装有Centos7的虚拟机来代替。<br />
+将项目部署在虚拟机上的过程也不算容易，途中遇到了不少坎坷。例如我的centos在刚开始时连不上网络，rc命令无法上传等等。<br />
+靠着不断百度到的CSDN的资料还是艰难地克服了难题，完成了部署。<br />
+今天还有部分关于Nginx的还未讲授完，为保证该笔记的一体性，我也加上去了。</p>
+<h1 id="ssh设置"><a class="markdownIt-Anchor" href="#ssh设置"></a> SSH设置</h1>
+<h2 id="启动ssh服务"><a class="markdownIt-Anchor" href="#启动ssh服务"></a> 启动ssh服务</h2>
+<p>在打开centos虚拟机后，先用<code>yum install openssh* -y</code>安装开启SSH必备的程序。<br />
+而后用<code>vi /etc/ssh/sshd config</code>命令打开sshd的配置文件。<br />
+修改内容为：</p>
+<ul>
+<li><code>ListenAddress 0.0.0.0</code>和<code>ListenAddress ::</code>的井号去掉。</li>
+<li><code>PermitRootLogin</code>前的井号去掉。</li>
+</ul>
+<p>完成这些操作后，用<code>systemctl restart sshd</code>指令重启sshd服务。</p>
+<h2 id="查询ip地址"><a class="markdownIt-Anchor" href="#查询ip地址"></a> 查询IP地址</h2>
+<p>接下来使用<code>ifconfig</code>来查询虚拟机的IP地址。<br />
+由于我的centos7没有内置ifconfig命令，因此需要进行额外的安装。<br />
+通过<code>yum search ifconfig</code>命令发现，ifconfig命令在net-tools.x86_64这个包里。<br />
+因此使用<code>yum install net-tools.x86_64</code>命令来进行安装。</p>
+<h2 id="建立ssh连接"><a class="markdownIt-Anchor" href="#建立ssh连接"></a> 建立SSH连接</h2>
+<p>在配置完SSH服务和获取IP地址后，在本机上的XShell或者其他能SSH连接的shell中输入<code>ssh ip address</code>进行连接。<br />
+通过命令<code>sudo apt install lrzsz unzip -y</code>解压缩上传工具，但由于我安装成功后也无法使用<code>rc</code>命令，因此只能采用<code>scp</code>命令。<br />
+形如<code>scp a.txt root@ip:/home</code>的命令，来完成文件的上传。</p>
+<p>ln -s /usr/local/python3/bin/uwsgi /usr/bin/uwsgi 创建软连接</p>
+<h1 id="安装python3"><a class="markdownIt-Anchor" href="#安装python3"></a> 安装python3</h1>
+<p>centos自带了一个python2，但是没有python3。因此需要安装一个python3。依照以下步骤即可完成python3的安装。</p>
+<ol>
+<li>拉取远程包<code>yum install wget -y</code></li>
+<li>安装编译时需要的程序<code>yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel python-devel gcc make -y</code></li>
+<li>在home创建一个目录<code>mkdir python37</code></li>
+<li>切换到目标文件夹 <code>cd python37/</code></li>
+<li>获取python的源文件 <code>wget https://www.python.org/ftp/python/3.7.2/Python-3.7.2.tar.xz</code>
+<ul>
+<li>直接从官网获取速度会比较慢，因此也可以使用阿里云的源<code>https://npm.taobao.org/mirrors/python/3.7.2/Python-3.7.2.tar.xz</code></li>
+</ul>
+</li>
+<li>使用tar命令进行解压 <code>tar -xvJf Python-3.7.2.tar.xz</code></li>
+<li>进入解压后的目录，指定编译路径 <code>./configure prefix=/usr/local/python3</code></li>
+<li>进行文件的编译<code>make &amp;&amp; make install</code>
+<ul>
+<li>如果报错ModuleNotFoundError: No module named ‘_ctypes’，则<code>yum install libffi-devel –y</code></li>
+</ul>
+</li>
+<li>删除旧的python2 <code>rm -rf /usr/bin/python</code></li>
+<li>创建软连接 <code>ln -s /usr/local/python3/bin/python3 /usr/bin/python</code></li>
+<li>修改yum vim <code>/usr/bin/yum</code></li>
+<li><code>vim /usr/libexec/urlgrabber-ext-down</code></li>
+<li>永久换pip源  <code>mkdir ~/.pip</code></li>
+<li>vim <code>~/.pip/pip.conf</code></li>
+<li>在前一步文件都迁移过来后，安装工程项目所需的包。</li>
+</ol>
+<pre><code>+ `python -m pip install -r r.txt -i https://pypi.tuna.tsinghua.edu.cn/simple`
++ 其中`r.txt`的内容是，工程项目所需要的包的名字。一行一个。
+</code></pre>
+<h1 id="uwsgi部署"><a class="markdownIt-Anchor" href="#uwsgi部署"></a> uwsgi部署</h1>
+<p>uwsgi --ini uwsgi.ini 前台以http方式启动uwsgi<br />
+uwsgi -d --ini uwsgi.ini 以后台运行uwsgi<br />
+pkill -f uwsgi -9 杀死uwsgi服务</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">chdir = /home/qd201909dj #设置项目根目录</span><br><span class="line">module = qd201909dj.wsgi:application #设置项目启动器</span><br><span class="line">master = true  #设置主节点</span><br><span class="line">processes = 1  #设置进程数</span><br><span class="line">http = 0.0.0.0:80  #以http形式访问</span><br><span class="line">chmod-socket = 644</span><br><span class="line">vacuum = true #服务停止杀死pid</span><br><span class="line">logto = /home/qd201909dj/test.log  #输出日志</span><br><span class="line">pidfile = /home/qd201909dj/uwsgi.pid  #pid文件</span><br><span class="line">static-map = /static =  /home/qd201909dj/ 静态文件</span><br><span class="line">py-autoreload = 1  #修改后自动重启项目（生产不可用）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Nginx</span><br><span class="line">server&#123;</span><br><span class="line">    listen        80;</span><br><span class="line">    server_name   39.100.6.138;</span><br><span class="line">    charset       utf-8;</span><br><span class="line"></span><br><span class="line">    client_max_body_size 75M;</span><br><span class="line"></span><br><span class="line">    location /static &#123;</span><br><span class="line">        alias /home/qd201909dj;</span><br><span class="line">    &#125;</span><br><span class="line">    location / &#123;</span><br><span class="line">        uwsgi_pass 127.0.0.1:8888;</span><br><span class="line">        include     /etc/nginx/uwsgi_params;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="生成文件服务器"><a class="markdownIt-Anchor" href="#生成文件服务器"></a> 生成文件服务器</h2>
+<ol>
+<li>yum install httpd-tools -y</li>
+<li>htpasswd -bc /home/htpasswd python（用户名） python2019（密码）</li>
+<li>配置文件</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">    listen        9999;</span><br><span class="line">    server_name   39.100.6.138;</span><br><span class="line">    charset       utf-8;</span><br><span class="line">    location / &#123;</span><br><span class="line">       auth_basic &quot;input your user name and password&quot;;</span><br><span class="line">       auth_basic_user_file     /home/htpasswd;#密码文件</span><br><span class="line">       autoindex on;  #自动展示索引文件</span><br><span class="line">       root /home/;  #显示的目录</span><br><span class="line">    &#125;</span><br><span class="line">    location ^*\.(*)$ &#123;</span><br><span class="line">        add_header Content-Type text/plain;</span><br><span class="line">        root /home/;   ##匹配下载的目录</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">]]></content>
       <categories>
         <category>实训日记</category>
       </categories>
