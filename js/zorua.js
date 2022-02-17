@@ -34,41 +34,42 @@ document.oncopy = function(e)
 
 
 
+
 /* eslint-disable */
-(function ($) {
-    "use strict";
-    function setTabs() {
-      const $tabs = $(".tabs");
-      if ($tabs.length === 0) return;
-      let $navs = $tabs.find(".nav-tabs .tab");
-      for (var i = 0; i < $navs.length; i++) {
-        let $a = $tabs.find($navs[i].children[0]);
-        $a.addClass($a.attr("href"));
-        $a.removeAttr("href");
-      }
-      $(".tabs .nav-tabs").on("click", "a", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        let $tab = $(e.target.parentElement.parentElement.parentElement);
-        $tab.find(".nav-tabs .active").removeClass("active");
-        $tab.find(e.target.parentElement).addClass("active");
-        $tab.find(".tab-content .active").removeClass("active");
-        $tab.find($(e.target).attr("class")).addClass("active");
-        return false;
-      });
-    }
+// (function ($) {
+//     "use strict";
+//     function setTabs() {
+//       const $tabs = $(".tabs");
+//       if ($tabs.length === 0) return;
+//       let $navs = $tabs.find(".nav-tabs .tab");
+//       for (var i = 0; i < $navs.length; i++) {
+//         let $a = $tabs.find($navs[i].children[0]);
+//         $a.addClass($a.attr("href"));
+//         $a.removeAttr("href");
+//       }
+//       $(".tabs .nav-tabs").on("click", "a", (e) => {
+//         e.preventDefault();
+//         e.stopPropagation();
+//         let $tab = $(e.target.parentElement.parentElement.parentElement);
+//         $tab.find(".nav-tabs .active").removeClass("active");
+//         $tab.find(e.target.parentElement).addClass("active");
+//         $tab.find(".tab-content .active").removeClass("active");
+//         $tab.find($(e.target).attr("class")).addClass("active");
+//         return false;
+//       });
+//     }
   
-    $(function () {
-      setTabs();
-      // $(".article .video-container").fitVids();
-      $(".scroll-down").on("click", function () {
-        scrolltoElement(".l_body");
-      });
-      setTimeout(function () {
-        $("#loading-bar-wrapper").fadeOut(500);
-      }, 300);
-    });
-  })(jQuery);
+//     $(function () {
+//       setTabs();
+//       // $(".article .video-container").fitVids();
+//       $(".scroll-down").on("click", function () {
+//         scrolltoElement(".l_body");
+//       });
+//       setTimeout(function () {
+//         $("#loading-bar-wrapper").fadeOut(500);
+//       }, 300);
+//     });
+//   })(jQuery);
 
 
 (function () {
@@ -257,4 +258,4 @@ document.oncopy = function(e)
       new Slider(option);
     },
   });
-})();
+})();<script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://cdn.jsdelivr.net/npm/hexo-simple-mindmap@0.7.0/dist/mindmap.min.css">
